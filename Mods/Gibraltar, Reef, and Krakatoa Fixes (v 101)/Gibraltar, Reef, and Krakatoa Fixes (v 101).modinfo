@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mod id="69a59cfc-6df8-4e46-9d81-de551804925d" version="101">
+  <Properties>
+    <Name>Gibraltar, Reef, and Krakatoa Fixes</Name>
+    <Teaser>Optimizes and fixes natural wonders which are placed in the seas.</Teaser>
+    <Description>See the README file included within this mod's folder.
+
+OR
+
+View the description on this mod's Steam Workshop page.</Description>
+    <Authors>Barathor</Authors>
+    <HideSetupGame>0</HideSetupGame>
+    <AffectsSavedGames>0</AffectsSavedGames>
+    <SupportsSinglePlayer>1</SupportsSinglePlayer>
+    <SupportsMultiplayer>1</SupportsMultiplayer>
+    <SupportsHotSeat>1</SupportsHotSeat>
+    <SupportsMac>1</SupportsMac>
+    <ReloadLandmarkSystem>0</ReloadLandmarkSystem>
+    <ReloadStrategicViewSystem>0</ReloadStrategicViewSystem>
+    <ReloadUnitSystem>0</ReloadUnitSystem>
+  </Properties>
+  <Dependencies />
+  <References />
+  <Blocks />
+  <Files>
+    <File md5="309386B80167AA912DA3D7894A62063A" import="0">GRK_Fixes.xml</File>
+    <File md5="7BB1A4C9A47AEE703E462ADE950C5136" import="1">NaturalWondersCustomMethods.lua</File>
+    <File md5="1ABB70EA6BFC9709626DEE80063D38D2" import="0">README.txt</File>
+  </Files>
+  <Actions>
+    <OnModActivated>
+      <UpdateDatabase>GRK_Fixes.xml</UpdateDatabase>
+    </OnModActivated>
+  </Actions>
+  <EntryPoints>
+    <EntryPoint type="InGameUIAddin" file="NaturalWondersCustomMethods.lua">
+      <Name>NaturalWondersCustomMethods</Name>
+      <Description>
+      </Description>
+    </EntryPoint>
+  </EntryPoints>
+</Mod>

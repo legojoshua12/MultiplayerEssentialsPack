@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 9/2/2013 12:18:05 PM -->
+<GameData>
+	<Language_en_US>
+		<Row Tag="TXT_KEY_BUILDING_3UC_INTERNATIONAL_TRADEHOUSE">
+			<Text>Casa da Índia</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3UC_INTERNATIONAL_TRADEHOUSE_STRATEGY">
+			<Text>The Casa da Índia is a Portuguese unique building that replaces the East India Company. It vastly increases the amount of [ICON_GOLD] Gold in one city, and trade routes other players make to this city will generate an extra 4 [ICON_GOLD] Gold for the city owner and 2 [ICON_GOLD] Gold for the trade route owner. It can only be built in one city and requires a Market in all cities.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3UC_INTERNATIONAL_TRADEHOUSE_HELP">
+			<Text>Increases the amount of [ICON_GOLD] Gold in a city. Trade routes both -to- and -from- this city yield [ICON_GOLD] Gold for the city owner. May only be built by Portugal in one city.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3UC_INTERNATIONAL_TRADEHOUSE_TEXT">
+			<Text>
+				"Casa da Índia" ("India House") was the Portuguese organization that managed all overseas territories during the heyday of the Portuguese Empire in the 16th century. It was both the central authority for managing all aspects of overseas trade, the central shipment point and clearing house. As an economic institution, it worked like a feitoria (factory, trading post), being the most important economic institution in Portugal of the time. It was located at the Ribeira Palace, the royal palace in Terreiro do Paço square, in Lisbon.[NEWLINE][NEWLINE]The Casa da Índia worked as customs, central accounting office for funds and products in various overseas offices, archive, warehouse management, personnel authority of sailors, soldiers and traders, as well as one of the world's first postal service. It fixed the prices and checked purchases, sales and payments. And also fitted the fleets, gathered the necessary military convoys, managed incoming and outgoing vessels and set out the various certificates and licenses. Through the Casa da Índia the royal officials were appointed overseas, and royal decrees and regulations were spread.
+			</Text>
+		</Row>
+	</Language_en_US>
+
+</GameData>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameData>
+  	<Language_en_US>
+    <Row Tag="TXT_KEY_UNIT_4LONGBOAT">
+      <Text>Longboat</Text>
+    </Row>
+    <Row Tag="TXT_KEY_UNIT_4LONGBOAT_TEXT">
+      <Text>Longboats (or Longships) were sea vessels made and used by the Vikings from the Nordic countries for trade, commerce, exploration, and warfare during the Viking Age.[NEWLINE][NEWLINE]The longship is characterized as a graceful, long, narrow, light, wooden boat with a shallow-draft hull designed for speed. The ship's shallow draft allowed navigation in waters only one metre deep and permitted beach landings. Longships were fitted with oars along almost the entire length of the boat itself. Later versions sported a rectangular sail on a single mast which was used to replace or augment the effort of the rowers.</Text>
+    </Row>
+    <Row Tag="TXT_KEY_UNIT_4LONGBOAT_STRATEGY">
+      <Text>The Longboat is a Danish unique unit. Unlike the Trireme it replaces, the Longboat is useful for clearing barbarian ships out of home waters, as it is much stronger and can travel faster than the Trireme it replaces.</Text>
+    </Row>
+		<Row Tag="TXT_KEY_UNIT_4LONGBOAT_HELP">
+			<Text>Powerful and fast early-game naval unit. Only Denmark may build it.</Text>
+		</Row>
+  </Language_en_US>
+	
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>UNITS_4UC_VIKING_LONGBOAT_ICON_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>3ucLongboat256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>UNITS_4UC_VIKING_LONGBOAT_ICON_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>3ucLongboat128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>UNITS_4UC_VIKING_LONGBOAT_ICON_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>3ucLongboat80.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>UNITS_4UC_VIKING_LONGBOAT_ICON_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>3ucLongboat64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>UNITS_4UC_VIKING_LONGBOAT_ICON_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>3ucLongboat45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+
+		<Row>
+			<Atlas>UNITS_4UC_VIKING_LONGBOAT_FLAG_ATLAS</Atlas>
+			<IconSize>32</IconSize>
+			<Filename>ART/VikingLongboatFlag.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

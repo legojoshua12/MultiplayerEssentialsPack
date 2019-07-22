@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/3/2013 5:37:13 PM -->
+<GameData>
+	
+	<Language_en_US>
+		<Row Tag="TXT_KEY_BUILDING_3UC_FISH_POND">
+			<Text>Fish Pond</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3UC_FISH_POND_HELP">
+			<Text>Improves the [ICON_FOOD] Food yield of nearby [ICON_RES_FISH] Fish tiles. May create 1 [ICON_RES_FISH] Fish resource. City must be built on the coast. Only Polynesia may build it.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3UC_FISH_POND_STRATEGY">
+			<Text>The Fish Pond is a Polynesian unique building that increases the [ICON_FOOD] Food intake of a city, speeding up the city's growth. Unlike the Watermill it replaces, it yields no [ICON_PRODUCTION] Production and can only be constructed in a city next to a coastal tile. The Fish Pond has no maintenance cost, is available at Animal Husbandry, and each source of [ICON_RES_FISH] Fish worked by this City produces +1 [ICON_FOOD] Food. Creates a [ICON_RES_FISH] Fish resource if possible. </Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3UC_FISH_POND_TEXT">
+			<Text>The Hawaiian people practiced aquaculture through development of fish ponds, the most advanced fish husbandry among the original peoples of the Pacific. These fishponds were typically shallow areas of a reef flat surrounded by a low lava rock wall (loko kuapa) built out from the shore. Several species of edible fish (such as mullet) thrive in such ponds, and Hawaiians developed methods to make them easy to catch.</Text>
+		</Row>
+	</Language_en_US>
+
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>FISH_POND_ICON_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>FishPond_256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>FISH_POND_ICON_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>FishPond_128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>FISH_POND_ICON_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>FishPond_080.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>FISH_POND_ICON_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>FishPond_064.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>FISH_POND_ICON_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>FishPond_045.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>FISH_POND_ICON_ATLAS</Atlas>
+			<IconSize>32</IconSize>
+			<Filename>FishPond_032.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

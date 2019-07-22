@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 1/4/2014 8:45:16 AM -->
+<GameData>
+	<Language_en_US>
+		<!--PZL.23-->
+		<Row Tag="TXT_KEY_PROMOTION_3_PZL23">
+			<Text>Combat bonus against Land Units</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_3_PZL23_HELP">
+			<Text>20% Combat bonus against Land Units</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_3_PZL23">
+			<Text>PZL.23</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HELP_3_PZL23">
+			<Text>Fighter replacement that can operate further and is better at bombarding enemy land forces. Only Poland may build it.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_3_PZL23_STRATEGY">
+			<Text>The PZL.23 is a Polish unique unit. Unlike the Fighter it replaces, it has better Range and has a combat bonus against Land Units. Use it as a fighter-bomber, capable against both the enemy's air force and land army.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_3_PZL23_TEXT">
+			<Text>The PZL.23 Karas ("Crucian"), was a Polish light bomber, designed in 1934 and introduced into the Polish Air Force in 1936. It was a full-metal monoplane. It took three crewmembers, could carry up to 700kg of bombs, and sported two machine guns for self-defence. Despite initial engine problems, the design became popular and was met with interest in the Romanian and Bulgarian Air Forces. Altohugh outnumbered in the German invasion of Poland in 1939 and obsolete in comparison to superior German designs, the PZL.23 aircraft carried out succesful attacks on German armoured columns. After the war, it became a symbol of pre-war Polish Air Force, and miniature modellers' favourite. </Text>
+		</Row>
+	</Language_en_US>
+</GameData>

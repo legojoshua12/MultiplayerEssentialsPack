@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 3/6/2015 5:47:41 PM -->
+<GameData>
+
+	<Language_en_US>
+		<Row Tag="TXT_KEY_BUILDING_4UC_ODEON">
+			<Text>Odeon</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_4UC_ODEON_TEXT">
+			<Text>
+				Although the Romans usually receive the credit for Amphitheaters, they were highly influenced by one of their dominated nations: the Greeks, from which they took many tips; for example in terms of light and sound at theatre plays. For these occasions, the Greeks built special precincts with semi-circular rows of sittings, where the actors would perform outdoors. They were very related to this type of art, as they were the pioneers of the tragedy concept, elaborating intricate myths that were expressed in many tales.[NEWLINE][NEWLINE] The most noteworthy of all Greek odeons is the Odeon of Athens (also known as the Odeon of Pericles) in Athens. It was built at the south-eastern foot of the Acropolis in Athens, next to the entrance to the Theatre of Dionysus. It was covered with timber made from captured Persian ships, culminating in a square pyramid-like roof resembling a tent. The original Odeon of Athens was burned down during Sulla's siege of Athens in the First Mithridatic War in 87–86 BC. It was later fully rebuilt by Ariobarzanes II of Cappadocia, and this new building was referred to by Pausanias in the 2nd century AD as "the most magnificent of all the structures of the Greeks".
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_4UC_ODEON_HELP">
+			<Text>Classical Era culture building. Only Greece may build it.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_4UC_ODEON_STRATEGY">
+			<Text>The Odeon is a Greek unique building that improves the [ICON_CULTURE] Culture of a city. Unlike the Amphitheater it replaces, it has no maintenance cost and yields 2 [ICON_RESEARCH] Science.</Text>
+		</Row>
+	</Language_en_US>
+
+
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>4UC_ODEON_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>odeon256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>4UC_ODEON_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>odeon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>4UC_ODEON_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>odeon64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>4UC_ODEON_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>odeon45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

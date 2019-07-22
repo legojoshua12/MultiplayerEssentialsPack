@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 1/24/2014 12:09:07 AM -->
+<GameData>
+	<Policy_ImprovementYieldChanges>
+		<Row>
+			<PolicyType>POLICY_NAVAL_TRADITION</PolicyType>
+			<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<PolicyType>POLICY_NAVAL_TRADITION</PolicyType>
+			<ImprovementType>IMPROVEMENT_FISHING_BOATS</ImprovementType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+	</Policy_ImprovementYieldChanges>
+
+	<Language_en_US>
+		<Update>
+			<Where Tag="TXT_KEY_POLICY_NAVAL_TRADITION_HELP"/>
+			<Set>
+				<Text>[COLOR_POSITIVE_TEXT]Naval Tradition[ENDCOLOR][NEWLINE]+1 [ICON_HAPPINESS_1] Happiness for each Harbor, Seaport, or Lighthouse.  +1 [ICON_FOOD] Food, +1 [ICON_PRODUCTION] Production from Fishing Boats.</Text>
+			</Set>
+		</Update>
+	</Language_en_US>
+  
+</GameData>

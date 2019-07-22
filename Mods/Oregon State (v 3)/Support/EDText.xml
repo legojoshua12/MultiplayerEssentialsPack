@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 4/19/2015 1:13:16 PM -->
+<GameData>
+
+	<Language_en_US>
+		
+		<Row Tag="TXT_KEY_BUILDING_DECISIONS_ORCIVILWAR_DESC">
+			<Text>Oregon War Bonus</Text>
+		</Row>
+
+		<!--Oregon Civil War bonus-->
+		<Row Tag ="TXT_KEY_DECISIONS_OREGON_ORCIVILWAR_NAME">
+			<Text>Accept Mercenary Cavalry</Text>
+		</Row>
+		<Row Tag ="TXT_KEY_DECISIONS_OREGON_ORCIVILWAR_DESC">
+			<Text>
+				With war raging, perhaps we should hire some cavlary units...[NEWLINE]
+				[NEWLINE]Requirement/Restrictions:
+				[NEWLINE][ICON_BULLET]Player must be Oregon
+				[NEWLINE][ICON_BULLET]Player must have researched Military Science
+				[NEWLINE][ICON_BULLET]May only be enacted once per game
+				[NEWLINE]Costs:
+				[NEWLINE][ICON_BULLET]250 [ICON_GOLD] Gold
+				[NEWLINE][ICON_BULLET]1 [ICON_MAGISTRATES] Magistrate
+				[NEWLINE]Rewards:
+				[NEWLINE][ICON_BULLET]Receive 2 Horses.
+				[NEWLINE][ICON_BULLET]Receive 2 Cavalry units.
+				<!--[NEWLINE][NEWLINE][COLOR_POSITIVE_TEXT]Note: the [ICON_GOLD] Gold value of trade routes is increased for each source of Jewels (Gems, Pearls, Jewelry, Amber, Jade, Lapis Lazuli, and Glass.)[ENDCOLOR]-->
+			</Text>
+		</Row>
+		<Row Tag ="TXT_KEY_DECISIONS_OREGON_ORCIVILWAR_ADOPTED">
+			<Text>
+				With war raging, perhaps we should hire some cavlary units...[NEWLINE]
+				[NEWLINE]Rewards:
+				[NEWLINE][ICON_BULLET]Receive 2 Horses.
+				[NEWLINE][ICON_BULLET]Receive 2 Cavalry units.
+			</Text>
+		</Row>
+		
+		<!--Oregon Ecology-->
+
+		<Row Tag="TXT_KEY_POLICY_ORECOLOGY">
+			<Text>Oregon Ecology Policy</Text>
+		</Row>
+		<Row Tag ="TXT_KEY_DECISIONS_OREGON_ORENACTECOLOGY_NAME">
+			<Text>Adopt Environmental Reforms</Text>
+		</Row>
+		<Row Tag ="TXT_KEY_DECISIONS_OREGON_ORENACTECOLOGY_DESC">
+			<Text>
+				Governor McCall suggests we enact environmentally-friendly policies...[NEWLINE]
+				[NEWLINE]Requirement/Restrictions:
+				[NEWLINE][ICON_BULLET]Player must be Oregon
+				[NEWLINE][ICON_BULLET]Player must have researched Ecology
+				[NEWLINE][ICON_BULLET]May only be enacted once per game
+				[NEWLINE]Costs:
+				[NEWLINE][ICON_BULLET]300 [ICON_GOLD] Gold
+				[NEWLINE][ICON_BULLET]1 [ICON_MAGISTRATES] Magistrate
+				[NEWLINE]Rewards:
+				[NEWLINE][ICON_BULLET]Lumber Mills and Fishing Boats yield 2 [ICON_CULTURE] Culture.
+				<!--[NEWLINE][NEWLINE][COLOR_POSITIVE_TEXT]Note: the [ICON_GOLD] Gold value of trade routes is increased for each source of Jewels (Gems, Pearls, Jewelry, Amber, Jade, Lapis Lazuli, and Glass.)[ENDCOLOR]-->
+			</Text>
+		</Row>
+		<Row Tag ="TXT_KEY_DECISIONS_OREGON_ORENACTECOLOGY_ADOPTED">
+			<Text>
+				We enacted environmentally-friendly policies...[NEWLINE]
+				[NEWLINE]Rewards:
+				[NEWLINE][ICON_BULLET]Lumber Mills and Fishing Boats yield 2 [ICON_CULTURE] Culture.
+			</Text>
+		</Row>
+
+		<Row Tag="TXT_KEY_COLONY_NAME_OREGON_01">
+			<Text>Spokane</Text>
+		</Row>
+		<Row Tag="TXT_KEY_COLONY_NAME_OREGON_02">
+			<Text>Vancouver</Text>
+		</Row>
+		<Row Tag="TXT_KEY_COLONY_NAME_OREGON_03">
+			<Text>Kent</Text>
+		</Row>
+		<Row Tag="TXT_KEY_COLONY_NAME_OREGON_04">
+			<Text>Renton</Text>
+		</Row>
+		<Row Tag="TXT_KEY_COLONY_NAME_OREGON_05">
+			<Text>Redmond</Text>
+		</Row>
+		
+	</Language_en_US>
+  
+</GameData>

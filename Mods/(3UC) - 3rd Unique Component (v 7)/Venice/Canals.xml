@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 7/31/2013 8:34:55 PM -->
+<GameData>
+
+	<Language_en_US>
+		<Row Tag="TXT_KEY_BUILDING_3UC_CANALS">
+			<Text>Canals</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3UC_CANALS_HELP">
+			<Text>Increases [ICON_GREAT_PEOPLE] Great People generation in a City. Grants additional [ICON_STRENGTH] City Stregth, making a city more difficult to capture. Requires coast. Can only be built by Venice.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3UC_CANALS_STRATEGY">
+			<Text>Canals are a Venitian unique construction that increase a city's ability to generate [ICON_GREAT_PEOPLE] Great People. Unlike the Garden it replaces, Canals provides a city with additional [ICON_STRENGTH] City Health. May only be built in coastal cities.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3UC_CANALS_TEXT">
+			<Text>Canals are man-made channels for water, also known as waterways if they're navigable transportation canals used for carrying ships and boats shipping goods and conveying people, like those connected in a city network. The city of Venice was built in the early 1500's A.D. on a collection of 117 low islands at the center of a lagoon. The numerous canals provided an ideal location for a city because they formed a natural defense against foreign attackers, similar to a moat. [NEWLINE][NEWLINE]Canals are so deeply identified with Venice that many canal cities have been nicknamed "the Venice of…". The city is built on marshy islands, with wooden piles supporting the buildings, so that the land is man-made rather than the waterways.</Text>
+		</Row>
+	</Language_en_US>
+
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>ATLAS_VENICE_CALAL</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>NewCanals256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>ATLAS_VENICE_CALAL</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>NewCanals128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>ATLAS_VENICE_CALAL</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>NewCanals64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>ATLAS_VENICE_CALAL</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>NewCanals45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+
+</GameData>

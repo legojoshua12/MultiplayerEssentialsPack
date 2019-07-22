@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 7/31/2013 8:34:37 PM -->
+<GameData>
+	
+			<Language_en_US>
+		<Row Tag="TXT_KEY_BUILDING_3UC_BALLCOURT">
+			<Text>Ballcourt</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3UC_BALLCOURT_STRATEGY">
+			<Text>The Ballcourt is a Mayan unique building that increases a civilization's [ICON_HAPPINESS_1] Happiness. It cannot provide more [ICON_HAPPINESS_1] Happiness than there are [ICON_CITIZEN] Citizens in a city. Unlike the Colosseum it replaces, it also yields +1 [ICON_PEACE] Faith.</Text>
+		</Row>
+				<Row Tag="TXT_KEY_BUILDING_3UC_BALLCOURT_HELP">
+					<Text>Increases a civilization's [ICON_HAPPINESS_1] Happiness and yields [ICON_PEACE] Faith. Only the Mayans may build it.</Text>
+				</Row>
+		<Row Tag="TXT_KEY_BUILDING_3UC_BALLCOURT_TEXT">
+			<Text>
+				As an integral aspect of the Mesoamerican lifestyle, the courts for their ritual ball-game were constructed throughout the Mayan realm and often on a grand scale. Enclosed on two sides by stepped ramps that led to ceremonial platforms or small temples, the ballcourt itself was of a capital "i" shape (from above) and could be found in all but the smallest of Maya cities.[NEWLINE][NEWLINE]Ballcourts were also used for functions other than, or in addition to, ballgames. Ceramics from western Mexico show ballcourts being used for other sporting endeavours, including what appears to be a wrestling match. It is also known from archaeological excavations that ballcourts were the sites of sumptuous feasts, although whether these were conducted in the context of the ballgame or as another event entirely is not as yet known. The siting of the most prominent ballcourts within the sacred precincts of cities and towns, as well as the votive deposits found buried there, demonstrates that the ballcourt were places of spectacle and ritual.
+			</Text>
+		</Row>
+	</Language_en_US>
+
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>BALLCOURT_ICON_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>3ballcourt256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>BALLCOURT_ICON_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>3ballcourt128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>BALLCOURT_ICON_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>3ballcourt64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>BALLCOURT_ICON_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>3ballcourt45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

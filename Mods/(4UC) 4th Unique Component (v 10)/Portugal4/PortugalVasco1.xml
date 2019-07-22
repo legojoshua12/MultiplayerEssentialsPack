@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 3/6/2015 9:41:06 PM -->
+<GameData>
+	<Units>
+	<Row>
+		<Class>UNITCLASS_DESTROYER</Class>
+		<Type>UNIT_PORTUGAL_DESTROYER</Type>
+		<PrereqTech>TECH_COMBUSTION</PrereqTech>
+		<Combat>59</Combat>
+		<Cost>375</Cost>
+		<Moves>6</Moves>
+		<AirInterceptRange>2</AirInterceptRange>
+		<CombatClass>UNITCOMBAT_NAVALMELEE</CombatClass>
+		<Domain>DOMAIN_SEA</Domain>
+		<DefaultUnitAI>UNITAI_ATTACK_SEA</DefaultUnitAI>
+		<Description>TXT_KEY_UNIT_PORTUGAL_DESTROYER</Description>
+		<Civilopedia>TXT_KEY_UNIT_PORTUGAL_DESTROYER_TEXT</Civilopedia>
+		<Strategy>TXT_KEY_UNIT_PORTUGAL_DESTROYER_STRATEGY</Strategy>
+		<Help>TXT_KEY_UNIT_PORTUGAL_DESTROYER_HELP</Help>
+		<MilitarySupport>true</MilitarySupport>
+		<MilitaryProduction>true</MilitaryProduction>
+		<Pillage>true</Pillage>
+		<IgnoreBuildingDefense>true</IgnoreBuildingDefense>
+		<Mechanized>true</Mechanized>
+		<AdvancedStartCost>60</AdvancedStartCost>
+		<MinAreaSize>10</MinAreaSize>
+		<XPValueAttack>3</XPValueAttack>
+		<XPValueDefense>3</XPValueDefense>
+		<UnitArtInfo>ART_DEF_UNIT_PORTUGAL_DESTROYER</UnitArtInfo>
+		<UnitFlagAtlas>VASCO_DA_FLAG</UnitFlagAtlas>
+		<UnitFlagIconOffset>0</UnitFlagIconOffset>
+		<IconAtlas>PORTUGAL_DESTROYER_ATLAS</IconAtlas>
+		<PortraitIndex>0</PortraitIndex>
+		<MoveRate>BOAT</MoveRate>
+	</Row>
+	</Units>
+
+	<Unit_AITypes>
+	<Row>
+		<UnitType>UNIT_PORTUGAL_DESTROYER</UnitType>
+		<UnitAIType>UNITAI_ATTACK_SEA</UnitAIType>
+	</Row>
+	<Row>
+		<UnitType>UNIT_PORTUGAL_DESTROYER</UnitType>
+		<UnitAIType>UNITAI_RESERVE_SEA</UnitAIType>
+	</Row>
+	<Row>
+		<UnitType>UNIT_PORTUGAL_DESTROYER</UnitType>
+		<UnitAIType>UNITAI_ESCORT_SEA</UnitAIType>
+	</Row>
+	<Row>
+		<UnitType>UNIT_PORTUGAL_DESTROYER</UnitType>
+		<UnitAIType>UNITAI_EXPLORE_SEA</UnitAIType>
+	</Row>
+	</Unit_AITypes>
+
+	<Unit_Flavors>
+	<Row>
+		<UnitType>UNIT_PORTUGAL_DESTROYER</UnitType>
+		<FlavorType>FLAVOR_NAVAL</FlavorType>
+		<Flavor>19</Flavor>
+	</Row>
+	<Row>
+		<UnitType>UNIT_PORTUGAL_DESTROYER</UnitType>
+		<FlavorType>FLAVOR_NAVAL_RECON</FlavorType>
+		<Flavor>4</Flavor>
+	</Row>
+	</Unit_Flavors>
+
+	<Unit_FreePromotions>
+	<Row>
+		<UnitType>UNIT_PORTUGAL_DESTROYER</UnitType>
+		<PromotionType>PROMOTION_SEE_INVISIBLE_SUBMARINE</PromotionType>
+	</Row>
+	<Row>
+		<UnitType>UNIT_PORTUGAL_DESTROYER</UnitType>
+		<PromotionType>PROMOTION_INTERCEPTION_II</PromotionType>
+	</Row>
+	<Row>
+		<UnitType>UNIT_PORTUGAL_DESTROYER</UnitType>
+		<PromotionType>PROMOTION_ANTI_SUBMARINE_II</PromotionType>
+	</Row>
+	<Row>
+		<UnitType>UNIT_PORTUGAL_DESTROYER</UnitType>
+		<PromotionType>PROMOTION_WITHDRAW_BEFORE_MELEE</PromotionType>
+	</Row>
+	</Unit_FreePromotions>
+
+
+	<Language_en_US>
+		<Row Tag="TXT_KEY_UNIT_PORTUGAL_DESTROYER">
+			<Text>Vasco da Gama</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_PORTUGAL_DESTROYER_TEXT">
+			<Text>
+				The Vasco da Gama class is a class of frigates of the Portuguese Navy. The ships are based on the German MEKO 200 design, and are Portugal's major surface ships.[NEWLINE][NEWLINE]Vasco da Gama-class frigates have regularly contributed to long-range NATO exercises in the Indian Ocean, and both have served as NATO task-force flagships in the mission against Piracy in Somalia. During 2009 and January 2010, the NATO fleet in the Gulf of Aden was commanded by the Portuguese Navy, who received the award of "exceptional bravery at sea" from the International Maritime Organization for its successful attacks on pirate activity, conducted by the Corte Real frigate during the peak of pirate activity.[NEWLINE][NEWLINE]The ship is named after Dom Vasco da Gama, the Portuguese explorer who was the first European to reach India by sea, linking Europe and Asia for the first time by ocean route.	Da Gama's discovery was significant and opened the way for an age of global imperialism and for the Portuguese to establish a long-lasting colonial empire in Asia. The route meant that the Portuguese would not need to cross the highly disputed Mediterranean nor the dangerous Arabian Peninsula, and that the whole voyage would be made by sea.
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_PORTUGAL_DESTROYER_STRATEGY">
+			<Text>The Vasco da Gama is a Portuguese unique unit. It is stronger than the Destroyer it replaces.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_PORTUGAL_DESTROYER_HELP">
+			<Text>Fast late-game ship that is able to hunt down and destroy submarines. Naval melee unit that only Portugal may build.</Text>
+		</Row>
+	</Language_en_US>
+
+	<Civilization_UnitClassOverrides>
+		<Row>
+			<CivilizationType>CIVILIZATION_PORTUGAL</CivilizationType>
+			<UnitClassType>UNITCLASS_DESTROYER</UnitClassType>
+			<UnitType>UNIT_PORTUGAL_DESTROYER</UnitType>
+		</Row>
+	</Civilization_UnitClassOverrides>
+
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>PORTUGAL_DESTROYER_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>3vasco256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>PORTUGAL_DESTROYER_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>3vasco128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>PORTUGAL_DESTROYER_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>3vasco80.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>PORTUGAL_DESTROYER_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>3vasco64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>PORTUGAL_DESTROYER_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>3vasco45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>VASCO_DA_FLAG</Atlas>
+			<IconSize>32</IconSize>
+			<Filename>IconVasco32.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+
+	<ArtDefine_StrategicView>
+		<Replace>
+			<StrategicViewType>ART_DEF_UNIT_PORTUGAL_DESTROYER</StrategicViewType>
+			<TileType>Unit</TileType>
+			<Asset>IconVascoSV.dds</Asset>
+		</Replace>
+	</ArtDefine_StrategicView>
+
+	<UnitGameplay2DScripts>
+		<Row UnitType="UNIT_PORTUGAL_DESTROYER">
+			<SelectionSound>AS2D_SELECT_DESTROYER</SelectionSound>
+			<FirstSelectionSound>AS2D_BIRTH_DESTROYER</FirstSelectionSound>
+		</Row>
+	</UnitGameplay2DScripts>
+</GameData>

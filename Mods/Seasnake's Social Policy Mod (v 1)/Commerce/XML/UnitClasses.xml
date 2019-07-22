@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 3/8/2014 12:39:37 PM -->
+<GameData>
+	<UnitClasses>
+		<Row>
+			<Type>UNITCLASS_SWISS_GUARD</Type>
+			<Description>TXT_KEY_UNIT_SWISS_GUARD</Description>
+			<DefaultUnit>UNIT_SWISS_GUARD</DefaultUnit>
+		</Row>
+	</UnitClasses>
+</GameData>

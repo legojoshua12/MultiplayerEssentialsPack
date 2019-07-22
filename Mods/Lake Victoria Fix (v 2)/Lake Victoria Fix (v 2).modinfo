@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mod id="5e0f89be-5d1f-4415-a4f2-34e7369e4a7b" version="2">
+  <Properties>
+    <Name>Lake Victoria Fix</Name>
+    <Teaser>Changes Lake Victoria to provide fresh water to adjacent tiles and allows the player to see across it.</Teaser>
+    <Description>A simple mod that makes a couple of XML tweaks to boost the functionality of the Lake Victoria natural wonder. The purpose of both changes is to cause it to behave like other inland lakes in game, while retaining its unique status as a natural wonder.[NEWLINE][NEWLINE]- Updates Lake Victoria to provide Fresh Water to adjacent tiles.[NEWLINE]- Reduces Lake Victoria's ''See Through'' value from 2 to 0, so that you can see across it like other bodies of water in game, instead of as if it were a mountain. Units can bombard across the lake as well.</Description>
+    <Authors>Calypso</Authors>
+    <HideSetupGame>0</HideSetupGame>
+    <AffectsSavedGames>1</AffectsSavedGames>
+    <MinCompatibleSaveVersion>0</MinCompatibleSaveVersion>
+    <SupportsSinglePlayer>1</SupportsSinglePlayer>
+    <SupportsMultiplayer>1</SupportsMultiplayer>
+    <SupportsHotSeat>1</SupportsHotSeat>
+    <SupportsMac>1</SupportsMac>
+    <ReloadLandmarkSystem>0</ReloadLandmarkSystem>
+    <ReloadStrategicViewSystem>0</ReloadStrategicViewSystem>
+    <ReloadUnitSystem>0</ReloadUnitSystem>
+  </Properties>
+  <Dependencies />
+  <References />
+  <Blocks />
+  <Files>
+    <File md5="07138F067AA0D669F7A8BB0C895AB984" import="0">XML/CIV5Features_LakeVictoriaFix.xml</File>
+  </Files>
+  <Actions>
+    <OnModActivated>
+      <UpdateDatabase>XML/CIV5Features_LakeVictoriaFix.xml</UpdateDatabase>
+    </OnModActivated>
+  </Actions>
+</Mod>

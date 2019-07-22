@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 9/22/2013 11:11:59 AM -->
+<GameData>
+	<Language_en_US>
+		<Update>
+			<Where Tag="TXT_KEY_PROMOTION_TRADE_MISSION_BONUS_HELP" />
+			<Set Text="+100% more [ICON_GOLD] Gold and +30 [ICON_INFLUENCE] Influence from city-state Trade Mission." />
+		</Update>
+	</Language_en_US>
+</GameData>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 9/21/2013 9:17:16 PM -->
+<GameData>
+	<UnitPromotions>
+		<Row>
+			<Type>PROMOTION_SCALING_MERCHANT_ANCIENT</Type>
+			<Description>TXT_KEY_PROMOTION_SCALING_MERCHANT_ANCIENT</Description>
+			<Help>TXT_KEY_PROMOTION_SCALING_MERCHANT_ANCIENT_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+			
+			<TradeMissionInfluenceModifier>0</TradeMissionInfluenceModifier>
+			
+			<PortraitIndex>59</PortraitIndex>
+			<IconAtlas>ABILITY_ATLAS</IconAtlas>
+			<PediaType>PEDIA_SHARED</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_SCALING_MERCHANT_ANCIENT</PediaEntry>
+		</Row>
+		<Row>
+			<Type>PROMOTION_SCALING_MERCHANT_CLASSICAL</Type>
+			<Description>TXT_KEY_PROMOTION_SCALING_MERCHANT_CLASSICAL</Description>
+			<Help>TXT_KEY_PROMOTION_SCALING_MERCHANT_CLASSICAL_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+
+			<TradeMissionInfluenceModifier>50</TradeMissionInfluenceModifier>
+
+			<PortraitIndex>59</PortraitIndex>
+			<IconAtlas>ABILITY_ATLAS</IconAtlas>
+			<PediaType>PEDIA_SHARED</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_SCALING_MERCHANT_CLASSICAL</PediaEntry>
+		</Row>
+		<Row>
+			<Type>PROMOTION_SCALING_MERCHANT_MEDIEVAL</Type>
+			<Description>TXT_KEY_PROMOTION_SCALING_MERCHANT_MEDIEVAL</Description>
+			<Help>TXT_KEY_PROMOTION_SCALING_MERCHANT_MEDIEVAL_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+
+			<TradeMissionInfluenceModifier>100</TradeMissionInfluenceModifier>
+
+			<PortraitIndex>59</PortraitIndex>
+			<IconAtlas>ABILITY_ATLAS</IconAtlas>
+			<PediaType>PEDIA_SHARED</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_SCALING_MERCHANT_MEDIEVAL</PediaEntry>
+		</Row>
+		<Row>
+			<Type>PROMOTION_SCALING_MERCHANT_RENAISSANCE</Type>
+			<Description>TXT_KEY_PROMOTION_SCALING_MERCHANT_RENAISSANCE</Description>
+			<Help>TXT_KEY_PROMOTION_SCALING_MERCHANT_RENAISSANCE_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+
+			<TradeMissionInfluenceModifier>150</TradeMissionInfluenceModifier>
+
+			<PortraitIndex>59</PortraitIndex>
+			<IconAtlas>ABILITY_ATLAS</IconAtlas>
+			<PediaType>PEDIA_SHARED</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_SCALING_MERCHANT_RENAISSANCE</PediaEntry>
+		</Row>
+		<Row>
+			<Type>PROMOTION_SCALING_MERCHANT_INDUSTRIAL</Type>
+			<Description>TXT_KEY_PROMOTION_SCALING_MERCHANT_INDUSTRIAL</Description>
+			<Help>TXT_KEY_PROMOTION_SCALING_MERCHANT_INDUSTRIAL_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+
+			<TradeMissionInfluenceModifier>200</TradeMissionInfluenceModifier>
+
+			<PortraitIndex>59</PortraitIndex>
+			<IconAtlas>ABILITY_ATLAS</IconAtlas>
+			<PediaType>PEDIA_SHARED</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_SCALING_MERCHANT_INDUSTRIAL</PediaEntry>
+		</Row>
+		<Row>
+			<Type>PROMOTION_SCALING_MERCHANT_MODERN</Type>
+			<Description>TXT_KEY_PROMOTION_SCALING_MERCHANT_MODERN</Description>
+			<Help>TXT_KEY_PROMOTION_SCALING_MERCHANT_MODERN_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+
+			<TradeMissionInfluenceModifier>250</TradeMissionInfluenceModifier>
+
+			<PortraitIndex>59</PortraitIndex>
+			<IconAtlas>ABILITY_ATLAS</IconAtlas>
+			<PediaType>PEDIA_SHARED</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_SCALING_MERCHANT_MODERN</PediaEntry>
+		</Row>
+		<Row>
+			<Type>PROMOTION_SCALING_MERCHANT_POSTMODERN</Type>
+			<Description>TXT_KEY_PROMOTION_SCALING_MERCHANT_POSTMODERN</Description>
+			<Help>TXT_KEY_PROMOTION_SCALING_MERCHANT_POSTMODERN_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+
+			<TradeMissionInfluenceModifier>300</TradeMissionInfluenceModifier>
+
+			<PortraitIndex>59</PortraitIndex>
+			<IconAtlas>ABILITY_ATLAS</IconAtlas>
+			<PediaType>PEDIA_SHARED</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_SCALING_MERCHANT_POSTMODERN</PediaEntry>
+		</Row>
+		<Row>
+			<Type>PROMOTION_SCALING_MERCHANT_FUTURE</Type>
+			<Description>TXT_KEY_PROMOTION_SCALING_MERCHANT_FUTURE</Description>
+			<Help>TXT_KEY_PROMOTION_SCALING_MERCHANT_FUTURE_HELP</Help>
+			<Sound>AS2D_IF_LEVELUP</Sound>
+			<CannotBeChosen>true</CannotBeChosen>
+
+			<TradeMissionInfluenceModifier>350</TradeMissionInfluenceModifier>
+
+			<PortraitIndex>59</PortraitIndex>
+			<IconAtlas>ABILITY_ATLAS</IconAtlas>
+			<PediaType>PEDIA_SHARED</PediaType>
+			<PediaEntry>TXT_KEY_PROMOTION_SCALING_MERCHANT_FUTURE</PediaEntry>
+		</Row>
+	</UnitPromotions>
+
+	<Language_en_US>
+		<Row Tag="TXT_KEY_PROMOTION_SCALING_MERCHANT_ANCIENT"><Text>Great Merchant - Ancient Era</Text></Row>
+		<Row Tag="TXT_KEY_PROMOTION_SCALING_MERCHANT_ANCIENT_HELP"><Text>30 [ICON_INFLUENCE] Influence from Trade Mission.</Text></Row>
+		
+		<Row Tag="TXT_KEY_PROMOTION_SCALING_MERCHANT_CLASSICAL"><Text>Great Merchant - Classical Era</Text></Row>
+		<Row Tag="TXT_KEY_PROMOTION_SCALING_MERCHANT_CLASSICAL_HELP"><Text>45 [ICON_INFLUENCE] Influence from Trade Mission.</Text></Row>
+		
+		<Row Tag="TXT_KEY_PROMOTION_SCALING_MERCHANT_MEDIEVAL"><Text>Great Merchant - Medieval Era</Text></Row>
+		<Row Tag="TXT_KEY_PROMOTION_SCALING_MERCHANT_MEDIEVAL_HELP"><Text>60 [ICON_INFLUENCE] Influence from Trade Mission.</Text></Row>
+		
+		<Row Tag="TXT_KEY_PROMOTION_SCALING_MERCHANT_RENAISSANCE"><Text>Great Merchant - Renaissance Era</Text></Row>
+		<Row Tag="TXT_KEY_PROMOTION_SCALING_MERCHANT_RENAISSANCE_HELP"><Text>75 [ICON_INFLUENCE] Influence from Trade Mission.</Text></Row>
+		
+		<Row Tag="TXT_KEY_PROMOTION_SCALING_MERCHANT_INDUSTRIAL"><Text>Great Merchant - Industrial Era</Text></Row>
+		<Row Tag="TXT_KEY_PROMOTION_SCALING_MERCHANT_INDUSTRIAL_HELP"><Text>90 [ICON_INFLUENCE] Influence from Trade Mission.</Text></Row>
+		
+		<Row Tag="TXT_KEY_PROMOTION_SCALING_MERCHANT_MODERN"><Text>Great Merchant - Modern Era</Text></Row>
+		<Row Tag="TXT_KEY_PROMOTION_SCALING_MERCHANT_MODERN_HELP"><Text>105 [ICON_INFLUENCE] Influence from Trade Mission.</Text></Row>
+		
+		<Row Tag="TXT_KEY_PROMOTION_SCALING_MERCHANT_POSTMODERN"><Text>Great Merchant - Atomic Era</Text></Row>
+		<Row Tag="TXT_KEY_PROMOTION_SCALING_MERCHANT_POSTMODERN_HELP"><Text>120 [ICON_INFLUENCE] Influence from Trade Mission.</Text></Row>
+		
+		<Row Tag="TXT_KEY_PROMOTION_SCALING_MERCHANT_FUTURE"><Text>Great Merchant - Information Era</Text></Row>
+		<Row Tag="TXT_KEY_PROMOTION_SCALING_MERCHANT_FUTURE_HELP"><Text>135 [ICON_INFLUENCE] Influence from Trade Mission.</Text></Row>
+	</Language_en_US>
+</GameData>

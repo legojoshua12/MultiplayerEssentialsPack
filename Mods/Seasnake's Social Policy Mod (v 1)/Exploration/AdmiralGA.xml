@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 10/2/2013 12:34:50 PM -->
+<GameData>
+
+	<Units>
+		<Update>
+			<Where Type="UNIT_GREAT_ADMIRAL"/>
+			<Set GoldenAgeTurns="5"/>
+		</Update>
+	</Units>
+
+	<Language_en_US>
+		<Update>
+			<Where Tag="TXT_KEY_UNIT_GREAT_ADMIRAL_STRATEGY"/>
+			<Set>
+				<Text>The Great Admiral has the ability to instantly repair every naval and embarked unit in the same hex, as well as in adjacent hexes. The Great Admiral is consumed when performing this action. The Great Admiral also provides a 15% combat bonus to all player-owned naval units within 2 tiles. The Great Admiral is NOT consumed when he provides this bonus. Finally, the Great Admiral can start a short golden age by going on an expedition, which consumes the Great Admiral.</Text>
+			</Set>
+		</Update>
+	</Language_en_US>
+	
+</GameData>

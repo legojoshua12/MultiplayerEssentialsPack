@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mod id="eead0050-1e3f-4178-a91f-26cf1881ac39" version="14">
+  <Properties>
+    <Name>City-State Diplomacy Mod (CSD)  for Brave New World - no DLL</Name>
+    <Teaser>A mod to improve geopolitical diplomacy with city-states.</Teaser>
+    <Description>- Design Philosophy -
+This mod is a complete overhaul of the city-state diplomacy system. It reduces the importance of the 'Gifts of Gold' and introduces a new, unit-based system of influence.
+
+Players are now encouraged to build and use diplomatic units and/or complete city-state quests if they want to earn influence. Because diplomacy now requires production, time and energy, players must actively and consciously strive to maintain good relations with neighboring city-states. Furthermore, diplomatic units, being defenseless, are liable to capture or destruction if sent too far from safety, thus long-distance diplomacy now utilizes a risk-reward system. The AI has been trained to utilize this system, so do not be surprised to see diplomatic units from many different civilizations criss-crossing the world in search of influence!</Description>
+    <Authors>Gazebo</Authors>
+    <HideSetupGame>0</HideSetupGame>
+    <AffectsSavedGames>1</AffectsSavedGames>
+    <MinCompatibleSaveVersion>13</MinCompatibleSaveVersion>
+    <SupportsSinglePlayer>1</SupportsSinglePlayer>
+    <SupportsMultiplayer>1</SupportsMultiplayer>
+    <SupportsHotSeat>1</SupportsHotSeat>
+    <SupportsMac>1</SupportsMac>
+    <ReloadAudioSystem>0</ReloadAudioSystem>
+    <ReloadLandmarkSystem>0</ReloadLandmarkSystem>
+    <ReloadStrategicViewSystem>1</ReloadStrategicViewSystem>
+    <ReloadUnitSystem>1</ReloadUnitSystem>
+  </Properties>
+  <Dependencies />
+  <References />
+  <Blocks />
+  <Files>
+    <File md5="25218C6A8AF8BB6876E426A6DB0C1CE7" import="1">Art/Buildings/Icons/CSDBuildings128.dds</File>
+    <File md5="C50C7EF709CCBDCE57EA3530B6162C5B" import="1">Art/Buildings/Icons/CSDBuildings256.dds</File>
+    <File md5="706991F96A3FD7230B78B1FFF0E2AB54" import="1">Art/Buildings/Icons/CSDBuildings45.dds</File>
+    <File md5="C4E58499C7D0566CCFBD7599C43AC6ED" import="1">Art/Buildings/Icons/CSDBuildings64.dds</File>
+    <File md5="F1D9EFE6D26019E971B6E8A4A080F62F" import="1">Art/Buildings/Icons/CSDBuildings80.dds</File>
+    <File md5="FF3FEAC76B98E9AE08F45E65C7FCAC5C" import="1">Art/Buildings/Splashes/WonderForum.dds</File>
+    <File md5="E3D9131EF6D660B16F3A6A0A57F44163" import="1">Art/Buildings/Splashes/WonderGutenbergPress.dds</File>
+    <File md5="7D8E08077EA306DAAD98D15F3A2412A0" import="1">Art/Buildings/Splashes/WonderSummerPalace.dds</File>
+    <File md5="9CA76E3A2931BF8C80430A10BE31ABD4" import="1">Art/Buildings/Splashes/WonderWarsawPact.dds</File>
+    <File md5="6AEBB2E0575CA9C171DAC95AEB5CA02F" import="0">Art/ArtInfo.sql</File>
+    <File md5="B5D1EBB09BC59007A66C1EDEBD736317" import="1">Art/Units/Flag/Diplomat32white.dds</File>
+    <File md5="1C6840B9F2FB4349F300D66A0E9558D0" import="1">Art/Units/Flag/DiplomatSVicon.dds</File>
+    <File md5="FBAE0A43A6220B51A8A9278821544D7F" import="1">Art/Units/Icons/CSDUnits128.dds</File>
+    <File md5="C6C6291B6347EDAB7E8034E7A0A468E4" import="1">Art/Units/Icons/CSDUnits256.dds</File>
+    <File md5="F5FD30AA3D9D56BD3347ADE12EE87755" import="1">Art/Units/Icons/CSDUnits45.dds</File>
+    <File md5="5EDA64B9B904B81B8BBA4FBA811F6D25" import="1">Art/Units/Icons/CSDUnits64.dds</File>
+    <File md5="655835AB6B8ED2E26B35FD6B467532CD" import="1">Art/Units/Icons/CSDUnits80.dds</File>
+    <File md5="8D75B7AF536B8D7E4047B94E78E45A3E" import="0">Art/XML/Icons.xml</File>
+    <File md5="1A2FDF1AC1289850203A2BA71044D487" import="0">Buildings/BuildingText.xml</File>
+    <File md5="B0E8142C0A40D840BCAA505E4D1FB118" import="0">Buildings/CSDBuildings.xml</File>
+    <File md5="E3F72AEDF0EC583F933DE63ADDFF5DE3" import="0">Gameplay/BuildingRules.sql</File>
+    <File md5="45702547473FA09423601818294F15B0" import="0">Gameplay/GameplayText.sql</File>
+    <File md5="472E356CBF49A8A6F72EB0B47BD43F7F" import="0">Gameplay/Gameplay.sql</File>
+    <File md5="CE5E70C6E6F217F22CE9A319333EC94E" import="0">Gameplay/GoldGifts.sql</File>
+    <File md5="0BB01E6786A06DF4618DFFB03BE4B581" import="0">Options.sql</File>
+    <File md5="916AA7E8511C91D535951030438B5ABF" import="0">Policies/Bonuses.sql</File>
+    <File md5="3F42C66616319AFDFECD745294150251" import="0">Policies/Flavors.sql</File>
+    <File md5="645D6D54B9CF0FAB62733B3CF90FA717" import="0">Policies/Policies.sql</File>
+    <File md5="687CFC61818FD095889510773CBC8664" import="0">Promotions/Promotions.xml</File>
+    <File md5="11208F9F9C1240B630858F10513D45A5" import="0">Promotions/PromotionText.xml</File>
+    <File md5="F53371A174BBBBB3C15B239EC38EB11B" import="0">Units/CIV5UnitClasses.xml</File>
+    <File md5="278F4C7940002AC6D6F7E920734AA2FB" import="0">Units/CIV5Units.xml</File>
+    <File md5="1765BF2EA0F8B055789CC5A48026F0A9" import="0">Units/Formations.sql</File>
+    <File md5="C6D3318C9C7301683F76C9556C885D36" import="0">Units/UnitClassOverrides.xml</File>
+    <File md5="B3136BF518E1F58954C0B41122A3344E" import="0">Units/UnitGoldCost.sql</File>
+    <File md5="40EC01CDA8F74B63266A0AC266F0B6F1" import="0">Units/UnitText.xml</File>
+  </Files>
+  <Actions>
+    <OnModActivated>
+      <UpdateDatabase>Options.sql</UpdateDatabase>
+      <UpdateDatabase>Units/UnitGoldCost.sql</UpdateDatabase>
+      <UpdateDatabase>Policies/Policies.sql</UpdateDatabase>
+      <UpdateDatabase>Art/XML/Icons.xml</UpdateDatabase>
+      <UpdateDatabase>Units/CIV5UnitClasses.xml</UpdateDatabase>
+      <UpdateDatabase>Units/CIV5Units.xml</UpdateDatabase>
+      <UpdateDatabase>Units/UnitClassOverrides.xml</UpdateDatabase>
+      <UpdateDatabase>Buildings/CSDBuildings.xml</UpdateDatabase>
+      <UpdateDatabase>Promotions/Promotions.xml</UpdateDatabase>
+      <UpdateDatabase>Units/UnitText.xml</UpdateDatabase>
+      <UpdateDatabase>Buildings/BuildingText.xml</UpdateDatabase>
+      <UpdateDatabase>Promotions/PromotionText.xml</UpdateDatabase>
+      <UpdateDatabase>Art/ArtInfo.sql</UpdateDatabase>
+      <UpdateDatabase>Gameplay/BuildingRules.sql</UpdateDatabase>
+      <UpdateDatabase>Gameplay/Gameplay.sql</UpdateDatabase>
+      <UpdateDatabase>Gameplay/GameplayText.sql</UpdateDatabase>
+      <UpdateDatabase>Gameplay/GoldGifts.sql</UpdateDatabase>
+      <UpdateDatabase>Policies/Bonuses.sql</UpdateDatabase>
+      <UpdateDatabase>Policies/Flavors.sql</UpdateDatabase>
+      <UpdateDatabase>Policies/Policies.sql</UpdateDatabase>
+      <UpdateDatabase>Units/Formations.sql</UpdateDatabase>
+    </OnModActivated>
+  </Actions>
+</Mod>

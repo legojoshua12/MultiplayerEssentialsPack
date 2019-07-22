@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<GameData>
+	<!-- Create a new, invisible feature that can accept all these building bonuses. Lua will apply it to all mountains. -->
+	<Features>
+		<Row>
+			<Type>FEATURE_MOUNTAIN_YIELD</Type>
+			<Description>Mountain</Description>
+			<Civilopedia>Mountains will provide +1 [ICON_CULTURE] if worked by the [ICON_CAPITAL] Capital, but otherwise have no base yield in other cities.</Civilopedia>
+			<ArtDefineTag>NULL</ArtDefineTag>
+			<Movement>2</Movement>
+			<Impassable>true</Impassable>
+			<PortraitIndex>8</PortraitIndex>
+			<IconAtlas>NW_ATLAS</IconAtlas>
+		</Row>
+	</Features>
+
+	<!-- Set all of the bonuses that buildings apply. -->
+	<Building_FeatureYieldChanges>
+		<Row>
+			<BuildingType>BUILDING_PALACE</BuildingType>
+			<FeatureType>FEATURE_MOUNTAIN_YIELD</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_STONE_WORKS</BuildingType>
+			<FeatureType>FEATURE_MOUNTAIN_YIELD</FeatureType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_AQUEDUCT</BuildingType>
+			<FeatureType>FEATURE_MOUNTAIN_YIELD</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_OBSERVATORY</BuildingType>
+			<FeatureType>FEATURE_MOUNTAIN_YIELD</FeatureType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_MACHU_PICHU</BuildingType>
+			<FeatureType>FEATURE_MOUNTAIN_YIELD</FeatureType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>2</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_BROADCAST_TOWER</BuildingType>
+			<FeatureType>FEATURE_MOUNTAIN_YIELD</FeatureType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+	</Building_FeatureYieldChanges>
+
+	<!-- Removes all old restrictions on the Stone Works. -->
+	<Building_LocalResourceOrs>
+		<Delete BuildingType="BUILDING_STONE_WORKS" />
+	</Building_LocalResourceOrs>
+	<Buildings>
+		<Update>
+			<Where Type="BUILDING_STONE_WORKS" />
+			<Set ProhibitedCityTerrain="" />
+		</Update>
+		<!-- Allows Observatories within two tiles of mountain, instead of just within 1 -->
+		<Update>
+			<Where BuildingClass="BUILDINGCLASS_OBSERVATORY" />
+			<Set Mountain="0" NearbyMountainRequired="1" />
+		</Update>
+	</Buildings>
+
+	<!-- Removes Machu Pichu's faith in exchange for the faith it now adds to mountains -->
+	<Building_YieldChanges>
+		<Delete BuildingType="BUILDING_MACHU_PICHU" YieldType="YIELD_FAITH" />
+	</Building_YieldChanges>
+
+	<!-- Update in-game text to reflect these changes. -->
+	<Language_en_US>
+		<Update>
+			<Where Tag="TXT_KEY_BUILDING_STONE_WORKS_HELP" />
+			<Set Text="Each source of [ICON_RES_MARBLE] Marble and [ICON_RES_STONE] Stone worked by this City produces +1 [ICON_PRODUCTION] Production, and Mountains can be worked for +2 [ICON_PRODUCTION] Production." />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BUILDING_STONE_WORKS_STRATEGY" />
+			<Set Text="Stone Works increases City [ICON_PRODUCTION] Production. It is especially effective if the City has access to [ICON_RES_MARBLE] Marble, [ICON_RES_STONE] Stone, or Mountains." />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BUILDING_AQUEDUCT_HELP" />
+			<Set Text="40% of [ICON_FOOD] Food is carried over after a new [ICON_CITIZEN] Citizen is born. All Mountains worked by this city produce +1 [ICON_FOOD] Food." />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BUILDING_AQUEDUCT_STRATEGY" />
+			<Set Text="The Aqueduct decreases the amount of [ICON_FOOD] Food a city needs to increase in size by 40%. It also can bring water down from Mountains, increasing the [ICON_FOOD] Food yield of those panels when worked." />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BUILDING_OBSERVATORY_HELP" />
+			<Set Text="All Mountains worked by this city produce +1 [ICON_RESEARCH] Science.[NEWLINE][NEWLINE]City must be built within 2 tiles of a Mountain that is inside your territory." />
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_BUILDING_OBSERVATORY_STRATEGY" />
+			<Set Text="The Observatory can only be constructed in a city near a mountain tile. It greatly increases the [ICON_RESEARCH] Science output of the city." />
+		</Update>
+
+		<Update>
+			<Where Tag="TXT_KEY_WONDER_MACHU_PICHU_HELP" />
+			<Set Text="+25% [ICON_GOLD] Gold from [ICON_CONNECTED] City Connections. All Mountains worked by this city produce +2 [ICON_PEACE] Faith.[NEWLINE][NEWLINE]City must be built within 2 tiles of a Mountain that is inside your territory." />
+		</Update>
+	</Language_en_US>
+</GameData>

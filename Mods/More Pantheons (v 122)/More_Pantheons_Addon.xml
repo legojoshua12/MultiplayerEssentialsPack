@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<GameData>
+	<Beliefs>
+		<Delete Type="BELIEF_STONE_CIRCLES"/>
+		<Delete Type="BELIEF_ORAL_TRADITION"/>
+		<Delete Type="BELIEF_RELIGIOUS_SETTLEMENTS"/>
+		<Delete Type="BELIEF_FAITH_HEALERS"/>
+		<Update>
+			<!-- Goddess of the Harvest -->
+			<Where Type="BELIEF_FERTILITY_RITES"/>
+			<Set RequiresPeace="true"/>
+		</Update>
+		<Update>
+			<Where Type="BELIEF_MESSENGER_GODS"/>
+			<Set PlotCultureCostModifier="-15"/>
+		</Update>
+		<Update>
+			<Where Type="BELIEF_GOD_WAR"/>
+			<Set MaxDistance="5"/>
+		</Update>
+		<Update>
+			<Where Type="BELIEF_GODDESS_STRATEGY"/>
+			<Set CityRangeStrikeModifier="20" FriendlyHealChange="20"/>
+		</Update>
+		<Update>
+			<Where Type="BELIEF_MONUMENT_GODS"/>
+			<Set ObsoleteEra="ERA_INDUSTRIAL"/>
+		</Update>
+		<Row>
+			<Type>BELIEF_PURIFICATION_RITUALS</Type>
+			<Description>TXT_KEY_BELIEF_PURIFICATION_RITUALS</Description>
+			<ShortDescription>TXT_KEY_BELIEF_PURIFICATION_RITUALS_SHORT</ShortDescription>
+			<Pantheon>true</Pantheon>
+		</Row>
+		<Row>
+			<Type>BELIEF_SPIRITUAL_CARVINGS</Type>
+			<Description>TXT_KEY_BELIEF_SPIRITUAL_CARVINGS</Description>
+			<ShortDescription>TXT_KEY_BELIEF_SPIRITUAL_CARVINGS_SHORT</ShortDescription>
+			<Pantheon>true</Pantheon>
+		</Row>
+		<Row>
+			<Type>BELIEF_CEREMONIAL_DANCE</Type>
+			<Description>TXT_KEY_BELIEF_CEREMONIAL_DANCE</Description>
+			<ShortDescription>TXT_KEY_BELIEF_CEREMONIAL_DANCE_SHORT</ShortDescription>
+			<Pantheon>true</Pantheon>
+		</Row>
+		<Row>
+			<Type>BELIEF_GODDESS_HEARTH</Type>
+			<Description>TXT_KEY_BELIEF_GODDESS_HEARTH</Description>
+			<ShortDescription>TXT_KEY_BELIEF_GODDESS_HEARTH_SHORT</ShortDescription>
+			<Pantheon>true</Pantheon>
+		</Row>
+		<Row>
+			<Type>BELIEF_GOD_FORGE</Type>
+			<Description>TXT_KEY_BELIEF_GOD_FORGE</Description>
+			<ShortDescription>TXT_KEY_BELIEF_GOD_FORGE_SHORT</ShortDescription>
+			<Pantheon>true</Pantheon>
+		</Row>
+		<Row>
+			<Type>BELIEF_GODDESS_VITALITY</Type>
+			<Description>TXT_KEY_BELIEF_GODDESS_VITALITY</Description>
+			<ShortDescription>TXT_KEY_BELIEF_GODDESS_VITALITY_SHORT</ShortDescription>
+			<Pantheon>true</Pantheon>
+		</Row>
+		<Row>
+			<Type>BELIEF_GOD_FORTUNE</Type>
+			<Description>TXT_KEY_BELIEF_GOD_FORTUNE</Description>
+			<ShortDescription>TXT_KEY_BELIEF_GOD_FORTUNE_SHORT</ShortDescription>
+			<Pantheon>true</Pantheon>
+		</Row>
+		<Row>
+			<Type>BELIEF_GOD_KNOWLEDGE</Type>
+			<Description>TXT_KEY_BELIEF_GOD_KNOWLEDGE</Description>
+			<ShortDescription>TXT_KEY_BELIEF_GOD_KNOWLEDGE_SHORT</ShortDescription>
+			<Pantheon>true</Pantheon>
+		</Row>
+		<Row>
+			<Type>BELIEF_RAIN_DANCES</Type>
+			<Description>TXT_KEY_BELIEF_RAIN_DANCES</Description>
+			<ShortDescription>TXT_KEY_BELIEF_RAIN_DANCES_SHORT</ShortDescription>
+			<Pantheon>true</Pantheon>
+			<MinPopulation>3</MinPopulation>
+		</Row>
+	</Beliefs>
+
+	<Belief_CityYieldChanges>
+		<Row>
+			<BeliefType>BELIEF_RAIN_DANCES</BeliefType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+	</Belief_CityYieldChanges>
+
+	<Belief_BuildingClassYieldChanges/>
+
+	<Belief_YieldChangeTradeRoute>
+		<Update>
+			<Where BeliefType="BELIEF_MESSENGER_GODS"/>
+			<Set YieldType="YIELD_GOLD"/>
+		</Update>
+		<Row>
+			<BeliefType>BELIEF_GOD_KNOWLEDGE</BeliefType>
+			<YieldType>YIELD_SCIENCE</YieldType>
+			<Yield>2</Yield>
+		</Row>
+	</Belief_YieldChangeTradeRoute>
+
+	<Belief_YieldChangeNaturalWonder>
+		<Update>
+			<Where BeliefType="BELIEF_ONE_WITH_NATURE" YieldType="YIELD_FAITH"/>
+			<Set Yield="5"/>
+		</Update>
+	</Belief_YieldChangeNaturalWonder>
+	
+	<Belief_ImprovementYieldChanges>
+		<!-- Will specify each resource now instead of improvement types. -->
+		<Delete BeliefType="BELIEF_GODDESS_HUNT"/>
+		<Delete BeliefType="BELIEF_GOD_SEA"/>
+		<Delete BeliefType="BELIEF_STONE_CIRCLES"/>
+		<Delete BeliefType="BELIEF_ORAL_TRADITION"/>
+		<Delete BeliefType="BELIEF_OPEN_SKY"/>
+	</Belief_ImprovementYieldChanges>
+
+	<Belief_ResourceYieldChanges>
+		<!-- Sky Father - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<Row>
+			<BeliefType>BELIEF_OPEN_SKY</BeliefType>
+			<ResourceType>RESOURCE_COW</ResourceType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_OPEN_SKY</BeliefType>
+			<ResourceType>RESOURCE_SHEEP</ResourceType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_OPEN_SKY</BeliefType>
+			<ResourceType>RESOURCE_HORSE</ResourceType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<!-- God of the Sea - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<Row>
+			<BeliefType>BELIEF_GOD_SEA</BeliefType>
+			<ResourceType>RESOURCE_CORAL</ResourceType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_GOD_SEA</BeliefType>
+			<ResourceType>RESOURCE_WHALE</ResourceType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_GOD_SEA</BeliefType>
+			<ResourceType>RESOURCE_CRAB</ResourceType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<!-- Goddess of the Hunt  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<Row>
+			<BeliefType>BELIEF_GODDESS_HUNT</BeliefType>
+			<ResourceType>RESOURCE_DEER</ResourceType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_GODDESS_HUNT</BeliefType>
+			<ResourceType>RESOURCE_FUR</ResourceType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_GODDESS_HUNT</BeliefType>
+			<ResourceType>RESOURCE_BISON</ResourceType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<!-- Sun God  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<Delete BeliefType="BELIEF_SUN_GOD"/>
+		<Row>
+			<BeliefType>BELIEF_SUN_GOD</BeliefType>
+			<ResourceType>RESOURCE_BANANA</ResourceType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_SUN_GOD</BeliefType>
+			<ResourceType>RESOURCE_CITRUS</ResourceType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_SUN_GOD</BeliefType>
+			<ResourceType>RESOURCE_OLIVE</ResourceType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<!-- Earth Mother - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<Delete BeliefType="BELIEF_EARTH_MOTHER"/>
+		<Row>
+			<BeliefType>BELIEF_EARTH_MOTHER</BeliefType>
+			<ResourceType>RESOURCE_MARBLE</ResourceType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_EARTH_MOTHER</BeliefType>
+			<ResourceType>RESOURCE_STONE</ResourceType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_EARTH_MOTHER</BeliefType>
+			<ResourceType>RESOURCE_IRON</ResourceType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<!-- Tears of the Gods - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<Delete BeliefType="BELIEF_TEARS_OF_GODS"/>
+		<Row>
+			<BeliefType>BELIEF_TEARS_OF_GODS</BeliefType>
+			<ResourceType>RESOURCE_GEMS</ResourceType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_TEARS_OF_GODS</BeliefType>
+			<ResourceType>RESOURCE_PEARLS</ResourceType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_TEARS_OF_GODS</BeliefType>
+			<ResourceType>RESOURCE_AMBER</ResourceType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<!-- God of Festivals - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<Delete BeliefType="BELIEF_GOD_FESTIVALS"/>
+		<Row>
+			<BeliefType>BELIEF_GOD_FESTIVALS</BeliefType>
+			<ResourceType>RESOURCE_WINE</ResourceType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_GOD_FESTIVALS</BeliefType>
+			<ResourceType>RESOURCE_TOBACCO</ResourceType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_GOD_FESTIVALS</BeliefType>
+			<ResourceType>RESOURCE_INCENSE</ResourceType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<!-- Religious Idols  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<Delete BeliefType="BELIEF_FORMAL_LITURGY"/>
+		<Row>
+			<BeliefType>BELIEF_FORMAL_LITURGY</BeliefType>
+			<ResourceType>RESOURCE_SILVER</ResourceType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_FORMAL_LITURGY</BeliefType>
+			<ResourceType>RESOURCE_GOLD</ResourceType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_FORMAL_LITURGY</BeliefType>
+			<ResourceType>RESOURCE_COPPER</ResourceType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<!-- Goddess of the Harvest - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<Row>
+			<BeliefType>BELIEF_FERTILITY_RITES</BeliefType>
+			<ResourceType>RESOURCE_WHEAT</ResourceType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<!-- Purification Rituals - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<Row>
+			<BeliefType>BELIEF_PURIFICATION_RITUALS</BeliefType>
+			<ResourceType>RESOURCE_SALT</ResourceType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_PURIFICATION_RITUALS</BeliefType>
+			<ResourceType>RESOURCE_INCENSE</ResourceType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_PURIFICATION_RITUALS</BeliefType>
+			<ResourceType>RESOURCE_PERFUME</ResourceType>
+			<YieldType>YIELD_FAITH</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<!-- Spiritual Carvings - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<Row>
+			<BeliefType>BELIEF_SPIRITUAL_CARVINGS</BeliefType>
+			<ResourceType>RESOURCE_IVORY</ResourceType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_SPIRITUAL_CARVINGS</BeliefType>
+			<ResourceType>RESOURCE_LAPIS</ResourceType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_SPIRITUAL_CARVINGS</BeliefType>
+			<ResourceType>RESOURCE_JADE</ResourceType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<!-- Ceremonial Dance - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<Row>
+			<BeliefType>BELIEF_CEREMONIAL_DANCE</BeliefType>
+			<ResourceType>RESOURCE_SILK</ResourceType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_CEREMONIAL_DANCE</BeliefType>
+			<ResourceType>RESOURCE_COTTON</ResourceType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_CEREMONIAL_DANCE</BeliefType>
+			<ResourceType>RESOURCE_DYE</ResourceType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<!-- Goddess of the Hearth - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<Row>
+			<BeliefType>BELIEF_GODDESS_HEARTH</BeliefType>
+			<ResourceType>RESOURCE_TRUFFLES</ResourceType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_GODDESS_HEARTH</BeliefType>
+			<ResourceType>RESOURCE_SUGAR</ResourceType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_GODDESS_HEARTH</BeliefType>
+			<ResourceType>RESOURCE_SPICES</ResourceType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<!-- God of the Forge - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<Row>
+			<BeliefType>BELIEF_GOD_FORGE</BeliefType>
+			<ResourceType>RESOURCE_COPPER</ResourceType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_GOD_FORGE</BeliefType>
+			<ResourceType>RESOURCE_IRON</ResourceType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_GOD_FORGE</BeliefType>
+			<ResourceType>RESOURCE_COAL</ResourceType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<!-- Goddess of Vitality  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<Row>
+			<BeliefType>BELIEF_GODDESS_VITALITY</BeliefType>
+			<ResourceType>RESOURCE_COFFEE</ResourceType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_GODDESS_VITALITY</BeliefType>
+			<ResourceType>RESOURCE_TEA</ResourceType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BeliefType>BELIEF_GODDESS_VITALITY</BeliefType>
+			<ResourceType>RESOURCE_COCOA</ResourceType>
+			<YieldType>YIELD_PRODUCTION</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<!-- God of Luck - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+		<Row>
+			<BeliefType>BELIEF_GOD_FORTUNE</BeliefType>
+			<ResourceType>RESOURCE_FISH</ResourceType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>2</Yield>
+		</Row>		
+	</Belief_ResourceYieldChanges>
+	
+</GameData>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 1/16/2015 6:45:46 PM -->
+<GameData>
+	<Civilization_UnitClassOverrides>
+		<Row>
+			<CivilizationType>CIVILIZATION_FRANCE</CivilizationType>
+			<UnitClassType>UNITCLASS_GREAT_WAR_INFANTRY</UnitClassType>
+			<UnitType>UNIT_FRENCH_FOREIGNLEGION</UnitType>
+		</Row>
+
+	</Civilization_UnitClassOverrides>
+
+	<Policy_FreeUnitClasses>
+		<Update>
+			<Set UnitClassType="UNITCLASS_GREAT_WAR_INFANTRY"/>
+			<Where PolicyType="POLICY_VOLUNTEER_ARMY" />
+		</Update>
+	</Policy_FreeUnitClasses>
+
+	<Units>
+		<Update>
+			<Set Combat="50" />
+			<Where Type="UNIT_FRENCH_FOREIGNLEGION" />
+		</Update>
+	</Units>
+
+
+	<Language_en_US>
+
+		<Update>
+			<Set Text="The Foreign Legion is the French unique unit, replacing the Great War Infantry. It receives a significant combat bonus when operating in foreign territory. [NEWLINE][NEWLINE]Adopting the Volunteer Army tenet of the Freedom Ideology will grant Foreign Legion to France, instead of Great War Infantry." />
+			<Where Tag="TXT_KEY_UNIT_FRENCH_FOREIGNLEGION_STRATEGY" />
+		</Update>
+
+		<Update>
+			<Set Text="Special Infantry Unit of the Modern Era. Only the French can build it or receive it by adopting the Volunteer Army tenet of the Freedom Ideology. This Unit has a combat bonus outside of friendly territory." />
+			<Where Tag="TXT_KEY_UNIT_HELP_FOREIGN_LEGION" />
+		</Update>
+
+		<Update>
+			<Set Text="[COLOR_POSITIVE_TEXT]Volunteer Army[ENDCOLOR][NEWLINE]6 units are maintenance free. Receive 6 Great War Infantry units immediately." />
+			<Where Tag="TXT_KEY_POLICY_VOLUNTEER_ARMY_HELP" />
+		</Update>
+
+	</Language_en_US>
+</GameData>

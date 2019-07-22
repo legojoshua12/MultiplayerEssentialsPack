@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 11/23/2013 1:27:25 PM -->
+<GameData>
+	<Language_en_US>
+		<!-- DIPLOMACY -->
+		<!--First Greeting messages from AI leaders-->
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_FIRSTGREETING_1">
+			<Text>Welcome to Oregon. I am John Whiteaker. I hope you didn't get dysentery on your trip west.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_FIRSTGREETING_2">
+			<Text>Greetings! I'm John Whiteaker, governor of Oregon. Have you seen Crater Lake?</Text>
+		</Row>
+		<!--Defeated messages from AI leaders-->
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_DEFEATED_1">
+			<Text>Oregon has been defeated. I can only hope you respect the freedom of all peoples.</Text>
+		</Row>
+		<!-- Human repeats an action too much, gets the following responses -->
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_REPEAT_TOO_MUCH_1">
+			<Text>You again?</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_REPEAT_TRADE_TOO_MUCH_1">
+			<Text>I've gotten your request and will file it carefully. Now, run along.</Text>
+		</Row>
+		<!-- Greetings -->
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_GREETING_HOSTILE_HELLO_1">
+			<Text>What is it now?</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_GREETING_POLITE_HELLO_1">
+			<Text>Great leader, what may John Whiteaker do for his friend?</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_GREETING_HOSTILE_HUMAN_AT_WAR_1">
+			<Text>I am not interested in war. Maybe you should talk to the someone else.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_GREETING_HUMAN_AT_WAR_1">
+			<Text>Greetings, how goes your struggle against the enemy?</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_HOSTILE_AGGRESSIVE_MILITARY_WARNING_1">
+			<Text>Are you liberating or enslaving? You seem to have a significant army.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_WHITEAKER_GREETING_HOSTILE_AGGRESSIVE_PLOT_BUYING_1">
+			<Text>Your continuing expansion is upsetting. It will eventually cause your downfall.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_GREETING_AGGRESSIVE_PLOT_BUYING_1">
+			<Text>We were just discussing about your continuing expansion. You should take that as a warning.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_GREETING_HOSTILE_AGGRESSIVE_EXPANSION_1">
+			<Text>Looks like we're not the only ones spreading out. You're awefully close to our territory.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_GREETING_AGGRESSIVE_EXPANSION_1">
+			<Text>We were just discussing about your continuing expansion. We may need to deliver some freedom to your people.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_GREETING_FRIENDLY_STRONG_MILITARY_1">
+			<Text>We are proud to have an ally with so many soldiers.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_GREETING_FRIENDLY_STRONG_ECONOMY_1">
+			<Text>Your empire is famous for its strong economy. Perhaps you'd like to invest in some breweries?</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_GREETING_HOSTILE_HUMAN_FEW_CITIES_1">
+			<Text>Cities are so mainstream, I'm glad you forgot to build them.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_GREETING_HOSTILE_HUMAN_SMALL_ARMY_1">
+			<Text>I think you forgot to build an army.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_GREETING_HOSTILE_HUMAN_IS_WARMONGER_1">
+			<Text>We will have no business with likes of you.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_TOO_SOON_FOR_DOF_1">
+			<Text>Sorry, no. Let me finish my decaf double latte and get back to you.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_DENOUNCE_1">
+			<Text>You just got put on the tyrant's list. [NEWLINE][NEWLINE]([COLOR_WARNING_TEXT]They have publicly denounced us! NOTE: You are not at war.[ENDCOLOR])</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_DENOUNCE_2">
+			<Text>I announce the world that you are a vicious tyrant. Don't tell me you didn't see this coming.[NEWLINE][NEWLINE]([COLOR_WARNING_TEXT]They have publicly denounced us! NOTE: You are not at war.[ENDCOLOR])</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_RESPONSE_TO_BEING_DENOUNCED_1">
+			<Text>I have always been polite, and I deserve nothing of this sort.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_HUMAN_DOFED_FRIEND_1">
+			<Text>I am pleased to hear of your friendship with {1_CivName}, as they are great friends of mine.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_HUMAN_DOFED_ENEMY_1">
+			<Text>Getting too close to {1_CivName} will severely damage our diplomatic relations, for you to know.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_HUMAN_DENOUNCED_FRIEND_1">
+			<Text>I strongly urge you to reconsider your position with {1_CivName}. They have been staunch supporters of all people.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_HUMAN_DENOUNCED_ENEMY_1">
+			<Text>I agree with you that {1_CivName} is not to be trusted.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_HUMAN_DOF_SO_AI_DOF_1">
+			<Text>We noticed your alliance with {1_CivName}, and Oregon is not afraid to follow you to this alliance.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_HUMAN_DOF_SO_AI_DENOUNCE_1">
+			<Text>Oh great, now the vermin are breeding. Now I have to deal with both you and {1_CivName}?</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_HUMAN_DENOUNCE_SO_AI_DENOUNCE_1">
+			<Text>I share your convictions that {1_CivName} only causes problems for our cause. Perhaps the combination of our denouncements will have them rethink their actions.</Text>
+		</Row>
+		<!-- General Diplo Text -->
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_DEC_FRIENDSHIP_1">
+			<Text>Our best interests would be making a declaration of friendship between our two countries.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_DEC_FRIENDSHIP_2">
+			<Text>Great leader, would your nation like to make a declaration of friendship with Oregon?</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_AGGRESSIVE_MILITARY_WARNING_1">
+			<Text>Oregon will not tolerate your military build-up at its most sacred borders.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_PLOT_BUYING_WARNING_1">
+			<Text>I am concerned about your growing expansion, and must warn you against it.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_PLOT_BUYING_SERIOUS_WARNING_1">
+			<Text>Your continuing expansion is endangering liberty. For you to know, it will eventually cause your downfall.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_EXPANSION_SERIOUS_WARNING_1">
+			<Text>Your continuing expansion is endangering freedom. For you to know, it will eventually cause your downfall.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_EXPANSION_WARNING">
+			<Text>I am concerned about your growing expansion, and must warn you against it.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_RETURNED_CIVILIAN_1">
+			<Text>I will never forget your merciful actions towards our civilians.</Text>
+		</Row>
+		<!--Public Declarations-->
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_DECLARATION_PROTECT_CITY_STATE_1">
+			<Text>{2_MajorCivName:textkey} announces to the world that it is now protecting {1_MinorCivName:textkey}. Attacking the City-State will greatly damage relations and may lead to war.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_DECLARATION_ABANDON_CITY_STATE_1">
+			<Text>{2_MajorCivName:textkey} has taken back its guarantee of protecting {1_MinorCivName:textkey}.</Text>
+		</Row>
+		<!-- Human is asking the AI for something -->
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_DONT_SETTLE_NO_1">
+			<Text>Oregon respectfully declines to oblige your concerns.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_DONT_SETTLE_YES_1">
+			<Text>I understand your concerns. I will see to it that this case will be settled in the Congress.</Text>
+		</Row>
+		<!--Deal Offers and related-->
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_LUXURY_TRADE_1">
+			<Text>How about this? We will bring joy to our people.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_OPEN_BORDERS_EXCHANGE_1">
+			<Text>As a sign of mutual respect, Oregon would be willing to open her borders if you are willing to do the same.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_RESPONSE_REQUEST_1">
+			<Text>Would you be willing to assist us in these dark times? I would be indebted to your great nation.</Text>
+		</Row>
+		<!--AI Attacked by Human - Strong and Weak also include the default response sets-->
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_ATTACKED_HOSTILE_1">
+			<Text>There will be war, but you shall not see our nation succumbed. We will battle to the death for the cause of freedom!</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_ATTACKED_EXCITED_1">
+			<Text>Very well. Our forces will overwhlem you.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_ATTACKED_SAD_1">
+			<Text>Oregon shall never surrender.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_ATTACKED_BETRAYED_1">
+			<Text>John Whiteaker does not forget betrayal. This will eventually lead to your downfall.</Text>
+		</Row>
+		<!--AI Responses to a human peace offer-->
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_TOO_SOON_NO_PEACE_1">
+			<Text>Oregon seeks justice, not peace.</Text>
+		</Row>
+		<!--AI Responses to a discussion mode topics-->
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_BAD_1">
+			<Text>This is quite disappointing to hear.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_LEADER_WHITEAKER_GOOD_1">
+			<Text>You have our thanks.</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

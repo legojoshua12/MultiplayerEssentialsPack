@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameData>
+	<Language_en_US>
+		<Row Tag="TXT_KEY_BUILDING_3UC_DOJO">
+			<Text>Dojo</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3UC_DOJO_HELP">
+			<Text>Units trained in a city with a Dojo begin with extra experience. 30 XP for all Land units. Only Japan may build it.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3UC_DOJO_STRATEGY">
+			<Text>The Dojo is the Japanese unique building that improves all military units trained in this city. Unlike the Barracks it replaces, the Dojo provides bonus experience to all military land units constructed in its city and increases the city's [ICON_CULTURE] Culture. </Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3UC_DOJO_TEXT">
+			<Text>A dojo is a Japanese term which literally means "place of the way". Initially, dojos were adjunct to temples. The term can refer to a formal training place for any of the Japanese do arts but typically it is considered the formal gathering place for students of any Japanese martial arts style to conduct training, examinations and other related encounters.</Text>
+		</Row>
+		<Update>
+			<Where Tag="TXT_KEY_BUILDING_ARMORY_HELP"/>
+			<Set Text="+15 XP for all Units.[NEWLINE][NEWLINE]City must have a Barracks, Krepost, Dojo or Viking Longhouse."/>
+		</Update>
+	</Language_en_US>
+
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>DOJO_ICON_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>Dojo_Icon256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>DOJO_ICON_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>Dojo_Icon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+
+		<Row>
+			<Atlas>DOJO_ICON_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>Dojo_Icon064.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>DOJO_ICON_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>Dojo_Icon045.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 3/9/2014 3:37:50 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>UNITS_SWISS_GUARD_ICON_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>SwissGuardIcon256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>UNITS_SWISS_GUARD_ICON_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>SwissGuardIcon128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>UNITS_SWISS_GUARD_ICON_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>SwissGuardIcon80.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>UNITS_SWISS_GUARD_ICON_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>SwissGuardIcon64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>UNITS_SWISS_GUARD_ICON_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>SwissGuardIcon45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>UNITS_SWISS_GUARD_FLAG_ATLAS</Atlas>
+			<IconSize>32</IconSize>
+			<Filename>SV_Swiss_Guard.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

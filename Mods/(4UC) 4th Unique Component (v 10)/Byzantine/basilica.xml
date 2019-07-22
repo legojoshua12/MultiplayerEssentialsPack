@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 3/6/2015 5:16:11 PM -->
+<GameData>
+	<Language_en_US>
+		<Row Tag="TXT_KEY_BUILDING_4UC_BASILICA">
+			<Text>Basilica</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_4UC_BASILICA_TEXT">
+			<Text>
+				The Early Christian purpose-built basilica was the cathedral basilica of the bishop, on the model of the semi-public secular basilicas, and its growth in size and importance signalled the gradual transfer of civic power into episcopal hands, which was under way in the 5th century. Basilicas in this sense are divided into classes, the major ("greater") basilicas and the minor basilicas; there are three other papal and several pontifical minor basilicas in Italy, and over 1,400 lesser basilicas around the world.[NEWLINE][NEWLINE]Prime examples of early Byzantine architecture date from Justinian I's reign and survive in Ravenna and Istanbul, as well as in Sofia (the Church of St Sophia). One of the great breakthroughs in the history of Western architecture occurred when Justinian's architects invented a complex system providing for a smooth transition from a square plan of the church to a circular dome by means of pendentives.
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_4UC_BASILICA_STRATEGY">
+			<Text>The Basilica is a Byzantine unique building that boosts a city's [ICON_PEACE] Faith, moreso than the Temple it replaces.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_4UC_BASILICA_HELP">
+			<Text>Greatly boosts a city's [ICON_PEACE] Faith.</Text>
+		</Row>
+	</Language_en_US>
+
+
+
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>3BASILICA_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>3basilica256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>3BASILICA_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>3basilica128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>3BASILICA_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>3basilica64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>3BASILICA_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>3basilica45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mod id="47c48eeb-3930-428f-ac45-ab8acddb2764" version="3">
+  <Properties>
+    <Name>Colored Religions</Name>
+    <Teaser>A quick coloring of the icons.</Teaser>
+    <Description>A quick coloring of the icons.
+
+Note! Scenario religions are not supported.</Description>
+    <Authors>Toft</Authors>
+    <HideSetupGame>0</HideSetupGame>
+    <AffectsSavedGames>0</AffectsSavedGames>
+    <SupportsSinglePlayer>1</SupportsSinglePlayer>
+    <SupportsMultiplayer>1</SupportsMultiplayer>
+    <SupportsHotSeat>1</SupportsHotSeat>
+    <SupportsMac>1</SupportsMac>
+    <ReloadLandmarkSystem>0</ReloadLandmarkSystem>
+    <ReloadStrategicViewSystem>0</ReloadStrategicViewSystem>
+    <ReloadUnitSystem>0</ReloadUnitSystem>
+  </Properties>
+  <Dependencies />
+  <References />
+  <Blocks />
+  <Files>
+    <File md5="8944A4E4DC5BBD9C48DF3409F930BAB1" import="1">religioussymbolswhite128_expansion.dds</File>
+    <File md5="808B7CD365CB5456C4F668BE45967479" import="1">religioussymbolswhite16_expansion.dds</File>
+    <File md5="758AEBF67AA7CA35B502A1A84ACCADBD" import="1">religioussymbolswhite24_expansion.dds</File>
+    <File md5="CD417BE6A2331714C891F5C0EF152E7A" import="1">religioussymbolswhite32_expansion.dds</File>
+    <File md5="834F8478AD42DE5D60CF80FE59AB318B" import="1">religioussymbolswhite48_expansion.dds</File>
+    <File md5="A28A9D16D324BD5732C2F51B9837E609" import="1">religioussymbolswhite64_expansion.dds</File>
+    <File md5="5E950530EAC49816621217FA17578854" import="1">religioussymbolswhite80_expansion.dds</File>
+  </Files>
+</Mod>

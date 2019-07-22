@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 7/29/2013 3:11:18 AM -->
+<GameData>
+	<Language_en_US>
+		<Row Tag="TXT_KEY_BUILDING_3UC_HAMAM">
+			<Text>Hamam</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3UC_HAMAM_HELP">
+			<Text>Increases [ICON_HAPPINESS_1] Happiness and [ICON_GREAT_PEOPLE] Great People. Only the Ottomans may build it.</Text>
+		</Row>		
+		<Row Tag="TXT_KEY_BUILDING_3UC_HAMAM_STRATEGY">
+			<Text>The Hamam is an Ottoman unique building that increases [ICON_GREAT_PEOPLE] Great People generation in a City. Unlike the Garden it replaces, it increases the [ICON_HAPPINESS_1] Happiness of the city by 3. Requires access to Fresh Water.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3UC_HAMAM_TEXT">
+			<Text>A Turkish bath (Turkish: Hamam) is the Turkish variant of a steam bath, sauna or Russian Bath, distinguished by a focus on water, as distinct from ambient steam.[NEWLINE][NEWLINE]The hamam combines the functionality and the structural elements of its predecessors in Anatolia, the Roman thermae and Eastern Roman baths, with the central Asian Turkish tradition of steam bathing, ritual cleansing and respect of water.[NEWLINE][NEWLINE]After the Ottomans took over the Eastern Roman Empire, their hamams were originally structures annexed to mosques. However, they quickly evolved into institutions unto themselves and eventually, with the works of the Ottoman architect Sinan, into monumental structural complexes, the finest example being the "Çemberlitas Hamami" in Istanbul, built in 1584.</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

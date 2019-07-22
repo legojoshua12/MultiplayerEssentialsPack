@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Civ5Package>
+  <GUID>{B5932AE4-0F4F-498F-9333-E2D31B20E095}</GUID>
+	<SteamApp>235580</SteamApp>
+  <Version>1</Version>
+  <Priority>350</Priority>
+  <Key>bf6d34a0074b7ad4b1d1716475f7f7fe</Key>
+  <PTags>
+	   <Tag>Version</Tag>
+  </PTags>
+  <Name>
+	   <Value language="en_US">Expansion - Multiplayer Essentials Pack</Value>
+  </Name>
+  <Description>
+	   <Value language="en_US">Expansion - Multiplayer Essentials Pack</Value>
+  </Description>
+  <!-- Expansion UI Override -->
+  <UISkin name="Expansion2Primary" set="Expansion2" platform="Common">
+    <Skin>
+      <File>Civ5XP3_Opening_Movie_en_US.mov</File>
+      <Directory>UI/Art</Directory>
+      <Directory>UI/Civilopedia</Directory>
+      <Directory>UI/Fonts</Directory>
+      <Directory>UI/Frontend</Directory>
+      <Directory>UI/Options</Directory>
+      <File>UI/InGame/Menus/GameMenu.*</File>
+      <Style>UI/Styles_Expansion2.xml</Style>
+      <Paks>
+        <File>Expansion3UITextures.fpk</File>
+      </Paks>
+    </Skin>
+	  <GameplaySkin>
+      <File>Civ5XP3_Opening_Movie_en_US.mov</File>
+      <Directory>Enhanced_UI</Directory>
+  	  <Directory>Mods</Directory>
+      <Directory>Override</Directory>
+      <Directory>UI_MainMenuChange</Directory>
+      <Directory>UI_Texture_Overrides</Directory>
+      <File>Great Spy UI.xml</File>
+      <File>Great Spy UI.lua</File>
+      <!-- GameplaySkin overrides -->
+      <Style>UI/Styles_Expansion2.xml</Style>
+      <Directory>UI/InGame</Directory>
+      <Directory>UI/TechTree</Directory>
+      <Paks>
+        <File>Expansion3UITextures.fpk</File>
+      </Paks>
+	  </GameplaySkin>
+  </UISkin>
+  <!-- Expansion Tablet Override -->
+  <UISkin name="Expansion2Primary" set="Expansion2" platform="Tablet">
+    <Skin>
+      <File>Civ5XP3_Opening_Movie_en_US.mov</File>
+      <!--<Directory>UI_Tablet/InGame</Directory>-->
+      <File>UI_Tablet/Styles_Expansion2_Tablet.xml</File>
+      <File>UI_Tablet/NumberPad.*</File>
+      <Style>UI_Tablet/Styles_Expansion2_Tablet.xml</Style>
+      <Paks>
+        <File/>
+      </Paks>
+    </Skin>
+    <GameplaySkin>
+      <File>Civ5XP3_Opening_Movie_en_US.mov</File>
+      <Directory>UI_Tablet/InGame</Directory>
+      <Style>UI_Tablet/Styles_Expansion2_Tablet.xml</Style>
+    </GameplaySkin>
+  </UISkin>
+</Civ5Package>

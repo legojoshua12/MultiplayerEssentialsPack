@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 7/14/2013 3:04:10 PM -->
+<GameData>
+	<Features>
+		<Update>
+			<Where Type="FEATURE_LAKE_VICTORIA"/>
+			<Set AddsFreshWater="true" SeeThrough="0"/>
+		</Update>
+	</Features>
+	<Building_FeatureYieldChanges>
+		<Row>
+			<BuildingType>BUILDING_FLOATING_GARDENS</BuildingType>
+			<FeatureType>FEATURE_LAKE_VICTORIA</FeatureType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>2</Yield>
+		</Row>
+	</Building_FeatureYieldChanges>
+</GameData>

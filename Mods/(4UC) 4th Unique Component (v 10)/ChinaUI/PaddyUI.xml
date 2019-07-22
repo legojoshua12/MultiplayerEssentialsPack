@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 1/16/2015 7:57:59 PM -->
+<GameData>
+	<Improvements>
+		<Row>
+			<Type>IMPROVEMENT_PADDY_UI</Type>
+			<Description>TXT_KEY_IMPROVEMENT_PADDY_UI</Description>
+			<Civilopedia>TXT_KEY_IMPROVEMENT_PADDY_UI_TEXT</Civilopedia>
+			<Help>TXT_KEY_IMPROVEMENT_PADDY_UI_HELP</Help>
+			<ArtDefineTag>ART_DEF_IMPROVEMENT_TERRACE_FARM</ArtDefineTag>
+			<SpecificCivRequired>true</SpecificCivRequired>
+			<HillsMakesValid>true</HillsMakesValid>
+			<CivilizationType>CIVILIZATION_CHINA</CivilizationType>
+			<PillageGold>18</PillageGold>
+			<PortraitIndex>0</PortraitIndex>
+			<IconAtlas>DLC02_TERRAIN_ATLAS</IconAtlas>
+		</Row>
+	</Improvements>
+
+	<Improvement_ValidTerrains>
+		<Row>
+			<ImprovementType>IMPROVEMENT_PADDY_UI</ImprovementType>
+			<TerrainType>TERRAIN_HILL</TerrainType>
+		</Row>
+	</Improvement_ValidTerrains>
+
+
+	<Improvement_TechFreshWaterYieldChanges>
+		<Row>
+			<ImprovementType>IMPROVEMENT_PADDY_UI</ImprovementType>
+			<TechType>TECH_CIVIL_SERVICE</TechType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<ImprovementType>IMPROVEMENT_PADDY_UI</ImprovementType>
+			<TechType>TECH_CONSTRUCTION</TechType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>2</Yield>
+		</Row>
+	</Improvement_TechFreshWaterYieldChanges>
+	
+	<Improvement_Yields>
+		<Row>
+			<ImprovementType>IMPROVEMENT_PADDY_UI</ImprovementType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+	</Improvement_Yields>
+
+	<Improvement_TechNoFreshWaterYieldChanges>
+		<Row>
+			<ImprovementType>IMPROVEMENT_PADDY_UI</ImprovementType>
+			<TechType>TECH_FERTILIZER</TechType>
+			<YieldType>YIELD_FOOD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+	</Improvement_TechNoFreshWaterYieldChanges>
+	
+		<IconTextureAtlases>
+			<Row>
+				<Atlas>DLC02_TERRAIN_ATLAS</Atlas>
+				<IconSize>256</IconSize>
+				<Filename>TerrainIcons256_DLC_02.dds</Filename>
+				<IconsPerRow>1</IconsPerRow>
+				<IconsPerColumn>1</IconsPerColumn>
+			</Row>
+			<Row>
+				<Atlas>DLC02_TERRAIN_ATLAS</Atlas>
+				<IconSize>64</IconSize>
+				<Filename>TerrainIcons64_DLC_02.dds</Filename>
+				<IconsPerRow>1</IconsPerRow>
+				<IconsPerColumn>1</IconsPerColumn>
+			</Row>
+	</IconTextureAtlases>
+
+	<Builds>
+		<Row>
+			<Type>BUILD_PADDY_UI</Type>
+			<PrereqTech>TECH_CONSTRUCTION</PrereqTech>
+			<Time>700</Time>
+			<ImprovementType>IMPROVEMENT_PADDY_UI</ImprovementType>
+			<Description>TXT_KEY_BUILD_PADDY_UI</Description>
+			<Recommendation>TXT_KEY_BUILD_FOOD_REC</Recommendation>
+			<EntityEvent>ENTITY_EVENT_IRRIGATE</EntityEvent>
+			<HotKey>KB_E</HotKey>
+			<OrderPriority>99</OrderPriority>
+			<IconIndex>0</IconIndex>
+			<IconAtlas>UNIT_ACTION_DLC02_ATLAS</IconAtlas>
+		</Row>
+	</Builds>
+	<BuildFeatures>
+		<Row>
+			<BuildType>BUILD_PADDY_UI</BuildType>
+			<FeatureType>FEATURE_JUNGLE</FeatureType>
+			<PrereqTech>TECH_BRONZE_WORKING</PrereqTech>
+			<Time>700</Time>
+			<Production>15</Production>
+			<Remove>true</Remove>
+		</Row>
+		<Row>
+			<BuildType>BUILD_PADDY_UI</BuildType>
+			<FeatureType>FEATURE_FOREST</FeatureType>
+			<PrereqTech>TECH_MINING</PrereqTech>
+			<Time>400</Time>
+			<Production>20</Production>
+			<Remove>true</Remove>
+		</Row>
+	</BuildFeatures>
+
+	<Unit_Builds>
+		<Row>
+			<UnitType>UNIT_WORKER</UnitType>
+			<BuildType>BUILD_PADDY_UI</BuildType>
+		</Row>
+	</Unit_Builds>
+
+
+	<Language_en_US>
+		<Row Tag="TXT_KEY_IMPROVEMENT_PADDY_UI">
+			<Text>Rice Terrace</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILD_PADDY_UI">
+			<Text>Construct a Rice Terrace</Text>
+		</Row>
+		<Row Tag="TXT_KEY_IMPROVEMENT_PADDY_UI_TEXT">
+			<Text>
+				In agriculture, a terrace is a piece of sloped plane that has been cut into a series of successively receding flat surfaces or platforms, which resemble steps, for the purposes of more effective farming. This type of landscaping, therefore, is called terracing. Graduated terrace steps are commonly used to farm on hilly or mountainous terrain. Terraced fields both decrease erosion and surface runoff, and may be used to support growing crops that require irrigation, such as rice.[NEWLINE][NEWLINE]Paddy fields are the typical feature of rice farming in east, south and southeast Asia. Paddies can be built into steep hillsides as terraces and adjacent to depressed or steeply sloped features such as rivers or marshes. They can require a great deal of labor and materials to create, and need large quantities of water for irrigation. Oxen and water buffalo, adapted for life in wetlands, are important working animals used extensively in paddy field farming. Among the most famous rice paddy terrace farms are those in Longsheng County, where terraced fields are built along the slope winding from the riverside up to the mountain top, between 600 m to 800 m above sea level. A coiling terrace line that starts from the mountain foot up to the mountain top divides the mountain into layers of water in spring, layers of green rice shoots in summer, layers of rice in fall, and layers of frost in winter. The terraced fields were mostly built about 650 years ago.
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_IMPROVEMENT_PADDY_UI_HELP">
+			<Text>
+				A Rice Terrace can be built on any Hill tile. Yields 1 [ICON_FOOD] Food, and additional 1 [ICON_FOOD] Food after researching Fertilizer. If the hill tile has access to fresh water, it yields 3 [ICON_FOOD] Food and another 1 [ICON_FOOD] Food after researching Civil Service.
+			</Text>
+		</Row>
+	</Language_en_US>
+
+
+	<Civilization_Start_Region_Priority>
+		<Row>
+			<CivilizationType>CIVILIZATION_CHINA</CivilizationType>
+			<RegionType>REGION_HILLS</RegionType>
+		</Row>
+	</Civilization_Start_Region_Priority>
+	</GameData>

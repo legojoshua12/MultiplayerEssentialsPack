@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mod id="75fb3347-2487-4b51-95e0-4275ffd38875" version="3">
+  <Properties>
+    <Name>Oregon State</Name>
+    <Stability>Beta</Stability>
+    <Teaser>Adds the state of [COLOR_POSITIVE_TEXT]Oregon[ENDCOLOR]</Teaser>
+    <Description>Adds the state of Oregonas a playable civ.
+
+Leader: John Whiteaker
+
+UU: Pioneer (Settler replacement): withdraws before melee and has a light ranged attack. Upgrades available as you move through eras.
+
+UB: Microbrewery: Market replacement, adds +1 Culture and +2 Happiness.
+
+Note: The AI will not play this well, it gets confused by civilian unots with combat abilities.
+
+Settler model by Wolfdog
+
+Supports JFDs Cultural Diversity, JFDs Piety and Prestige, Civ IV Leader Traits in Civ V, and Sukritact's Events and Decisions, YnAEMPv23 (Americas, Huge, Giant)
+
+Decisions: Hire cavalry (must be at war), enact Environmentalism (culture bonus from Lumber Mills and Fishing Boats)</Description>
+    <Authors>calcul8or</Authors>
+    <HideSetupGame>0</HideSetupGame>
+    <AffectsSavedGames>1</AffectsSavedGames>
+    <MinCompatibleSaveVersion>0</MinCompatibleSaveVersion>
+    <SupportsSinglePlayer>1</SupportsSinglePlayer>
+    <SupportsMultiplayer>1</SupportsMultiplayer>
+    <SupportsHotSeat>1</SupportsHotSeat>
+    <SupportsMac>1</SupportsMac>
+    <ReloadAudioSystem>1</ReloadAudioSystem>
+    <ReloadLandmarkSystem>0</ReloadLandmarkSystem>
+    <ReloadStrategicViewSystem>1</ReloadStrategicViewSystem>
+    <ReloadUnitSystem>1</ReloadUnitSystem>
+  </Properties>
+  <Dependencies>
+    <Dlc id="6DA07636-4123-4018-B643-6575B4EC336B" minversion="0" maxversion="999" />
+    <Dlc id="0E3751A1-F840-4e1b-9706-519BF484E59D" minversion="0" maxversion="999" />
+  </Dependencies>
+  <References>
+    <Mod id="eea66053-7579-481a-bb8d-2f3959b59974" minversion="0" maxversion="999" title="JFD's Piety and Prestige" />
+    <Mod id="1153b26a-69fd-4cd5-899c-a8ba8e0e5e5d" minversion="0" maxversion="999" title="Civ IV Leader Traits in Civ V" />
+    <Mod id="31a31d1c-b9d7-45e1-842c-23232d66cd47" minversion="0" maxversion="999" title="JFD's Cultural Diversity (Core)" />
+    <Mod id="1f941088-b185-4159-865c-472df81247b2" minversion="0" maxversion="999" title="Events and Decisions" />
+    <Mod id="36e88483-48fe-4545-b85f-bafc50dde315" minversion="0" maxversion="999" title="Yet (not) Another Earth Maps Pack" />
+    <Mod id="10e9728f-d61c-4317-be4f-7d52d6bae6f4" minversion="0" maxversion="999" title="JFDs Cities in Development" />
+    <Mod id="a19351c5-c0b3-4b07-8695-4affaa199949" minversion="0" maxversion="999" title="JFDs and Pouakai's Mercenaries" />
+    <Mod id="eea66053-7579-481a-bb8d-2f3959b59974" minversion="0" maxversion="999" title="JFDs RISE TO POWER" />
+  </References>
+  <Blocks />
+  <Files>
+    <File md5="157F3094917A932D31CD7CE4E63B7097" import="1">Art/Atlas/OR_IconAtlas128.dds</File>
+    <File md5="55DB99E70CDCAF9EED6B14983982005F" import="1">Art/Atlas/OR_IconAtlas16.dds</File>
+    <File md5="9FB88BAD264A187A976918B6B71E34E7" import="1">Art/Atlas/OR_IconAtlas24.dds</File>
+    <File md5="4E88D21E6C149F854C1142D2D65DCABB" import="1">Art/Atlas/OR_IconAtlas256.dds</File>
+    <File md5="E79D83B7C1D1BBCCF5DF13175131F63C" import="1">Art/Atlas/OR_IconAtlas32.dds</File>
+    <File md5="4FD443173532BD3AA3581C2ECA94F56F" import="1">Art/Atlas/OR_IconAtlas45.dds</File>
+    <File md5="AE6CA89265E29CDC89C66F7B007CE058" import="1">Art/Atlas/OR_IconAtlas48.dds</File>
+    <File md5="71B4113C192DBE6ACDF273D368B0B037" import="1">Art/Atlas/OR_IconAtlas64.dds</File>
+    <File md5="A2F74CD9EE9C564E2D2352F1CE0B9984" import="1">Art/Atlas/OR_IconAtlas80.dds</File>
+    <File md5="C479F55D19F05A44EF24BAD920EB7AA5" import="1">Art/OR_DOM2.dds</File>
+    <File md5="547997F8A5B3CFEBB122AA6DAC74CB6B" import="1">Art/OR_map.dds</File>
+    <File md5="052B0C600702E735874FEB970C9C4A84" import="1">Art/OR_scene2.dds</File>
+    <File md5="3E6A79101D3A974490706A3452F984A2" import="1">Art/Sounds/BeethovenAllegretto.mp3</File>
+    <File md5="D21AFCE4938B87E3F52A8C4A5FB0B7C3" import="1">Art/Sounds/PraetoriusVolte.mp3</File>
+    <File md5="228A790EF99CF8E50131FE150D6A09CA" import="1">Art/SV_ORsettler.dds</File>
+    <File md5="B7E01EC9C9C0D4948B7CFCACC35CBB35" import="0">Art/UnitArt/SettlerDefine.sql</File>
+    <File md5="20F0D549285F5924581C0D4E98B8C0BD" import="1">Art/UnitArt/SupplyTrain.fxsxml</File>
+    <File md5="9DFF7A25F30F397DFC89866F4C2BE692" import="1">Art/UnitArt/SupplyTrain.gr2</File>
+    <File md5="4B2EA890A283E9DC4D35B02BFC646EA3" import="1">Art/UnitArt/SupplyTrain_diff.dds</File>
+    <File md5="22E8D902B51E2105EB22B2353B3B6EF1" import="1">Art/UnitArt/SupplyTrain_sref.dds</File>
+    <File md5="BC8E87127199BE2336472D14E590AEF4" import="0">Core/Diplomacy.sql</File>
+    <File md5="11E2A201418F9C48C75939F338A8CEBF" import="0">Core/DiploReplies.xml</File>
+    <File md5="C2D767CD4D7ADBBD32AE5296A83B72C3" import="0">Core/OR_Sound.xml</File>
+    <File md5="86F08F613B799B111EA8894F79F48CE4" import="0">Core/Microbrewery.xml</File>
+    <File md5="CFCBF9AD3ED1EA1BE408D95AA48C2D09" import="0">Core/NewSettler.sql</File>
+    <File md5="3E52C0A0746473DEC57705E4A847DF11" import="0">Core/OR_Settler.xml</File>
+    <File md5="2EAD224E2D94F371C2746C028CE5B10C" import="0">Core/OR_Civilization.xml</File>
+    <File md5="7BEFF247842DE4F3B8E0680B565AC4AA" import="0">Core/OR_IconAtlas.xml</File>
+    <File md5="62DA91181961A987EB50DEC8316DC362" import="0">Core/OR_Leader.xml</File>
+    <File md5="98B123EC1CD565A2F96CCEC2C0EF5E9D" import="1">Core/OR_scene2.xml</File>
+    <File md5="FBA4B7876E3F4EBC3F87FF775A82474B" import="0">Core/OR_Trait.xml</File>
+    <File md5="2CEC10C18174CA6050EA4961BDE75987" import="0">Lua/NewCityWorker.lua</File>
+    <File md5="6A17388CEC3DC6B90B49CCEDFD556915" import="1">Support/EDSupport.lua</File>
+    <File md5="648797ACD7D83CC2501F01191A0FBE7D" import="0">Support/EDSupport.sql</File>
+    <File md5="FD0F76E705897ECEAD39A5B5AD94182F" import="0">Support/EDText.xml</File>
+    <File md5="A9D520962B6CB5A1F93085ED23803C66" import="0">Support/OR_ModSupport.sql</File>
+  </Files>
+  <Actions>
+    <OnModActivated>
+      <UpdateDatabase>Core/OR_Civilization.xml</UpdateDatabase>
+      <UpdateDatabase>Core/OR_Leader.xml</UpdateDatabase>
+      <UpdateDatabase>Core/OR_Trait.xml</UpdateDatabase>
+      <UpdateDatabase>Core/OR_Sound.xml</UpdateDatabase>
+      <UpdateDatabase>Core/OR_Settler.xml</UpdateDatabase>
+      <UpdateDatabase>Core/NewSettler.sql</UpdateDatabase>
+      <UpdateDatabase>Core/OR_IconAtlas.xml</UpdateDatabase>
+      <UpdateDatabase>Core/Microbrewery.xml</UpdateDatabase>
+      <UpdateDatabase>Core/Diplomacy.sql</UpdateDatabase>
+      <UpdateDatabase>Core/DiploReplies.xml</UpdateDatabase>
+      <UpdateDatabase>Art/UnitArt/SettlerDefine.sql</UpdateDatabase>
+      <UpdateDatabase>Support/OR_ModSupport.sql</UpdateDatabase>
+      <UpdateDatabase>Support/EDSupport.sql</UpdateDatabase>
+      <UpdateDatabase>Support/EDText.xml</UpdateDatabase>
+    </OnModActivated>
+  </Actions>
+  <EntryPoints>
+    <EntryPoint type="InGameUIAddin" file="Lua/NewCityWorker.lua">
+      <Name>NewCityWorker</Name>
+      <Description>Adds a worker to a new city far from the capital</Description>
+    </EntryPoint>
+  </EntryPoints>
+</Mod>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 9/4/2013 4:49:16 PM -->
+<GameData>
+	<Language_en_US>
+		<Row Tag="TXT_KEY_BUILDING_3UC_WAYANG">
+			<Text>Wayang</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3UC_WAYANG_STRATEGY">
+			<Text>The Wayang is an Indonesian unique building. It increases a city's [ICON_CULTURE] Culture and has a Great Work of Literature slot. Unlike the Amphitheater it replaces, the Wayang increases the rate at which [ICON_GREAT_PEOPLE] Great Musicians are produced and costs no maintenance. City must have a Monument before building a Wayang. </Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3UC_WAYANG_HELP">
+			<Text>Increases a city's [ICON_CULTURE] Culture and has a Great Work of Literature slot. Increases the rate at which [ICON_GREAT_PEOPLE] Great Musicians are produced. Only Indonesia may build it.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3UC_WAYANG_TEXT">
+			<Text>
+				Wayang is a Javanese word meaning "shadow", and refers to a shadow puppet theater performance. Performances are accompanied by "gamelan" music, a traditional ensemble of Indonesian music made up predominantly of percussive instruments. [NEWLINE][NEWLINE]"Wayang kulit" is a unique form of theatre employing light and shadow. The puppets are crafted from buffalo hide ("kulit" means skin) and mounted on bamboo sticks. When held up behind a piece of white cloth, with an electric bulb or an oil lamp as the light source, shadows are cast on the screen. A dalang (master puppeteer) sits behind the screen and narrates the story, modulating his voice to create suspense, with a traditional orchestra in the background to provide a resonant melody and its conventional rhythm. Invariably, the play climaxes with the triumph of good over evil.
+			</Text>
+		</Row>
+	</Language_en_US>
+
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>WAYANG_ICON_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>wayang256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>WAYANG_ICON_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>wayang128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>WAYANG_ICON_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>wayang64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>WAYANG_ICON_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>wayang45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

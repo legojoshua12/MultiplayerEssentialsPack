@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mod id="ce23f3dc-06d8-4901-81d7-2ad9519d118e" version="1">
+  <Properties>
+    <Name>Seasnake's Social Policy Mod</Name>
+    <Teaser>A Mod to improve Honor, Piety and Exploration, and a few other SPs</Teaser>
+    <Description>A Mod to improve Honor, Piety and Exploration, and a few other SPs</Description>
+    <Authors>Seasnake</Authors>
+    <HideSetupGame>0</HideSetupGame>
+    <AffectsSavedGames>1</AffectsSavedGames>
+    <MinCompatibleSaveVersion>0</MinCompatibleSaveVersion>
+    <SupportsSinglePlayer>1</SupportsSinglePlayer>
+    <SupportsMultiplayer>1</SupportsMultiplayer>
+    <SupportsHotSeat>1</SupportsHotSeat>
+    <SupportsMac>1</SupportsMac>
+    <ReloadAudioSystem>1</ReloadAudioSystem>
+    <ReloadLandmarkSystem>1</ReloadLandmarkSystem>
+    <ReloadStrategicViewSystem>1</ReloadStrategicViewSystem>
+    <ReloadUnitSystem>1</ReloadUnitSystem>
+  </Properties>
+  <Dependencies />
+  <References />
+  <Blocks />
+  <Files>
+    <File md5="A59390783544093E74233E38177A0DD2" import="1">Commerce/Art/civ5_fremm1.fxsxml</File>
+    <File md5="909F3F86A67F31A929BE201DA1AD7880" import="1">Commerce/Art/civ5_fremm1.gr2</File>
+    <File md5="D73145CAD93C5E32EDEE84A2FE2DAAE7" import="1">Commerce/Art/civ5_fremm2.fxsxml</File>
+    <File md5="2817A1A4DD239E2C44D122092B6FD065" import="1">Commerce/Art/civ5_fremm2.gr2</File>
+    <File md5="1B1F5E8511754BA94C258F316A21B773" import="1">Commerce/Art/civ5_fremm3.fxsxml</File>
+    <File md5="FFED8EF246545F34D3E001AAE21E6A51" import="1">Commerce/Art/civ5_fremm3.gr2</File>
+    <File md5="07AB022ACB8C10A944D1013B8DB75711" import="1">Commerce/Art/fremm1.dds</File>
+    <File md5="4947CFACB4573339EB47C815939C0440" import="1">Commerce/Art/fremm1_sref.dds</File>
+    <File md5="A10F66C43618A6D92F7EFAD9722452BE" import="1">Commerce/Art/fremm2.dds</File>
+    <File md5="21E44229997690777759B502D033504D" import="1">Commerce/Art/fremm2_sref.dds</File>
+    <File md5="0454EBE54DBF16C9E800EF569AE44D3E" import="1">Commerce/Art/fremm3.dds</File>
+    <File md5="DCA13F960F06B8C30D894DE6D2ED20A0" import="1">Commerce/Art/fremm3_sref.dds</File>
+    <File md5="88662A6E2120F06F923393745ADD7383" import="1">Commerce/Art/SV_Swiss_Guard.dds</File>
+    <File md5="5DAC2EE843AFE9824B1760CB158953FE" import="1">Commerce/Art/SwissGuardIcon128.dds</File>
+    <File md5="EE4CC57E411D5F8918B8C532BC22D63D" import="1">Commerce/Art/SwissGuardIcon256.dds</File>
+    <File md5="E5D1063005487F78AC571B869552927B" import="1">Commerce/Art/SwissGuardIcon45.dds</File>
+    <File md5="E1C4CDC0110004ECB126991B87E2A3C3" import="1">Commerce/Art/SwissGuardIcon64.dds</File>
+    <File md5="133767B597BB62CB8278123E11C603EE" import="1">Commerce/Art/SwissGuardIcon80.dds</File>
+    <File md5="F750748FC4C869D2B34D0C72170B98DB" import="0">Commerce/GreatMerchants/MerchantVenice.xml</File>
+    <File md5="03BB7B475DA11C8AE3A3B8E9D3495188" import="0">Commerce/GreatMerchants/Promotions.xml</File>
+    <File md5="2BF649C76A1685527B9EC6BC56A3EB1D" import="0">Commerce/GreatMerchants/Promotion_Created.xml</File>
+    <File md5="F9566EE447781BE6DEBE91A45264CDAC" import="0">Commerce/GreatMerchants/ScalingMerchant.lua</File>
+    <File md5="E3AB73844886B35F4B78A604FA2D13D2" import="0">Commerce/GreatMerchants/SerialEventUnitCreatedGood.lua</File>
+    <File md5="19C3111B0EC675C1D971B7231815432B" import="0">Commerce/LUA/MercenaryArmyExpanded.lua</File>
+    <File md5="B28B48C27FCB4FB9D95A963FA5666B75" import="0">Commerce/XML/Promotions.xml</File>
+    <File md5="55F56CE11079B069284BB22BF645E647" import="0">Commerce/XML/Text.xml</File>
+    <File md5="A1DC5E7FF26CC1ADB686A920E1C773A7" import="0">Commerce/XML/UnitArtDefines.xml</File>
+    <File md5="4F016C85FE0CAE85C668069C019EAC6C" import="0">Commerce/XML/UnitClasses.xml</File>
+    <File md5="D010EE101254D54D1A469B774FC62243" import="0">Commerce/XML/UnitIconAtlases.xml</File>
+    <File md5="D0B79F9C91254C8D5FB4F21900D6D30B" import="0">Commerce/XML/Units.xml</File>
+    <File md5="C0CF45A5350BE6A844BE2A446704C885" import="0">Exploration/Exploration.xml</File>
+    <File md5="8F50BE5382AC419ABD763E1E0B88FEFD" import="0">Exploration/NavalTradition.xml</File>
+    <File md5="13014AD22CCCC5A409AF1539F59B0FB8" import="0">Exploration/AdmiralGA.xml</File>
+    <File md5="44500D33FC5206871F446BADE93DB233" import="0">Exploration/TreasureFleets.xml</File>
+    <File md5="50AE08962F427525FD041ABC5EABA607" import="0">Exploration/USTE.xml</File>
+    <File md5="3F3268DC8966B39EF145F2C3E7BCEF9D" import="0">Honor/Discipline.xml</File>
+    <File md5="039FE68C6C6DA083E7CD6C4BE2E051C2" import="0">Honor/MilitaryCaste.xml</File>
+    <File md5="451E75757FBF96A333C85A0A45FAAE31" import="0">Honor/MilitaryTradition.xml</File>
+    <File md5="87C8760B12715CEEABBD6E4005A64AC3" import="0">Honor/ProfessionalArmy.xml</File>
+    <File md5="D0E3ABF995526869195BCF87EE12477E" import="0">Liberty/LibertyTweak.xml</File>
+    <File md5="780AEE18A5BDE8386455D6CCF7C36D4D" import="0">Piety/FreeReligion.xml</File>
+    <File md5="DDD63299291A92B5C290085AF8961C51" import="0">Piety/MandateofHeaven.xml</File>
+    <File md5="6DAB4888BE51109302B515A53B816738" import="0">Piety/MissionaryInquisitorCost.xml</File>
+    <File md5="B81E18ED55DCEB4DD8BF8D75CFC33DD5" import="0">Piety/OrganizedReligion.xml</File>
+    <File md5="2D4C693D9D526F15443D521FD4DAAD2B" import="0">Piety/PietyFinisher.xml</File>
+    <File md5="802840AA6C91B4DE3B7C6AAE13D9CBE8" import="0">Piety/Reformation.xml</File>
+    <File md5="1D30D632302C8E83B578FF7AFE17F37D" import="0">Tradition/Oligarchy.xml</File>
+  </Files>
+  <Actions>
+    <OnModActivated>
+      <UpdateDatabase>Exploration/Exploration.xml</UpdateDatabase>
+      <UpdateDatabase>Exploration/NavalTradition.xml</UpdateDatabase>
+      <UpdateDatabase>Exploration/TreasureFleets.xml</UpdateDatabase>
+      <UpdateDatabase>Exploration/USTE.xml</UpdateDatabase>
+      <UpdateDatabase>Honor/Discipline.xml</UpdateDatabase>
+      <UpdateDatabase>Honor/MilitaryCaste.xml</UpdateDatabase>
+      <UpdateDatabase>Honor/MilitaryTradition.xml</UpdateDatabase>
+      <UpdateDatabase>Honor/ProfessionalArmy.xml</UpdateDatabase>
+      <UpdateDatabase>Piety/FreeReligion.xml</UpdateDatabase>
+      <UpdateDatabase>Piety/MandateofHeaven.xml</UpdateDatabase>
+      <UpdateDatabase>Piety/MissionaryInquisitorCost.xml</UpdateDatabase>
+      <UpdateDatabase>Piety/OrganizedReligion.xml</UpdateDatabase>
+      <UpdateDatabase>Piety/PietyFinisher.xml</UpdateDatabase>
+      <UpdateDatabase>Piety/Reformation.xml</UpdateDatabase>
+      <UpdateDatabase>Tradition/Oligarchy.xml</UpdateDatabase>
+      <UpdateDatabase>Exploration/AdmiralGA.xml</UpdateDatabase>
+      <UpdateDatabase>Commerce/XML/Promotions.xml</UpdateDatabase>
+      <UpdateDatabase>Commerce/XML/Text.xml</UpdateDatabase>
+      <UpdateDatabase>Commerce/XML/UnitArtDefines.xml</UpdateDatabase>
+      <UpdateDatabase>Commerce/XML/UnitClasses.xml</UpdateDatabase>
+      <UpdateDatabase>Commerce/XML/UnitIconAtlases.xml</UpdateDatabase>
+      <UpdateDatabase>Commerce/XML/Units.xml</UpdateDatabase>
+      <UpdateDatabase>Liberty/LibertyTweak.xml</UpdateDatabase>
+      <UpdateDatabase>Commerce/GreatMerchants/MerchantVenice.xml</UpdateDatabase>
+      <UpdateDatabase>Commerce/GreatMerchants/Promotion_Created.xml</UpdateDatabase>
+      <UpdateDatabase>Commerce/GreatMerchants/Promotions.xml</UpdateDatabase>
+    </OnModActivated>
+  </Actions>
+  <EntryPoints>
+    <EntryPoint type="InGameUIAddin" file="Commerce/LUA/MercenaryArmyExpanded.lua">
+      <Name>MercenaryArmy</Name>
+      <Description>AercenaryArmy</Description>
+    </EntryPoint>
+    <EntryPoint type="InGameUIAddin" file="Commerce/GreatMerchants/SerialEventUnitCreatedGood.lua">
+      <Name>SerialEvent</Name>
+      <Description>SerialEvent</Description>
+    </EntryPoint>
+    <EntryPoint type="InGameUIAddin" file="Commerce/GreatMerchants/ScalingMerchant.lua">
+      <Name>ScalingMerchant</Name>
+      <Description>ScalingMerchant</Description>
+    </EntryPoint>
+  </EntryPoints>
+</Mod>

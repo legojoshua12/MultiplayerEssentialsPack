@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 10/7/2010 4:14:44 PM -->
+<GameData>
+	<UnitClasses>
+		<Row>
+			<Type>UNITCLASS_AMBASSADOR</Type>
+			<Description>TXT_KEY_UNIT_AMBASSADOR</Description>
+			<DefaultUnit>UNIT_AMBASSADOR</DefaultUnit>
+			<MaxPlayerInstances>4</MaxPlayerInstances>
+		</Row>
+		<Row>
+			<Type>UNITCLASS_DIPLOMAT</Type>
+			<Description>TXT_KEY_UNIT_DIPLOMAT</Description>
+			<DefaultUnit>UNIT_DIPLOMAT</DefaultUnit>
+			<MaxPlayerInstances>3</MaxPlayerInstances>
+		</Row>
+		<Row>
+			<Type>UNITCLASS_ENVOY</Type>
+			<Description>TXT_KEY_UNIT_ENVOY</Description>
+			<DefaultUnit>UNIT_ENVOY</DefaultUnit>
+			<MaxPlayerInstances>2</MaxPlayerInstances>
+		</Row>
+		<Row>
+			<Type>UNITCLASS_MESSENGER</Type>
+			<Description>TXT_KEY_UNIT_MESSENGER</Description>
+			<DefaultUnit>UNIT_MESSENGER</DefaultUnit>
+			<MaxPlayerInstances>1</MaxPlayerInstances>
+		</Row>
+	</UnitClasses>
+	<UnitCombatInfos>
+		<Row>
+			<Type>UNITCOMBAT_DIPLOMACY</Type>
+			<Description>TXT_KEY_UNITCOMBAT_DIPLOMACY</Description>
+		</Row>
+	</UnitCombatInfos>
+</GameData>

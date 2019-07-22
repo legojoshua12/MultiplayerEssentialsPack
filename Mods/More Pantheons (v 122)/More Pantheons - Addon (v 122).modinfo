@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mod id="bc987abc-83bc-450a-991b-e28ae64e9c1a" version="122">
+  <Properties>
+    <Name>More Pantheons - Addon</Name>
+    <Teaser>Requires the "More Luxuries" Mod.  Adds a few more pantheon beliefs to the game and tweaks existing ones.</Teaser>
+    <Description>See this mod's Steam Workshop page.</Description>
+    <Authors>Barathor</Authors>
+    <HideSetupGame>0</HideSetupGame>
+    <AffectsSavedGames>1</AffectsSavedGames>
+    <MinCompatibleSaveVersion>0</MinCompatibleSaveVersion>
+    <SupportsSinglePlayer>1</SupportsSinglePlayer>
+    <SupportsMultiplayer>1</SupportsMultiplayer>
+    <SupportsHotSeat>1</SupportsHotSeat>
+    <SupportsMac>1</SupportsMac>
+    <ReloadAudioSystem>0</ReloadAudioSystem>
+    <ReloadLandmarkSystem>0</ReloadLandmarkSystem>
+    <ReloadStrategicViewSystem>0</ReloadStrategicViewSystem>
+    <ReloadUnitSystem>0</ReloadUnitSystem>
+  </Properties>
+  <Dependencies>
+    <Mod id="be2d13ee-d18d-410e-8f04-7cd19cd99a98" minversion="0" maxversion="999" title="More Luxuries" />
+  </Dependencies>
+  <References />
+  <Blocks />
+  <Files>
+    <File md5="1491292D6B1B36F3838C4E18FDE6090C" import="0">More_Pantheons_Addon.xml</File>
+    <File md5="E198F994FA6BB91AB091D1CADD1CE8F9" import="0">More_Pantheons_Addon_Text.xml</File>
+  </Files>
+  <Actions>
+    <OnModActivated>
+      <UpdateDatabase>More_Pantheons_Addon.xml</UpdateDatabase>
+      <UpdateDatabase>More_Pantheons_Addon_Text.xml</UpdateDatabase>
+    </OnModActivated>
+  </Actions>
+</Mod>

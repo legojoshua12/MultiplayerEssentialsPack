@@ -1,0 +1,602 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mod id="9c922650-8174-4495-903e-9ed9d01e67cf" version="10">
+  <Properties>
+    <Name>(4UC) 4th Unique Component</Name>
+    <Teaser>Gives all civilizations a 4th unique component</Teaser>
+    <Description>The 4th Unique Component Project is a mod that gives every civilization a 4th unique unit, building, or improvement.
+
+For use with the 3rd Unique Component mod:
+https://steamcommunity.com/sharedfiles/filedetails/?id=392162444
+
+This project is modular, meaning that you can delete specific components and substitute your own. Just go into the mod folder (Documents\My Games\Sid Meier's Civilization 5\MODS\(4UC)-4th Unique Component) and delete the specific civilization's folder.
+
+This mod REQUIRES the Brave New World expansion. It is compatible with other mods, as long as basic building functionality is not changed.
+
+To display the 4th component in the leader select screen, you must install the Enhanced User Interface. It is not installed like a normal mod. While not required for this mod, it is strongly recommended for every Civ player. It is available here: http://forums.civfanatics.com/showthread.php?t=512263
+
+Direct Download available at civfanatics.com
+
+CREDITS
+- mrc2022 - for starting the project and providing a partially complete WIP mod
+- whoward69 - for the Dojo and Bull Ring buildings, viking ship code, galleon ship code
+- Tomathek - for the Sofa unit
+- Wolfdog - for the War Junk Ship unit
+- Kwadjh - for the Basilica, Hippodrome and Canals icons
+- Barathor - for the Dojo, Bull Ring, Mandir and Viking Longhouse icons
+- Alan H - for the Agora icon
+- Leugi - for the Chasqui icon and Kraal model
+- sukritact - for the Monolith Church icon
+- wodhann - for the Cothon, Sambadrome, Waag, Agora, Yurt, and Ger icons and Redcoat creation
+- bernie14 - for the Landwehr, Khopesh Swordsman, Redcoat unit model
+- JTitan - for the Chasqui, Sofa, Bandeirante, Oromo unit models
+- Patum333 - for the Forest Prowler unit model
+- ZeUplneXero - for improving the Royal Guard icon
+- JFD - for permitting use of the Jaegar, PZL components from his Civilization Split mods.
+- Poukai - for permitting use of the Koa component from the Polynesia split.
+- Framed Architect - for permitting use of the Iroquois Forest component from the Reforestation mod.
+- Gazebo - for permitting the use of the Ottoman Bombard, Swedish Skola, and Doge Palace from the Community Patch Project.
+- Meirai - for permitting the use of the Buffalo Pound from the Blackfoot civilization.
+- janboruta - for permitting the use of a ton of icons, including the Landwehr, Streltsy, Sepoy, Redcoat, Viking Ship, Jaegar, PZL, Koa icons
+- danrell - for permitting the use of a ton of models, including the Eagle, Clibanarii, Siamese rifleman, Sohei, Ghazi, Peltast, Numidian, Centaur, Indonesian ship, Mayan Swordsman,
+- mikeburnfire - many icons and unit flags.
+
+Special thanks to LastSword for the help in development of special caracteristics
+Special thanks to JFD, Tomatekh and Poukai for use of code and cooperation
+Special thanks to all that participated in the thread discussion on CivFanatics
+Special thanks to Skaz881 for troubleshooting and attention dedicated to this mod</Description>
+    <Authors>Mike-Awesome</Authors>
+    <HideSetupGame>0</HideSetupGame>
+    <AffectsSavedGames>1</AffectsSavedGames>
+    <MinCompatibleSaveVersion>0</MinCompatibleSaveVersion>
+    <SupportsSinglePlayer>1</SupportsSinglePlayer>
+    <SupportsMultiplayer>1</SupportsMultiplayer>
+    <SupportsHotSeat>1</SupportsHotSeat>
+    <SupportsMac>1</SupportsMac>
+    <ReloadAudioSystem>0</ReloadAudioSystem>
+    <ReloadLandmarkSystem>1</ReloadLandmarkSystem>
+    <ReloadStrategicViewSystem>1</ReloadStrategicViewSystem>
+    <ReloadUnitSystem>1</ReloadUnitSystem>
+  </Properties>
+  <Dependencies />
+  <References>
+    <Mod id="8670da15-d435-44ea-9758-7438cb321411" minversion="0" maxversion="999" title="RED" />
+    <Mod id="4a60955e-7dc2-40bc-895e-2e1dd7d46651" minversion="0" maxversion="999" title="Single Unit" />
+  </References>
+  <Blocks />
+  <Files>
+    <File md5="9D47386EF6E2B522208DA4A8767245FF" import="1">America2/3uc_ranch128.dds</File>
+    <File md5="349B2F47A593B7A23340A39312179A39" import="1">America2/3uc_ranch256.dds</File>
+    <File md5="97AF7531EBC0C98F0BAF9CAD6ECDEC68" import="1">America2/3uc_ranch45.dds</File>
+    <File md5="C60F5FA2B70A805869E6EF15BEAF382E" import="1">America2/3uc_ranch64.dds</File>
+    <File md5="0BD7FFD3F89410CD887A69B298F85B68" import="0">America2/3uc_Ranch.xml</File>
+    <File md5="089E28A86BE06AEDE89B6A772F161BF4" import="0">America2/4UC_AMERICA.sql</File>
+    <File md5="A03775AC1ADD46733C127DF8790D1B4D" import="0">Arabia2/4UC_ARABIA.sql</File>
+    <File md5="12966AF01F65CB8A016573CDA67E2C1C" import="1">Arabia2/4UC_GAZ128.DDS</File>
+    <File md5="765D2E662BE0E4234D27DF4B37393F92" import="1">Arabia2/4UC_GAZ256.DDS</File>
+    <File md5="0B999BB2547B6D03CA1879E89EF48234" import="1">Arabia2/4UC_GAZ45.DDS</File>
+    <File md5="584E1D4763B1D2A31F475355D1790806" import="1">Arabia2/4UC_GAZ64.DDS</File>
+    <File md5="48F1D5C59A25B2DDBB2365CC0EA0EB32" import="1">Arabia2/4UC_GAZ80.DDS</File>
+    <File md5="DF207ABD52575EB17B510991BA7FA76B" import="0">Arabia2/arab3swords.xml</File>
+    <File md5="85736DB4DBDB6E003EA8784E9D46DC64" import="1">Arabia2/IconGhazi32.dds</File>
+    <File md5="F00910ACAD1CDFEE2E219C6B34371D07" import="1">Arabia2/IconGhaziSV.dds</File>
+    <File md5="E8E6A3A7B1AEC5F3B09BF32305E9AD2B" import="1">Arabia2/Swordsman_Arabia_v3.blend</File>
+    <File md5="F03A6F54D3C892CF1DA26C720244137E" import="1">Arabia2/Swordsman_Arabia_v3.dds</File>
+    <File md5="00FC5C8F4099B163EE04FCD4F94A96B9" import="1">Arabia2/Swordsman_Arabia_v3.fxsxml</File>
+    <File md5="DBF50466EF50E296EE27C4B87C309014" import="1">Arabia2/Swordsman_Arabia_v3.gr2</File>
+    <File md5="05D2FD7780DB41FD0301732407A7D8AA" import="1">Arabia2/Swordsman_Arabia_v3_gloss.dds</File>
+    <File md5="DFC8F8FB99C1AD338D277D84DECBF321" import="1">Assyria4/3ASSYwalls128.dds</File>
+    <File md5="5F8E881664DBFE18CB39D531ED652220" import="1">Assyria4/3ASSYwalls256.dds</File>
+    <File md5="A40A0B0738A119971F33F7131E01BC7B" import="1">Assyria4/3ASSYwalls45.dds</File>
+    <File md5="48845D9FDAE7A6F8A7D5FE0901815DC5" import="1">Assyria4/3ASSYwalls64.dds</File>
+    <File md5="8D8C52A32367D62070B068E60D65036A" import="0">Assyria4/4UC_ASSYRIA.sql</File>
+    <File md5="35A55F1672A1636A79354D5188C51E66" import="0">Assyria4/Sargon3Palace.xml</File>
+    <File md5="DB3E4432201C7AF791BDC2546E1998FE" import="0">Austria/4UC_AUSTRIA.sql</File>
+    <File md5="760F9FA2C659BA84AF5387BFD0D545A9" import="0">Austria/AustriaHarmonic.xml</File>
+    <File md5="28D6697E45799C768DAD3AA17D9C7497" import="1">Austria/philharm128.dds</File>
+    <File md5="671433821C926D3CA0B0CB411F81F9E4" import="1">Austria/philharm256.dds</File>
+    <File md5="1B3BC96013DD146FA0C7BAC640B7C6A1" import="1">Austria/philharm45.dds</File>
+    <File md5="AFF4B5637B4706B8E50261892DD99C9A" import="1">Austria/philharm64.dds</File>
+    <File md5="52FFFCA351972F32E4409F3B8BFF569F" import="1">Aztec/3sacrifice128.dds</File>
+    <File md5="0247AA50A2E5BAE903600AFF4BD5D6F7" import="1">Aztec/3sacrifice256.dds</File>
+    <File md5="A6D5BE5B6759F835B051DD6B66A90847" import="1">Aztec/3sacrifice45.dds</File>
+    <File md5="58785FF5BFFBA62D37336C1DFED8138B" import="1">Aztec/3sacrifice64.dds</File>
+    <File md5="267F7202BF2C13E1D27CD1206195168B" import="0">Aztec/4UC_AZTEC.sql</File>
+    <File md5="85DFEC4B0AE14193A8C7763A5EF68C13" import="0">Aztec/Sac_Altar.xml</File>
+    <File md5="6404D18E3865665EB020FF9B937874F7" import="1">Babylon4/3babylonchariot128.dds</File>
+    <File md5="B3B926BB7C531152C7F83F6F1B0922C1" import="1">Babylon4/3babylonchariot256.dds</File>
+    <File md5="DF2F898180FD0DBB25C4E948377664C2" import="1">Babylon4/3babylonchariot45.dds</File>
+    <File md5="220226E1DA16EED8842BE88CE5FD00E9" import="1">Babylon4/3babylonchariot64.dds</File>
+    <File md5="42695410160E550B356BC9E52A667B97" import="1">Babylon4/3babylonchariot80.dds</File>
+    <File md5="DC7A1423BDAAD7E7C7B37848638B6912" import="0">Babylon4/4UC_BABYLON.sql</File>
+    <File md5="A1377B6D32B78001F904A27193D4F922" import="1">Babylon4/Chariot_Babylon.blend</File>
+    <File md5="B095580EFC2C39EB6FACF70972432DCE" import="1">Babylon4/Chariot_Babylon.dds</File>
+    <File md5="B76AD6968116CA2EA90F680D34C6133B" import="1">Babylon4/Chariot_Babylon.fxsxml</File>
+    <File md5="3BEEB0CEE3039745638681AE4A20B7E2" import="1">Babylon4/Chariot_Babylon.gr2</File>
+    <File md5="EC6F36970C6BB6C6637C92949DA4C896" import="1">Babylon4/Chariot_Babylon_gloss.dds</File>
+    <File md5="2A86C790EEC1EE15A4B5F515921DF4CB" import="0">Babylon4/HittiteWarchariot.xml</File>
+    <File md5="7D51643444616C675A9D6FA6B0F13B10" import="1">Babylon4/Icon4Chariot32.dds</File>
+    <File md5="35BF2DB8FDB6471D00CAA2E3768D825B" import="1">Babylon4/IconCHARIOT4SV.dds</File>
+    <File md5="2E738A7DFEAD4288470FD332CC929073" import="0">Brazil/4UC_BRAZIL.sql</File>
+    <File md5="A96A05714EA761986AE5DD33425F9331" import="1">Brazil/bandeirante128.dds</File>
+    <File md5="6F7280BE7172C57674CE44123F1EC985" import="1">Brazil/bandeirante256.dds</File>
+    <File md5="9B9282D69D21EBE63AD2A8F0A2C24E8A" import="1">Brazil/bandeirante45.dds</File>
+    <File md5="03E3AD9BD447B28EFB238F664C558EE0" import="1">Brazil/bandeirante64.dds</File>
+    <File md5="8C0E508D4ECB05BC558D1B1BF41958CC" import="1">Brazil/bandeirante80.dds</File>
+    <File md5="F0E001241C42F04904757453F91117D2" import="1">Brazil/BrazilCaboFrio.dds</File>
+    <File md5="F9F93DA870E7406877D6A3A52A08FF83" import="1">Brazil/BrazilCaboFrio.fxsxml</File>
+    <File md5="FF54C54A3C68A571CBADF93A1EEF7A9A" import="1">Brazil/BrazilCaboFrio.gr2</File>
+    <File md5="69486531B23BEAD0B197516C2C419DA9" import="1">Brazil/BrazilCaboFrio_sref.dds</File>
+    <File md5="B760E7FDC062228F6FF326570D3681D0" import="1">Brazil/IconBrazilMusq32.dds</File>
+    <File md5="1067122DDACCD6AE6FBE54CB87CCDF5D" import="1">Brazil/IconBrazilMusqSV.dds</File>
+    <File md5="B66EC626998D2B6F9A0D8E4F1C7C5AA3" import="0">Brazil/tripleally.xml</File>
+    <File md5="3B583CA0F2D3957F3A7C68DDE42A506C" import="1">Byzantine/3basilica128.dds</File>
+    <File md5="C3FDC05E70913435CB6203D995B4092F" import="1">Byzantine/3basilica256.dds</File>
+    <File md5="1AB8717A82908C5F9685FCF21E1360B9" import="1">Byzantine/3basilica45.dds</File>
+    <File md5="1883A69F40D921A8DF214753A0E73866" import="1">Byzantine/3basilica64.dds</File>
+    <File md5="D165AA9F29E62EA0AF047EE99B3BC1AC" import="0">Byzantine/4UC_BYZANTINE.sql</File>
+    <File md5="3AC992871CCC74AEDB4F4D10ECAABBA1" import="0">Byzantine/basilica.xml</File>
+    <File md5="B9D9F8BB04966DB1FA2428FF76854E8E" import="1">Carthage/3numidian128.dds</File>
+    <File md5="A056233BEAC015EDE83D995F92490CF6" import="1">Carthage/3numidian256.dds</File>
+    <File md5="F5CB98B1EC31A90F66E49AA1581CFDB3" import="1">Carthage/3numidian45.dds</File>
+    <File md5="6A9A5CAF399752435040F6DFAE8A31A8" import="1">Carthage/3numidian64.dds</File>
+    <File md5="880A109D73D0F7A9A501A39CDD72E74D" import="1">Carthage/3numidian80.dds</File>
+    <File md5="D2D5291AFAC748868BE76E65825226C9" import="0">Carthage/4UC_CARTHAGE.sql</File>
+    <File md5="DFF64C73DC2206D98226060355DC3BDE" import="1">Carthage/IconNumidian32.dds</File>
+    <File md5="A6640AAB62911F3CC5C6A09591B3E756" import="1">Carthage/IconNumidianSV.dds</File>
+    <File md5="B212C3F5132EC80D9DD0B01A5C67EDF1" import="1">Carthage/Horseman_Babylon.dds</File>
+    <File md5="92388850857E09B594747B91E2161750" import="1">Carthage/Horseman_Babylon.fxsxml</File>
+    <File md5="C14A3A90CF026A9F2329900158B9A28C" import="1">Carthage/Horseman_Babylon.gr2</File>
+    <File md5="25F25A839D35E9792D6A642CB414D814" import="1">Carthage/Horseman_Babylon_gloss.dds</File>
+    <File md5="DF527F3E69F8B8083512A3CBE6D85809" import="1">Carthage/Horseman_Babylon_Horse.dds</File>
+    <File md5="108B52B84BA7087C88B28FDEF215E6F8" import="0">Carthage/mercHorseman.xml</File>
+    <File md5="AC41C06BA721315512F26433220FEDF7" import="1">Carthage/no_gloss.dds</File>
+    <File md5="407D0CAA398C611AE4C5D7E2C64A64AC" import="1">Celt/3carpentom128.dds</File>
+    <File md5="9CACBB1952976F2549BFEF3B2ABB43EE" import="1">Celt/3carpentom256.dds</File>
+    <File md5="B48C6976F887F1641F78B06C9E97F6DA" import="1">Celt/3carpentom45.dds</File>
+    <File md5="7EB8C2D80EA71D82F0324A7E9032159B" import="1">Celt/3carpentom64.dds</File>
+    <File md5="F011859A4DF3E7BFDE70EEB475E69414" import="1">Celt/3carpentom80.dds</File>
+    <File md5="7B272466A618797CABBE6F277D50FC33" import="1">Celt/3celtknot32.dds</File>
+    <File md5="A6BFAE498303348B9A1DECFBA32001AF" import="1">Celt/3celtknotSV.dds</File>
+    <File md5="7F829671F4A9D42C4667EECB46668CDA" import="0">Celt/4UC_CELT.sql</File>
+    <File md5="9100198EC8CFA99AF2C1998ED3AB44DF" import="1">Celt/carpentom32.dds</File>
+    <File md5="3382FA41643A2EAB82B78083EDCF9ACF" import="0">Celt/CARPENTOM.xml</File>
+    <File md5="BFB1E5C4976505BF4C8D02B119FCA5C6" import="0">ChinaUI/PaddyUI.xml</File>
+    <File md5="E9956E030C8982728C2D4D0FC57CC289" import="0">Compatibility/EventsDecision.sql</File>
+    <File md5="70DD74467879C9DAF5D03E1C604B5025" import="1">Danish/3ucLongboat128.dds</File>
+    <File md5="E8EE557C6F0FB438649388BD3F31C7ED" import="1">Danish/3ucLongboat256.dds</File>
+    <File md5="BC79341F14850A9D16CDBEFD4577C8B9" import="1">Danish/3ucLongboat45.dds</File>
+    <File md5="4F8086BB648AAFFF123668CE2F433AC2" import="1">Danish/3ucLongboat64.dds</File>
+    <File md5="FCFD1F1A6F76C150088E03DA91865C85" import="1">Danish/3ucLongboat80.dds</File>
+    <File md5="F59DE6A109E220CE582A7768ECCBAACC" import="0">Danish/4UC_DANMARK.sql</File>
+    <File md5="6178B86627CE752CE502C13988266EE0" import="1">Danish/SV_VikingLongboat.dds</File>
+    <File md5="A2978688C93792504FEFEBE78E4B48C3" import="0">Danish/UnitsVikingLongboat.xml</File>
+    <File md5="387992B80FE9F854F6B3EBBFAAE9D2F9" import="1">Danish/VikingLongboatFlag.dds</File>
+    <File md5="6A3C694B7328444D026ED0447CE01FA4" import="0">DutchIndiaman/3EastIndiaman.xml</File>
+    <File md5="928B6BDF273E0B0855F84166B6EA5822" import="0">DutchIndiaman/4UC_DUTCH.sql</File>
+    <File md5="BAA7D18E27CE5CC1DE3DB1272F1D73C3" import="1">DutchIndiaman/dutchindiaman32.dds</File>
+    <File md5="62136BE25AEDFBFC3A5C66BE9ACE84B3" import="1">DutchIndiaman/dutchindiamanSV.dds</File>
+    <File md5="7DE326D53EBF58E7FE7361517EEF27CC" import="1">DutchIndiaman/eastindiamn128.dds</File>
+    <File md5="FEE7B714850E4BB67B2FF07FEDEDF545" import="1">DutchIndiaman/eastindiamn256.dds</File>
+    <File md5="C2FAE5FCB978833B64DEC08A8A16883C" import="1">DutchIndiaman/eastindiamn45.dds</File>
+    <File md5="57000FF2BF74AC203528AE16F0A708E3" import="1">DutchIndiaman/eastindiamn64.dds</File>
+    <File md5="3CDD0361CE3022FC419D137E2D29DE6E" import="1">DutchIndiaman/eastindiamn80.dds</File>
+    <File md5="FC4662DECE09B4D51C00350DD2A34A5B" import="1">Egypt2/2dogepalace128.dds</File>
+    <File md5="340E5593523A0988DD140B725448777C" import="1">Egypt2/2dogepalace256.dds</File>
+    <File md5="6A3F1AC19E8E371CDCF41B9CDCD6EFE1" import="1">Egypt2/2dogepalace45.dds</File>
+    <File md5="F2489A3D9A938BA8047C09DB147F7DD6" import="1">Egypt2/2dogepalace64.dds</File>
+    <File md5="B9A14EA862E14498AF8D9DF0F68730CA" import="0">Egypt2/4UC_EGYPT.sql</File>
+    <File md5="A21A371186FF1453CA7B8F31FC554DBB" import="0">Egypt2/Nilometer3Uc.xml</File>
+    <File md5="1BC4FBDB7ABFBC97BDA8D779FD45E392" import="1">England2/3uc_textile128.dds</File>
+    <File md5="1D3302A36922D80121CA4320ED5FA725" import="1">England2/3uc_textile256.dds</File>
+    <File md5="BD740B4B3C4D0D9232995E7FBF1CF2D9" import="1">England2/3uc_textile45.dds</File>
+    <File md5="192760AA3491C9B8739D268797625596" import="1">England2/3uc_textile64.dds</File>
+    <File md5="C8CE5959086F18831390845FB15EA14C" import="0">England2/3UC_textilemill.xml</File>
+    <File md5="4AD03428A36268E0E61A03DFA8A40E90" import="0">England2/4UC_ENGLAND.sql</File>
+    <File md5="44F09CD3DDDB7A6F3DFFFB0FE65F692C" import="0">Ethiopia/4UC_ETHIOPIA.sql</File>
+    <File md5="D801A8C87D43ACAA795266C398B7ED90" import="1">Ethiopia/EthiopianOromo.fxsxml</File>
+    <File md5="77A96746CAFB1C149712F5CFA043B960" import="1">Ethiopia/EthiopianOromo.gr2</File>
+    <File md5="9AE48FF8845A7B8F083467C232545C89" import="1">Ethiopia/EthiopianOromo2.fxsxml</File>
+    <File md5="40EFC5CD1A66F736B35AF7D6D2067DFF" import="1">Ethiopia/EthiopianOromo2.gr2</File>
+    <File md5="CB7F678666A9A41486C7E7428F4D5434" import="1">Ethiopia/EthiopianOromo3.fxsxml</File>
+    <File md5="8491A9014891C8919FB66E8B44E3B97B" import="1">Ethiopia/EthiopianOromo3.gr2</File>
+    <File md5="FCD071D7F11BCED004C5FED87EFDF40E" import="1">Ethiopia/EthiopianOromo_Blue.dds</File>
+    <File md5="FAB3190078143EF380C772AEC326BC43" import="1">Ethiopia/EthiopianOromo_Blue_sref.dds</File>
+    <File md5="96685A0BC1396A99930AA4C6EEA67423" import="1">Ethiopia/EthiopianOromo_Green.dds</File>
+    <File md5="25D2CC3442C01E64D07310760C764146" import="1">Ethiopia/EthiopianOromo_Green_sref.dds</File>
+    <File md5="8D45CDC2FEB56012B88505B0C193B13E" import="1">Ethiopia/EthiopianOromo_Orange.dds</File>
+    <File md5="C49E163D3F0254DD617A285994614BBC" import="1">Ethiopia/EthiopianOromo_Orange_sref.dds</File>
+    <File md5="6CB2DB975BB86C8813CDDC9975201F83" import="1">Ethiopia/IconOromo32.dds</File>
+    <File md5="CF3882DBA6595920DA50B460C4D1FD70" import="1">Ethiopia/IconOromoSV.dds</File>
+    <File md5="732E1E01F23257D289BB7A40CC3455BE" import="0">Ethiopia/oromo.xml</File>
+    <File md5="9DC84DA546F301C00F1893C658DA1E41" import="1">Ethiopia/oromo_128.dds</File>
+    <File md5="41E8D1CCA9DE953E983E19B04C3A38F8" import="1">Ethiopia/oromo_256.dds</File>
+    <File md5="F777DC6EE2AAADCE95B1905C8E440C90" import="1">Ethiopia/oromo_45.dds</File>
+    <File md5="557F4DEBE2D03286C1804F1E5BCF51D8" import="1">Ethiopia/oromo_64.dds</File>
+    <File md5="A8DB9D868505FE773B0ED4937B5959FA" import="1">Ethiopia/oromo_80.dds</File>
+    <File md5="179A674E6E2D5A37EC40273216E8CB5E" import="0">France/ForeignLegion.xml</File>
+    <File md5="AC4E34F78E9A359887AACF4E56368E53" import="0">Germany/JaegarText.xml</File>
+    <File md5="A3F63AB768EC7604D162ACBE7664D51C" import="1">Germany/jaeger.dds</File>
+    <File md5="95D05F683FAE65A660E516F0A3C02391" import="1">Germany/jaeger.fxsxml</File>
+    <File md5="8A704AC88F7A99C3EBDDEBA545ECF3BC" import="1">Germany/jaeger.gr2</File>
+    <File md5="E9A21FC87C52ECE977331F8867DE3A25" import="0">Germany/JaegerArtDefines.sql</File>
+    <File md5="D6CB61760E74395DACB4F569496F9004" import="1">Germany/jaeger_sref.dds</File>
+    <File md5="8EBC8FB1C485B508848DA63AD52EEF5F" import="1">Germany/4UC_Jaeger_128.dds</File>
+    <File md5="8F0C290FD8B45E5AC45DE13F0E9F1E97" import="1">Germany/4UC_Jaeger_256.dds</File>
+    <File md5="2E3478090FFD88F4C26FCEC727449FC7" import="1">Germany/4UC_Jaeger_45.dds</File>
+    <File md5="84E3687609F2958F98BA418C88706F12" import="1">Germany/4UC_Jaeger_64.dds</File>
+    <File md5="F36DC5F450F5192AD3FADEF930C0435E" import="1">Germany/4UC_Jaeger_80.dds</File>
+    <File md5="ACB97853D03E433EE76211EAD18E6133" import="1">Germany/sv_4UC_Jaeger.dds</File>
+    <File md5="DC4F37151DA851F4E9707273B6717BC9" import="1">Germany/Unit_Jaeger_Flag_4UC_32.dds</File>
+    <File md5="6190E75ACCC48F0D7D51C8D7B4C35517" import="0">Greece2/4UC_GREECE.sql</File>
+    <File md5="2FD0BE91B803328116E60890F82C8AD6" import="1">Greece2/Fx_Triggers_Javelineer_Rome.ftsxml</File>
+    <File md5="080B992019EF3EB0385FEDC0F4A987B3" import="1">Greece2/GreekPeltast128.dds</File>
+    <File md5="BB046ED498789B386A9A071A3EE8929C" import="1">Greece2/GreekPeltast256.dds</File>
+    <File md5="C97083404059EA606F75D0E5478CD2EA" import="1">Greece2/GreekPeltast45.dds</File>
+    <File md5="DF8663FAA451646B83C451B9146F2641" import="1">Greece2/GreekPeltast64.dds</File>
+    <File md5="38D0E35AF074144128B5A3A3A380EC03" import="1">Greece2/GreekPeltast80.dds</File>
+    <File md5="F9397AF5D0BE6802D735E6BC730814DB" import="1">Greece2/IconPelt32.dds</File>
+    <File md5="D4A2700EE139DCF00A1A8B773BB13579" import="1">Greece2/IconPeltSV.dds</File>
+    <File md5="3D6E2CC8EF7A8682311BC0ADDE01C846" import="1">Greece2/Javelineer_Rome.dds</File>
+    <File md5="12348B5582034E73A66CF1EF369D359B" import="1">Greece2/Javelineer_Rome.fxsxml</File>
+    <File md5="C29BE8E6DB65593C0CDE56D0349A98DC" import="1">Greece2/Javelineer_Rome.gr2</File>
+    <File md5="29152ED51165B99EA2D3A23D31CD9439" import="1">Greece2/Javelineer_Rome_gloss.dds</File>
+    <File md5="D460E260EF0F298175BFD90EB0644F8D" import="0">Greece2/GreekPelt.xml</File>
+    <File md5="1BCDC0329D9E1A358419D0B81DAD23CE" import="0">Greece3/4UC_GREECE3.sql</File>
+    <File md5="784D75CFAE5C3518D700CC534F574B07" import="0">Greece3/4UC_GREECE3.xml</File>
+    <File md5="A48B2879AC82701AC9E570D17582E659" import="1">Greece3/odeon128.dds</File>
+    <File md5="E451A2298BC8DDFE2C8B53F598937A9C" import="1">Greece3/odeon256.dds</File>
+    <File md5="741A100CDAE837587C58C046067364BA" import="1">Greece3/odeon45.dds</File>
+    <File md5="FE6FC5920734968D965FB6D6E36396DB" import="1">Greece3/odeon64.dds</File>
+    <File md5="E3709A10BE1C8FA9DE31D2E8F6EF5238" import="0">Hun3/4UC_HUNS.sql</File>
+    <File md5="EBA855474CCB7C92C068F1FEEE3E7513" import="1">Hun3/HorseArcher_Mongol.dds</File>
+    <File md5="D0ED4C6743DC6254B7FFC013B6C7254D" import="1">Hun3/HorseArcher_Mongol.fxsxml</File>
+    <File md5="BC2EC94F7FF3C4EC0E7CD605FC160027" import="1">Hun3/HorseArcher_Mongol.gr2</File>
+    <File md5="7EA3B6C9B6AFD3C3B14E48C5626FFBE7" import="1">Hun3/HorseArcher_Mongol_gloss.dds</File>
+    <File md5="ED76F6C0472BACA1DE4B269178C0501C" import="1">Hun3/HorseArcher_Mongol_Horse.dds</File>
+    <File md5="223CF7CC5371CE1562C3AEE4DE24D9B0" import="1">Hun3/HunArcher128.dds</File>
+    <File md5="37FE0F337F3A9F886B7DA6790DCEB84C" import="1">Hun3/HunArcher256.dds</File>
+    <File md5="343D2D29BF7E31758D551637FAE785E2" import="1">Hun3/HunArcher45.dds</File>
+    <File md5="77E696F59AB7F1AA4431318A84A9669B" import="1">Hun3/HunArcher64.dds</File>
+    <File md5="DDB0C0A1D79310B7274CE5FE532DEB3F" import="1">Hun3/HunArcher80.dds</File>
+    <File md5="05DE965EBAF24FB43E2E059518BD979C" import="0">Hun3/Hun_HorseArcher.xml</File>
+    <File md5="4F438E9D13A488206CB6585036946077" import="1">Hun3/IconCentaur32.dds</File>
+    <File md5="93F31D61EC91D6A76C5AF09E31C17999" import="1">Hun3/IconCentaurSV.dds</File>
+    <File md5="AC41C06BA721315512F26433220FEDF7" import="1">Hun3/no_gloss.dds</File>
+    <File md5="FB58A2370B0EE41D4A27CF0977CCA3F8" import="0">Inca/4UC_INCA.sql</File>
+    <File md5="D60A379DCA0791D7D62712FE568AFB77" import="0">Inca/Qurikancha.xml</File>
+    <File md5="8A80CF21F0F67C26A6AF948240E2BACB" import="1">Inca/Qurikancha128.dds</File>
+    <File md5="D54B7D61B233F826F6205DE6DA8EFF7B" import="1">Inca/Qurikancha256.dds</File>
+    <File md5="B2E5A1600A701AFCA04542F964AD8271" import="1">Inca/Qurikancha45.dds</File>
+    <File md5="D206AE67B264B2822418CE2ECF52A101" import="1">Inca/Qurikancha64.dds</File>
+    <File md5="661147713101FC238586ED2CC3EA1C73" import="0">India/4UC_INDIA.sql</File>
+    <File md5="0522C06E14E03A0C3CC6371AFE3624AD" import="1">India/mandir128.dds</File>
+    <File md5="4E2876BF6E345AA01A41911F5A38BA32" import="1">India/mandir256.dds</File>
+    <File md5="2CF74DE7AB6982568177387A17EC8F1A" import="1">India/mandir45.dds</File>
+    <File md5="900D16095FC8D5BCB84A6151DD022F23" import="1">India/mandir64.dds</File>
+    <File md5="3FAF9BE9FA6F8CC1765B2202A298BF42" import="0">India/Mausoleum_Mod.xml</File>
+    <File md5="C5BAB41627C8BE00D90B82B3FF4887D8" import="1">Indonesia/3cetbang128.dds</File>
+    <File md5="9C32AE69428318308CE3B14995E062C5" import="1">Indonesia/3cetbang256.dds</File>
+    <File md5="D44B98BEDA9E93039E00C8BDD733443F" import="1">Indonesia/3cetbang45.dds</File>
+    <File md5="FB1070F3D1ABA528F9C87B5FE939C918" import="1">Indonesia/3cetbang64.dds</File>
+    <File md5="4EA8E7B1DB50AE1CC77A9C27DD61A849" import="1">Indonesia/3cetbang80.dds</File>
+    <File md5="6BD2839C708E2E09E576A811C0B6EFBC" import="0">Indonesia/4UC_INDONESIA.sql</File>
+    <File md5="8EC903D65299CFA85BE780B57D650886" import="1">Indonesia/andes_cargo_ship.fxsxml</File>
+    <File md5="EE8FCC8F250027B68E0186B7BDF5027D" import="1">Indonesia/andes_cargo_ship.gr2</File>
+    <File md5="B456D229AD12DFFE844C36D312BA50F1" import="1">Indonesia/andes_cargo_ship_diff.dds</File>
+    <File md5="773212A88FA99CD755CFCE20A3F494B9" import="1">Indonesia/andes_cargo_ship_sref.dds</File>
+    <File md5="E08F36F87DEED5DCDD712F4D68FA335A" import="0">Indonesia/3cetbang.xml</File>
+    <File md5="D51866F8FB48E842F8212F70A4B9FCEE" import="1">Indonesia/IconCetbang32.dds</File>
+    <File md5="27F7CC50DC0F0849A5C082ADDFF5B0F4" import="1">Indonesia/IconCetbangSV.dds</File>
+    <File md5="4D29B480DFDB083D69B547B002598D90" import="1">Iroquois/ForestAtlas256.dds</File>
+    <File md5="4653D48DECCB9BA8FFBE1602CCD8F71D" import="1">Iroquois/ForestAtlas64.dds</File>
+    <File md5="894279759461971969A2A9E2C318F0C6" import="0">Iroquois/Reforestation.lua</File>
+    <File md5="F8234650E7050FE7BFF5040357EF29F0" import="0">Iroquois/Reforestation.sql</File>
+    <File md5="8AF4A33770808EBD3C1C664B022FF2A3" import="0">Iroquois/Reforest_en_US.xml</File>
+    <File md5="188DD89E4D8C79321C311CDD641EEF14" import="1">Iroquois/SV_PlantForest.dds</File>
+    <File md5="1CA4AF9EE30CF61EDBDF460FA5F2A265" import="1">Iroquois/UnitAction45_Forest.dds</File>
+    <File md5="C6A2F68F5D91AEE525CDB0985FEA32E3" import="1">Iroquois/UnitAction64_Forest.dds</File>
+    <File md5="94B4ECC7B29FFE9197AE24C318F4CA7E" import="0">Japan/4UC_JAPAN.sql</File>
+    <File md5="02E0AD1BA3F452B334A9FA2274B58998" import="1">Japan/IconSohei32.dds</File>
+    <File md5="245494507BA2F2A714E3ED50B49541F3" import="1">Japan/IconSoheiSV.dds</File>
+    <File md5="C9CF95AD04DC57F03D2E654EB8450BC7" import="1">Japan/monkwar128.dds</File>
+    <File md5="04C605CFF134DB77AD3B93E142082705" import="1">Japan/monkwar256.dds</File>
+    <File md5="63AED568A997D670067310C7B49CCC92" import="1">Japan/monkwar45.dds</File>
+    <File md5="BFA8894B4560BBE3B5457A000E0A37E5" import="1">Japan/monkwar64.dds</File>
+    <File md5="8004444DC0FE35D9FE8F74EB6594FD37" import="1">Japan/monkwar80.dds</File>
+    <File md5="590F9052CDDF834E944184484D1CB39B" import="0">Japan/WarriorMonk.xml</File>
+    <File md5="39463D1DB111D984137C354461B46826" import="1">Japan/WarriorMonk_Japan.dds</File>
+    <File md5="B40CCA6EDC9B923AEB9FD36359EC455D" import="1">Japan/WarriorMonk_Japan.fxsxml</File>
+    <File md5="78074918522EC607F872604D4E876CD9" import="1">Japan/WarriorMonk_Japan.gr2</File>
+    <File md5="0828C2A834DB6CD8B6970C8450DEF265" import="1">Japan/WarriorMonk_Japan_gloss.dds</File>
+    <File md5="13C2473061BA303E3D7351810ADC9ADC" import="1">Japan/WarriorMonk_Japan_v2.fxsxml</File>
+    <File md5="1DE99AE7A6170848E83C3D0BA13AE78C" import="1">Japan/WarriorMonk_Japan_v2.gr2</File>
+    <File md5="2FB26C2D06E491276EDFF4FAE16B7834" import="0">Korea2/3Grandpalace.xml</File>
+    <File md5="86FDD47DE4010959BAC49E280B408B3D" import="1">Korea2/3grandpalace128.dds</File>
+    <File md5="1A4E70A2A2BBBE0541A0BFD043D18CCD" import="1">Korea2/3grandpalace256.dds</File>
+    <File md5="9E0FB05072D70F70E92FC3001363DCF8" import="1">Korea2/3grandpalace45.dds</File>
+    <File md5="C786B426680296C869A5CDFDF42E0413" import="1">Korea2/3grandpalace64.dds</File>
+    <File md5="31FFD909E60F45057F7E94F49BEEC378" import="0">Korea2/4UC_KOREA.sql</File>
+    <File md5="8F92D26A3AC2D95BF376E3A2FBD87D90" import="1">Maya/3mayasword128.dds</File>
+    <File md5="29BE0F8990D722E461078A8D0638021B" import="1">Maya/3mayasword256.dds</File>
+    <File md5="9CFB77CAD6890AD548CF8B29B1F816CD" import="1">Maya/3mayasword45.dds</File>
+    <File md5="7ACA098C133407CEDE1C58AC011A65FA" import="1">Maya/3mayasword64.dds</File>
+    <File md5="020F9D9FF5AB4993C85E6EA353324E0D" import="1">Maya/3mayasword80.dds</File>
+    <File md5="E0AA9092F60675F6F50907E53D1571C3" import="0">Maya/4UC_MAYA.sql</File>
+    <File md5="13B8005661C40EC6AA5A1363D52BF14C" import="1">Maya/IconObsidi32.dds</File>
+    <File md5="F73E93ABEB3959C63088746810F513F6" import="1">Maya/IconObsidiSV.dds</File>
+    <File md5="075A4C2B702365BB7A5A521B64989F36" import="0">Maya/Mayaswordsman.xml</File>
+    <File md5="208946EC450749F902A71A2DBAE6FA86" import="1">Maya/Swordsman_Maya.dds</File>
+    <File md5="551EFA6E53C28D851BD293A7CE70DD19" import="1">Maya/Swordsman_Maya.fxsxml</File>
+    <File md5="16AF194606A3091487332D7A3944D1F5" import="1">Maya/Swordsman_Maya.gr2</File>
+    <File md5="DF62BD1FE5F28F8F54856121B541690B" import="1">Maya/Swordsman_Maya_gloss.dds</File>
+    <File md5="D252332C8CE5CA9C8201C4F4055F6C87" import="0">Mongalia/4UC_MONGOLIA.sql</File>
+    <File md5="23BED65A14D9D51AB644D748570D1573" import="1">Mongalia/monogolHORSE128.dds</File>
+    <File md5="5B398897C31232A41FAE45ED19349FC6" import="1">Mongalia/monogolHORSE256.dds</File>
+    <File md5="5177E2C1B17EE3A745C12E101EC689E7" import="1">Mongalia/monogolHORSE45.dds</File>
+    <File md5="657DF5B6D96E1EC0AA017A48680F890C" import="1">Mongalia/monogolHORSE64.dds</File>
+    <File md5="DEF4D486CEBB76F0EB9C2909C32232D6" import="0">Mongalia/yam.xml</File>
+    <File md5="ABE2A1875AD54183DA9782AFA6413E2F" import="0">Morocco/4UC_MOROCCO.sql</File>
+    <File md5="C331C8107A9C3CF9DDC58F4ED6E95C1F" import="0">Morocco/zellige.xml</File>
+    <File md5="1E1B55AC3D90F36A5870784C30749631" import="1">Morocco/zellige128.dds</File>
+    <File md5="D7069FFC28258C96850A9E230A106ECF" import="1">Morocco/zellige256.dds</File>
+    <File md5="8DF7D043D66D7DFAB6F3C46F3B9B96C8" import="1">Morocco/zellige45.dds</File>
+    <File md5="5B1D3896035C29F840E38CC5FDF2B54D" import="1">Morocco/zellige64.dds</File>
+    <File md5="071F15AE1791CED527B0A77C07583757" import="0">Ottoman/4UC_OTTOMAN.sql</File>
+    <File md5="A7F1FBBDBA7A2E7891F73D7011952437" import="0">Ottoman/bombard.xml</File>
+    <File md5="4219AC9CD16FA9F91AC7BBF903A02567" import="0">Ottoman/ottosiege128.dds</File>
+    <File md5="423D97B28E6FF8E670032DF1E09386C0" import="0">Ottoman/ottosiege256.dds</File>
+    <File md5="196CCEFC1A201BD2A14A471B99ECD9CF" import="0">Ottoman/ottosiege45.dds</File>
+    <File md5="F26B6A0D00F21009FB354F9508A1CC20" import="0">Ottoman/ottosiege64.dds</File>
+    <File md5="E59C444EA93FBD7DAB4065B869E4F4BA" import="1">Ottoman_Bombard/3uc_ottocanon128.dds</File>
+    <File md5="B456C5C418D633E7A8AEA41657FC703A" import="1">Ottoman_Bombard/3uc_ottocanon256.dds</File>
+    <File md5="3E9D7A84F7D89D7A73305780E854DEDD" import="1">Ottoman_Bombard/3uc_ottocanon45.dds</File>
+    <File md5="B18CBEC3BB09AC00AF4DAF1004D098C3" import="1">Ottoman_Bombard/3uc_ottocanon64.dds</File>
+    <File md5="AC221F314D6A1EEB3BE5FD97DB15C802" import="1">Ottoman_Bombard/3uc_ottocanon80.dds</File>
+    <File md5="AC4278A044F1A71AF87C28BE241F3302" import="0">Ottoman_Bombard/4UC_Ottocanon.sql</File>
+    <File md5="3AEFACCEAFFB412D0537D282ACEE5039" import="1">Ottoman_Bombard/Bombard.fxsxml</File>
+    <File md5="6B4998B63948B671F810B6C3DCEAE04E" import="1">Ottoman_Bombard/Bombard.gr2</File>
+    <File md5="4DA2B4CAAE9C895CDFCD92F3EDD41D0D" import="1">Ottoman_Bombard/bombard_crew_diff.dds</File>
+    <File md5="0B1534B32C405A3EE4B9D784471DA90B" import="1">Ottoman_Bombard/Bombard_diff.dds</File>
+    <File md5="B72AF20074CF79CA94D5327FDDC096CC" import="1">Ottoman_Bombard/Bombard_sref.dds</File>
+    <File md5="31DAAE99CA48912A424F5566DD3B0D6E" import="0">Ottoman_Bombard/3uc_ottocanon.xml</File>
+    <File md5="52C8FF6A652C4DC407FDA6E7C93CCE2E" import="1">Ottoman_Bombard/4BombardUnitFlag_32.dds</File>
+    <File md5="AE80A76BAE9DE2C0E8EAA52873951B8B" import="1">Ottoman_Bombard/sv_GreatBombard.dds</File>
+    <File md5="1F70067CF2B3ACD26474EA6D569B8D86" import="1">Persia/3_firetemple128.dds</File>
+    <File md5="E289FBC2B49967F58C6DFFEC38284AD7" import="1">Persia/3_firetemple256.dds</File>
+    <File md5="1B3F33C21281615BCDDBDCBAA0BBD699" import="1">Persia/3_firetemple45.dds</File>
+    <File md5="CE5FB5722546CE6B88405069703BAE9B" import="1">Persia/3_firetemple64.dds</File>
+    <File md5="73C8DCB769D1E7A4E3EC92C494ADE942" import="0">Persia/4UC_PERSIA.sql</File>
+    <File md5="E7B8946D830224CF748FA2663DA04F8B" import="0">Persia/firetemple.xml</File>
+    <File md5="DD638F97805F487D955D4F1540B5128C" import="1">Poland/3UC_PolandPilsudskiAtlas_128.dds</File>
+    <File md5="291FA9753EB6A63CF90C6AC484B0BE04" import="1">Poland/3UC_PolandPilsudskiAtlas_256.dds</File>
+    <File md5="3B570ACB91607208E78EAE3B702BB080" import="1">Poland/3UC_PolandPilsudskiAtlas_32.dds</File>
+    <File md5="3585D7AD12A187993EA1C9941B86E711" import="1">Poland/3UC_PolandPilsudskiAtlas_45.dds</File>
+    <File md5="7F201CE2C5B470522503BFB259E8BED1" import="1">Poland/3UC_PolandPilsudskiAtlas_64.dds</File>
+    <File md5="7AEAB959143376B6DB03BFB70C9DE07B" import="1">Poland/3UC_PolandPilsudskiAtlas_80.dds</File>
+    <File md5="AB38579707D1265C5A369EAB1DF60ADC" import="1">Poland/3UC_PZL23UnitFlag_32.dds</File>
+    <File md5="3C22FAEF6881085CCE2640D83084D710" import="0">Poland/PolandPZL.sql</File>
+    <File md5="6FC27AF49FA90224EE7110932635BC28" import="0">Poland/PolandPZL.xml</File>
+    <File md5="BB0485CA529E93BA2C40A94453652F85" import="1">Poland/PZL_P.23_Karas.dds</File>
+    <File md5="D58F7F4B49C42F4533A8247600A3B415" import="1">Poland/PZL_P.23_Karas.fxsxml</File>
+    <File md5="3365AA88BE89516C6EA8628EA00293D9" import="1">Poland/PZL_P.23_Karas.gr2</File>
+    <File md5="C51D95D858C7892A61516E396FB59FCE" import="1">Poland/PZL_P.23_Karas_2.dds</File>
+    <File md5="24CF5004E9FB0E1D93CF6BEE2A5771E6" import="1">Poland/PZL_P.23_Karas_gloss.dds</File>
+    <File md5="29C2B84A76F2D1C06EBDE7FE86C9FFC7" import="1">Poland/3UC_sv_PZL23.dds</File>
+    <File md5="50CE2591D0581D0C7035D25CCE2E3DA8" import="0">Polynesia/4UC_POLYNESIA.sql</File>
+    <File md5="816473957AA79CDC635A337CC838D0BD" import="1">Polynesia/hawaii_ikaika.fxsxml</File>
+    <File md5="C2AD90F157A7850255AB6118F9771BC1" import="1">Polynesia/hawaii_ikaika.gr2</File>
+    <File md5="4B287F1BF3990715DD536722531E8595" import="1">Polynesia/hawaii_ikaika_diff.dds</File>
+    <File md5="F0C52B17A20219287233D3049BBF928F" import="1">Polynesia/hawaii_ikaika_sref.dds</File>
+    <File md5="4D5EF692E4404CDDBB5DFB271D31FDC7" import="1">Polynesia/3UC_PolynesiaAlpha_32.dds</File>
+    <File md5="EFAAFE851525A884E3F11BF0FF84E854" import="1">Polynesia/3UC_Polynesia_128.dds</File>
+    <File md5="A3BA89135036EEF59BD4DD8AFBA47B11" import="1">Polynesia/3UC_Polynesia_256.dds</File>
+    <File md5="1E990EE084BC06A22220FE5AFAFB3656" import="1">Polynesia/3UC_Polynesia_45.dds</File>
+    <File md5="716DFB28D4261F78EFA9CCDEC2933DD7" import="1">Polynesia/3UC_Polynesia_64.dds</File>
+    <File md5="2F679DC71A70EBF0E83E8BDFCF6F938B" import="1">Polynesia/3UC_Polynesia_80.dds</File>
+    <File md5="064B1125C635888A9BB1FD7A08F54318" import="0">Polynesia/Polynesia_Units.xml</File>
+    <File md5="84999876DBB6B847F5B4DBF7D0A03E26" import="1">Polynesia/3UC_sv_Koa.dds</File>
+    <File md5="76282A3A829CBB0BFBF427365E57FC20" import="1">Portugal2/4CACADOR128.dds</File>
+    <File md5="D099A67ED3F1C099966801FD6C2C23E0" import="1">Portugal2/4CACADOR256.dds</File>
+    <File md5="7943C54F9EFF94E227115EE27D155E07" import="1">Portugal2/4CACADOR45.dds</File>
+    <File md5="96E1B86EC7ECC2858A100847BBFD8E2C" import="1">Portugal2/4CACADOR64.dds</File>
+    <File md5="0005E3A8346A8D35D9A184CE45F3EA1F" import="1">Portugal2/4CACADOR80.dds</File>
+    <File md5="918C9F2E17420CEE3F446587F70E9355" import="1">Portugal2/ausgw1.blend</File>
+    <File md5="27F0C17AF1900C6AA46B3AFF2676AD1B" import="1">Portugal2/ausgw1.dds</File>
+    <File md5="09494335C27B585180136F7F5AA91CE9" import="1">Portugal2/ausgw1.fxsxml</File>
+    <File md5="033BFACE31C66BE49DE1F84AF9FED36F" import="1">Portugal2/ausgw1.gr2</File>
+    <File md5="FD45D5B5F81BAF00A02D15A2AF4E1EE3" import="0">Portugal2/3Cacador Define.sql</File>
+    <File md5="E0AF8C39163873404D750DD49536E3BB" import="0">Portugal2/3Cacador.xml</File>
+    <File md5="0C759F1CED95795CCFBE40C6BD9A963C" import="1">Portugal2/no_gloss.dds</File>
+    <File md5="CB7E193E1FB1051E1022FB35BBB32740" import="1">Portugal2/sv_3UC_CACADOR.dds</File>
+    <File md5="4154793C053E6CD993738E8498E705E9" import="1">Portugal2/Unit_CACADOR_Flag_4UC_32.dds</File>
+    <File md5="211F348006A077728D21FEAD5815F660" import="0">Portugal4/4UC_galleonP.sql</File>
+    <File md5="73FDA6FC9D8CE0848AD3A0D320855333" import="1">Rome/3thermae128.dds</File>
+    <File md5="8EF8DAB3510CCD03D3991BEE0308AF9D" import="1">Rome/3thermae256.dds</File>
+    <File md5="484DF21C7F85ECC4DDEF61D3F7AFD00D" import="1">Rome/3thermae45.dds</File>
+    <File md5="EBFAFF7BCF0C8210D89C4A7EE89F274D" import="1">Rome/3thermae64.dds</File>
+    <File md5="97A4A60E455C175955CB95C08F32D744" import="0">Rome/4UC_ROME.sql</File>
+    <File md5="8AA5521E3B6B20D9A61413D57057B48D" import="0">Rome/RomeBath.xml</File>
+    <File md5="1DA51CC3AE708C75CCB0E81E874F26F7" import="0">Russia4UC2/4UC_RUSSIA.sql</File>
+    <File md5="DCB117447A6A0CA3E8727AE451F33B9E" import="0">Russia4UC2/russianlab.xml</File>
+    <File md5="9F7879695B33CD36D957809688E8F63B" import="1">Russia4UC2/russianlab128.dds</File>
+    <File md5="ACD589C7B62F32BDEC970E908474D31C" import="1">Russia4UC2/russianlab256.dds</File>
+    <File md5="023006E722671FED6EF7EB0F5AB5C16B" import="1">Russia4UC2/russianlab45.dds</File>
+    <File md5="80A0A08D286C7C90DD56B5C01CEE2FA1" import="1">Russia4UC2/russianlab64.dds</File>
+    <File md5="0A0883843FAE9E1ABD682CB4590336EC" import="1">Shoshone2/4buffalopound128.dds</File>
+    <File md5="0EC0F6710D54965C9921B588E390620C" import="1">Shoshone2/4buffalopound256.dds</File>
+    <File md5="89CEAB06714976FCF75D530B775F6016" import="1">Shoshone2/4buffalopound45.dds</File>
+    <File md5="6303C0ECA165527FFB1326198FF02C95" import="1">Shoshone2/4buffalopound64.dds</File>
+    <File md5="33CA8434378752326DDA539838BF03E0" import="0">Shoshone2/4UC_SHOSHONE.sql</File>
+    <File md5="3AAAB10FAAE6EAF237CC3496EBBED161" import="0">Shoshone2/ShoshonePound.xml</File>
+    <File md5="2A18360241172FB1675E2C509EB1CA35" import="0">Shoshone2/PlaceBison.lua</File>
+    <File md5="1CA679D30208B90330AF40A5A706EB86" import="0">Siam2/4UC_siamelephant.sql</File>
+    <File md5="3C9214C7530FBFF5469B204ABD691194" import="1">Siam2/4uc_siamelephant128.dds</File>
+    <File md5="05A7538D3A72F148E4F41A38BF810B26" import="1">Siam2/4uc_siamelephant256.dds</File>
+    <File md5="A33EA892C1F3292F1B2DB7E4ABF40D6F" import="1">Siam2/4uc_siamelephant45.dds</File>
+    <File md5="9AD3C35B3444B7AC3D0D6EB58AC7A30C" import="1">Siam2/4uc_siamelephant64.dds</File>
+    <File md5="5A27E46DA6D7C57D7B87D830E1233978" import="1">Siam2/4uc_siamelephant80.dds</File>
+    <File md5="B1CEF5351ED28207752E7A6637A1FCF7" import="1">Siam2/fx_triggers_khmer_elephant.ftsxml</File>
+    <File md5="B0450AD2F75717FEF0D014EE41743907" import="1">Siam2/Icon4Phant32.dds</File>
+    <File md5="113424D64C668BDDCCC47EC64036AEE3" import="1">Siam2/Icon4PhantSV.dds</File>
+    <File md5="F5E3F1F56C80222114EFA011D0A45DE9" import="1">Siam2/KhmerCar_diff.dds</File>
+    <File md5="5F9FFAD0AD04B20BC6E646CD3F0C1808" import="1">Siam2/KhmerCar_sref.dds</File>
+    <File md5="F8AB84FBD3AE675E1488417F687E72FB" import="1">Siam2/KhmerElephant_diff.dds</File>
+    <File md5="B354552E3A3F7B09218182AACAA92673" import="1">Siam2/KhmerElephant_sref.dds</File>
+    <File md5="A8CC5F6909842DC842DF0CEC2F651B6C" import="1">Siam2/KhmerRider_diff.dds</File>
+    <File md5="FDB274899B240C4AA07C831A98337984" import="1">Siam2/KhmerRider_sref.dds</File>
+    <File md5="318EBD501455651CF27D30AD319CFBC1" import="1">Siam2/khmer_elephant.fxsxml</File>
+    <File md5="6F03D9B9BE33CB35F0C06EF3F57E3852" import="1">Siam2/khmer_elephant.gr2</File>
+    <File md5="F9D19C27E7CFE2DAF0FDE56182CF525D" import="0">Siam2/4uc_SiamElephant.xml</File>
+    <File md5="19AF0ED78AB504F256B045E2C81E2A96" import="0">Siam/4UC_SIAM.sql</File>
+    <File md5="EFC2F3CD55E673449FB96A3B6F20DDDC" import="1">Siam/civ5_siarm1.fxsxml</File>
+    <File md5="5157C4A4DC3488CBA3F81E99C4D7BAB5" import="1">Siam/civ5_siarm1.gr2</File>
+    <File md5="CAC92C41126DEAD63FD6D3AD05E12DB7" import="1">Siam/IconSiamSold32.dds</File>
+    <File md5="40A1388D00E19DAE8A2E7EB384B10B56" import="1">Siam/IconSiamSoldSV.dds</File>
+    <File md5="87ED93DFAD955BE36C80D0B64B2BBA62" import="0">Siam/royalrifle.xml</File>
+    <File md5="9CA9ABF4CEC98516B228123A2D8E3D60" import="1">Siam/siamsoldier128.dds</File>
+    <File md5="3B7C42C9A982119D1AE90E9916152840" import="1">Siam/siamsoldier256.dds</File>
+    <File md5="D2D6D0C3A5E60282FACDE0607DEC3A41" import="1">Siam/siamsoldier45.dds</File>
+    <File md5="60E3692030145F1060C3320A689EA56A" import="1">Siam/siamsoldier64.dds</File>
+    <File md5="26254806273A60F291270F14C07AF3AF" import="1">Siam/siamsoldier80.dds</File>
+    <File md5="BABA9DCCEAAE9EE5B4E7F6FA1E7EEBFB" import="1">Siam/siarm1.dds</File>
+    <File md5="81B35815BDA93C7B9558232B5E550D84" import="1">Siam/siarm1_sref.dds</File>
+    <File md5="9836812DA815773B5D3C3897B1183F3B" import="0">Songhai/4UC_SONGHAI.sql</File>
+    <File md5="6ADFD16B73936EB9A4A1C0BE989A902E" import="1">Songhai/songhaigold128.dds</File>
+    <File md5="701A9F900898E81F90995291D3D4B222" import="1">Songhai/songhaigold256.dds</File>
+    <File md5="401DFE3422B3B5A3E152A4B387BB26F0" import="1">Songhai/songhaigold45.dds</File>
+    <File md5="FE377F7987A85EAA9AE61E7BFB5CA51E" import="1">Songhai/songhaigold64.dds</File>
+    <File md5="FDFE32FC338C6D825205CA08E00434E0" import="0">Songhai/Treasury.xml</File>
+    <File md5="5E11C1FF963BAF6A77ED8FAB97BBEEF6" import="1">Spain2/3uc_mission128.dds</File>
+    <File md5="209666DDEE40475E73C52D6DD28BA714" import="1">Spain2/3uc_mission256.dds</File>
+    <File md5="811B5C17EA98CE94350905B72E0FBBF7" import="1">Spain2/3uc_mission45.dds</File>
+    <File md5="BD37142060FF9D2F527DB3CAFF727F8A" import="1">Spain2/3uc_mission64.dds</File>
+    <File md5="6ED8DA5E3AE809DEED6D9FB2CC3525CE" import="0">Spain2/4uc_mission.xml</File>
+    <File md5="FCA2B571F5498ADE934A67E3C0F74B76" import="0">Spain2/4UC_SPAIN.sql</File>
+    <File md5="E99F40682EB5868963AD7875542636B6" import="1">Portugal4/galleon128.dds</File>
+    <File md5="A2C9968B07A8DB210B40130C534F8C76" import="1">Portugal4/galleon256.dds</File>
+    <File md5="15CAD066C9560121B9A436DFBA34296D" import="1">Portugal4/galleon45.dds</File>
+    <File md5="6B069080545429C05C463AEE01E76E5A" import="1">Portugal4/galleon64.dds</File>
+    <File md5="2CE4D04A3C7A072D616DCF797EC946A6" import="1">Portugal4/galleon80.dds</File>
+    <File md5="B0BFC06A56CEDF3BEF289D4F21101AA8" import="0">Portugal4/Gelleon.xml</File>
+    <File md5="8ABF50384244F69354DB6C05A20D84C9" import="1">Portugal4/IconGalleon32.dds</File>
+    <File md5="F173B50B7E4F37777D87F011CC860C55" import="1">Portugal4/IconGalleonSV.dds</File>
+    <File md5="89BBF83837A9F7E2259EE961FF63D94A" import="1">Sweden/3skola128.dds</File>
+    <File md5="172D95D94488C93CA2ACDAC5FA43CD16" import="1">Sweden/3skola256.dds</File>
+    <File md5="93FFA52E4E8AC75B2BC508FF86B72970" import="1">Sweden/3skola45.dds</File>
+    <File md5="A4C4934D75E9044FF404F8C9082AFF40" import="1">Sweden/3skola64.dds</File>
+    <File md5="C6C7828DD43DCCEB70CF4D2919D4B3BA" import="0">Sweden/4UC_SWEDEN.sql</File>
+    <File md5="82629D3AE05D3C7E11C7B1F510AC6AD8" import="0">Sweden/Skola.xml</File>
+    <File md5="BB52FCAB339FBFABEABA78959EDD41E8" import="0">Venice/4UC_VENICE.sql</File>
+    <File md5="7CA76A51A2F1D287F4912D73F52A2F35" import="1">Venice/5dogepalace128.dds</File>
+    <File md5="2E9D075DABEDA9ABD157F20F55AAB4D2" import="1">Venice/5dogepalace256.dds</File>
+    <File md5="B8F4863C55E5C54C0F5C79F9D41B1452" import="1">Venice/5dogepalace45.dds</File>
+    <File md5="97DF3770C6CC34A246141DA31FAB4E3F" import="1">Venice/5dogepalace64.dds</File>
+    <File md5="C99A16688A94AC9502269BCBBF4ED29D" import="0">Venice/DogePalace.xml</File>
+    <File md5="D8AA530B924143534CEE90475495F455" import="0">Zulu/4UC_ZULU.sql</File>
+    <File md5="D1CCB9296C24820C4FB57332E3B50E73" import="0">Zulu/gumboot.xml</File>
+    <File md5="DA0EB52296A1DF7B02AC33EF7FC4EE5D" import="1">Zulu/GUMBOOT128.dds</File>
+    <File md5="6C75DC8D3B123051C16FA1C2EC32C028" import="1">Zulu/GUMBOOT256.dds</File>
+    <File md5="DC99D6744A0AFD76067CCB146A96A5A4" import="1">Zulu/GUMBOOT45.dds</File>
+    <File md5="D0E37D2CE923401D1B7003B779A92505" import="1">Zulu/GUMBOOT64.dds</File>
+  </Files>
+  <Actions>
+    <OnModActivated>
+      <UpdateDatabase>India/Mausoleum_Mod.xml</UpdateDatabase>
+      <UpdateDatabase>France/ForeignLegion.xml</UpdateDatabase>
+      <UpdateDatabase>Indonesia/3cetbang.xml</UpdateDatabase>
+      <UpdateDatabase>Persia/firetemple.xml</UpdateDatabase>
+      <UpdateDatabase>Brazil/tripleally.xml</UpdateDatabase>
+      <UpdateDatabase>Sweden/Skola.xml</UpdateDatabase>
+      <UpdateDatabase>Byzantine/basilica.xml</UpdateDatabase>
+      <UpdateDatabase>Venice/DogePalace.xml</UpdateDatabase>
+      <UpdateDatabase>ChinaUI/PaddyUI.xml</UpdateDatabase>
+      <UpdateDatabase>Shoshone2/ShoshonePound.xml</UpdateDatabase>
+      <UpdateDatabase>Carthage/mercHorseman.xml</UpdateDatabase>
+      <UpdateDatabase>Zulu/gumboot.xml</UpdateDatabase>
+      <UpdateDatabase>Austria/AustriaHarmonic.xml</UpdateDatabase>
+      <UpdateDatabase>Inca/Qurikancha.xml</UpdateDatabase>
+      <UpdateDatabase>Danish/UnitsVikingLongboat.xml</UpdateDatabase>
+      <UpdateDatabase>Germany/JaegarText.xml</UpdateDatabase>
+      <UpdateDatabase>Germany/JaegerArtDefines.sql</UpdateDatabase>
+      <UpdateDatabase>Maya/Mayaswordsman.xml</UpdateDatabase>
+      <UpdateDatabase>Aztec/Sac_Altar.xml</UpdateDatabase>
+      <UpdateDatabase>Morocco/zellige.xml</UpdateDatabase>
+      <UpdateDatabase>Japan/WarriorMonk.xml</UpdateDatabase>
+      <UpdateDatabase>Ethiopia/oromo.xml</UpdateDatabase>
+      <UpdateDatabase>Poland/PolandPZL.sql</UpdateDatabase>
+      <UpdateDatabase>Poland/PolandPZL.xml</UpdateDatabase>
+      <UpdateDatabase>Songhai/Treasury.xml</UpdateDatabase>
+      <UpdateDatabase>Polynesia/Polynesia_Units.xml</UpdateDatabase>
+      <UpdateDatabase>Hun3/Hun_HorseArcher.xml</UpdateDatabase>
+      <UpdateDatabase>Celt/CARPENTOM.xml</UpdateDatabase>
+      <UpdateDatabase>Iroquois/Reforest_en_US.xml</UpdateDatabase>
+      <UpdateDatabase>Iroquois/Reforestation.sql</UpdateDatabase>
+      <UpdateDatabase>Mongalia/yam.xml</UpdateDatabase>
+      <UpdateDatabase>Russia4UC2/russianlab.xml</UpdateDatabase>
+      <UpdateDatabase>Assyria4/Sargon3Palace.xml</UpdateDatabase>
+      <UpdateDatabase>Rome/RomeBath.xml</UpdateDatabase>
+      <UpdateDatabase>DutchIndiaman/3EastIndiaman.xml</UpdateDatabase>
+      <UpdateDatabase>Korea2/3Grandpalace.xml</UpdateDatabase>
+      <UpdateDatabase>Babylon4/HittiteWarchariot.xml</UpdateDatabase>
+      <UpdateDatabase>Egypt2/Nilometer3Uc.xml</UpdateDatabase>
+      <UpdateDatabase>Compatibility/EventsDecision.sql</UpdateDatabase>
+      <UpdateDatabase>Arabia2/arab3swords.xml</UpdateDatabase>
+      <UpdateDatabase>England2/3UC_textilemill.xml</UpdateDatabase>
+      <UpdateDatabase>America2/3uc_Ranch.xml</UpdateDatabase>
+      <UpdateDatabase>America2/4UC_AMERICA.sql</UpdateDatabase>
+      <UpdateDatabase>Assyria4/4UC_ASSYRIA.sql</UpdateDatabase>
+      <UpdateDatabase>Austria/4UC_AUSTRIA.sql</UpdateDatabase>
+      <UpdateDatabase>Aztec/4UC_AZTEC.sql</UpdateDatabase>
+      <UpdateDatabase>Egypt2/4UC_EGYPT.sql</UpdateDatabase>
+      <UpdateDatabase>Byzantine/4UC_BYZANTINE.sql</UpdateDatabase>
+      <UpdateDatabase>England2/4UC_ENGLAND.sql</UpdateDatabase>
+      <UpdateDatabase>Inca/4UC_INCA.sql</UpdateDatabase>
+      <UpdateDatabase>India/4UC_INDIA.sql</UpdateDatabase>
+      <UpdateDatabase>Korea2/4UC_KOREA.sql</UpdateDatabase>
+      <UpdateDatabase>Morocco/4UC_MOROCCO.sql</UpdateDatabase>
+      <UpdateDatabase>Persia/4UC_PERSIA.sql</UpdateDatabase>
+      <UpdateDatabase>Rome/4UC_ROME.sql</UpdateDatabase>
+      <UpdateDatabase>Russia4UC2/4UC_RUSSIA.sql</UpdateDatabase>
+      <UpdateDatabase>Shoshone2/4UC_SHOSHONE.sql</UpdateDatabase>
+      <UpdateDatabase>Songhai/4UC_SONGHAI.sql</UpdateDatabase>
+      <UpdateDatabase>Sweden/4UC_SWEDEN.sql</UpdateDatabase>
+      <UpdateDatabase>Venice/4UC_VENICE.sql</UpdateDatabase>
+      <UpdateDatabase>Zulu/4UC_ZULU.sql</UpdateDatabase>
+      <UpdateDatabase>Mongalia/4UC_MONGOLIA.sql</UpdateDatabase>
+      <UpdateDatabase>Spain2/4uc_mission.xml</UpdateDatabase>
+      <UpdateDatabase>Spain2/4UC_SPAIN.sql</UpdateDatabase>
+      <UpdateDatabase>Arabia2/4UC_ARABIA.sql</UpdateDatabase>
+      <UpdateDatabase>Babylon4/4UC_BABYLON.sql</UpdateDatabase>
+      <UpdateDatabase>Brazil/4UC_BRAZIL.sql</UpdateDatabase>
+      <UpdateDatabase>Carthage/4UC_CARTHAGE.sql</UpdateDatabase>
+      <UpdateDatabase>Celt/4UC_CELT.sql</UpdateDatabase>
+      <UpdateDatabase>Danish/4UC_DANMARK.sql</UpdateDatabase>
+      <UpdateDatabase>DutchIndiaman/4UC_DUTCH.sql</UpdateDatabase>
+      <UpdateDatabase>Ethiopia/4UC_ETHIOPIA.sql</UpdateDatabase>
+      <UpdateDatabase>Hun3/4UC_HUNS.sql</UpdateDatabase>
+      <UpdateDatabase>Indonesia/4UC_INDONESIA.sql</UpdateDatabase>
+      <UpdateDatabase>Japan/4UC_JAPAN.sql</UpdateDatabase>
+      <UpdateDatabase>Maya/4UC_MAYA.sql</UpdateDatabase>
+      <UpdateDatabase>Polynesia/4UC_POLYNESIA.sql</UpdateDatabase>
+      <UpdateDatabase>Siam2/4UC_siamelephant.sql</UpdateDatabase>
+      <UpdateDatabase>Siam2/4uc_SiamElephant.xml</UpdateDatabase>
+      <UpdateDatabase>Ottoman_Bombard/4UC_Ottocanon.sql</UpdateDatabase>
+      <UpdateDatabase>Ottoman_Bombard/3uc_ottocanon.xml</UpdateDatabase>
+      <UpdateDatabase>Portugal4/4UC_galleonP.sql</UpdateDatabase>
+      <UpdateDatabase>Portugal4/Gelleon.xml</UpdateDatabase>
+      <UpdateDatabase>Greece3/4UC_GREECE3.sql</UpdateDatabase>
+      <UpdateDatabase>Greece3/4UC_GREECE3.xml</UpdateDatabase>
+    </OnModActivated>
+  </Actions>
+  <EntryPoints>
+    <EntryPoint type="InGameUIAddin" file="Iroquois/Reforestation.lua">
+      <Name>Iroquois</Name>
+      <Description>
+      </Description>
+    </EntryPoint>
+    <EntryPoint type="InGameUIAddin" file="Shoshone2/PlaceBison.lua">
+      <Name>Shoshone</Name>
+      <Description>Bison</Description>
+    </EntryPoint>
+  </EntryPoints>
+</Mod>

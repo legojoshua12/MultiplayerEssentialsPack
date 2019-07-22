@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 1/23/2014 11:16:01 PM -->
+<GameData>
+
+	<Policies>
+		<Update>
+			<Where Type="POLICY_REFORMATION"/>
+			<Set PolicyCostModifier="-10"/>
+		</Update>
+	</Policies>
+	
+	<Language_en_US>
+		<Update>
+			<Where Tag="TXT_KEY_POLICY_REFORMATION_HELP"/>
+			<Set>
+				<Text>[COLOR_POSITIVE_TEXT]Reformation[ENDCOLOR][NEWLINE]If you founded a religion, gain a bonus Reformation belief.  Earn Social Policies 10% faster.</Text>
+			</Set>
+		</Update>
+	</Language_en_US>
+  
+</GameData>

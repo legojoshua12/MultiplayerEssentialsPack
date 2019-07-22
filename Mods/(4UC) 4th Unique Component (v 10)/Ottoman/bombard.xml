@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 3/6/2015 5:47:41 PM -->
+<GameData>
+
+	<Language_en_US>
+		<Row Tag="TXT_KEY_BUILDING_3OTTOBOMB">
+			<Text>Siege Foundry</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3OTTOBOMB_TEXT">
+			<Text>
+				Ottoman artillery was famous for the size of its cannons, and their numbers, from the highly mobile antipersonnel Abus gun to the massive Great Turkish Bombard. These bombards were a product of specialised study in the production of 'giant guns' known literally as castle smashers 'kale-kob'. Although such weapons being primarily used in sieges; where they were cast on site due to the logistical difficulties attributed to transport them there, they were used as late as 1809 massive stone-firing guns were used with some effect against British ships during the Dardanelles Operation, throwing 1000-pound marble with a range of 1 mile.[NEWLINE][NEWLINE]The most famous battle in which these bronze 'bombards' were used is at the siege of Constantinople in 1453. The bombards weighed 19 tons, took 200 men and sixty oxen to emplace, and could fire just seven times a day. The Fall of Constantinople was perhaps "the first event of supreme importance whose result was determined by the use of artillery", when the huge bronze cannons of Mehmed II breached the city's walls, ending the Byzantine Empire, according to Sir Charles Oman.[NEWLINE][NEWLINE]The Ottoman Sultan Mehmet II erected many cannon-foundries in Istanbul, the most famous of which is the Tophane foundry which produced bronze cannons for siege warfare. It made large bombards which had a diameter of 60 to 100 cm and in 1562 alone it cast a total of 1012 guns weighing all together 481 tonnes.
+			</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3OTTOBOMB_HELP">
+			<Text>Bonus [ICON_PRODUCTION] Production towards Land units. All Siege units trained in this City receive the Volley promotion for free. Only the Ottomans may build it.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3OTTOBOMB_STRATEGY">
+			<Text>The Siege Foundry is an Ottoman unique building that improves the [ICON_PRODUCTION] Production of a city and speeds up the training of Land Units. Unlike the Forge it replaces, all Siege units constructed in a city with a Siege Foundry gain a combat promotion against fortified units and cities. Does not require an improved source of [ICON_RES_IRON] Iron.</Text>
+		</Row>
+	</Language_en_US>
+
+
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>3OTTOBOMB_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>ottosiege256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>3OTTOBOMB_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>ottosiege128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>3OTTOBOMB_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>ottosiege64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>3OTTOBOMB_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>ottosiege45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

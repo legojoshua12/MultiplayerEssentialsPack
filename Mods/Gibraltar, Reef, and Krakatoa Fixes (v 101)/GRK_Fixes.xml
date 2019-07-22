@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<GameData>
+
+	<Natural_Wonder_Placement>
+		<Update>
+			<Where NaturalWonderType="FEATURE_VOLCANO"/>
+			<Set EligibilityMethodNumber="3"
+				 TileChangesMethodNumber="3"
+				 AdjacentTilesCareAboutPlotTypes="false"
+				 AdjacentTilesCareAboutFeatureTypes="false"
+				 ChangeCoreTileToMountain="false"
+				 ChangeCoreTileTerrainToGrass="false"
+				 SetAdjacentTilesToShallowWater="false"
+			/>
+		</Update>
+	</Natural_Wonder_Placement>	
+  
+</GameData>

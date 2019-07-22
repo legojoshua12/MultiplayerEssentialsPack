@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mod id="bd94e758-ebf6-4a3d-8aeb-0b7f7f858317" version="2">
+  <Properties>
+    <Name>Workable Mountains</Name>
+    <Teaser>Gives mountains yield bonuses from buildings.</Teaser>
+    <Description>Adds yield bonuses to mountains from a few buildings, letting you work those previously unusable panels.[NEWLINE][NEWLINE]- Palace adds 1 [ICON_CULTURE] Culture[NEWLINE]- Stoneworks adds 2 [ICON_PRODUCTION] Production[NEWLINE]- Aqueduct adds 1 [ICON_FOOD] Food[NEWLINE]- Observatory adds 1 [ICON_RESEARCH] Science[NEWLINE]- Machu Pichu lost 2 [ICON_PEACE] Faith and instead adds that amount to mountains.[NEWLINE]- Broadcast Tower adds 1 [ICON_CULTURE] Culture</Description>
+    <Authors>Kevin Fitzgerald</Authors>
+    <HideSetupGame>0</HideSetupGame>
+    <AffectsSavedGames>1</AffectsSavedGames>
+    <MinCompatibleSaveVersion>0</MinCompatibleSaveVersion>
+    <SupportsSinglePlayer>1</SupportsSinglePlayer>
+    <SupportsMultiplayer>1</SupportsMultiplayer>
+    <SupportsHotSeat>1</SupportsHotSeat>
+    <SupportsMac>1</SupportsMac>
+    <ReloadAudioSystem>0</ReloadAudioSystem>
+    <ReloadLandmarkSystem>0</ReloadLandmarkSystem>
+    <ReloadStrategicViewSystem>0</ReloadStrategicViewSystem>
+    <ReloadUnitSystem>0</ReloadUnitSystem>
+  </Properties>
+  <Dependencies />
+  <References />
+  <Blocks />
+  <Files>
+    <File md5="4E654812437D55FB1B0BE2672E4647CD" import="0">WorkableMountains.lua</File>
+    <File md5="3FB636E6488C54941878F55284D3A360" import="0">WorkableMountains.xml</File>
+  </Files>
+  <Actions>
+    <OnModActivated>
+      <UpdateDatabase>WorkableMountains.xml</UpdateDatabase>
+    </OnModActivated>
+  </Actions>
+  <EntryPoints>
+    <EntryPoint type="InGameUIAddin" file="WorkableMountains.xml">
+      <Name>WorkableMountains</Name>
+      <Description>
+      </Description>
+    </EntryPoint>
+  </EntryPoints>
+</Mod>

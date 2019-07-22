@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 4/11/2015 5:34:23 PM -->
+<GameData>
+
+	<Buildings>
+		<Row>
+			<Type>BUILDING_MICROBREWERY</Type>
+			<Description>TXT_KEY_BUILDING_MICROBREWERY</Description>
+			<Civilopedia>TXT_KEY_CIV5_BUILDINGS_MICROBREWERY_TEXT</Civilopedia>
+			<Strategy>TXT_KEY_BUILDING_MICROBREWERY_STRATEGY</Strategy>
+			<Help>TXT_KEY_BUILDING_MICROBREWERY_HELP</Help>
+			<GoldMaintenance>0</GoldMaintenance>
+			<MutuallyExclusiveGroup>-1</MutuallyExclusiveGroup>
+			<Cost>100</Cost>
+			<HurryCostModifier>25</HurryCostModifier>
+			<MinAreaSize>-1</MinAreaSize>
+			<!--<ConquestProb>66</ConquestProb>-->
+			<NeverCapture>true</NeverCapture>
+			<Happiness>2</Happiness>
+			<TradeRouteRecipientBonus>1</TradeRouteRecipientBonus>
+			<TradeRouteTargetBonus>1</TradeRouteTargetBonus>
+			<BuildingClass>BUILDINGCLASS_MARKET</BuildingClass>
+			<ArtDefineTag>ART_DEF_BUILDING_MARKET</ArtDefineTag>
+			<FreeStartEra>ERA_INDUSTRIAL</FreeStartEra>
+			<PrereqTech>TECH_CURRENCY</PrereqTech>
+			<SpecialistType>SPECIALIST_MERCHANT</SpecialistType>
+			<SpecialistCount>1</SpecialistCount>
+			<PortraitIndex>4</PortraitIndex>
+			<IconAtlas>OR_COLOR_ATLAS</IconAtlas>
+		</Row>
+	</Buildings>
+
+
+	<Building_Flavors>
+		<Row>
+			<BuildingType>BUILDING_MICROBREWERY</BuildingType>
+			<FlavorType>FLAVOR_GOLD</FlavorType>
+			<Flavor>25</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_MICROBREWERY</BuildingType>
+			<FlavorType>FLAVOR_I_TRADE_ORIGIN</FlavorType>
+			<Flavor>25</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_MICROBREWERY</BuildingType>
+			<FlavorType>FLAVOR_I_TRADE_DESTINATION</FlavorType>
+			<Flavor>25</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_MICROBREWERY</BuildingType>
+			<FlavorType>FLAVOR_HAPPINESS</FlavorType>
+			<Flavor>20</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_MICROBREWERY</BuildingType>
+			<FlavorType>FLAVOR_CULTURE</FlavorType>
+			<Flavor>2</Flavor>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_MICROBREWERY</BuildingType>
+			<FlavorType>FLAVOR_GREAT_PEOPLE</FlavorType>
+			<Flavor>2</Flavor>
+		</Row>
+	</Building_Flavors>
+	
+	<Building_YieldChanges>
+		<Row>
+			<BuildingType>BUILDING_MICROBREWERY</BuildingType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>1</Yield>
+		</Row>
+		<Row>
+			<BuildingType>BUILDING_MICROBREWERY</BuildingType>
+			<YieldType>YIELD_CULTURE</YieldType>
+			<Yield>1</Yield>
+		</Row>
+	</Building_YieldChanges>
+	
+	<Building_YieldModifiers>
+		<Row>
+			<BuildingType>BUILDING_MICROBREWERY</BuildingType>
+			<YieldType>YIELD_GOLD</YieldType>
+			<Yield>25</Yield>
+		</Row>
+	</Building_YieldModifiers>
+	
+
+	<Language_en_US>
+		<Row Tag="TXT_KEY_BUILDING_MICROBREWERY">
+			<Text>Microbrewery</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_BUILDINGS_MICROBREWERY_TEXT">
+			<Text>The same effects as a Market, and adds +2 [ICON_HAPPINESS_1] Happiness and +1 [ICON_CULTURE] Culture</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_MICROBREWERY_HELP">
+			<Text>Markets increase the amount of [ICON_GOLD] Gold a city generates. Trade routes other players make to a city with a Market will generate an extra 1 [ICON_GOLD] Gold for the city owner and the trade route owner gains an additional 1 [ICON_GOLD] Gold for the trade route.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_MICROBREWERY_STRATEGY">
+			<Text>Microbreweries replace the Market and increase the amount of [ICON_GOLD] Gold a city generates, along with an additional +2 [ICON_HAPPINESS_1] and +1 [ICON_CULTURE]. Trade routes other players make to a city with a Microbrewery will generate an extra 1 [ICON_GOLD] Gold for the city owner and the trade route owner.</Text>
+		</Row>
+	</Language_en_US>
+  
+</GameData>

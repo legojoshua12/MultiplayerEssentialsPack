@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 3/8/2014 12:31:51 PM -->
+<GameData>
+	<Language_en_US>
+		<!-- Policies -->
+		<Update>
+			<Where Tag="TXT_KEY_POLICY_TRADE_UNIONS_HELP"/>
+			<Set Text="[COLOR_POSITIVE_TEXT]Mercenary Army[ENDCOLOR][NEWLINE]Allows the purchasing of Landsknechts, Swiss Guard, and Foreign Legion infantry units, depending on the era."/>
+		</Update>
+		<!-- Units -->
+		<Update>
+			<Where Tag="TXT_KEY_UNIT_HELP_FOREIGN_LEGION"/>
+			<Set Text="Special Infantry Unit of the Modern Era. May only be received through adopting the Volunteer Army tenet of the Freedom Ideology and through the Mercenary Army policy in the Commerce tree. This Unit has a combat bonus outside of friendly territory but is otherwise very similar to Great War Infantry."/>
+		</Update>
+		<Update>
+			<Where Tag="TXT_KEY_UNIT_FRENCH_FOREIGNLEGION_STRATEGY"/>
+			<Set Text="The Foreign Legion is a special unit, only available through the Volunteer Army tenet of the Freedom Ideology and through the Mercenary Army policy in the Commerce tree. It receives a significant combat bonus when operating outside of home territory, making it an excellent unit to use to gain control of foreign lands."/>
+		</Update>
+		<Row Tag="TXT_KEY_UNIT_SWISS_GUARD">
+			<Text>Swiss Guard</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HELP_SWISS_GUARD">
+			<Text>This Unit excels at defense, especially near the capital.  Unlocked through the Mercenary Army social policy, these units may not be built; they must be purchased through gold. May move immediately after purchase.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_SWISS_GUARD_STRATEGY">
+			<Text>The Swiss Guard is a unit only available through the Mercenary Army social policy that must be purchased with gold.  It fights stronger in friendly territory and receives a significant bonus when defending near the capital, which can make it the critical difference between keeping and losing your city if you find yourself in dire straits.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIVILOPEDIA_UNITS_SWISS_GUARD_TEXT">
+			<Text>Swiss Guards were first formed in the 15th Century, when the reputation of Swiss mercenaries for being excellent soldiers led many European monarchs to enlist them to guard their capitals, palaces, and persons.  The French king was protected by a regiment of Swiss Guard from the reign of Louis XI in 1480 until this regiment was destroyed attempting to protect Louis XVI in 1792 during the French Revolution.  The most famous Swiss Guard is the Pontifical Swiss Guard, which has been protecting the Pope since 1506.  In 1874 the Swiss Constitution was amended to forbid the formation of Swiss Guards, and in 1927 it was made illegal for Swiss citizens to join foreign militaries, with an exception made for the venerable Pontifical Swiss Guard.</Text>
+		</Row>
+		<!-- Promotions -->
+		<Row Tag="TXT_KEY_PROMOTION_CAPITAL_CITY_DEFENSE">
+			<Text>Palace Defense (75)</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_CAPITAL_CITY_DEFENSE_HELP">
+			<Text>+75% Defense when adjacent to the Capital.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_FOREIGN_FIGHTER">
+			<Text>Foreign Fighter</Text>
+		</Row>
+		<Row Tag="TXT_KEY_PROMOTION_FOREIGN_FIGHTER_HELP">
+			<Text>No bonus from Friendly Great Generals.[NEWLINE]Earns XP at half the rate of regular units.</Text>
+		</Row>
+	</Language_en_US>
+</GameData>

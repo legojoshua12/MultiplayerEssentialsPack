@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 9/15/2015 9:22:43 PM -->
+<GameData>
+	<Language_en_US>
+
+		<Row Tag="TXT_KEY_BUILDING_3UC_ROUNDHOUSE">
+			<Text>Round House</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3UC_ROUNDHOUSE_HELP">
+			<Text>Increases the [ICON_PRODUCTION] Production of a city. +1 [ICON_CULTURE] Culture from Forest tiles.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3UC_ROUNDHOUSE_STRATEGY">
+			<Text>The Round House is a Celtic unique building that increases the [ICON_PRODUCTION] Production of a city. Unlike the the Workshop it replaces, it also yields 1 [ICON_CULTURE] Culture from Forest tiles.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3UC_ROUNDHOUSE_TEXT">
+			<Text>
+				Roundhouses were the standard form of housing built in Britain from the Bronze Age throughout the Iron Age and well into the Sub Roman period. They used walls made either of stone or of wooden posts joined by wattle-and-daub panels and a conical thatched roof and ranged in size from less than 5m in diameter to over 15m. They were typically built upon hillforts because they were easy to defend. Steep slopes, a high wall and deep ditch helped keep the Celts safe in their homes.[NEWLINE][NEWLINE]Farmers lived on the land they farmed. Sometimes farms would be built in spots with a good source of water, or fertile ground of good pasture for the animals. The Celts grew corn and kept cows, pigs, horses, goats and sheep.
+			</Text>
+		</Row>
+	</Language_en_US>
+
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>ATLAS_3UC_ROUNDHOUSE</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>roundhouse256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>ATLAS_3UC_ROUNDHOUSE</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>roundhouse128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>ATLAS_3UC_ROUNDHOUSE</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>roundhouse64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>ATLAS_3UC_ROUNDHOUSE</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>roundhouse45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>

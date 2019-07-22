@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 3/2/2015 5:17:35 PM -->
+<GameData>
+	
+	<Language_en_US>
+		<Row Tag="TXT_KEY_BUILDING_3FIRE_TEMPLE">
+			<Text>Dar-be mehr</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3FIRE_TEMPLE_STRATEGY">
+			<Text>The Dar-be mehr is a Persian unique building that increases the [ICON_PEACE] Faith of a city. Unlike the Temple it replaces, it has no maintenance and yields 2 [ICON_CULTURE] Culture in the [ICON_CAPITAL] Capital.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3FIRE_TEMPLE_HELP">
+			<Text>Increases the [ICON_PEACE] Faith and boosts the [ICON_CULTURE] Culture of the [ICON_CAPITAL] Capital.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_3FIRE_TEMPLE_TEXT">
+			<Text>
+				A Dar-be mehr (sometime called a 'fire temple') in Zoroastrianism is the place of worship for Zoroastrians. In the Zoroastrian religion, fire, together with clean water, are agents of ritual purity. Clean, white "ash for the purification ceremonies is regarded as the basis of ritual life," which "are essentially the rites proper to the tending of a domestic fire, for the temple is that of the hearth fire raised to a new solemnity.[NEWLINE][NEWLINE]The characteristic feature of the Sassanid fire temple was its domed sanctuary where the fire-altar stood. The priests of these respective "Royal Fires" are said to have competed with each other to draw pilgrims by promoting the legends and miracles that were purported to have occurred at their respective sites. Apart from relatively minor fire temples, three were said to derive directly from Ahura Mazda, thus making them the most important in Zoroastrian tradition.
+			</Text>
+		</Row>
+	</Language_en_US>
+
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>3FIRE_TEMPLE_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>3_firetemple256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>3FIRE_TEMPLE_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>3_firetemple128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>3FIRE_TEMPLE_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>3_firetemple64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>3FIRE_TEMPLE_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>3_firetemple45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+
+</GameData>

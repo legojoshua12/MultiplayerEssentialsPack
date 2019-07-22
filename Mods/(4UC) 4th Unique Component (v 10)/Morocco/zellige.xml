@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 3/2/2015 5:17:35 PM -->
+<GameData>
+	<Language_en_US>
+		<Row Tag="TXT_KEY_BUILDING_4UC_ZELLIGE_TEMPLE">
+			<Text>Zellige Mosque</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_4UC_ZELLIGE_TEMPLE_STRATEGY">
+			<Text>The Zellige Mosque is a Moroccan unique building that increases the [ICON_PEACE] Faith of a city. Unlike the Temple it replaces, it also increases a city's [ICON_CULTURE] Culture output by 15%.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_4UC_ZELLIGE_TEMPLE_HELP">
+			<Text>Increases the [ICON_PEACE] Faith and [ICON_CULTURE] Culture of a city. Only Morocco may build it.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_BUILDING_4UC_ZELLIGE_TEMPLE_TEXT">
+			<Text>
+				Zellige (also "Zellij" or "Zillij) is terra cotta tilework covered with enamel in the form of chips set into plaster. It is one of the main characteristics of the Moroccan architecture. Patrons of the art used zellige historically to decorate their homes as a statement of luxury and the sophistication of the inhabitants. Zellige is typically a series of patterns utilizing colorful geometric shapes. This framework of expression arose from the need of Islamic artists to create spatial decorations that avoided depictions of living things, consistent with the teachings of Islamic law.[NEWLINE][NEWLINE]Zellige-making is considered an art in itself. The art is transmitted from generation to generation by maâlems (master craftsmen). A long training starts at childhood in order to master exceptional skills.	Assiduous attention to detail is very important in the process of creating zellige works. The small shaped (cut according to a precise radius gauge), painted and enamel covered pieces are then assembled together in a geometrical structure as in puzzle to form the completed single mosaic. The process has not varied for a millennium, though conception and design has started using new technologies such as data processing.
+			</Text>
+		</Row>
+	</Language_en_US>
+
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>ZELLIGE_TEMPLE_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>zellige256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>ZELLIGE_TEMPLE_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>zellige128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>ZELLIGE_TEMPLE_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>zellige64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>ZELLIGE_TEMPLE_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>zellige45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+
+</GameData>

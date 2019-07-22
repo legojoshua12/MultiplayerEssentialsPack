@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 8/6/2013 1:15:40 AM -->
+<GameData>
+
+	<Language_en_US>
+		<Row Tag="TXT_KEY_UNIT_4SIAM_ELEPHANT">
+			<Text>Ballista Elephant</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_4SIAM_ELEPHANT_STRATEGY">
+			<Text>The Ballista Elephant is a Siamese unique unit. It has a higher defensive combat strength and can move farther than the Crossbowman it replaces. It also has a combat bonus against other mounted units. However, it does not receive defensive terrain combat bonuses.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_4SIAM_ELEPHANT_HELP">
+			<Text>Sturdy ranged unit of the Medieval era. Only Siam may build it.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_4SIAM_ELEPHANT_TEXT">
+			<Text>
+				While towers and howdahs were an essential part of a War Elephant's accoutrement across the world, it was the Khmer that perfected the deployment of the great siege crossbow, the ballista, deployed on the back of a mountainous pachyderm. This made both elephant and ballista more deadly than ever: the panic-inducing character of the elephant granted the ballista protection from flanking cavalry, while the elephant suddenly became a fearsome ranged implement of destruction. This type of warfare was passed down to Siam and Burma.
+			</Text>
+		</Row>
+
+	</Language_en_US>
+
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>4SIAM_ELEPHANT_FLAG</Atlas>
+			<IconSize>32</IconSize>
+			<Filename>Icon4Phant32.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+
+		<Row>
+			<Atlas>4SIAM_ELEPHANT_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>4uc_siamelephant256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>4SIAM_ELEPHANT_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>4uc_siamelephant128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>4SIAM_ELEPHANT_ATLAS</Atlas>
+			<IconSize>80</IconSize>
+			<Filename>4uc_siamelephant80.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>4SIAM_ELEPHANT_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>4uc_siamelephant64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>4SIAM_ELEPHANT_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>4uc_siamelephant45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+
+</GameData>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 3/23/2015 8:27:36 PM -->
+<GameData>
+
+	<!--Change to military; make different versions for different eras?-->
+	
+	<Units>
+		<Row>
+			<Type>UNIT_ORSETTLER</Type>
+			<Description>TXT_KEY_UNIT_ORSETTLER</Description>
+			<Civilopedia>TXT_KEY_CIV5_ANTIQUITY_ORSETTLER_TEXT</Civilopedia>
+			<Strategy>TXT_KEY_UNIT_ORSETTLER_STRATEGY</Strategy>
+			<Help>TXT_KEY_UNIT_HELP_ORSETTLER</Help>
+			<Requirements>TXT_KEY_NO_ACTION_SETTLER_SIZE_LIMIT_HARDCODED</Requirements>
+			<Combat>4</Combat>
+			<RangedCombat>5</RangedCombat>
+			<Moves>2</Moves>
+			<!--<Immobile>0</Immobile>-->
+			<Range>2</Range>
+			<BaseSightRange>2</BaseSightRange>
+			<Class>UNITCLASS_SETTLER</Class>
+			<!--<Special></Special>-->
+			<Capture>UNITCLASS_WORKER</Capture>
+			<CombatClass>UNITCOMBAT_ARCHER</CombatClass>
+			<Domain>DOMAIN_LAND</Domain>
+			<CivilianAttackPriority>CIVILIAN_ATTACK_PRIORITY_HIGH_EARLY_GAME_ONLY</CivilianAttackPriority>
+			<DefaultUnitAI>UNITAI_SETTLE</DefaultUnitAI>
+			<Food>true</Food>
+			<!--<NoBadGoodies>0</NoBadGoodies>
+			<RivalTerritory>0</RivalTerritory>
+			<MilitarySupport>0</MilitarySupport>
+			<MilitaryProduction>0</MilitaryProduction>
+			<Pillage>0</Pillage>
+			<PillagePrereqTech></PillagePrereqTech>-->
+			<Found>true</Found>
+			<!--<FoundAbroad>0</FoundAbroad>
+			<CultureBombRadius>0</CultureBombRadius>
+			<GoldenAgeTurns>0</GoldenAgeTurns>
+			<FreePolicies>0</FreePolicies>
+			<OneShotTourism>0</OneShotTourism>
+			<OneShotTourismPercentOthers>0</OneShotTourismPercentOthers>
+			<IgnoreBuildingDefense>0</IgnoreBuildingDefense>
+			<PrereqResources>0</PrereqResources>
+			<Mechanized>0</Mechanized>
+			<Suicide>0</Suicide>
+			<CaptureWhileEmbarked>0</CaptureWhileEmbarked>-->
+			<PrereqTech></PrereqTech>
+			<!--<ObsoleteTech>TECH_CIVIL_SERVICE</ObsoleteTech>-->
+			<GoodyHutUpgradeUnitClass>UNITCLASS_MED_SETTLER</GoodyHutUpgradeUnitClass>
+			<HurryCostModifier>20</HurryCostModifier>
+			<AdvancedStartCost>0</AdvancedStartCost>
+			<MinAreaSize>-1</MinAreaSize>
+			<!--<AirInterceptRange>0</AirInterceptRange>
+			<AirUnitCap>0</AirUnitCap>-->
+			<!--<NukeDamageLevel>-1</NukeDamageLevel>
+			<WorkRate>0</WorkRate>
+			<NumFreeTechs>0</NumFreeTechs>
+			<BaseBeakersTurnsToCount>0</BaseBeakersTurnsToCount>
+			<BaseCultureTurnsToCount>0</BaseCultureTurnsToCount>
+			<RushBuilding>0</RushBuilding>
+			<BaseHurry>0</BaseHurry>
+			<HurryMultiplier>0</HurryMultiplier>
+			<BaseGold>0</BaseGold>
+			<NumGoldPerEra>0</NumGoldPerEra>
+			<SpreadReligion>0</SpreadReligion>
+			<RemoveHeresy>0</RemoveHeresy>
+			<ReligionSpreads>0</ReligionSpreads>
+			<ReligiousStrength>0</ReligiousStrength>
+			<FoundReligion>0</FoundReligion>
+			<RequiresEnhancedReligion>0</RequiresEnhancedReligion>
+			<ProhibitsSpread>0</ProhibitsSpread>
+			<CanBuyCityState>0</CanBuyCityState>-->
+			<CombatLimit>100</CombatLimit>
+			<!--<RangeAttackOnlyInDomain>0</RangeAttackOnlyInDomain>
+			<RangeAttackIgnoreLOS>0</RangeAttackIgnoreLOS>
+			<Trade>0</Trade>
+			<NumExoticGoods>0</NumExoticGoods>
+			<PolicyType></PolicyType>
+			<RangedCombatLimit>0</RangedCombatLimit>-->
+			<!--<XPValueAttack>0</XPValueAttack>
+			<XPValueDefense>0</XPValueDefense>
+			<SpecialCargo></SpecialCargo>
+			<DomainCargo></DomainCargo>
+			<Conscription>0</Conscription>
+			<ExtraMaintenanceCost>0</ExtraMaintenanceCost>-->
+			<NoMaintenance>true</NoMaintenance>
+			<!--<Unhappiness>0</Unhappiness>-->
+			
+			<UnitArtInfo>ART_DEF_UNIT_ORSETTLER</UnitArtInfo>
+			<!--<UnitArtInfoCulturalVariation>1</UnitArtInfoCulturalVariation>-->
+			
+			<!--<UnitArtInfoEraVariation>0</UnitArtInfoEraVariation>
+			<ProjectPrereq></ProjectPrereq>
+			<SpaceshipProject></SpaceshipProject>
+			<LeaderPromotion></LeaderPromotion>
+			<LeaderExperience>0</LeaderExperience>
+			<DontShowYields>0</DontShowYields>-->
+			<ShowInPedia>true</ShowInPedia>
+			<MoveRate>BIPED</MoveRate>
+			<UnitFlagIconOffset>2</UnitFlagIconOffset>
+			<PortraitIndex>2</PortraitIndex>
+			<IconAtlas>OR_COLOR_ATLAS</IconAtlas>
+			<UnitFlagAtlas>OR_ALPHA_ATLAS</UnitFlagAtlas>
+		</Row>
+	</Units>
+
+	<Unit_AITypes>
+		<Row>
+			<UnitType>UNIT_ORSETTLER</UnitType>
+			<UnitAIType>UNITAI_SETTLE</UnitAIType>
+		</Row>
+	</Unit_AITypes>
+	<!-- Unit_Buildings -->
+	<!-- Unit_BuildingClassRequireds -->
+	<!-- Unit_ProductionModifierBuildings -->
+	<!-- Unit_Builds -->
+	
+	<Unit_ClassUpgrades>
+		<Row>
+			<UnitType>UNIT_ORSETTLER</UnitType>
+			<UnitClassType>UNITCLASS_MED_SETTLER</UnitClassType>
+		</Row>
+	</Unit_ClassUpgrades>
+
+	<!--<UnitPromotions_CivilianUnitType>
+		<Row>
+			<PromotionType>PROMOTION_WITHDRAW_BEFORE_MELEE</PromotionType>
+			<UnitType>UNIT_ORSETTLER</UnitType>
+		</Row>
+	</UnitPromotions_CivilianUnitType>-->
+
+	<!--<UnitPromotions_UnitCombats>
+		<Row>
+			<PromotionType>PROMOTION_WITHDRAW_BEFORE_MELEE</PromotionType>
+			<UnitCombatType>UNITCOMBAT_RECON</UnitCombatType>
+		</Row>
+	</UnitPromotions_UnitCombats>-->
+
+	<Unit_FreePromotions>
+		<Row>
+			<UnitType>UNIT_ORSETTLER</UnitType>
+			<PromotionType>PROMOTION_WITHDRAW_BEFORE_MELEE</PromotionType>
+		</Row>
+		<Row>
+			<UnitType>UNIT_ORSETTLER</UnitType>
+			<PromotionType>PROMOTION_ONLY_DEFENSIVE</PromotionType>
+		</Row>
+	</Unit_FreePromotions>
+	
+	<Unit_Flavors>
+		<Row>
+			<UnitType>UNIT_ORSETTLER</UnitType>
+			<FlavorType>FLAVOR_EXPANSION</FlavorType>
+			<Flavor>21</Flavor>
+		</Row>
+	</Unit_Flavors>
+	<!-- Unit_GreatPersons -->
+	<!-- Unit_ResourceQuantityRequirements -->
+	<!-- Unit_UniqueNames -->
+	<!-- Unit_YieldFromKills -->
+	<!-- Unit_NotAITypes -->
+	<!-- Unit_ProductionTraits -->
+	<!-- Unit_TechTypes -->
+	<!-- UnitPromotions_CivilianUnitType -->
+	<UnitGameplay2DScripts>
+		<Row>
+			<UnitType>UNIT_ORSETTLER</UnitType>
+			<SelectionSound>AS2D_SELECT_SETTLER</SelectionSound>
+			<FirstSelectionSound>AS2D_BIRTH_SETTLER</FirstSelectionSound>
+		</Row>
+	</UnitGameplay2DScripts>
+
+	<Language_en_US>
+		<Row Tag="TXT_KEY_UNIT_ORSETTLER">
+			<Text>Pioneer</Text>
+		</Row>
+		<Row Tag="TXT_KEY_CIV5_ANTIQUITY_ORSETTLER_TEXT">
+			<Text>By the 1830s a steady stream of travelers entered Oregon from the south through California and from the east over the Rocky Mountains. Many of these people were involved with the fur trade and would use the well worn trails of the Native Americans. Travel overland was mainly by horse, mule, and foot until the later 1830s when wagons slowly worked their way into the region. The Oregon Trail began seeing mass migration involving wagon trains in 1843.[NEWLINE]en.wikipedia.org/wiki/Oregon_pioneer_history</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_ORSETTLER_STRATEGY">
+			<Text>Use this unit to construct new cities. It has a light ranged attack and withdraws before melee combat.</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_HELP_ORSETTLER">
+			<Text>Founds new Cities to expand your empire.[NEWLINE][NEWLINE][ICON_FOOD] Growth of the City is stopped while this Unit is being built.</Text>
+		</Row>
+		<!--<Row Tag="TXT_KEY_NO_ACTION_SETTLER_SIZE_LIMIT_HARDCODED">
+			<Text>[NEWLINE]Settlers may only be built in Cities with at least 2 [ICON_CITIZEN] Citizens.</Text>
+		</Row>-->
+
+		<Row Tag="TXT_KEY_UNIT_SETTLER_MED">
+			<Text>Pioneer (Medieval)</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_SETTLER_IND">
+			<Text>Pioneer (Industrial)</Text>
+		</Row>
+		<Row Tag="TXT_KEY_UNIT_SETTLER_ATO">
+			<Text>Pioneer (Atomic)</Text>
+		</Row>
+	</Language_en_US>
+  
+</GameData>

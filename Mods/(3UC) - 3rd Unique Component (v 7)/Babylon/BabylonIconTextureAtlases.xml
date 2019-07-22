@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created by ModBuddy on 1/16/2015 9:10:16 PM -->
+<GameData>
+	<IconTextureAtlases>
+		<Row>
+			<Atlas>ZIGGURAT_TECH_ATLAS</Atlas>
+			<IconSize>256</IconSize>
+			<Filename>3ziggurat256.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>ZIGGURAT_TECH_ATLAS</Atlas>
+			<IconSize>128</IconSize>
+			<Filename>3ziggurat128.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>ZIGGURAT_TECH_ATLAS</Atlas>
+			<IconSize>64</IconSize>
+			<Filename>3ziggurat64.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+		<Row>
+			<Atlas>ZIGGURAT_TECH_ATLAS</Atlas>
+			<IconSize>45</IconSize>
+			<Filename>3ziggurat45.dds</Filename>
+			<IconsPerRow>1</IconsPerRow>
+			<IconsPerColumn>1</IconsPerColumn>
+		</Row>
+	</IconTextureAtlases>
+</GameData>
