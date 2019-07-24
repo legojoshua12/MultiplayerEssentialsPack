@@ -95,15 +95,20 @@ function()
 end)
 
 ----------------------------------------------------------------
-ContextPtr:SetInputHandler(
-function( uiMsg, wParam, lParam )
-	if uiMsg == KeyEvents.KeyDown then
-		if wParam == Keys.VK_RETURN or wParam == Keys.VK_ESCAPE then
-			OnBack()
+-- Key Down Processing
+do
+	local VK_RETURN = Keys.VK_RETURN
+	local VK_ESCAPE = Keys.VK_ESCAPE
+	local KeyDown = KeyEvents.KeyDown
+	ContextPtr:SetInputHandler( function( uiMsg, wParam )
+		if uiMsg == KeyDown then
+			if wParam == VK_ESCAPE or wParam == VK_RETURN then
+				OnBack()
+			end
+			return true
 		end
-	end
-	return true;
-end)
+	end)
+end
 
 ----------------------------------------------------------------
 ContextPtr:SetUpdate(
