@@ -1952,6 +1952,15 @@ if civ5_mode and gk_mode then
 	Controls.FaithIcon:SetHide( false )
 end
 
+GameEvents.PlayerDoTurn.Add(function (iPlayer)
+	local pPlayer = Players[iPlayer]
+	local iTurn = Game.GetGameTurn()
+	local pTotalFaith = pPlayer:GetFaith()
+	local pFaithPerTurn = pPlayer:GetTotalFaithPerTurn()
+	pPlayer:SetReplayDataValue("REPLAYDATASET_TOTALFAITH", iTurn, pTotalFaith)
+	pPlayer:SetReplayDataValue("REPLAYDATASET_FAITHPERTURN", iTurn, pFaithPerTurn)
+end);
+
 -------------------------------------------------
 -- Strategic Resources Tooltips & Click Actions
 -------------------------------------------------

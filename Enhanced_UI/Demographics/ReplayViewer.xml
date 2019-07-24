@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Context ColorSet="Beige_Black" Font="TwCenMT20" FontStyle="Base" >
+	<Container ID="Scrap" Hidden="1" />
 
 	<Instance Name="ReplayMessageInstance" >
 		<Container ID="Base" Anchor="L,C" Size="890,63" >
@@ -35,9 +36,6 @@
 			<CheckBox ID="ShowHide" ButtonTexture="CheckBox.dds" Anchor="R,C" Offset="5,0" TextOffset="40,0" IsChecked="1" />
 		</Container>
 	</Instance>
-
-	<Container ID="Scrap" Hidden="1" />
-
 
 	<Grid ID="FrontEndReplayViewer" Size="990,592" Anchor="C,C" Offset="0,20" Style="Grid9DetailFive140" ConsumeMouse="1" >
 		<!--Screen Title-->
