@@ -44,7 +44,7 @@ local m_Instances = {
 	BuildEntry( "TXT_KEY_DEMOGRAPHICS_PRODUCTION", "TXT_KEY_DEMOGRAPHICS_PRODUCTION_MEASURE" ),
 	BuildEntry( "TXT_KEY_DEMOGRAPHICS_GOLD", "TXT_KEY_DEMOGRAPHICS_GOLD_MEASURE" ),
 	BuildEntry( "TXT_KEY_DEMOGRAPHICS_LAND" ), --"TXT_KEY_DEMOGRAPHICS_LAND_MEASURE" )
-	BuildEntry( "TXT_KEY_DEMOGRAPHICS_MILITARY_MIGHT" ),
+	BuildEntry( "TXT_KEY_REPLAY_DATA_MILITARYMIGHT" ),
 	BuildEntry( "TXT_KEY_DEMOGRAPHICS_APPROVAL" ),
 	BuildEntry( "TXT_KEY_DEMOGRAPHICS_LITERACY" ),
 }
@@ -152,16 +152,14 @@ if m_IsEndGame then
 	Controls.BGBlock:SetHide( true )
 	Controls.InGameSet:SetHide( true )
 else
-	-- Key Down Processing
-	local VK_RETURN = Keys.VK_RETURN
-	local VK_ESCAPE = Keys.VK_ESCAPE
-	local KeyDown = KeyEvents.KeyDown
+	local KeyEventsKeyDown = KeyEvents.KeyDown
+	local Keys = Keys
 	ContextPtr:SetInputHandler( function( uiMsg, wParam )
-		if uiMsg == KeyDown then
-			if wParam == VK_ESCAPE or wParam == VK_RETURN then
+		if uiMsg == KeyEventsKeyDown then
+			if wParam == Keys.VK_RETURN or wParam == Keys.VK_ESCAPE then
 				ClosePopup()
+				return true
 			end
-			return true
 		end
 	end)
 end
