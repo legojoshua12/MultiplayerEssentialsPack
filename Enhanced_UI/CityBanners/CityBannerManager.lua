@@ -497,6 +497,8 @@ local function ClearHexHighlights()
 	Events_ClearHexHighlightStyle( "Culture" )
 	Events_ClearHexHighlightStyle( "WorkedFill" )
 	Events_ClearHexHighlightStyle( "WorkedOutline" )
+	Events_ClearHexHighlightStyle( "UnlockedFill" )
+	Events_ClearHexHighlightStyle( "UnlockedOutline" )
 	Events_ClearHexHighlightStyle( "OwnedFill")
 	Events_ClearHexHighlightStyle( "OwnedOutline" )
 	Events_ClearHexHighlightStyle( "CityLimits" )
@@ -1201,8 +1203,13 @@ local function RefreshCityBannersNow()
 						if plot then
 							local hexPos = ToHexFromGrid{ x=plot:GetX(), y=plot:GetY() }
 							if city:IsWorkingPlot( plot ) then
-								Events_SerialEventHexHighlight( hexPos , true, nil, "WorkedFill" )
-								Events_SerialEventHexHighlight( hexPos , true, nil, "WorkedOutline" )
+								if city:IsPuppet() or city:IsRazing() or plot:IsCity() or city:IsForcedWorkingPlot( plot ) then
+									Events.SerialEventHexHighlight( hexPos , true, nil, "WorkedFill" )
+									Events.SerialEventHexHighlight( hexPos , true, nil, "WorkedOutline" )
+								else
+									Events.SerialEventHexHighlight( hexPos , true, nil, "UnlockedFill")
+									Events.SerialEventHexHighlight( hexPos , true, nil, "UnlockedOutline")
+								end
 							end
 							if normalView then
 								Events_SerialEventHexHighlight( hexPos , true, nil, "CityLimits" )

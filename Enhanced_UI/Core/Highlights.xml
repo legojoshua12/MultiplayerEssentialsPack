@@ -28,6 +28,9 @@
 	<style name="WorkedFill" type="FilledHex" width ="1" color="0,255,0,50" />
 	<style name="WorkedOutline" type="SplineBorder" width ="7" texture="hex_contour1.dds" color="0,255,0,164" />
 
+	<style name="UnlockedFill" type="FilledHex" width ="1" color="255,0,255,75" />
+	<style name="UnlockedOutline" type="SplineBorder" width ="7" texture="hex_contour1.dds" color="255,0,255,164" />
+
 	<style name="OwnedFill" type="FilledHex" width ="1" color="255,140,0,64" />
 	<style name="OwnedOutline" type="SplineBorder" width ="7" texture="hex_contour1.dds" color="255,140,0,200" />
 
