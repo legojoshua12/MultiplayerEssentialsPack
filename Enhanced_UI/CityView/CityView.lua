@@ -1348,6 +1348,8 @@ local function UpdateWorkingHexesNow()
 		Events_ClearHexHighlightStyle( "Culture" )
 		Events_ClearHexHighlightStyle( "WorkedFill" )
 		Events_ClearHexHighlightStyle( "WorkedOutline" )
+		Events_ClearHexHighlightStyle( "UnlockedFill" )
+		Events_ClearHexHighlightStyle( "UnlockedOutline" )
 		Events_ClearHexHighlightStyle( "OverlapFill" )
 		Events_ClearHexHighlightStyle( "OverlapOutline" )
 		Events_ClearHexHighlightStyle( "VacantFill" )
@@ -1403,8 +1405,13 @@ local function UpdateWorkingHexesNow()
 						tipKey = "TXT_KEY_CITYVIEW_GUVNA_WORK_TILE"
 					end
 					if notInStrategicView then
-						Events_SerialEventHexHighlight( hexPos , true, nil, "WorkedFill" )
-						Events_SerialEventHexHighlight( hexPos , true, nil, "WorkedOutline" )
+						if city:IsPuppet() or city:IsRazing() or plot:IsCity() or city:IsForcedWorkingPlot( plot ) then
+							Events.SerialEventHexHighlight( hexPos , true, nil, "WorkedFill" )
+							Events.SerialEventHexHighlight( hexPos , true, nil, "WorkedOutline" )
+						else
+							Events.SerialEventHexHighlight( hexPos , true, nil, "UnlockedFill")
+							Events.SerialEventHexHighlight( hexPos , true, nil, "UnlockedOutline")
+						end
 					end
 				else
 					local workingCity = plot:GetWorkingCity()
