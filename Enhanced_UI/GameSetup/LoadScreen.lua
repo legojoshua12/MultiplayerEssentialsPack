@@ -12,15 +12,12 @@ local PopulateUniquesForGameLoad = PopulateUniquesForGameLoad
 local math_min = math.min
 local math_max = math.max
 
--- This creates the DawnOfMan event handler for Really Advanced Setup.
---include("GTAS_StartGame");
-
 local g_civID = -1;
 local g_isLoadComplete = false;
 
 Controls.ProgressBar:SetPercent( 1 );
 
-ContextPtr:SetShowHideHandler(
+ContextPtr:SetShowHideHandler( 
 function( isHide, isInit )
 	if not isHide then
 		UI.SetDontShowPopups(true);

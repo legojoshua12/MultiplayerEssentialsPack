@@ -126,15 +126,7 @@ end
 local function populateUniques( parentControl, civType )
 	-- UU icons
 	for unit in g_uniqueUnitsQuery( civType ) do
-		--print(civType);
-		if (civType ~= CIVILIZATION_OREGON and unit.ID ~= 163 and unit.ID ~= 164 and unit.ID ~= 165) then
-			--print(unit.ID);
-			newItemIcon( parentControl, unit, pcall( GetHelpTextForUnit, unit.ID, true ) );
-		else
-			--print("Printed here, not there")
-			--print(unit.ID);
-			--newItemIcon( parentControl, unit, pcall( GetHelpTextForUnit, unit.ID, true ) );
-		end
+		newItemIcon( parentControl, unit, pcall( GetHelpTextForUnit, unit.ID, true ) );
 	end
 	-- UB icons
 	for building in g_uniqueBuildingsQuery( civType ) do

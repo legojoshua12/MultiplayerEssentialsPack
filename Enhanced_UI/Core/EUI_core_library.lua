@@ -348,14 +348,6 @@ function EUI.Capitalize( s )
 	return  Locale.ToUpper( s:sub(1,1) ) .. Locale.ToLower( s:sub(2) )
 end
 
-local function ResourceString( resource )
-	return ( resource.IconString or "?" ) .. ResourceColor( resource._Name )
-end
-
-local function ResourceQuantity( resource, quantity )
-	return format( "%+i%s%s", quantity, resource.IconString or "?", ResourceColor( resource._Name ) )
-end
-
 local nilFunction = function() end
 local nilInfoCache = setmetatable( {}, { __call = function() return nilFunction end } )
 

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Context Font="TwCenMT16" FontStyle="Base" ColorSet="Beige_Black" >
 
-	<AlphaAnim ID="Timer" Speed="10" Pause="0" Cycle="Bounce" />
-
 	<Grid ID="ClockOptionsPanel" Hidden="1" ConsumeMouse="1" Anchor="R,T" Offset="100,-10" Size="220,220" Style="Grid9DetailTwo140" >
 		<Stack ID="ClockOptions" Anchor="L,T" Offset="20,45" Padding="0" StackGrowth="Bottom" >
 			<Stack Anchor="R,T" StackGrowth="Right" Padding="3" >
@@ -102,10 +100,6 @@
 		<!-- Gold  -->
 		<TextButton ID="GoldPerTurn" Anchor="L,T" String="000 (+000)" ColorLayer0="255,235,0,255" ToolTipType="TooltipTypeTopPanel"/>
 
-		<!-- Intel -->
-		<Container Size="10,1" />
-		<TextButton ID="IntelPerTurn" Anchor="L,T" String="000 (+000)" ColorLayer0="224,224,224,255" ToolTip="TXT_KEY_SPY_INTEL_INFO"/>
-
 		<!-- Warnings  -->
 		<Label String = " "/>
 		<Image ID="UnitSupplyString" Anchor="L,T" Offset="2,-4" Texture="OverSupplyLimit.dds" Size="20.20" />
@@ -113,8 +107,6 @@
 	</Stack>
 
 	<Stack ID="TopPanelDiploStack" Anchor="R,T" Offset="0,6" Padding="10" StackGrowth="Left" >
-
-		<Button	ID="ExitCityScreen" Anchor="R,T" Offset="0,-8" Size="32,32" Texture="IconFrame32Delete.dds" ToolTip="TXT_KEY_CITYVIEW_RETURN_TT" Hidden="1" />
 
 		<Button	ID="MenuButton" Anchor="R,T" Offset="0,-6" Texture="MenuButton.dds" Size="28,28" ToolTip="TXT_KEY_MENU_TOOLTIP"/>
 
@@ -146,30 +138,7 @@
 	</ToolTipType>
 
 	<Instance Name="ResourceInstance">
-		<Image ID="Image" Size="28,28" Offset="0,-6" TextureOffset="48,48" Sampler="Linear" Hidden="1">
-			<Button ID="Count" Size="28,28" String="?" TextAnchor="R,B" Font="TwCenMT16" FontStyle="Stroke" Color0="Beige,255" Color1="Black,155" ToolTipType="TooltipTypeTopPanel" />
-		</Image>
+		<TextButton ID="ResourceItem" Anchor="R,T" ToolTipType="TooltipTypeTopPanel" />
 	</Instance>
 
-	<Image ID="IconFrame" Anchor="R,B" Offset="343,88" Texture="GreatSpyBlank.dds" Size="52,52" Hidden='1' >
-		<Image ID="IconImage" Size="52,52" Anchor="C,C" Texture="GreatSpyBlank.dds"/>
-	</Image>
-
-	<Box ID="SpyBackground1" Hidden="1" Anchor="L,B" Size="35,35" Offset="106,85" Color="0,0,0,0" ConsumeMouse="1">
-		<Grid Size="1,1" Anchor="C,C" Offset="0,0" ConsumeMouse="1">
-			<GridButton ID="SpyButton1" Size="35,35" Anchor="C,C" Offset="0,0" Style="BaseButton">
-				<Image ID="SpyImage1" Anchor="C,C" Offset="0,0" Size="45,45">
-				</Image>
-			</GridButton>
-		</Grid>
-	</Box>
-
-	<Box ID="SpyBackground2" Hidden="1" Anchor="L,B" Size="35,35" Offset="146,85" Color="0,0,0,0" ConsumeMouse="1">
-		<Grid Size="1,1" Anchor="C,C" Offset="0,0" ConsumeMouse="1">
-			<GridButton ID="SpyButton2" Size="35,35" Anchor="C,C" Offset="0,0" Style="BaseButton">
-				<Image ID="SpyImage2" Anchor="C,C" Offset="0,0" Size="45,45">
-				</Image>
-			</GridButton>
-		</Grid>
-	</Box>
 </Context>

@@ -6,13 +6,13 @@
 include( "EUI_tooltips" )
 
 Events.SequenceGameInitComplete.Add(function()
-print("Loading EUI city banners",ContextPtr,os.clock(),[[
-  ____ _ _         ____                              __  __
- / ___(_) |_ _   _| __ )  __ _ _ __  _ __   ___ _ __|  \/  | __ _ _ __   __ _  __ _  ___ _ __
+print("Loading EUI city banners",ContextPtr,os.clock(),[[ 
+  ____ _ _         ____                              __  __                                   
+ / ___(_) |_ _   _| __ )  __ _ _ __  _ __   ___ _ __|  \/  | __ _ _ __   __ _  __ _  ___ _ __ 
 | |   | | __| | | |  _ \ / _` | '_ \| '_ \ / _ \ '__| |\/| |/ _` | '_ \ / _` |/ _` |/ _ \ '__|
-| |___| | |_| |_| | |_) | (_| | | | | | | |  __/ |  | |  | | (_| | | | | (_| | (_| |  __/ |
- \____|_|\__|\__, |____/ \__,_|_| |_|_| |_|\___|_|  |_|  |_|\__,_|_| |_|\__,_|\__, |\___|_|
-             |___/                                                            |___/
+| |___| | |_| |_| | |_) | (_| | | | | | | |  __/ |  | |  | | (_| | | | | (_| | (_| |  __/ |   
+ \____|_|\__|\__, |____/ \__,_|_| |_|_| |_|\___|_|  |_|  |_|\__,_|_| |_|\__,_|\__, |\___|_|   
+             |___/                                                            |___/           
 ]])
 -------------------------------
 -- minor lua optimizations
@@ -613,7 +613,7 @@ local function AnnexPopup( plotIndex )
 end
 
 local function EspionagePopup()
-	Events.SerialEventGameMessagePopup{
+	Events.SerialEventGameMessagePopup{ 
 		Type = ButtonPopupTypes.BUTTONPOPUP_ESPIONAGE_OVERVIEW,
 	}
 end
@@ -638,7 +638,6 @@ end
 -- Left Click on city banner
 -------------------------------------------------
 local function OnBannerClick( plotIndex )
-	ClearHexHighlights()
 	local plot = Map_GetPlotByIndex( plotIndex )
 	local city = plot and plot:GetPlotCity()
 	if city then
@@ -648,20 +647,9 @@ local function OnBannerClick( plotIndex )
 		-- Active player city
 		if cityOwnerID == g_activePlayerID then
 
-			-- Puppets are special
-			if (plot:GetPlotCity():IsPuppet()) then
-				local popupInfo = {
-						Type = ButtonPopupTypes.BUTTONPOPUP_ANNEX_CITY,
-						Data1 = plot:GetPlotCity():GetID(),
-						Data2 = -1,
-						Data3 = -1,
-						Option1 = false,
-						Option2 = false;
-					}
-				Events.SerialEventGameMessagePopup(popupInfo);
-			else
-				UI.DoSelectCityAtPlot( plot );
-			end
+			-- always open city screen, puppets are not that special
+			ClearHexHighlights()
+			UI.DoSelectCityAtPlot( plot )
 
 		-- Observers get to look at anything
 		elseif Game.IsDebugMode() or g_activePlayer:IsObserver() then
@@ -1270,7 +1258,7 @@ end)
 
 --------------------
 -- On City Destroyed
-Events.SerialEventCityDestroyed.Add(
+Events.SerialEventCityDestroyed.Add( 
 function( hexPos ) --, cityOwnerID, cityID, newPlayerID )
 	local plot = Map_GetPlot( ToGridFromHex( hexPos.x, hexPos.y ) )
 	if plot then

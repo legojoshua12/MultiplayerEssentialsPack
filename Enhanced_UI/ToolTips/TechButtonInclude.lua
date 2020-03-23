@@ -353,14 +353,6 @@ function AddSmallButtonsToTechButton( thisTechButtonInstance, tech, maxSmallButt
 			return addSmallButtonAndPedia( tech, 0, "GENERIC_FUNC_ATLAS", ... )
 		end
 	end
-	local function NZ( n )
-		return (tonumber(n) or 0) ~= 0
-	end
-	local function addSmallGenericButtonNZ( n, s )
-		if NZ(n) then
-			return addSmallButton( 0, "GENERIC_FUNC_ATLAS", s, n )
-		end
-	end
 	local function addSmallArtButton( adjustArtFunc, row, ... ) -- ... is used only for AdjustArtOnGrantedItem
 		if row then
 			local button = thisTechButtonInstance["B"..buttonNum]
@@ -477,8 +469,7 @@ function AddSmallButtonsToTechButton( thisTechButtonInstance, tech, maxSmallButt
 	end
 
 	for row in GameInfo.Route_TechMovementChanges( thisTechType ) do
-		local rowRouteType = GameInfo.Routes[row.RouteType]
-		if not addSmallActionButton( GameInfo.Builds{ RouteType = rowRouteType.RouteType }(), "[ICON_MOVES]", "TXT_KEY_FASTER_MOVEMENT", rowRouteType and rowRouteType.Description or "?" ) then
+		if not addSmallGenericButton( "TXT_KEY_FASTER_MOVEMENT", (GameInfo.Routes[row.RouteType] or {}).Description or "???" ) then
 			break
 		end
 	end
@@ -542,34 +533,24 @@ function AddSmallButtonsToTechButton( thisTechButtonInstance, tech, maxSmallButt
 		if tech.AllowsDefensiveEmbarking then
 			addSmallActionButton( GameInfo.Missions.MISSION_EMBARK, "[ICON_STRENGTH]", "TXT_KEY_ABLTY_DEFENSIVE_EMBARK_STRING" )
 		end
-		if tech.EmbarkedAllWaterPassage then
-			addSmallActionButton( GameInfo.Missions.MISSION_EMBARK, "[ICON_TRADE_WHITE]", "TXT_KEY_ALLOWS_CROSSING_OCEANS" )
-		end
+
+		addSmallGenericButtonIf( tech.EmbarkedAllWaterPassage and "TXT_KEY_ALLOWS_CROSSING_OCEANS" )
 	end
 	if gk_mode then
-		if NZ(tech.UnitFortificationModifier) then
-			addSmallActionButton( GameInfo.Missions.MISSION_FORTIFY, "", "TXT_KEY_UNIT_FORTIFICATION_MOD", tech.UnitFortificationModifier )
-		end
-		if NZ(tech.UnitBaseHealModifier) then
-			addSmallActionButton( GameInfo.Missions.MISSION_HEAL, "", "TXT_KEY_UNIT_BASE_HEAL_MOD", tech.UnitBaseHealModifier )
-		end
-		if tech.AllowEmbassyTradingAllowed then
-			addSmallButton( 44, "UNIT_ACTION_ATLAS" , "TXT_KEY_ALLOWS_EMBASSY" ) -- "[ICON_CAPITAL]"
-		end
+		addSmallGenericButtonIf( (tonumber(tech.UnitFortificationModifier) or 0) > 0 and "TXT_KEY_UNIT_FORTIFICATION_MOD", tech.UnitFortificationModifier )
+
+		addSmallGenericButtonIf( (tonumber(tech.UnitBaseHealModifier) or 0) > 0 and "TXT_KEY_UNIT_BASE_HEAL_MOD", tech.UnitBaseHealModifier )
+
+		addSmallGenericButtonIf( civ5_mode and tech.AllowEmbassyTradingAllowed and "TXT_KEY_ALLOWS_EMBASSY" )
 	end
 	if civ5_mode then
-		if tech.OpenBordersTradingAllowed then
-			addSmallActionButton( GameInfo.Missions.MISSION_SWAP_UNITS, "", "TXT_KEY_ALLOWS_OPEN_BORDERS" ) --[COLOR_GREEN]<>
-		end
-		if tech.DefensivePactTradingAllowed then
-			addSmallActionButton( GameInfo.Missions.MISSION_FORTIFY, "", "TXT_KEY_ALLOWS_DEFENSIVE_PACTS" ) --[ICON_STRENGTH]
-		end
-		if tech.ResearchAgreementTradingAllowed then
-			addSmallActionButton( GameInfo.Missions.MISSION_DISCOVER, "", "TXT_KEY_ALLOWS_RESEARCH_AGREEMENTS" ) --[ICON_RESEARCH]
-		end
-		if tech.TradeAgreementTradingAllowed then
-			addSmallActionButton( nil, "[ICON_TRADE]", "TXT_KEY_ALLOWS_TRADE_AGREEMENTS" )
-		end
+		addSmallGenericButtonIf( tech.OpenBordersTradingAllowed and "TXT_KEY_ALLOWS_OPEN_BORDERS" )
+
+		addSmallGenericButtonIf( tech.DefensivePactTradingAllowed and "TXT_KEY_ALLOWS_DEFENSIVE_PACTS" )
+		addSmallGenericButtonIf( tech.ResearchAgreementTradingAllowed and "TXT_KEY_ALLOWS_RESEARCH_AGREEMENTS" )
+
+		addSmallGenericButtonIf( tech.TradeAgreementTradingAllowed and "TXT_KEY_ALLOWS_TRADE_AGREEMENTS" )
+
 		if tech.BridgeBuilding then
 			addSmallActionButton( GameInfo.Missions.MISSION_ROUTE_TO, "", "TXT_KEY_ALLOWS_BRIDGES" )
 		end
@@ -578,65 +559,51 @@ function AddSmallButtonsToTechButton( thisTechButtonInstance, tech, maxSmallButt
 		addSmallGenericButtonIf( (tonumber(tech.UnitBaseMiasmaHeal) or 0) > 0 and "TXT_KEY_BASE_MIASMA_HEAL", tech.UnitBaseMiasmaHeal )
 	end
 
-	if tech.MapVisible then
-		addSmallActionButton( nil, "[ICON_GREAT_EXPLORER]", "TXT_KEY_REVEALS_ENTIRE_MAP" )
-	end
+	addSmallGenericButtonIf( tech.MapVisible and "TXT_KEY_REVEALS_ENTIRE_MAP" )
 
 	if bnw_mode then
-		if NZ(tech.InternationalTradeRoutesChange) then
-			addSmallActionButton( GameInfo.Missions.MISSION_ESTABLISH_TRADE_ROUTE, ("%+i   "):format( tech.InternationalTradeRoutesChange ), "TXT_KEY_ADDITIONAL_INTERNATIONAL_TRADE_ROUTE" )
+		local internationalTradeRoutesChange = tech.InternationalTradeRoutesChange
+		if (internationalTradeRoutesChange or 0) > 0 then
+			addSmallActionButton( GameInfo.Missions.MISSION_ESTABLISH_TRADE_ROUTE, "+"..internationalTradeRoutesChange.."   ", "TXT_KEY_ADDITIONAL_INTERNATIONAL_TRADE_ROUTE" )
 		end
 
 		for row in GameInfo.Technology_TradeRouteDomainExtraRange( thisTechType ) do
-			if row.TechType == techType and NZ(row.Range) then
-				local toolTip = "?"
-				local domain = GameInfo.Domains[ row.DomainType ]
-				if domain then
-					if domain.ID == DomainTypes.DOMAIN_LAND then
-						toolTip = "TXT_KEY_EXTENDS_LAND_TRADE_ROUTE_RANGE"
-					elseif domain.ID == DomainTypes.DOMAIN_SEA then
-						toolTip = "TXT_KEY_EXTENDS_SEA_TRADE_ROUTE_RANGE"
-					end
-					if not addSmallActionButton( GameInfo.Missions.MISSION_ESTABLISH_TRADE_ROUTE, ("%+i%%  "):format( row.Range ), toolTip ) then --[ICON_RANGE_STRENGTH]
-						break
-					end
+			if row.TechType == techType and (row.Range or 0) > 0 then
+				local toolTip = ""
+				local domainID = (GameInfo.Domains[ row.DomainType or -1 ] or {}).ID
+				if domainID == DomainTypes.DOMAIN_LAND then
+					toolTip = "TXT_KEY_EXTENDS_LAND_TRADE_ROUTE_RANGE"
+				elseif domainID == DomainTypes.DOMAIN_SEA then
+					toolTip = "TXT_KEY_EXTENDS_SEA_TRADE_ROUTE_RANGE"
+				end
+				if not addSmallGenericButton( toolTip ) then
+					break
 				end
 			end
 		end
 
 		if civ5_mode then
-			if NZ(tech.InfluenceSpreadModifier) then
-				addSmallActionButton( nil, "[ICON_TOURISM]", "TXT_KEY_DOUBLE_TOURISM", tech.InfluenceSpreadModifier )
-			end
-			if tech.AllowsWorldCongress then
-				addSmallActionButton( GameInfo.Missions.MISSION_TRADE, "", "TXT_KEY_ALLOWS_WORLD_CONGRESS" ) --[ICON_CITY_STATE]
-			end
-			if NZ(tech.ExtraVotesPerDiplomat) then
-				addSmallActionButton( nil, "[ICON_DIPLOMAT]", "TXT_KEY_EXTRA_VOTES_FROM_DIPLOMATS", tech.ExtraVotesPerDiplomat )
-			end
+			addSmallGenericButtonIf( (tonumber(tech.InfluenceSpreadModifier) or 0) > 0 and "TXT_KEY_DOUBLE_TOURISM" )
+
+			addSmallGenericButtonIf( tech.AllowsWorldCongress and "TXT_KEY_ALLOWS_WORLD_CONGRESS" )
+
+			addSmallGenericButtonIf( (tonumber(tech.ExtraVotesPerDiplomat) or 0) > 0 and "TXT_KEY_EXTRA_VOTES_FROM_DIPLOMATS", tech.ExtraVotesPerDiplomat )
 
 			addSmallGenericButtonIf( tech.ScenarioTechButton == 1 and "TXT_KEY_SCENARIO_TECH_BUTTON_1" )
 			addSmallGenericButtonIf( tech.ScenarioTechButton == 2 and "TXT_KEY_SCENARIO_TECH_BUTTON_2" )
 			addSmallGenericButtonIf( tech.ScenarioTechButton == 3 and "TXT_KEY_SCENARIO_TECH_BUTTON_3" )
 			addSmallGenericButtonIf( tech.ScenarioTechButton == 4 and "TXT_KEY_SCENARIO_TECH_BUTTON_4" )
-			addSmallGenericButtonIf( tech.TriggersArchaeologicalSites and "TXT_KEY_EUI_TRIGGERS_ARCHAEOLOGICAL_SITES" )
 		end
 	end
 
 	if gk_mode then
 		for row in GameInfo.Technology_FreePromotions( thisTechType ) do
-			local promotion = GameInfo.UnitPromotions[ row.PromotionType ]
-			if promotion and not addSmallButton( promotion.PortraitIndex, promotion.IconAtlas, "TXT_KEY_FREE_PROMOTION_FROM_TECH", promotion._Name, promotion.Help ) then
+			local promotion = GameInfo.UnitPromotions[ row.PromotionType or -1 ]
+			if promotion and not addSmallButton( promotion.PortraitIndex, promotion.IconAtlas, "TXT_KEY_FREE_PROMOTION_FROM_TECH", promotion.Description, promotion.Help ) then
 				break
 			end
 		end
 	end
-
-	addSmallGenericButtonNZ( tech.WorkerSpeedModifier, "TXT_KEY_EUI_WORKER_SPEED_MOD" )
-	addSmallGenericButtonNZ( tech.FirstFreeTechs, "TXT_KEY_EUI_FIRST_FREE_TECHS" )
-	addSmallGenericButtonIf( tech.EndsGame and "TXT_KEY_EUI_ENDS_GAME" )
-	addSmallGenericButtonIf( tech.ExtraWaterSeeFrom and "TXT_KEY_EUI_EXTRA_WATER_SEE_FROM" )
-	addSmallGenericButtonIf( tech.WaterWork and "TXT_KEY_EUI_WATER_WORK" )
 
 	-- show buttons we are using and hide the rest
 	for i = 1, maxSmallButtons do
@@ -663,7 +630,7 @@ function AddSmallButtonsToTechButtonRadial( thisTechButtonInstance, tech, maxSma
 	local buttonNum = AddSmallButtonsToTechButton( thisTechButtonInstance, tech, maxSmallButtons, textureSize )
 
 	-- Push the start back based on # of icons
-	local phiDegrees = 90 - ((buttonNum-1) * 24 ) -- 90ï¿½ is facing down (0ï¿½ is far right), +values are clockwise, 24ï¿½ is 1/2 angle per icon
+	local phiDegrees = 90 - ((buttonNum-1) * 24 ) -- 90° is facing down (0° is far right), +values are clockwise, 24° is 1/2 angle per icon
 	for i = 1, buttonNum do
 		thisTechButtonInstance["B"..i]:SetOffsetVal( PolarToCartesian( 46, 24 * i + phiDegrees ) ) -- 46 is radius
 	end

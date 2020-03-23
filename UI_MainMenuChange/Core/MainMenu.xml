@@ -91,7 +91,7 @@
 	<!-- Version Information  -->
 	<Stack Anchor="C,B" Offset="0,20" Padding="5" StackGrowth="Center" ID="VersionStack" >
 		<Label Anchor="C,C"         String="InvalidVersionNumber" Font="TwCenMT16" ID="VersionNumber"/>
-		<Label Anchor="C,C"         String="Current DLC Version: (0.7.0.1)" Font="TwCenMT16" ID="DLCsVersionNumber"/>
+		<Label Anchor="C,C"         String="Current DLC Version: (0.8.0.0) ALPHA(Do not redistribute, possibly unstable)" Font="TwCenMT16" ID="DLCsVersionNumber"/>
 	</Stack>
 	<Button Anchor="R,B" Size="128,128" TextureOffset="384,128" ToolTip="TXT_KEY_TOUCH_HELP" Texture="Civ5_TouchIconAtlas_128.dds" NoStateChange="1" ID="TouchHelpButton" />
 

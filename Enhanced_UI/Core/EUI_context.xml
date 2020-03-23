@@ -36,23 +36,22 @@
 	</ToolTipType>
 
 	<ToolTipType Name="EUI_UnitTooltip" >
-		<Grid ID="Box" Size="300,50" Offset="8.0" Padding="8,8" Style="GridBlack8" NoClip="1" >
-			<Stack Offset="12,12" StackGrowth="Down" Padding="8">
-				<Label ID="Text" WrapWidth="500" ColorSet="Beige_Black_Alpha" Font="TwCenMT16"/>
-				<Stack ID="PromotionStack" StackGrowth="Right">
-					<Stack ID="IconStack" StackGrowth="Right" WrapGrowth="Bottom" WrapPadding="-6" Padding="-6" WrapWidth="260"/>
-					<Label ID="PromotionText" Offset="0,10" ColorSet="Beige_Black_Alpha" Font="TwCenMT16" LeadingOffset="5" />
+		<Stack StackGrowth="Left" Padding="-64">
+			<Grid ID="Box" Anchor="L,C" Size="300,50" Padding="6,6" Style="GridBlack8" NoClip="1" >
+				<Stack Offset="60,14" StackGrowth="Down" Padding="8">
+					<Label ID="Text" String="Brief description" WrapWidth="500" ColorSet="Beige_Black_Alpha" Font="TwCenMT16"/>
+					<Stack ID="Stack" StackGrowth="Right" Padding="-6" WrapGrowth="Bottom" WrapPadding="-6" WrapWidth="260"/>
 				</Stack>
-			</Stack>
-			<Image ID="PortraitFrame" Anchor="L,T" Offset="-40,-40" AnchorSide="O.i" Texture="256x256Frame.dds" Size="256,256" >
-				<Image ID="UnitPortrait" Size="256,256" />
-				<Image ID="CivIconFrame" Anchor="L,B" Offset="20,20" Texture="IconFrame64.dds" Size="64.64" >
-					<Image ID="CivIconBG" Size="64.64" Anchor="C,C" Texture="CivIconBGSizes.dds"/>
-					<Image ID="CivIconShadow" Size="48.48" Anchor="C,C" Texture="CivSymbolAtlas48.dds" Color="Black.128"/>
+			</Grid>
+			<Image Anchor="L,C" Offset="-64,0" Size="128,128" Texture="CitizenFrame128.dds" >
+				<Image ID="UnitPortrait" Size="128,128" Texture="UnitPortraitsAncientMedieval1024.dds" />
+				<Image ID="CivIconFrame" Anchor="L,B" Texture="IconFrame64.dds" Size="64.64" >
+					<Image ID="CivIconBG" Size="64.64" Anchor="C,C" Offset="-1,-1" Texture="CivIconBGSizes.dds"/>
+					<Image ID="CivIconShadow" Size="48.48" Anchor="C,C" Offset="1,1" Texture="CivSymbolAtlas48.dds" Color="Black.128"/>
 					<Image ID="CivIcon" Size="48,48" Anchor="C,C" Texture="CivSymbolsColor512.dds"/>
 				</Image>
 			</Image>
-		</Grid>
+		</Stack>
 	</ToolTipType>
 
 	<ToolTipType Name="EUI_CityBannerTooltip" >
