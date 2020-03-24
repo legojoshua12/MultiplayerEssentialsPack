@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Context ColorSet="Beige_Black_Alpha" >
+<Context Font="TwCenMT14" ColorSet="Beige_Black_Alpha" FontStyle="Stroke" ColorSet="Beige_Black_Alpha" >
 
 	<!--AlphaAnim ID="FlagFader" AlphaStart="1" AlphaEnd="0" Speed="2" Cycle="Once" Stopped="1" -->
+	<AlphaAnim ID="Timer" Speed="1000" Pause="0" Cycle="Once" Stopped="1" />
+
 	<Container ID="AirCraftFlags" Hidden="1" />
 	<Container ID="CivilianFlags" />
 	<Container ID="MilitaryFlags" />
@@ -10,15 +12,15 @@
 	<Container ID="SelectedFlags" />
 	<!--/AlphaAnim-->
 
-	<!-- Promotion Instance -->
-	<Instance Name="Promotion">
-		<Image ID="Promotion" Size="32,32" Texture="Promotions256.dds"/>
+	<!-- Promotion Instances -->
+	<Instance Name="PromotionIcon">
+		<Image ID="Image" Size="32,32" Sampler="Linear" />
 	</Instance>
 
 	<Instance Name="AirbaseFlag" >
 		<WorldAnchor ID="Anchor" >
 			<Grid BranchAlpha="1.0" Anchor="C,C" Offset="0,-50" Size="50,22" Style="Grid9FrameTurns">
-				<GridButton ID="Button" Size="50,22" Style="Grid9FrameTurnsButton" Font="TwCenMT14" ColorSet="Beige_Black_Alpha" FontStyle="Stroke" />
+				<GridButton ID="Button" Size="50,22" Style="Grid9FrameTurnsButton" />
 			</Grid>
 		</WorldAnchor>
 	</Instance>
@@ -29,7 +31,7 @@
 
 				<!-- Cargo Button for Carriers -->
 				<Grid ID="CargoBG" BranchAlpha="1.2" Anchor="C,C" Offset="30,0" Size="35,22" Style="Grid9FrameTurns">
-					<GridButton ID="Cargo" Size="35,22" Style="Grid9FrameTurnsButton" Font="TwCenMT14" ColorSet="Beige_Black_Alpha" FontStyle="Stroke" />
+					<GridButton ID="Cargo" Size="35,22" Style="Grid9FrameTurnsButton" />
 				</Grid>
 
 				<!-- Flag Button & Mouse Over Highlight -->
@@ -62,6 +64,9 @@
 
 				<!-- Selection or War Highlight -->
 				<Image ID="FlagHighlight" Size="64,64" TextureOffset="0,64" Texture="UnitFlagBase.dds" Hidden="1" />
+
+				<!-- Promotions -->
+				<Stack ID="PromotionStack" AnchorSide="O,I" Offset="-5,0" Padding="-14" WrapPadding="-14" StackGrowth="Bottom" WrapGrowth="Left" WrapWidth="60" />
 
 				<!-- Health Bar -->
 				<Bar ID="HealthBar" Offset="52,16" Size="2,32" Direction="Up" FGColor="0,255,255,255" BGColor="0,0,0,255" Hidden="1" />

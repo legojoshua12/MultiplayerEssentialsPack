@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Context  ColorSet="Beige_Black" Font="TwCenMT22" FontStyle="Shadow"  >
 
-	<Grid ID="MainSelection" Size="960,658" Anchor="C,C" Offset="0,36" Padding="0,0" Style="Grid9DetailFive140" >
+	<Grid ID="MainSelection" Size="960,670" Anchor="C,C" Offset="0,36" Padding="0,0" Style="Grid9DetailFive140" >
 
 		<Box Style="MenuLeftSideTreatment"/>
 		<Box Style="MenuRightSideTreatment"/>
@@ -9,7 +9,7 @@
 		<Box Style="MenuTopTreatment"/>
 		<Box Style="MenuBottomTreatment"/>
 
-		<Image ID="LargeMapImage" Anchor="R,B" Offset="37,102" Size="360,410" >
+		<Image ID="LargeMapImage" Anchor="R,B" Offset="37,94" Size="360,410" >
 			<Grid Anchor="C,C" Size="354,408" Style="Grid9Frame" />
 		</Image>
 
@@ -42,14 +42,14 @@
 			</Stack>
 
 		</Button>
-		<TextButton ID="EditButton" Offset="136,-39" Anchor="L,T" AnchorSide="i,o" Style="Font16or20" ColorSet="Beige_Black_Alpha" String="TXT_KEY_EDIT_BUTTON" ToolTip="TXT_KEY_NAME_CIV_TITLE" FontStyle="Shadow" MouseOverStyle="SoftShadow" ConsumeMouse="1" >
+		<!--<TextButton ID="EditButton" Offset="136,-39" Anchor="L,T" AnchorSide="i,o" Style="Font16or20" ColorSet="Beige_Black_Alpha" String="TXT_KEY_EDIT_BUTTON" ToolTip="TXT_KEY_NAME_CIV_TITLE" FontStyle="Shadow" MouseOverStyle="SoftShadow" ConsumeMouse="1" >
 			<TextButton ID="RemoveButton" Offset="20,0" Anchor="R,C" AnchorSide="o,i" Style="Font16or20" ColorSet="Beige_Black_Alpha" String="TXT_KEY_CANCEL_BUTTON" FontStyle="Shadow" MouseOverStyle="SoftShadow" ConsumeMouse="1" >
 				<Box Offset="-10,0" Anchor="L,C" Size="1,16" Color="Beige.128" />
 			</TextButton>
-		</TextButton>
+		</TextButton> -->
 
 
-		<Stack Anchor="L,T" Offset="20,155" StackGrowth="Bottom" >
+		<Stack Anchor="L,T" Offset="20,164" StackGrowth="Bottom" >
 			<Image Anchor="L,T" Offset="100,0" Texture="bar340x2.dds" Size="340.1" />
 
 			<!--=======================================================================================================================-->
@@ -156,7 +156,7 @@
 
 		</Stack>
 
-		<Stack Anchor="C,B" Offset="0,54" StackGrowth="Right" Padding="8" >
+		<Stack Anchor="C,B" Offset="0,50" StackGrowth="Right" Padding="8" >
 
 			<!-- Randomize Button -->
 			<GridButton ID="RandomizeButton" Anchor="L,C" Style="SmallButton" Size="150,32" StateOffsetIncrement="0,0" >
@@ -170,12 +170,12 @@
 		</Stack>
 
 		<!-- Back Button -->
-		<GridButton ID="BackButton" Anchor="L,B" Offset="38,54" Style="SmallButton" Size="150,32" Offset="14,0" StateOffsetIncrement="0,0" >
+		<GridButton ID="BackButton" Anchor="L,B" Offset="38,50" Style="SmallButton" Size="150,32" Offset="14,0" StateOffsetIncrement="0,0" >
 			<Label Anchor="C,C" String="TXT_KEY_BACK_BUTTON" Font="TwCenMT18" ColorSet="Beige_Black_Alpha" FontStyle="Shadow" />
 		</GridButton>
 
 		<!-- Start Game -->
-		<GridButton ID="StartButton" Anchor="R,B" Offset="38,50" Size="260,45" Style="BaseButton" String="TXT_KEY_START_GAME"/>
+		<GridButton ID="StartButton" Anchor="R,B" Offset="38,46" Size="260,45" Style="BaseButton" String="TXT_KEY_START_GAME"/>
 
 	</Grid>
 

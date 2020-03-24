@@ -6,19 +6,21 @@
 -- flag offsets vs UI precedence
 --==========================================================
 
-local math_max = math.max
-local math_min = math.min
-local math_ceil = math.ceil
-local math_pi = math.pi
-local math_cos = math.cos
-local math_sin = math.sin
+local min = math.min
+local ceil = math.ceil
+local pi = math.pi
+local cos = math.cos
+local sin = math.sin
 local pairs = pairs
-local string_format = string.format
-local table_insert = table.insert
-local table_remove = table.remove
+local concat = table.concat
+local insert = table.insert
+local remove = table.remove
 local type = type
 
-include( "EUI_utilities" )
+include( "EUI" )
+include( "EUI_core_library")
+include( "IconSupport" )
+include( "EUI_unit_include" )
 local IconLookup = EUI.IconLookup
 local IconHookup = EUI.IconHookup
 local CivIconHookup = EUI.CivIconHookup
@@ -26,31 +28,32 @@ local Color = EUI.Color
 local GameInfo = EUI.GameInfoCache
 local PrimaryColors = EUI.PrimaryColors
 local BackgroundColors = EUI.BackgroundColors
-include( "EUI_unit_include" )
 local ShortUnitTip = EUI.ShortUnitTip
 
 local ContextPtr = ContextPtr
 local DomainTypes_DOMAIN_AIR = DomainTypes.DOMAIN_AIR
 local Events = Events
-local Game = Game
+local GetActivePlayer = Game.GetActivePlayer
+local GetActiveTeam = Game.GetActiveTeam
 local GridToWorld = GridToWorld
+local GameInfoTypes = GameInfoTypes
 local InStrategicView = InStrategicView
 local Locale = Locale
-local Map_GetPlot = Map.GetPlot
-local Map_GetPlotByIndex = Map.GetPlotByIndex
+local GetPlot = Map.GetPlot
+local GetPlotByIndex = Map.GetPlotByIndex
 local Mouse = Mouse
 local Players = Players
-local PreGame = PreGame
-local ReligionTypes = ReligionTypes
 local ToGridFromHex = ToGridFromHex
-local UI_GetUnitFlagIcon = UI.GetUnitFlagIcon
-local UI_GetUnitPortraitIcon = UI.GetUnitPortraitIcon
+local GetUnitFlagIcon = UI.GetUnitFlagIcon
+local GetUnitPortraitIcon = UI.GetUnitPortraitIcon
 local UnitMoving = UnitMoving
+local Teams = Teams
 
-local GetPlotNumUnits = Map_GetPlot(0,0).GetNumLayerUnits or Map_GetPlot(0,0).GetNumUnits
-local GetPlotUnit = Map_GetPlot(0,0).GetLayerUnit or Map_GetPlot(0,0).GetUnit
+local GetPlotNumUnits = GetPlot(0,0).GetNumLayerUnits or GetPlot(0,0).GetNumUnits
+local GetPlotUnit = GetPlot(0,0).GetLayerUnit or GetPlot(0,0).GetUnit
+local L = Locale.ConvertTextKey
 
-local g_ScrapControls = Controls.AirCraftFlags --!!! TODO
+local g_HiddenControls = Controls.AirCraftFlags --!!! TODO
 local g_AirCraftFlags = Controls.AirCraftFlags
 local g_CivilianFlags = Controls.CivilianFlags
 local g_MilitaryFlags = Controls.MilitaryFlags
@@ -59,6 +62,7 @@ local g_AirbaseControls = Controls.AirbaseFlags
 local g_SelectedFlags = Controls.SelectedFlags
 g_SelectedFlags:ChangeParent( ContextPtr:LookUpControl( "../SelectedUnitContainer" ) or ContextPtr )
 
+local Timer = Controls.Timer
 local g_toolTipControls = {}
 TTManager:GetTypeControlTable( "EUI_UnitTooltip", g_toolTipControls )
 
@@ -71,11 +75,10 @@ for i = -1, #Players do
 end
 local g_spareNewUnitFlags = {}
 local g_spareAirbaseFlags = {}
-local g_usedPromotions = {}
-local g_sparePromotions = {}
+local g_PromotionIcons = {}
 
-local g_activePlayerID = Game.GetActivePlayer()
-local g_activeTeamID = Game.GetActiveTeam()
+local g_activePlayerID = GetActivePlayer()
+local g_activeTeamID = GetActiveTeam()
 local g_activePlayer = Players[ g_activePlayerID ]
 local g_activeTeam = Teams[ g_activeTeamID ]
 
@@ -84,26 +87,187 @@ local g_colorYellow = Color( 1, 1, 0, 1 )
 local g_colorRed = Color( 1, 0, 0, 1 )
 local g_colorWhite = Color( 1, 1, 1, 1 )
 
-local DebugPrint = print
+local GetOptionValue = Modding.OpenUserData( "Enhanced User Interface Options", 1).GetValue
+local g_RibbonUnits = EUI.RibbonUnits
 
-local function DebugUnit( playerID, unitID, ... )
+--==========================================================
+-- Debug routines
+--==========================================================
+local debug_print = print
+
+local function debug_unit( playerID, unitID, ... )
 	local player = Players[ playerID ]
 	local unit = player and player:GetUnitByID( unitID )
-	DebugPrint( "Player#", playerID, "unit#", unitID, unit and Locale.Lookup(unit:GetNameKey()), "unitXY=", unit and unit:GetX(), unit and unit:GetY(), ... )
+	print( "Player#", playerID, "unit#", unitID, unit and Locale.Lookup(unit:GetNameKey()), "unitXY=", unit and unit:GetX(), unit and unit:GetY(), ... )
 end
-local function DebugFlag( flag, ... )
+local function debug_flag( flag, ... )
 	if type(flag)=="table" then
-		DebugUnit( flag.m_PlayerID, flag.m_UnitID, "flagXY=", flag.m_Plot and flag.m_Plot:GetX(), flag.m_Plot and flag.m_Plot:GetY(), ... )
+		debug_unit( flag.m_PlayerID, flag.m_UnitID, "flagXY=", flag.m_Plot and flag.m_Plot:GetX(), flag.m_Plot and flag.m_Plot:GetY(), ... )
 	else
-		DebugPrint( "flag=", flag, ... )
+		print( "flag=", flag, ... )
 	end
 end
 
 --==========================================================
--- Manage flag interractions with user
+-- Cache promotion data -should be moved to core cache
+--==========================================================
+--	local tableNoNilsMT = { __index = function() return {} end }
+--	local isBlandPromotion = setmetatable( { PROMOTION_ATLAS={}, ABILITY_ATLAS={} }, tableNoNilsMT )
+--local tableOfTablesMT = { __index = function( t, k ) local e={} t[k]=e return e end }
+--local g_sparePromotionIcons = setmetatable( {}, tableOfTablesMT )
+local g_sparePromotionIcons = {}
+local g_isBasicPromotion = {}
+local g_promotionOverrides = {}
+local g_visiblePromotions = {}
+local g_visiblePromotionsIfOptionIsActive = {}
+local g_visiblePromotionsList = {}
+do
+	-- Patch promotion icon kludges directly into cache : should be in core !!!
+	local info = GameInfo.UnitPromotions
+	for k, v in pairs{ PROMOTION_IGNORE_TERRAIN_COST = info.PROMOTION_MOBILITY,
+						PROMOTION_FASTER_HEAL = info.PROMOTION_INSTA_HEAL,
+						PROMOTION_SECOND_ATTACK = info.PROMOTION_LOGISTICS,
+						PROMOTION_MORALE = info.PROMOTION_GOLDEN_AGE_POINTS,
+					} do
+		local row = info[ k ]
+		if row then
+			row.PortraitIndex = v.PortraitIndex
+			row.IconAtlas = v.IconAtlas
+		end
+	end
+	-- Promotion data pre-processing
+	local isBlandPromotion = { [57]="ABILITY_ATLAS", [58]="ABILITY_ATLAS", [59]="ABILITY_ATLAS" } -- specifies "generic" icons
+	local isHidePromotion = { PROMOTION_EMBARKATION = 1, PROMOTION_DEFENSIVE_EMBARKATION = 1 , PROMOTION_ALLWATER_EMBARKATION = 1, PROMOTION_HOMELAND_GUARDIAN_BOOGALOO = 1 }
+	for promotionInfo in GameInfo.UnitPromotions() do
+		--debug_print("Candidate promotion", promotionInfo.ID, promotionInfo.Type, "ShowInUnitPanel", promotionInfo.ShowInUnitPanel, promotionInfo.PortraitIndex, promotionInfo.IconAtlas, isBlandPromotion[promotionInfo.PortraitIndex] or false )
+		if promotionInfo.ShowInUnitPanel ~= false
+			and isBlandPromotion[ promotionInfo.PortraitIndex ] ~= promotionInfo.IconAtlas
+			and not isHidePromotion[ promotionInfo.Type ]
+		then
+			g_visiblePromotions[ promotionInfo.ID ] = promotionInfo
+			insert( g_visiblePromotionsList, promotionInfo.ID )
+			local promotionPrereq
+			-- does this promotion have exactly one prerequisite ?
+			for k, v in pairs( promotionInfo ) do
+				if k:sub(1,15)=="PromotionPrereq" then
+					if promotionPrereq then
+						promotionPrereq = nil
+						break
+					else
+						promotionPrereq = v
+					end
+				end
+			end
+			g_promotionOverrides[ promotionInfo.ID ] = GameInfoTypes[ promotionPrereq ]
+			--debug_print("Visible promotion", promotionInfo.ID, promotionInfo.Type, promotionPrereq )
+		end
+	end
+	-- Basic unit promotions
+	for unitInfo in GameInfo.Units() do
+		local t = {}
+		g_isBasicPromotion[ unitInfo.ID ] = t
+		for row in GameInfo.Unit_FreePromotions{ UnitType=unitInfo.Type } do
+			t[ GameInfoTypes[row.PromotionType] or false ] = true
+			--debug_print("Unit", unitInfo.Type, row.PromotionType, GameInfoTypes[row.PromotionType] )
+		end
+	end
+end
+
+--==========================================================
+-- Flag promotions
+--==========================================================
+local function UpdateFlagPromotions( flag, unit )
+	--debug_flag( flag, "UpdateFlagPromotions" )
+	local flagPromotionStack = flag.PromotionStack
+	local flagPromotionIcons = flag.m_PromotionIcons
+	local sparePromotionIcons = g_sparePromotionIcons
+	local hiddenControls = g_HiddenControls
+	local isBasicPromotion = g_isBasicPromotion[ unit:GetUnitType() ] or {}
+	local unitPromotions = {}
+	local unitPromotionOverridden = {}
+	-- initialize unit promotion array
+	if flag.m_IsAtWar or flag.m_PlayerID == GetActivePlayer() then
+		local promotionOverrides = g_promotionOverrides
+		for promotionID, promotionInfo in pairs( g_visiblePromotionsIfOptionIsActive ) do
+			if not isBasicPromotion[ promotionID ] and unit:IsHasPromotion(promotionID) then
+				unitPromotions[ promotionID ] = promotionInfo
+				unitPromotionOverridden[ promotionOverrides[ promotionID ] or false ] = true
+			end
+		end
+	end
+--[[
+	-- remove unused promotions
+	for promotionID, promotionIcon in pairs( flagPromotionIcons ) do
+		if not unitPromotions[promotionID] then
+			flagPromotionIcons[ promotionID ] = nil
+			insert( sparePromotionIcons[ promotionID ], promotionIcon )
+			promotionIcon:ChangeParent( hiddenControls )
+		end
+	end
+--]]
+	-- update flag promotions
+	local promotionIcon, promotionInfo
+	for _, promotionID in ipairs( g_visiblePromotionsList ) do
+		promotionInfo = unitPromotions[ promotionID ]
+		promotionIcon = flagPromotionIcons[ promotionID ]
+		if promotionInfo and not unitPromotionOverridden[ promotionID ] then
+--debug_print(promotionInfo.Type)
+			if promotionIcon then
+--debug_print("existing promotion icon")
+				-- re-order promotion icon in the stack
+				promotionIcon:ChangeParent( flagPromotionStack )
+			else
+				-- grab a spare promotion icon
+				promotionIcon = remove( sparePromotionIcons )
+				if promotionIcon then
+--debug_print("recycled promotion icon")
+					promotionIcon:ChangeParent( flagPromotionStack )
+				else
+--debug_print("new promotion icon")
+					-- create a new promotion icon
+					promotionIcon = {}
+					ContextPtr:BuildInstanceForControl( "PromotionIcon", promotionIcon, flagPromotionStack )
+					promotionIcon = promotionIcon.Image
+					promotionIcon:SetTextureSizeVal( 64, 64 )
+				end
+				IconHookup( promotionInfo.PortraitIndex, 64, promotionInfo.IconAtlas, promotionIcon )
+				promotionIcon:SetToolTipString( promotionInfo._Name )
+				flagPromotionIcons[ promotionID ] = promotionIcon
+			end
+		elseif promotionIcon then
+			-- recycle unused promotion icon
+			flagPromotionIcons[ promotionID ] = nil
+			insert( sparePromotionIcons, promotionIcon )
+			promotionIcon:ChangeParent( hiddenControls )
+		end
+	end
+end
+-- In some cases (e.g. natural wonder adjacency) promotions are given out without GameEvents.UnitPromoted
+local function UpdatePlayerFlagPromotions( PlayerID )
+	for _, flag in pairs(g_UnitFlags[ PlayerID ]) do
+		UpdateFlagPromotions( flag, flag.m_Unit )
+	end
+end
+local function UpdateAllFlagPromotions()
+	for PlayerID in pairs(g_UnitFlags) do
+		UpdatePlayerFlagPromotions( PlayerID )
+	end
+end
+--Events.ActivePlayerTurnStart.Add( UpdateAllFlagPromotions )
+
+GameEvents.UnitPromoted.Add(
+function( playerID, unitID )
+	local flag = g_UnitFlags[ playerID ][ unitID ]
+	if flag then
+		return UpdateFlagPromotions( flag, flag.m_Unit )
+	end
+end)
+
+--==========================================================
+-- Manage flag interactions with user
 --==========================================================
 local function UnitFlagClicked( playerID, unitID )
-	Events.SerialEventUnitFlagSelected( playerID, unitID )
+	return Events.SerialEventUnitFlagSelected( playerID, unitID )
 end
 
 local function CargoFlagClicked( playerID, unitID )
@@ -121,11 +285,11 @@ local function CargoFlagClicked( playerID, unitID )
 			end
 		end
 	end
-	Events.SerialEventUnitFlagSelected( playerID, unitID )
+	return Events.SerialEventUnitFlagSelected( playerID, unitID )
 end
 
 local function AirbaseFlagClicked( plotIndex )
-	local plot = Map_GetPlotByIndex( plotIndex )
+	local plot = GetPlotByIndex( plotIndex )
 	if plot then
 		local playerID, unitID
 		for i = 0, GetPlotNumUnits( plot ) - 1 do
@@ -136,59 +300,71 @@ local function AirbaseFlagClicked( plotIndex )
 			end
 		end
 		if playerID and unitID then
-			Events.SerialEventUnitFlagSelected( playerID, unitID )
+			return Events.SerialEventUnitFlagSelected( playerID, unitID )
 		end
 	end
 end
 
+Timer:RegisterAnimCallback( function()
+	g_toolTipControls.PromotionText:SetHide( false )
+	g_toolTipControls.IconStack:SetWrapWidth( 32 )
+	g_toolTipControls.IconStack:CalculateSize()
+	g_toolTipControls.Box:DoAutoSize()
+end)
+
 local function UnitFlagToolTip( button )
-	local playerID, unitID = button:GetVoid1(), button:GetVoid2()
+	local playerID = button:GetVoid1()
+	local unitID = button:GetVoid2()
 	local player = Players[ playerID ]
 	local unit = player and player:GetUnitByID( unitID )
 	if unit then
 		local toolTipString = ShortUnitTip( unit )
 		if playerID == g_activePlayerID then
-			toolTipString = toolTipString .. Locale.ConvertTextKey( "TXT_KEY_UPANEL_CLICK_TO_SELECT" )
+			toolTipString = toolTipString .. "[NEWLINE]".. L("TXT_KEY_UNIT_EXPERIENCE_INFO", unit:GetLevel(), unit:GetExperience(), unit:ExperienceNeeded() ) .. L"TXT_KEY_UPANEL_CLICK_TO_SELECT"
 		end
 		g_toolTipControls.Text:SetText( toolTipString )
 
-		local iconIndex, iconAtlas = UI_GetUnitPortraitIcon( unit )
-		IconHookup( iconIndex, 128, iconAtlas, g_toolTipControls.UnitPortrait )
+		local iconIndex, iconAtlas = GetUnitPortraitIcon( unit )
+		IconHookup( iconIndex, 256, iconAtlas, g_toolTipControls.UnitPortrait )
  		CivIconHookup( playerID, 64, g_toolTipControls.CivIcon, g_toolTipControls.CivIconBG, g_toolTipControls.CivIconShadow, false, true )
 		local i = 0
+		local promotionText = {}
+		local promotionIcon
+		local iconStack = g_toolTipControls.IconStack
 		if not( unit.IsTrade and unit:IsTrade() ) then
 			for unitPromotion in GameInfo.UnitPromotions() do
 				if unit:IsHasPromotion(unitPromotion.ID) and unitPromotion.ShowInUnitPanel ~= false then
 					i = i + 1
-					local instance = g_usedPromotions[i]
-					if not instance then
-						instance = table_remove( g_sparePromotions )
-						if instance then
-							instance.Promotion:ChangeParent( g_toolTipControls.Stack )
-						else
-							instance = {}
-							ContextPtr:BuildInstanceForControl( "Promotion", instance, g_toolTipControls.Stack )
-						end
-						g_usedPromotions[i] = instance
+					promotionIcon = g_PromotionIcons[i]
+					if promotionIcon then
+						promotionIcon:ChangeParent( iconStack )
+					else
+						promotionIcon = {}
+						ContextPtr:BuildInstanceForControl( "PromotionIcon", promotionIcon, iconStack )
+						promotionIcon = promotionIcon.Image
+						g_PromotionIcons[i] = promotionIcon
 					end
-					IconHookup( unitPromotion.PortraitIndex, 32, unitPromotion.IconAtlas, instance.Promotion )
+					IconHookup( unitPromotion.PortraitIndex, 32, unitPromotion.IconAtlas, promotionIcon )
+					insert( promotionText, unitPromotion._Name )
 				end
 			end
 		end
-		for j = i+1, #g_usedPromotions do
-			table_insert( g_sparePromotions, g_usedPromotions[j] )
-			g_usedPromotions[j].Promotion:ChangeParent( g_ScrapControls )
-			g_usedPromotions[j] = nil
+		for i = i+1, #g_PromotionIcons do
+			g_PromotionIcons[i]:ChangeParent( g_HiddenControls )
 		end
-		g_toolTipControls.Stack:SetWrapWidth( math_ceil( i / math_ceil( i / 10 ) ) * 26 )
+		g_toolTipControls.PromotionText:SetText( concat( promotionText, "[NEWLINE]" ) )
+		g_toolTipControls.PromotionText:SetHide( i ~= 1 )
+		iconStack:SetWrapWidth( ceil( i / ceil( i / 10 ) ) * 26 )
+		iconStack:CalculateSize()
 		g_toolTipControls.Box:DoAutoSize()
-		g_toolTipControls.Box:DoAutoSize()
+		Timer:SetToBeginning()
+		Timer:Reverse()
 	end
 end
 
 --==========================================================
 local function SetFlagParent( flag )
-	-- DebugFlag( flag, "SetFlagParent" ) end
+	--debug_flag( flag, "SetFlagParent" )
 	if flag.m_IsSelected then
 		flag.Anchor:ChangeParent( g_SelectedFlags )
 	elseif flag.m_TransportUnit or flag.m_IsAirCraft then
@@ -204,13 +380,15 @@ end
 
 --==========================================================
 local function UpdatePlotFlags( plot )
-	-- DebugPrint( "UpdatePlotFlags at plot XY=", plot:GetX(), plot:GetY() ) end
+	--debug_print( "UpdatePlotFlags at plot XY=", plot:GetX(), plot:GetY() )
 	local flags = {}
 	local aflags = {}
 	local unit, flag, n
 	local city = plot:GetPlotCity()
 	if city then
-		local l, r, y = -43, 43, Game.GetActiveTeam() == city:GetTeam() and -39 or -36
+		local l = -43
+		local r = 43
+		local y = GetActiveTeam() == city:GetTeam() and -39 or -36
 		local gflags = {}
 		for i = 0, GetPlotNumUnits( plot ) - 1 do
 			unit = GetPlotUnit( plot, i )
@@ -218,36 +396,36 @@ local function UpdatePlotFlags( plot )
 			if flag and flag.m_Plot then
 				if unit:IsCargo() then
 				elseif flag.m_IsAirCraft then
-					table_insert( aflags, unit )
+					insert( aflags, unit )
 				elseif unit:IsGarrisoned() then
-					table_insert( gflags, flag )
+					insert( gflags, flag )
 				else
-					table_insert( flags, flag )
+					insert( flags, flag )
 				end
 			end
 		end
 		n = #flags
-		-- DebugPrint( n,"flags found in city") end
+		--debug_print( n,"flags found in city")
 		if n == 1 then
 			flags[1].Container:SetOffsetVal( r, y )
 		elseif n > 1 then
-			local a = -math_min(35/(n-1),20)
+			local a = -min(35/(n-1),20)
 			local b = y-a
 			for i=n, 1, -1 do
-				-- DebugFlag( flags[i],"update offset at position", i ) end
+				--debug_flag( flags[i],"update offset at position", i )
 				flags[i].Container:SetOffsetVal( r, a*i+b )
 				SetFlagParent( flags[i] )
 			end
 		end
 		n = #gflags
-		-- DebugPrint( n,"gflags found in city") end
+		--debug_print( n,"gflags found in city")
 		if n == 1 then
 			gflags[1].Container:SetOffsetVal( l, y )
 		elseif n > 1 then
-			local a = -math_min(35/(n-1),20)
+			local a = -min(35/(n-1),20)
 			local b = y-a
 			for i=n, 1, -1 do
-				-- DebugFlag( flags[i],"update offset at position", i ) end
+				--debug_flag( flags[i],"update offset at position", i )
 				gflags[i].Container:SetOffsetVal( l, a*i+b )
 				SetFlagParent( gflags[i] )
 			end
@@ -256,36 +434,36 @@ local function UpdatePlotFlags( plot )
 		for i = 0, GetPlotNumUnits( plot ) - 1 do
 			unit = GetPlotUnit( plot, i )
 			flag = g_UnitFlags[ unit:GetOwner() ][ unit:GetID() ]
-			-- DebugFlag( flag,"candidate is aircraft?", flag and flag.m_IsAirCraft ) end
+			--debug_flag( flag,"candidate is aircraft?", flag and flag.m_IsAirCraft )
 			if flag and flag.m_Plot then
 				if unit:IsCargo() then
 				elseif flag.m_IsAirCraft then
-					table_insert( aflags, unit )
+					insert( aflags, unit )
 				else
-					table_insert( flags, flag )
+					insert( flags, flag )
 				end
 			end
 		end
 		n = #flags
-		-- DebugPrint( n,"flags found outside city") end
+		--debug_print( n,"flags found outside city")
 		if n == 1 then
 			flags[1].Container:SetOffsetVal( 0, 0 )
 		elseif n > 1 then
-			local a = -math_min(35/(n-1),20)
+			local a = -min(35/(n-1),20)
 			for i=n, 1, -1 do
-				-- DebugFlag( flags[i],"update offset at position", i ) end
+				--debug_flag( flags[i],"update offset at position", i )
 				flags[i].Container:SetOffsetVal( 0, (i-1)*a )
 				SetFlagParent( flags[i] )
 			end
 		end
 	end
 	n = #aflags
-	-- DebugPrint( n,"airbase flags found") end
+	--debug_print( n,"airbase flags found")
 	local plotIndex = plot:GetPlotIndex()
 	flag = g_AirbaseFlags[ plotIndex ]
 	if n > 0 then
 		if not flag then
-			flag = table_remove( g_spareAirbaseFlags )
+			flag = remove( g_spareAirbaseFlags )
 			if flag then
 				flag.Anchor:ChangeParent( g_AirbaseControls )
 			else
@@ -303,14 +481,14 @@ local function UpdatePlotFlags( plot )
 		flag.Button:LocalizeAndSetToolTip( "TXT_KEY_STATIONED_AIRCRAFT", n )
 	elseif flag then
 		g_AirbaseFlags[ plotIndex ] = nil
-		flag.Anchor:ChangeParent( g_ScrapControls )
-		table_insert( g_spareAirbaseFlags, flag )
+		flag.Anchor:ChangeParent( g_HiddenControls )
+		insert( g_spareAirbaseFlags, flag )
 	end
 end--UpdatePlotFlags
 
 --==========================================================
 local function SetFlagSelected( flag, isSelected )
-	-- DebugFlag( flag, "SetFlagSelected, isSelected=", isSelected ) end
+	--debug_flag( flag, "SetFlagSelected, isSelected=", isSelected )
 	flag.m_IsSelected = isSelected
 	flag.FlagHighlight:SetHide( not isSelected )
 	-- RestoreCargoFlagParents
@@ -325,7 +503,7 @@ local function SetFlagSelected( flag, isSelected )
 			local transportUnit = selectedUnit:GetTransportUnit()
 			local cargoUnit, cargoFlag
 			if transportUnit then
-				-- DebugFlag( flag, "selected unit is carge" ) end
+				--debug_flag( flag, "selected unit is carge" )
 				local x, y
 				local transportFlag = g_UnitFlags[ transportUnit:GetOwner() ][ transportUnit:GetID() ]
 				if transportFlag then
@@ -334,18 +512,18 @@ local function SetFlagSelected( flag, isSelected )
 					x, y = 0, 0
 				end
 				local cargo = transportUnit:GetCargo()
-				local a = math_min( math_pi / 3, 5.7 / cargo )
-				local a0 = -a*(cargo-1)/2 - math_pi
+				local a = min( pi / 3, 5.7 / cargo )
+				local a0 = -a*(cargo-1)/2 - pi
 				local j = 0
-				-- DebugFlag( transportFlag, "transport identified, cargo#=", cargo ) end
+				--debug_flag( transportFlag, "transport identified, cargo#=", cargo )
 				for i = 0, GetPlotNumUnits( plot ) - 1 do
 					cargoUnit = GetPlotUnit( plot, i )
 					if cargoUnit:GetTransportUnit() == transportUnit then
 						cargoFlag = g_UnitFlags[ cargoUnit:GetOwner() ][ cargoUnit:GetID() ]
 						if cargoFlag then
-							-- DebugFlag( cargoFlag, "added to cargo at position", j ) end
-							table_insert( g_SelectedCargo, cargoFlag )
-							cargoFlag.Container:SetOffsetVal( math_cos( a*j + a0 )*38 + x, math_sin( a*j + a0 )*38 + y )
+							--debug_flag( cargoFlag, "added to cargo at position", j )
+							insert( g_SelectedCargo, cargoFlag )
+							cargoFlag.Container:SetOffsetVal( cos( a*j + a0 )*38 + x, sin( a*j + a0 )*38 + y )
 							cargoFlag.Anchor:ChangeParent( g_SelectedFlags )
 						end
 						j = j + 1
@@ -357,20 +535,20 @@ local function SetFlagSelected( flag, isSelected )
 					cargoUnit = GetPlotUnit( plot, i )
 					cargoFlag = g_UnitFlags[ cargoUnit:GetOwner() ][ cargoUnit:GetID() ]
 					if cargoFlag and cargoFlag.m_IsAirCraft and not cargoUnit:GetTransportUnit() then
-						table_insert( airbase, cargoFlag )
+						insert( airbase, cargoFlag )
 					end
 				end
 				local n=#airbase
-				-- DebugPrint( n, "aircraft found") end
+				--debug_print( n, "aircraft found")
 				if n > 0 then
-					local a = math_min( 0.5, 2.7 / n )
-					local a0 = -a*(n+1)/2 - math_pi/2
+					local a = min( 0.5, 2.7 / n )
+					local a0 = -a*(n+1)/2 - pi/2
 					for i = 1, n do
 						cargoFlag = airbase[i]
-						-- DebugFlag( cargoFlag, "adding aircraft to airbase at position", i ) end
-						table_insert( g_SelectedCargo, cargoFlag )
+						--debug_flag( cargoFlag, "adding aircraft to airbase at position", i )
+						insert( g_SelectedCargo, cargoFlag )
 						cargoFlag.Anchor:ChangeParent( g_SelectedFlags )
-						cargoFlag.Container:SetOffsetVal( math_cos( a*i + a0 )*80, math_sin( a*i + a0 )*80 )
+						cargoFlag.Container:SetOffsetVal( cos( a*i + a0 )*80, sin( a*i + a0 )*80 )
 					end
 				end
 			end
@@ -379,12 +557,12 @@ local function SetFlagSelected( flag, isSelected )
 	elseif g_SelectedFlag == flag then
 		g_SelectedFlag = nil
 	end
-	SetFlagParent( flag )
+	return SetFlagParent( flag )
 end--SetFlagSelected
 
 --==========================================================
 local function FinishMove( flag )
-	-- DebugFlag( flag, "FinishMove" ) end
+	--debug_flag( flag, "FinishMove" )
 	-- Have we changed carrier ?
 	local unit = flag.m_Unit
 	local transportUnit = unit:GetTransportUnit()
@@ -418,14 +596,14 @@ local function FinishMove( flag )
 		if newPlot then
 			local x, y, z = GridToWorld( newPlot:GetX(), newPlot:GetY() )
 			flag.Anchor:SetWorldPositionVal( x, y, z + 35 ) -- World Position Offset
-			UpdatePlotFlags( newPlot )
+			return UpdatePlotFlags( newPlot )
 		end
 	end
 end
 
 --==========================================================
 local function UpdateFlagType( flag )
-	-- DebugFlag( flag, "UpdateFlagType" ) end
+	--debug_flag( flag, "UpdateFlagType" )
 
 	local unit = flag.m_Unit
 	local textureName, maskName
@@ -469,12 +647,12 @@ local function UpdateFlagType( flag )
 	flag.HealthBarBG:SetTexture( textureName )
 	flag.AlphaAnim:SetTexture( textureName )
 	flag.FlagHighlight:SetTexture( textureName )
-	flag.ScrollAnim:SetMask( maskName )
+	return flag.ScrollAnim:SetMask( maskName )
 end--UpdateFlagType
 
 --==========================================================
 local function UpdateFlagHealth( flag, damage )
-	-- DebugFlag( flag, "UpdateFlagHealth, damage=", damage ) end
+	--debug_flag( flag, "UpdateFlagHealth, damage=", damage )
 	if damage > 0 then
 		local healthPercent = 1 - damage / flag.m_MaxHitPoints
 		if healthPercent > 0.66 then
@@ -492,15 +670,14 @@ local function UpdateFlagHealth( flag, damage )
 		flag.HealthBar:SetHide( false )
 		flag.AlphaAnim:SetTextureOffsetVal( 64, 64 )
 		flag.FlagHighlight:SetTextureOffsetVal( 64, 128 )
-		flag.CargoBG:SetOffsetX( 35 )
 	else --full health
 		-- hide the health bar
 		flag.HealthBarBG:SetHide( true )
 		flag.HealthBar:SetHide( true )
 		flag.AlphaAnim:SetTextureOffsetVal( 0, 64 )
 		flag.FlagHighlight:SetTextureOffsetVal( 0, 128 )
-		flag.CargoBG:SetOffsetX( 35 )
 	end
+--	return flag.CargoBG:SetOffsetX( 35 )
 end--UpdateFlagHealth
 
 --==========================================================
@@ -508,7 +685,7 @@ end--UpdateFlagHealth
 --==========================================================
 local function CreateNewFlag( playerID, unitID, isSelected, isHiddenByFog, isInvisibleToActiveTeam )
 
-	-- DebugUnit( playerID, unitID, "CreateNewFlag, isSelected=", isSelected, "isHiddenByFog", isHiddenByFog, "isInvisibleToActiveTeam", isInvisibleToActiveTeam ) end
+	--debug_unit( playerID, unitID, "CreateNewFlag, isSelected=", isSelected, "isHiddenByFog", isHiddenByFog, "isInvisibleToActiveTeam", isInvisibleToActiveTeam )
 	local player = Players[ playerID ]
 	local unit = player and player:GetUnitByID( unitID )
 	if unit and not unit:IsDead() then
@@ -527,12 +704,12 @@ local function CreateNewFlag( playerID, unitID, isSelected, isHiddenByFog, isInv
 			isCivilian = true
 		end
 
-		local flag = table_remove( g_spareNewUnitFlags )
+		local flag = remove( g_spareNewUnitFlags )
 		if flag then
 			flag.Anchor:ChangeParent( parentContainer )
 			flag.FlagHighlight:SetColor( g_colorWhite )
 		else
-			flag = {}
+			flag = { m_PromotionIcons = {} }
 			ContextPtr:BuildInstanceForControl( "UnitFlag", flag, parentContainer )
 			flag.Button:RegisterCallback( Mouse.eLClick, UnitFlagClicked )
 			flag.Cargo:RegisterCallback( Mouse.eLClick, CargoFlagClicked )
@@ -570,7 +747,7 @@ local function CreateNewFlag( playerID, unitID, isSelected, isHiddenByFog, isInv
 
 		---------------------------------------------------------
 		-- Set Textures
-		local flagOffset, flagAtlas = UI_GetUnitFlagIcon( unit )
+		local flagOffset, flagAtlas = GetUnitFlagIcon( unit )
 		local textureOffset, textureSheet = IconLookup( flagOffset, 32, flagAtlas )
 		flag.UnitIcon:SetTexture( textureSheet )
 		flag.UnitIconShadow:SetTexture( textureSheet )
@@ -592,36 +769,39 @@ local function CreateNewFlag( playerID, unitID, isSelected, isHiddenByFog, isInv
 		UpdateFlagType( flag )
 		UpdateFlagHealth( flag, unit:GetDamage() )
 		SetFlagSelected( flag, isSelected )
-		if not isSelected and g_activeTeam:IsAtWar( teamID ) then
+		if g_activeTeam:IsAtWar( teamID ) then
+			flag.m_IsAtWar = true
 			flag.FlagHighlight:SetHide( false )
 			flag.FlagHighlight:SetColor( g_colorRed )
+		else
+			flag.m_IsAtWar = false
 		end
 		FinishMove( flag )
 
-		return flag
-	else
-		-- DebugUnit( playerID, unitID, "is nil or dead" ) end
+--		return flag
+--	else
+		--debug_unit( playerID, unitID, "is nil or dead" )
 	end
 
 end--CreateNewFlag
 
 --==========================================================
 local function DestroyFlag( flag )
-	-- DebugFlag( flag, "DestroyFlag" ) end
-	flag.Anchor:ChangeParent( g_ScrapControls )
-	table_insert( g_spareNewUnitFlags, flag )
+	--debug_flag( flag, "DestroyFlag" )
+	flag.Anchor:ChangeParent( g_HiddenControls )
+	insert( g_spareNewUnitFlags, flag )
 	g_UnitFlags[ flag.m_PlayerID ][ flag.m_UnitID ] = nil
 	if flag.m_Plot then
-		UpdatePlotFlags( flag.m_Plot )
+		return UpdatePlotFlags( flag.m_Plot )
 	end
 end--DestroyFlag
 
 --==========================================================
 local function ForceHide( playerID, unitID, isForceHide )
-	-- DebugUnit( playerID, unitID, "ForceHide, isForceHide=", isForceHide ) end
+	--debug_unit( playerID, unitID, "ForceHide, isForceHide=", isForceHide )
 	local flag = g_UnitFlags[ playerID ][ unitID ]
 	if flag then
-		flag.Anchor:SetHide( isForceHide or flag.m_IsHiddenByFog or flag.m_IsInvisibleToActiveTeam )
+		return flag.Anchor:SetHide( isForceHide or flag.m_IsHiddenByFog or flag.m_IsInvisibleToActiveTeam )
 	end
 end--ForceHide
 
@@ -630,8 +810,8 @@ end--ForceHide
 --==========================================================
 Events.SerialEventUnitCreated.Add(
 function( playerID, unitID, hexPos, unitType, cultureType, civID, primaryColor, secondaryColor, unitFlagIndex, fogState, isSelected, isMilitary, isVisible )
-	-- DebugUnit( playerID, unitID, "SerialEventUnitCreated, fogState=", fogState, "isSelected=", isSelected, "isVisible=", isVisible, "XY=", ToGridFromHex( hexPos.x, hexPos.y ) ) end
-	CreateNewFlag( playerID, unitID, isSelected, fogState ~= 2, not isVisible )
+	--debug_unit( playerID, unitID, "SerialEventUnitCreated, fogState=", fogState, "isSelected=", isSelected, "isVisible=", isVisible, "XY=", ToGridFromHex( hexPos.x, hexPos.y ) )
+	return CreateNewFlag( playerID, unitID, isSelected, fogState ~= 2, not isVisible ) -- fogState ~= eyes on
 end)
 
 --==========================================================
@@ -640,10 +820,10 @@ end)
 --==========================================================
 Events.LocalMachineUnitPositionChanged.Add(
 function( playerID, unitID, unitPosition )
-	-- DebugUnit( playerID, unitID, "LocalMachineUnitPositionChanged" ) end
+	--debug_unit( playerID, unitID, "LocalMachineUnitPositionChanged" )
 	local flag = g_UnitFlags[ playerID ][ unitID ]
 	if flag then
-		-- DebugFlag( flag, "Setting flag position while moving" ) end
+		--debug_flag( flag, "Setting flag position while moving" )
 		flag.Anchor:SetWorldPositionVal( unitPosition.x, unitPosition.y, unitPosition.z + 35 ) -- World Position Offset
 		local plot = flag.m_Plot
 		if plot then
@@ -653,12 +833,12 @@ function( playerID, unitID, unitPosition )
 			local targetPlot = flag.m_Unit:GetPlot()
 			if targetPlot ~= plot then
 				UpdatePlotFlags( plot )
-				-- DebugFlag( flag, "starting to move: setting flag offset to", 0, 0 ) end
+				--debug_flag( flag, "starting to move: setting flag offset to", 0, 0 )
 				return flag.Container:SetOffsetVal( 0, 0 )
 			end
 		end
 	else
-		-- DebugUnit( playerID, unitID, "not found for LocalMachineUnitPositionChanged" ) end
+		--debug_unit( playerID, unitID, "not found for LocalMachineUnitPositionChanged" )
 	end
 end)
 
@@ -666,10 +846,10 @@ end)
 -- On Flag Type Change
 --==========================================================
 local function OnFlagTypeChange( playerID, unitID )
-	-- DebugUnit( playerID, unitID, "OnFlagTypeChange" ) end
+	--debug_unit( playerID, unitID, "OnFlagTypeChange" )
 	local flag = g_UnitFlags[ playerID ][ unitID ]
 	if flag then
-		UpdateFlagType( flag )
+		return UpdateFlagType( flag )
 	end
 end
 Events.UnitActionChanged.Add( OnFlagTypeChange )
@@ -679,7 +859,7 @@ Events.UnitEmbark.Add( OnFlagTypeChange ) -- GameplayUnitEmbark
 -- On Unit Move Queue Changed
 --==========================================================
 local function OnUnitMoveQueueChanged( playerID, unitID, hasRemainingMoves )
-	-- DebugUnit( playerID, unitID, "OnUnitMoveQueueChanged, hasRemainingMoves=", hasRemainingMoves ) end
+	--debug_unit( playerID, unitID, "OnUnitMoveQueueChanged, hasRemainingMoves=", hasRemainingMoves )
 	local flag = g_UnitFlags[ playerID ][ unitID ]
 	if flag then
 		return FinishMove( flag )
@@ -689,10 +869,10 @@ Events.UnitMoveQueueChanged.Add( OnUnitMoveQueueChanged )
 
 Events.SerialEventUnitTeleportedToHex.Add(
 function( hexX, hexY, playerID, unitID )
-	-- DebugUnit( playerID, unitID, "SerialEventUnitTeleportedToHex, XY=", ToGridFromHex( hexX, hexY ) ) end
+	--debug_unit( playerID, unitID, "SerialEventUnitTeleportedToHex, XY=", ToGridFromHex( hexX, hexY ) )
 	-- nukes teleport instead of moving
 	-- spoof out the move queue changed logic.
-	OnUnitMoveQueueChanged( playerID, unitID )
+	return OnUnitMoveQueueChanged( playerID, unitID )
 end)
 
 --==========================================================
@@ -700,12 +880,12 @@ end)
 --==========================================================
 Events.UnitVisibilityChanged.Add(
 function( playerID, unitID, isVisible, checkFlag )--, blendTime )
-	-- DebugUnit( playerID, unitID, "UnitVisibilityChanged, isVisible=", isVisible, "checkFlag=", checkFlag ) end
+	--debug_unit( playerID, unitID, "UnitVisibilityChanged, isVisible=", isVisible, "checkFlag=", checkFlag )
 	if checkFlag then
 		local flag = g_UnitFlags[ playerID ][ unitID ]
 		if flag then
 			flag.m_IsInvisibleToActiveTeam = not isVisible
-			flag.Anchor:SetHide( not isVisible or flag.m_IsInvisibleToActiveTeamm_IsHiddenByFog )
+			return flag.Anchor:SetHide( not isVisible or flag.m_IsHiddenByFog )
 		end
 	end
 end)
@@ -715,12 +895,12 @@ end)
 --==========================================================
 Events.SerialEventUnitDestroyed.Add(
 function( playerID, unitID )
-	-- DebugUnit( playerID, unitID, "SerialEventUnitDestroyed" ) end
+	--debug_unit( playerID, unitID, "SerialEventUnitDestroyed" )
 	local flag = g_UnitFlags[ playerID ][ unitID ]
 	if flag then
-		DestroyFlag( flag )
+		return DestroyFlag( flag )
 	else
-		-- DebugUnit( playerID, unitID, "flag not found for SerialEventUnitDestroyed" ) end
+		--debug_unit( playerID, unitID, "flag not found for SerialEventUnitDestroyed" )
 	end
 end)
 
@@ -729,12 +909,12 @@ end)
 --==========================================================
 Events.UnitSelectionChanged.Add(
 function( playerID, unitID, _, _, _, isSelected )
-	-- DebugUnit( playerID, unitID, "UnitSelectionChanged, isSelected=", isSelected ) end
+	--debug_unit( playerID, unitID, "UnitSelectionChanged, isSelected=", isSelected )
 	local flag = g_UnitFlags[ playerID ][ unitID ]
 	if flag then
-		SetFlagSelected( flag, isSelected )
+		return SetFlagSelected( flag, isSelected )
 	else
-		-- DebugUnit( playerID, unitID, "flag not found for UnitSelectionChanged", isSelected ) end
+		--debug_unit( playerID, unitID, "flag not found for UnitSelectionChanged", isSelected )
 	end
 end)
 
@@ -745,12 +925,12 @@ end)
 Events.SerialEventUnitSetDamage.Add(
 function( playerID, unitID, damage )--, previousDamage )
 	-- !!! can be called for dead unit !!!
-	-- DebugUnit( playerID, unitID, "SerialEventUnitSetDamage, damage=", damage ) end
+	--debug_unit( playerID, unitID, "SerialEventUnitSetDamage, damage=", damage )
 	local flag = g_UnitFlags[ playerID ][ unitID ]
 	if flag then
-		UpdateFlagHealth( flag, damage )
+		return UpdateFlagHealth( flag, damage )
 	else
-		-- DebugUnit( playerID, unitID, "flag not found for SerialEventUnitSetDamage" ) end
+		--debug_unit( playerID, unitID, "flag not found for SerialEventUnitSetDamage" )
 	end
 end)
 
@@ -759,22 +939,22 @@ end)
 --==========================================================
 Events.HexFOWStateChanged.Add(
 function( hexPos, fogState, isWholeMap )
-	-- DebugPrint( "HexFOWStateChanged, fogState=", fogState, "isWholeMap=", isWholeMap, "XY=", ToGridFromHex( hexPos.x, hexPos.y ) ) end
+	--debug_print( "HexFOWStateChanged, fogState=", fogState, "isWholeMap=", isWholeMap, "XY=", ToGridFromHex( hexPos.x, hexPos.y ) )
 	local isInvisible = fogState ~= 2 -- eyes on
 	if isWholeMap then
 		-- unit flags
-		for playerID = 0, #Players do
-			for unitID, flag in pairs( g_UnitFlags[ playerID ] ) do
+		for _, flags in pairs( g_UnitFlags ) do
+			for _, flag in pairs( flags ) do
 				flag.m_IsHiddenByFog = isInvisible
 				flag.Anchor:SetHide( isInvisible or flag.m_IsInvisibleToActiveTeam )
 			end
 		end
 		-- city flags
-		for plotIndex, flag in pairs( g_AirbaseFlags ) do
+		for _, flag in pairs( g_AirbaseFlags ) do
 			flag.Anchor:SetHide( isInvisible )
 		end
 	else
-		local plot = Map_GetPlot( ToGridFromHex( hexPos.x, hexPos.y ) )
+		local plot = GetPlot( ToGridFromHex( hexPos.x, hexPos.y ) )
 		if plot then
 			-- unit flags
 			for i = 0, GetPlotNumUnits( plot ) - 1 do
@@ -799,13 +979,13 @@ end)
 --==========================================================
 Events.UnitStateChangeDetected.Add(
 function( playerID, unitID, fogState )
-	-- DebugUnit( playerID, unitID, "UnitStateChangeDetected, fogState=", fogState ) end
+	--debug_unit( playerID, unitID, "UnitStateChangeDetected, fogState=", fogState )
 	local flag = g_UnitFlags[ playerID ][ unitID ]
 	if flag then
-		flag.m_IsHiddenByFog = fogState ~=2
-		flag.Anchor:SetHide( fogState ~=2 or flag.m_IsInvisibleToActiveTeam )
+		flag.m_IsHiddenByFog = fogState ~= 2 -- eyes on
+		return flag.Anchor:SetHide( fogState ~=2 or flag.m_IsInvisibleToActiveTeam )
 	else
-		-- DebugUnit( playerID, unitID, "flag not found for UnitStateChangeDetected", fogState ) end
+		--debug_unit( playerID, unitID, "flag not found for UnitStateChangeDetected", fogState )
 	end
 end)
 
@@ -815,37 +995,40 @@ end)
 --==========================================================
 Events.UnitShouldDimFlag.Add(
 function( playerID, unitID, isDimmed )
-	-- DebugUnit( playerID, unitID, "UnitShouldDimFlag, isDimmed=", isDimmed ) end
+	--debug_unit( playerID, unitID, "UnitShouldDimFlag, isDimmed=", isDimmed )
 	local flag = g_UnitFlags[ playerID ][ unitID ]
 	if flag then
 		flag.FlagShadow:SetAlpha( isDimmed and 0.5 or 1.0 )
+		-- Update promotions -- UnitShouldDimFlag fires after each unit creation
+		return UpdateFlagPromotions( flag, flag.m_Unit )
 	else
-		-- DebugUnit( playerID, unitID, "flag not found for UnitShouldDimFlag" ) end
+		--debug_unit( playerID, unitID, "flag not found for UnitShouldDimFlag" )
 	end
 end)
 
 --==========================================================
 -- On Unit Garrison
 --==========================================================
+--[[
 Events.UnitGarrison.Add(
 function( playerID, unitID, isGarrisoned )
-	-- DebugUnit( playerID, unitID, "UnitGarrison, isGarrisoned=", isGarrisoned ) end
+	--debug_unit( playerID, unitID, "UnitGarrison, isGarrisoned=", isGarrisoned )
 	local flag = g_UnitFlags[ playerID ][ unitID ]
 	if flag then
 		flag.m_IsGarrisoned = isGarrisoned
 		SetFlagParent( flag )
-		UpdateFlagType( flag )
+		return UpdateFlagType( flag )
 	end
 end)
-
+--]]
 --==========================================================
 -- On City Created / Destroyed / Captured
 --==========================================================
 local function OnCity( hexPos )
-	-- DebugPrint( "SerialEventCityDestroyed or SerialEventCityCaptured, XY=", ToGridFromHex( hexPos.x, hexPos.y ) ) end
-	local plot = Map_GetPlot( ToGridFromHex( hexPos.x, hexPos.y ) )
+	--debug_print( "SerialEventCityDestroyed or SerialEventCityCaptured, XY=", ToGridFromHex( hexPos.x, hexPos.y ) )
+	local plot = GetPlot( ToGridFromHex( hexPos.x, hexPos.y ) )
 	if plot then
-		UpdatePlotFlags( plot )
+		return UpdatePlotFlags( plot )
 	end
 end
 Events.SerialEventCityDestroyed.Add( OnCity )
@@ -854,21 +1037,21 @@ Events.SerialEventCityCreated.Add( OnCity )
 
 Events.SerialEventEnterCityScreen.Add(
 function()
-	g_SelectedFlags:SetHide( true )
+	return g_SelectedFlags:SetHide( true )
 end)
 Events.SerialEventExitCityScreen.Add(
 function()
-	g_SelectedFlags:SetHide( InStrategicView() )
+	return g_SelectedFlags:SetHide( InStrategicView() )
 end)
 
 --==========================================================
 Events.StrategicViewStateChanged.Add( function( isStrategicView, isCityBanners )
-	-- DebugPrint( "StrategicViewStateChanged, isStrategicView=", isStrategicView, "isCityBanners=", isCityBanners ) end
+	--debug_print( "StrategicViewStateChanged, isStrategicView=", isStrategicView, "isCityBanners=", isCityBanners )
 	g_CivilianFlags:SetHide( isStrategicView )
 	g_MilitaryFlags:SetHide( isStrategicView )
 	g_GarrisonFlags:SetHide( isStrategicView and not isCityBanners )
 	g_AirbaseControls:SetHide( isStrategicView )
-	g_SelectedFlags:SetHide( isStrategicView )
+	return g_SelectedFlags:SetHide( isStrategicView )
 end)
 
 --==========================================================
@@ -886,9 +1069,9 @@ function( m_AttackerPlayerID,
 		m_DefenderFinalUnitDamage,
 		m_DefenderMaxHitPoints,
 		m_bContinuation )
-	-- DebugUnit( m_AttackerPlayerID, m_AttackerUnitID, "RunCombatSim", m_AttackerUnitDamage, m_AttackerFinalUnitDamage, m_AttackerMaxHitPoints, m_DefenderPlayerID, m_DefenderUnitID, m_DefenderUnitDamage, m_DefenderFinalUnitDamage, m_DefenderMaxHitPoints, m_bContinuation ) end
+	--debug_unit( m_AttackerPlayerID, m_AttackerUnitID, "RunCombatSim", m_AttackerUnitDamage, m_AttackerFinalUnitDamage, m_AttackerMaxHitPoints, m_DefenderPlayerID, m_DefenderUnitID, m_DefenderUnitDamage, m_DefenderFinalUnitDamage, m_DefenderMaxHitPoints, m_bContinuation )
 	ForceHide( m_AttackerPlayerID, m_AttackerUnitID, true )
-	ForceHide( m_DefenderPlayerID, m_DefenderUnitID, true )
+	return ForceHide( m_DefenderPlayerID, m_DefenderUnitID, true )
 end)
 
 --==========================================================
@@ -905,9 +1088,9 @@ function( m_AttackerPlayerID,
 		m_DefenderUnitDamage,
 		m_DefenderFinalUnitDamage,
 		m_DefenderMaxHitPoints )
-	-- DebugUnit( m_AttackerPlayerID, m_AttackerUnitID, "EndCombatSim", m_AttackerUnitDamage, m_AttackerFinalUnitDamage, m_AttackerMaxHitPoints, m_DefenderPlayerID, m_DefenderUnitID, m_DefenderUnitDamage, m_DefenderFinalUnitDamage, m_DefenderMaxHitPoints ) end
+	--debug_unit( m_AttackerPlayerID, m_AttackerUnitID, "EndCombatSim", m_AttackerUnitDamage, m_AttackerFinalUnitDamage, m_AttackerMaxHitPoints, m_DefenderPlayerID, m_DefenderUnitID, m_DefenderUnitDamage, m_DefenderFinalUnitDamage, m_DefenderMaxHitPoints )
 	ForceHide( m_AttackerPlayerID, m_AttackerUnitID, false )
-	ForceHide( m_DefenderPlayerID, m_DefenderUnitID, false )
+	return ForceHide( m_DefenderPlayerID, m_DefenderUnitID, false )
 end)
 
 --==========================================================
@@ -920,13 +1103,13 @@ function( teamID1, teamID2, isAtWar )
 	elseif teamID2 ~= g_activeTeamID then
 		return
 	end
-	local isAtPeace = not isAtWar
-	for playerID = 0, #Players do
-		local player = Players[playerID]
+	for playerID, player in pairs(Players) do
 		if player and player:IsAlive() and player:GetTeam() == teamID1 then
-			for unitID, flag in pairs( g_UnitFlags[playerID] ) do
-				flag.FlagHighlight:SetHide( isAtPeace )
-				flag.FlagHighlight:SetColor( isAtPeace and g_colorWhite or g_colorRed )
+			for _, flag in pairs( g_UnitFlags[playerID] ) do
+				flag.m_IsAtWar = isAtWar
+				flag.FlagHighlight:SetHide( not isAtWar )
+				flag.FlagHighlight:SetColor( isAtWar and g_colorRed or g_colorWhite )
+				UpdateFlagPromotions( flag, flag.m_Unit )
 			end
 		end
 	end
@@ -936,25 +1119,26 @@ end)
 -- 'Active' (local human) player has changed TODO
 --==========================================================
 Events.GameplaySetActivePlayer.Add( function( activePlayerID )--, iPrevActivePlayerID )
-	-- DebugPrint( "GameplaySetActivePlayer, activePlayerID=", activePlayerID ) end
+	--debug_print( "GameplaySetActivePlayer, activePlayerID=", activePlayerID )
 	g_activePlayerID = activePlayerID
-	g_activeTeamID = Game.GetActiveTeam()
+	g_activeTeamID = GetActiveTeam()
 	g_activePlayer = Players[ activePlayerID ]
 	g_activeTeam = Teams[ g_activeTeamID ]
 	if g_SelectedFlag then
 		SetFlagSelected( g_SelectedFlag, false )
 	end
-	for playerID = 0, #Players do
-		local player = Players[ playerID ]
+	for playerID, player in pairs(Players) do
 		if player and player:IsAlive() then
 			local teamID = player:GetTeam()
 			local isActiveTeam = teamID == g_activeTeamID
-			local isAtPeace = not g_activeTeam:IsAtWar( teamID )
-			for unitID, flag in pairs( g_UnitFlags[playerID] ) do
+			local isAtWar = g_activeTeam:IsAtWar( teamID )
+			for _, flag in pairs( g_UnitFlags[playerID] ) do
+				flag.m_IsAtWar = isAtWar
 				flag.Button:SetDisabled( not isActiveTeam )
 				flag.Button:SetConsumeMouseOver( isActiveTeam )
-				flag.FlagHighlight:SetHide( isAtPeace )
-				flag.FlagHighlight:SetColor( isAtPeace and g_colorWhite or g_colorRed )
+				flag.FlagHighlight:SetHide( not isAtWar )
+				flag.FlagHighlight:SetColor( isAtWar and g_colorRed or g_colorWhite )
+				UpdateFlagPromotions( flag, flag.m_Unit )
 			end
 		end
 	end
@@ -966,8 +1150,8 @@ end)
 -- and we'll assert clearing the registered button handler
 --==========================================================
 ContextPtr:SetShutdown( function()
-	-- DebugPrint( "SetShutdown" ) end
-	g_SelectedFlags:ChangeParent( ContextPtr )
+	--debug_print( "SetShutdown" )
+	return g_SelectedFlags:ChangeParent( ContextPtr )
 end)
 
 --==========================================================
@@ -975,21 +1159,30 @@ end)
 -- this keeps the flags from disappearing on hotload
 --==========================================================
 if ContextPtr:IsHotLoad() then
-	-- DebugPrint( "IsHotLoad" ) end
-	-- DestroyFlag any existing unit flags
-	for playerID = 0, #Players do
-		-- DebugPrint( playerID, "flag count:", #g_UnitFlags )end
-		for unitID, flag in pairs( g_UnitFlags[playerID] ) do
+	--debug_print( "IsHotLoad" )
+	for playerID, player in pairs(Players) do
+		-- DestroyFlag any existing unit flags
+		for _, flag in pairs( g_UnitFlags[playerID] ) do
 			DestroyFlag( flag )
 		end
-	end
-	for playerID = 0, #Players do
-		local player = Players[playerID]
+		-- Create unit flags for that player
+		local plot
 		if player and player:IsAlive() then
 			for unit in player:Units() do
-				local plot = unit:GetPlot()
+				plot = unit:GetPlot()
 				CreateNewFlag( playerID, unit:GetID(), unit:IsSelected(), plot and not plot:IsVisible( g_activeTeamID, true ), unit:IsInvisible( g_activeTeamID, true ) )
 			end
 		end
 	end
+end
+
+do
+	local function UpdateOptions()
+		g_visiblePromotionsIfOptionIsActive = GetOptionValue( "FlagPromotions" ) ~= 0 and g_visiblePromotions or {}
+		UpdateAllFlagPromotions()
+		Timer:SetToBeginning()
+		Timer:SetPauseTime( OptionsManager.GetTooltip2Seconds() / 100 )
+	end
+	Events.GameOptionsChanged.Add( UpdateOptions )
+	UpdateOptions()
 end

@@ -55,7 +55,7 @@ function()
 end );
 
 -----------------------
-Controls.RandomizeButton:RegisterCallback( Mouse.eLClick, 
+Controls.RandomizeButton:RegisterCallback( Mouse.eLClick,
 function()
 	PreGame.SetLoadWBScenario(false);
 	PreGame.SetCivilization(0, -1);
@@ -65,22 +65,22 @@ function()
 end );
 
 -----------------------
-Controls.EditButton:RegisterCallback( Mouse.eLClick,
-function()
-	UIManager:PushModal( Controls.SetCivNames );
-end );
+--Controls.EditButton:RegisterCallback( Mouse.eLClick,
+--function()
+--	UIManager:PushModal( Controls.SetCivNames );
+--end );
 
 -----------------------
-Controls.RemoveButton:RegisterCallback( Mouse.eLClick,
-function()
-	Controls.RemoveButton:SetHide(true);
-	PreGame.SetLeaderName( 0, "" );
-	PreGame.SetCivilizationDescription( 0, "" );
-	PreGame.SetCivilizationShortDescription( 0, "" );
-	PreGame.SetCivilizationAdjective( 0, "" );
+--Controls.RemoveButton:RegisterCallback( Mouse.eLClick,
+--function()
+--	Controls.RemoveButton:SetHide(true);
+--	PreGame.SetLeaderName( 0, "" );
+--	PreGame.SetCivilizationDescription( 0, "" );
+--	PreGame.SetCivilizationShortDescription( 0, "" );
+--	PreGame.SetCivilizationAdjective( 0, "" );
 
-	SetSelectedCiv();
-end );
+--	SetSelectedCiv();
+--end );
 
 -----------------------
 Controls.Button:RegisterCallback( Mouse.eLClick,
@@ -437,7 +437,7 @@ function SetSelectedCiv()
 			LeaderPortraitIndex = leader.PortraitIndex,
 			LeaderIconAtlas = leader.IconAtlas,
 		};
-		Controls.RemoveButton:SetHide( customEmpty );
+		--Controls.RemoveButton:SetHide( customEmpty );
 
 		-- Set Selected Civ Map
 		mapTexture=civ.MapImage;
