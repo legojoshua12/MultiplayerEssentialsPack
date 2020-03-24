@@ -127,7 +127,7 @@ function PlaceUnit(pUnit)
   elseif (sDisplayClass == "UNITCOMBAT_ARCHER") then
     if (pUnit:GetUnitType() == GameInfoTypes.UNIT_HELICOPTER_GUNSHIP) then
       sDisplayClass = "UNITCOMBAT_HELICOPTER"
-    elseif (pUnit:Range() == 1) then
+    elseif (pUnit:IsMounted()) then
       sDisplayClass = "UNITCOMBAT_MOUNTED_ARCHER"
     end
   end
@@ -632,6 +632,8 @@ function DrawPromotionButton(iX, iY, pUnit, sPromotion, sCombatClass)
     sToolTip = sToolTip .. "[NEWLINE][NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_PROMO_INTERCEPTION_TOOL_TIP")
   elseif (sPromotion:match("EVASION_[I]+$") ~= nil and sCombatClass == "UNITCOMBAT_BOMBER") then
     sToolTip = sToolTip .. "[NEWLINE][NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_PROMO_EVASION_TOOL_TIP")
+  elseif (sCombatClass == "UNITCOMBAT_ARCHER" and (sPromotion == "PROMOTION_INDIRECT_FIRE" or sPromotion == "PROMOTION_RANGE")) then
+    sToolTip = sToolTip .. "[NEWLINE][NEWLINE]" .. Locale.ConvertTextKey("TXT_KEY_PROMO_RANGE_LIMITATION_TOOL_TIP")
   end
 
   local button = ButtonManagerGetButton(iX, iY, sToolTip, promotion.IconAtlas, promotion.PortraitIndex, promotion.TechPrereq)

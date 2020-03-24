@@ -9,18 +9,6 @@ INSERT INTO Civilization_BuildingClassOverrides
 VALUES	('CIVILIZATION_NETHERLANDS',	'BUILDINGCLASS_BANK',	'BUILDING_NETHERLANDS_WAAG');
 --==========================================================================================================================	
 
---==========================================================================================================================
--- ARTDEFINES
---==========================================================================================================================	
-------------------------------
--- IconTextureAtlases
-------------------------------
-INSERT INTO IconTextureAtlases 
-			(Atlas, 									IconSize, 	Filename, 						IconsPerRow, 	IconsPerColumn)
-VALUES		('BUILDING_NETHERLANDS_ATLAS', 				256, 		'WaagPicture_256.dds',			1, 				1),
-			('BUILDING_NETHERLANDS_ATLAS', 				128, 		'WaagPicture_128.dds',			1, 				1),
-			('BUILDING_NETHERLANDS_ATLAS', 				64, 		'WaagPicture_064.dds',			1, 				1),
-			('BUILDING_NETHERLANDS_ATLAS', 				45, 		'WaagPicture_045.dds',			1, 				1);
 --==========================================================================================================================	
 
 --==========================================================================================================================	
@@ -31,7 +19,7 @@ VALUES		('BUILDING_NETHERLANDS_ATLAS', 				256, 		'WaagPicture_256.dds',			1, 		
 ------------------------------	
 INSERT INTO Buildings 	
 			(Type,							BuildingClass,	GoldMaintenance, Cost,		EspionageModifier, 	Defense, 	EnhancedYieldTech, TechEnhancedTourism, AllowsRangeStrike, TrainedFreePromotion, CitySupplyFlat, GreatPeopleRateModifier, GreatWorkSlotType, GreatWorkCount, FreshWater, FreeStartEra, Happiness, NeverCapture, GoldMaintenance, PrereqTech, 			ArtDefineTag, SpecialistType, SpecialistCount, 		MinAreaSize, ConquestProb, HurryCostModifier, PovertyHappinessChange, Help,										Description,							Civilopedia,								Strategy,										IconAtlas,						PortraitIndex)
-SELECT		'BUILDING_NETHERLANDS_WAAG', 	BuildingClass,	GoldMaintenance, Cost-150,	-20, 				500, 		EnhancedYieldTech, TechEnhancedTourism, AllowsRangeStrike, TrainedFreePromotion, CitySupplyFlat, GreatPeopleRateModifier, GreatWorkSlotType, GreatWorkCount, FreshWater, FreeStartEra, Happiness, NeverCapture, GoldMaintenance, 'TECH_CIVIL_SERVICE',	ArtDefineTag, SpecialistType, SpecialistCount+1, 	MinAreaSize, ConquestProb, HurryCostModifier, PovertyHappinessChange, 'TXT_KEY_BUILDING_NETHERLANDS_WAAG_HELP',	'TXT_KEY_BUILDING_NETHERLANDS_WAAG',	'TXT_KEY_BUILDING_NETHERLANDS_WAAG_TEXT',	'TXT_KEY_BUILDING_NETHERLANDS_WAAG_STRATEGY',	'BUILDING_NETHERLANDS_ATLAS',	0
+SELECT		'BUILDING_NETHERLANDS_WAAG', 	BuildingClass,	GoldMaintenance, Cost-150,	-20, 				200, 		EnhancedYieldTech, TechEnhancedTourism, AllowsRangeStrike, TrainedFreePromotion, CitySupplyFlat, GreatPeopleRateModifier, GreatWorkSlotType, GreatWorkCount, FreshWater, FreeStartEra, Happiness, NeverCapture, GoldMaintenance, 'TECH_CIVIL_SERVICE',	ArtDefineTag, SpecialistType, SpecialistCount+1, 	MinAreaSize, ConquestProb, HurryCostModifier, PovertyHappinessChange, 'TXT_KEY_BUILDING_NETHERLANDS_WAAG_HELP',	'TXT_KEY_BUILDING_NETHERLANDS_WAAG',	'TXT_KEY_BUILDING_NETHERLANDS_WAAG_TEXT',	'TXT_KEY_BUILDING_NETHERLANDS_WAAG_STRATEGY',	'BUILDING_NETHERLANDS_ATLAS',	0
 FROM Buildings WHERE Type = 'BUILDING_BANK';	
 ------------------------------	
 -- Building_Flavors
@@ -85,7 +73,18 @@ INSERT INTO Building_YieldChanges
 VALUES		('BUILDING_NETHERLANDS_WAAG',	'YIELD_GOLD',			2),
 			('BUILDING_NETHERLANDS_WAAG',	'YIELD_PRODUCTION',		2);
 --==========================================================================================================================	
-
+--==========================================================================================================================
+-- ARTDEFINES
+--==========================================================================================================================	
+------------------------------
+-- IconTextureAtlases
+------------------------------
+INSERT INTO IconTextureAtlases 
+			(Atlas, 									IconSize, 	Filename, 						IconsPerRow, 	IconsPerColumn)
+VALUES		('BUILDING_NETHERLANDS_ATLAS', 				256, 		'WaagPicture_256.dds',			1, 				1),
+			('BUILDING_NETHERLANDS_ATLAS', 				128, 		'WaagPicture_128.dds',			1, 				1),
+			('BUILDING_NETHERLANDS_ATLAS', 				64, 		'WaagPicture_064.dds',			1, 				1),
+			('BUILDING_NETHERLANDS_ATLAS', 				45, 		'WaagPicture_045.dds',			1, 				1);
 
 
 
