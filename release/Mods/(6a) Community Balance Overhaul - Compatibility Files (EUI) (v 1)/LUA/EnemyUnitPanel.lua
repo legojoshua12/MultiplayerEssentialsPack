@@ -329,7 +329,7 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 		
 		-- Ranged Unit
 		if (pMyUnit:IsRangedSupportFire() == false and pMyUnit:GetBaseRangedCombatStrength() > 0) then
-			iMyStrength = pMyUnit:GetMaxRangedCombatStrength(nil, pCity, true);
+			iMyStrength = pMyUnit:GetMaxRangedCombatStrength(nil, pCity, true, true);
 			bRanged = true;
 			
 		-- Melee Unit
@@ -487,18 +487,6 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 				bonusCount = bonusCount + 1;
 			end
 
-			-- Damaged unit
-			iModifier = pMyUnit:GetDamageCombatModifier();
-			if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
-				controlTable = g_MyCombatDataIM:GetInstance();
-				controlTable.Text:LocalizeAndSetText( "TXT_KEY_UNITCOMBAT_DAMAGE_MODIFIER" );
-				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
-				bonusCount = bonusCount + 1;
-			elseif (iModifier ~= 0) then
-				bonusSum = bonusSum + iModifier;
-				bonusCount = bonusCount + 1;
-			end
-
 			-- Lack Strategic Resources
 			iModifier = pMyUnit:GetStrategicResourceCombatPenalty();
 			if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
@@ -528,14 +516,14 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 					bonusSum = bonusSum + iModifier;
 				end				
 				bonusCount = bonusCount + 1;
-				-- Ignores Great General penalty (this should be substracted from misc. bonus)
+				-- Ignores Great General penalty
 				if (pMyUnit:IsIgnoreGreatGeneralBenefit() and bonusCount < maxBonusDisplay) then
 					controlTable = g_MyCombatDataIM:GetInstance();
 					controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_IGG");
 					controlTable.Value:SetText(GetFormattedText(strText, -iModifier, true, true));
 					bonusCount = bonusCount + 1;
 				elseif (pMyUnit:IsIgnoreGreatGeneralBenefit()) then
-					bonusSum = bonusSum - iModifier;
+					bonusSum = bonusSum + iModifier;
 					bonusCount = bonusCount + 1;
 				end
 			end
@@ -668,6 +656,34 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 				bonusCount = bonusCount + 1;				
 			end
 
+			-- COMMUNITY (Bushido)
+			if (pMyPlayer:GetWoundedUnitDamageMod() ~= 0) then
+				iModifier = pMyUnit:GetDamage() / 5;
+			    if (iModifier ~= 0  and bonusCount < maxBonusDisplay) then
+				   controlTable = g_MyCombatDataIM:GetInstance();
+				   controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_BUSHIDO" );
+				   controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+				   bonusCount = bonusCount + 1;
+				elseif (iModifier ~= 0) then
+					bonusSum = bonusSum + iModifier;
+					bonusCount = bonusCount + 1;					
+				end
+			end
+			
+			
+			if (pMyUnit:IsStrongerDamaged()) then
+				iModifier = pMyUnit:GetDamage() / 3;
+			    if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
+				   controlTable = g_MyCombatDataIM:GetInstance();
+				   controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_BUSHIDO" );
+				   controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+				   bonusCount = bonusCount + 1;
+				elseif (iModifier ~= 0) then
+					bonusSum = bonusSum + iModifier;
+					bonusCount = bonusCount + 1;
+				end
+			end
+
 			-- Civ Trait Bonus
 			iModifier = pMyUnit:GetMultiAttackBonusCity(pCity);
 			if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
@@ -754,18 +770,6 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 				end
 			end
 
-			-- RoughAttackModifier
-			iModifier = pMyUnit:OpenFromModifier() + pMyUnit:RoughFromModifier();
-			if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
-				controlTable = g_MyCombatDataIM:GetInstance();
-				controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_FROM_TERRAIN_BONUS" );
-				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
-				bonusCount = bonusCount + 1;
-			elseif (iModifier ~= 0) then
-				bonusSum = bonusSum + iModifier;
-				bonusCount = bonusCount + 1;				
-			end
-
 			--NearbyPromotion Unit that gives a combat bonus
 			iModifier = pMyUnit:GetGiveCombatModToUnit();
 			if (pMyUnit:GetGiveCombatModToUnit() ~= 0 and bonusCount < maxBonusDisplay) then
@@ -785,7 +789,7 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 				controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_NEARBYPROMOTION_CITY_COMBAT_BONUS" );
 				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
 				bonusCount = bonusCount + 1;
-			elseif (pMyUnit:GetNearbyCityBonusCombatMod() ~= 0) then
+			elseif (pMyUnit:GetNearbyCityBonusCombatMod()) then
 				bonusSum = bonusSum + iModifier;
 				bonusCount = bonusCount + 1;
 			end
@@ -879,11 +883,13 @@ function UpdateCombatOddsUnitVsCity(pMyUnit, pCity)
 				controlTable = g_TheirCombatDataIM:GetInstance();
 				controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_AIR_INTERCEPT_WARNING2");
 				controlTable.Value:SetText("");
+				bonusCount = bonusCount + 1; 
 			end
 			if (iNumVisibleAAUnits > 0) then
 				controlTable = g_TheirCombatDataIM:GetInstance();
 				controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_VISIBLE_AA_UNITS", iNumVisibleAAUnits);
 				controlTable.Value:SetText("");
+				bonusCount = bonusCount + 1;
 			end
 			
 			-- Displays miscellaneous bonus here if there are more than 4 bonuses
@@ -946,7 +952,7 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 		
 		-- Ranged Unit
 		if (pMyUnit:IsRangedSupportFire() == false and pMyUnit:GetBaseRangedCombatStrength() > 0) then
-			iMyStrength = pMyUnit:GetMaxRangedCombatStrength(pTheirUnit, nil, true);
+			iMyStrength = pMyUnit:GetMaxRangedCombatStrength(pTheirUnit, nil, true, true);
 			bRanged = true;
 				
 		-- Melee Unit
@@ -969,7 +975,7 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 				if (pTheirUnit:IsEmbarked()) then
 					iTheirStrength = pTheirUnit:GetEmbarkedUnitDefense();
 				else
-					iTheirStrength = pTheirUnit:GetMaxRangedCombatStrength(pMyUnit, nil, false);
+					iTheirStrength = pTheirUnit:GetMaxRangedCombatStrength(pMyUnit, nil, false, true);
 				end
 				
 				if (iTheirStrength == 0 or pTheirUnit:GetDomainType() == DomainTypes.DOMAIN_SEA or pTheirUnit:IsRangedSupportFire()) then
@@ -1004,20 +1010,19 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 				
 			end
 			
-			local maxMyUnitHitPoints = pMyUnit:GetMaxHitPoints();
-			local maxTheirUnitHitPoints = pTheirUnit:GetMaxHitPoints();
+			local maxUnitHitPoints = pMyUnit:GetMaxHitPoints();
 
 			-- Don't give numbers greater than a Unit's max HP
-			if (iMyDamageInflicted > maxTheirUnitHitPoints) then
-				iMyDamageInflicted = maxTheirUnitHitPoints;
+			if (iMyDamageInflicted > maxUnitHitPoints) then
+				iMyDamageInflicted = maxUnitHitPoints;
 			end
-			if (iTheirDamageInflicted > maxMyUnitHitPoints) then
-				iTheirDamageInflicted = maxMyUnitHitPoints;
+			if (iTheirDamageInflicted > maxUnitHitPoints) then
+				iTheirDamageInflicted = maxUnitHitPoints;
 			end
 			
 			-- now do the health bars
 			
-			DoUpdateHealthBars(maxMyUnitHitPoints, maxTheirUnitHitPoints, pMyUnit:GetDamage(), pTheirUnit:GetDamage(), iMyDamageInflicted, iTheirDamageInflicted)
+			DoUpdateHealthBars(maxUnitHitPoints, maxUnitHitPoints, pMyUnit:GetDamage(), pTheirUnit:GetDamage(), iMyDamageInflicted, iTheirDamageInflicted)
 
 			-- Now do text stuff
 			
@@ -1139,7 +1144,7 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 				controlTable = g_MyCombatDataIM:GetInstance();
 				controlTable.Text:LocalizeAndSetText(movementRules);
 				controlTable.Value:SetText("");
-				bonusCount = bonusCount + 2;
+				bonusCount = bonusCount + 1;
 			end
 			movementRules = pMyUnit:GetZOCStatus();
 			if(movementRules ~= "") then
@@ -1166,18 +1171,6 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 				else
 					bonusSum = bonusSum + iModifier;
 				end
-				bonusCount = bonusCount + 1;
-			end
-
-			-- Damaged unit
-			iModifier = pMyUnit:GetDamageCombatModifier(bRanged);
-			if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
-				controlTable = g_MyCombatDataIM:GetInstance();
-				controlTable.Text:LocalizeAndSetText( "TXT_KEY_UNITCOMBAT_DAMAGE_MODIFIER" );
-				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
-				bonusCount = bonusCount + 1;
-			elseif (iModifier ~= 0) then
-				bonusSum = bonusSum + iModifier;
 				bonusCount = bonusCount + 1;
 			end
 
@@ -1211,14 +1204,14 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 				end
 					bonusCount = bonusCount + 1;
 				
-				-- Ignores Great General penalty (this should be substracted from misc. bonus)
+				-- Ignores Great General penalty
 				if (pMyUnit:IsIgnoreGreatGeneralBenefit() and bonusCount < maxBonusDisplay) then
 					controlTable = g_MyCombatDataIM:GetInstance();
 					controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_IGG");
 					controlTable.Value:SetText(GetFormattedText(strText, -iModifier, true, true));
 					bonusCount = bonusCount + 1;
 				elseif (pMyUnit:IsIgnoreGreatGeneralBenefit()) then
-					bonusSum = bonusSum - iModifier;
+					bonusSum = bonusSum + iModifier;
 					bonusCount = bonusCount + 1;
 				end
 			end
@@ -1340,7 +1333,7 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 				controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_IMPROVEMENT_NEAR" );
 				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
 				bonusCount = bonusCount + 1;
-			elseif (pMyUnit:GetNearbyImprovementModifier(pFromPlot) ~= 0) then
+			elseif (pMyUnit:GetNearbyImprovementModifier(pFromPlot)) then
 				bonusSum = bonusSum + iModifier;
 				bonusCount = bonusCount + 1;	
 			end
@@ -1371,18 +1364,44 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 				end
 			end
 
-			-- if (not bRanged) then
-			-- 	iModifier = pMyUnit:GetExtraWithdrawal();
-			--     if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
-			-- 	   controlTable = g_MyCombatDataIM:GetInstance();
-			-- 	   controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_WITHDRAW_CHANCE" );
-			-- 	   controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
-			-- 	   bonusCount = bonusCount + 1;
-			-- 	elseif (iModifier ~= 0) then
-			-- 		bonusSum = bonusSum + iModifier;
-			-- 		bonusCount = bonusCount + 1;				
-			-- 	end		
-			-- end
+			-- COMMUNITY (Bushido)
+			if (pMyPlayer:GetWoundedUnitDamageMod() ~= 0) then
+			   iModifier =  pMyUnit:GetDamage() / 5;
+			    if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
+				   controlTable = g_MyCombatDataIM:GetInstance();
+				   controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_BUSHIDO" );
+				   controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+				   bonusCount = bonusCount + 1;
+				elseif (iModifier ~= 0) then
+					bonusSum = bonusSum + iModifier;
+					bonusCount = bonusCount + 1;					
+				end
+			end
+			if (pMyUnit:IsStrongerDamaged()) then
+			   iModifier = pMyUnit:GetDamage() / 3;
+			    if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
+				   controlTable = g_MyCombatDataIM:GetInstance();
+				   controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_BUSHIDO" );
+				   controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+				   bonusCount = bonusCount + 1;
+				elseif (iModifier ~= 0) then
+					bonusSum = bonusSum + iModifier;
+					bonusCount = bonusCount + 1;				
+				end
+			end
+
+			if (not bRanged) then
+				iModifier = pMyUnit:GetExtraWithdrawal();
+			    if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
+				   controlTable = g_MyCombatDataIM:GetInstance();
+				   controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_WITHDRAW_CHANCE" );
+				   controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+				   bonusCount = bonusCount + 1;
+				elseif (iModifier ~= 0) then
+					bonusSum = bonusSum + iModifier;
+					bonusCount = bonusCount + 1;				
+				end		
+			end
 
 			-- COMMUNITY (Resistance)
 			iModifier = pMyUnit:GetResistancePower(pTheirUnit);
@@ -1824,19 +1843,6 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 					bonusCount = bonusCount + 1;
 				end
 			end
-
-			-- RoughAttackModifier
-			iModifier = pMyUnit:OpenFromModifier() + pMyUnit:RoughFromModifier();
-
-			if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
-				controlTable = g_MyCombatDataIM:GetInstance();
-				controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_FROM_TERRAIN_BONUS" );
-				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
-				bonusCount = bonusCount + 1;
-			elseif (iModifier ~= 0) then
-				bonusSum = bonusSum + iModifier;
-				bonusCount = bonusCount + 1;				
-			end
 			
 			if (pToPlot:GetFeatureType() ~= -1) then
 			
@@ -2006,7 +2012,7 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 				controlTable = g_TheirCombatDataIM:GetInstance();
 				controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_AIR_INTERCEPT_WARNING2");
 				controlTable.Value:SetText("");
-				bonusCount = bonusCount + 2;
+				bonusCount = bonusCount + 1;
 			end
 			if (iNumVisibleAAUnits > 0) then
 				controlTable = g_TheirCombatDataIM:GetInstance();
@@ -2023,7 +2029,7 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 				controlTable = g_TheirCombatDataIM:GetInstance();
 				controlTable.Text:LocalizeAndSetText(movementRules);
 				controlTable.Value:SetText("");
-				bonusCount = bonusCount + 2;
+				bonusCount = bonusCount + 1;
 			end
 			movementRules = pTheirUnit:GetZOCStatus();
 			if(movementRules ~= "") then
@@ -2042,20 +2048,10 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 						controlTable = g_TheirCombatDataIM:GetInstance();
 						controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_CAPTURE_CHANCE", iChance);
 						controlTable.Value:SetText("");
-						bonusCount = bonusCount + 2;
+						bonusCount = bonusCount + 1;
 				end
 			end
 			
-			-- Withdraw Chance
-			if (not bRanged) then
-				iModifier = pTheirUnit:GetExtraWithdrawal();
-				if (iModifier ~= 0) then
-				   controlTable = g_TheirCombatDataIM:GetInstance();
-				   controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_WITHDRAW_CHANCE", iModifier);
-				   controlTable.Value:SetText("");
-				   bonusCount = bonusCount + 1;
-				end		
-			end			
 			
 			if (pTheirUnit:IsCombatUnit()) then
 
@@ -2077,18 +2073,6 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 					bonusCount = bonusCount + 1;
 				end
 
-				-- Damaged unit
-				iModifier = pTheirUnit:GetDamageCombatModifier(bRanged);
-				if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
-					controlTable = g_TheirCombatDataIM:GetInstance();
-					controlTable.Text:LocalizeAndSetText( "TXT_KEY_UNITCOMBAT_DAMAGE_MODIFIER" );
-					controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
-					bonusCount = bonusCount + 1;
-				elseif (iModifier ~= 0) then
-					bonusSum = bonusSum + iModifier;
-					bonusCount = bonusCount + 1;
-				end
-				
 				-- Lack Strategic Resources
 				iModifier = pTheirUnit:GetStrategicResourceCombatPenalty();
 				if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
@@ -2119,14 +2103,14 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 					end
 					bonusCount = bonusCount + 1;
 					
-					-- Ignores Great General penalty (this should be substracted from misc. bonus)
+					-- Ignores Great General penalty
 					if (pTheirUnit:IsIgnoreGreatGeneralBenefit() and bonusCount < maxBonusDisplay) then
 						controlTable = g_TheirCombatDataIM:GetInstance();
 						controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_IGG");
 						controlTable.Value:SetText(GetFormattedText(strText, -iModifier, false, true));
 						bonusCount = bonusCount + 1;
 					elseif (pTheirUnit:IsIgnoreGreatGeneralBenefit()) then
-						bonusSum = bonusSum - iModifier;
+						bonusSum = bonusSum + iModifier;
 						bonusCount = bonusCount + 1;					
 					end
 				end
@@ -2165,6 +2149,45 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 				elseif(iModifier ~= 0) then
 					bonusSum = bonusSum + iModifier;
 					bonusCount = bonusCount + 1;				
+				end
+
+			-- COMMUNITY (Bushido)
+				if (pTheirPlayer:GetWoundedUnitDamageMod() ~= 0) then
+				   iModifier = pTheirUnit:GetDamage() / 5;
+				   if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
+					   controlTable = g_TheirCombatDataIM:GetInstance();
+					   controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_BUSHIDO" );
+					   controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
+					   bonusCount = bonusCount + 1;
+					elseif (iModifier ~= 0) then
+						bonusSum = bonusSum + iModifier;
+						bonusCount = bonusCount + 1;					
+					end
+				end
+				if (pTheirUnit:IsStrongerDamaged()) then
+				   iModifier =  pTheirUnit:GetDamage() / 3;
+					if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
+					   controlTable = g_TheirCombatDataIM:GetInstance();
+					   controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_BUSHIDO" );
+					   controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
+					   bonusCount = bonusCount + 1;
+					elseif (iModifier ~= 0) then
+						bonusSum = bonusSum + iModifier;
+						bonusCount = bonusCount + 1;					
+					end
+				end
+
+				if (not bRanged) then
+					iModifier = pTheirUnit:GetExtraWithdrawal();
+					if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
+					   controlTable = g_TheirCombatDataIM:GetInstance();
+					   controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_WITHDRAW_CHANCE" );
+					   controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
+					   bonusCount = bonusCount + 1;
+					elseif (iModifier ~= 0) then
+						bonusSum = bonusSum + iModifier;
+						bonusCount = bonusCount + 1;
+					end		
 				end
 
 			-- COMMUNITY (Resistance)
@@ -2368,10 +2391,19 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 --END
 				
 				-- Defense Modifier
-				
+				local iModifier = pTheirUnit:GetDefenseModifier();
+				if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
+					controlTable = g_TheirCombatDataIM:GetInstance();
+					controlTable.Text:LocalizeAndSetText(  "TXT_KEY_EUPANEL_DEFENSE_BONUS" );
+					controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
+					bonusCount = bonusCount + 1;
+				elseif (iModifier ~= 0) then
+					bonusSum = bonusSum + iModifier;
+					bonusCount = bonusCount + 1;				
+				end
 
 				if(bRanged) then
-					iModifier = pTheirUnit:GetRangedDefenseModifier();
+					local iModifier = pTheirUnit:GetRangedDefenseModifier();
 					if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
 						controlTable = g_TheirCombatDataIM:GetInstance();
 						controlTable.Text:LocalizeAndSetText(  "TXT_KEY_EUPANEL_DEFENSE_BONUS" );
@@ -2381,20 +2413,7 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 						bonusSum = bonusSum + iModifier;
 						bonusCount = bonusCount + 1;					
 					end	
-				else
-					iModifier = pTheirUnit:GetDefenseModifier();
-					if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
-						controlTable = g_TheirCombatDataIM:GetInstance();
-						controlTable.Text:LocalizeAndSetText(  "TXT_KEY_EUPANEL_DEFENSE_BONUS" );
-						controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
-						bonusCount = bonusCount + 1;
-					elseif (iModifier ~= 0) then
-						bonusSum = bonusSum + iModifier;
-						bonusCount = bonusCount + 1;				
-					end
 				end
-
-
 
 				-- UnitClassDefenseModifier
 				iModifier = pTheirUnit:UnitClassDefenseModifier(pMyUnit:GetUnitClassType());
@@ -2409,20 +2428,6 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 					bonusCount = bonusCount + 1;				
 				end
 
-				-- HERE CHANGE
-				-- UnitClassDefenceAttackModifier
-				iModifier = pTheirUnit:UnitClassAttackModifier(pMyUnit:GetUnitClassType());
-				if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
-					controlTable = g_TheirCombatDataIM:GetInstance();
-					local unitClassType = Locale.ConvertTextKey(GameInfo.UnitClasses[pMyUnit:GetUnitClassType()].Description);
-					controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_BONUS_VS_CLASS" , unitClassType );
-					controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
-					bonusCount = bonusCount + 1;
-				elseif (iModifier ~= 0) then
-					bonusSum = bonusSum + iModifier;
-					bonusCount = bonusCount + 1;			
-				end
-
 				---- ClassDefenseModifier
 				--iModifier = pTheirUnit:unitClassDefenseModifier(pMyUnit:getUnitClassType());
 				--if (iModifier ~= 0) then
@@ -2435,25 +2440,15 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 				if (pMyUnit:GetUnitCombatType() ~= -1) then
 					iModifier = pTheirUnit:UnitCombatModifier(pMyUnit:GetUnitCombatType());
 
-					if(pMyUnit:IsMounted()) then
-						iModifier = (iModifier + pTheirUnit:UnitCombatModifier(GameInfo.UnitCombatInfos["UNITCOMBAT_MOUNTED"].ID));
-					end
-
-					if (iModifier ~= 0) then
-						if(pTheirUnit:IsMounted() and bonusCount < maxBonusDisplay) then
-							controlTable = g_TheirCombatDataIM:GetInstance();
-							controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_BONUS_VS_CLASS_CBP", unitClassType );
-							controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
-						elseif(bonusCount < maxBonusDisplay) then
-							controlTable = g_TheirCombatDataIM:GetInstance();
-							local unitClassType = Locale.ConvertTextKey(GameInfo.UnitCombatInfos[pMyUnit:GetUnitCombatType()].Description);
-							controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_BONUS_VS_CLASS", unitClassType );
-							controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
-							bonusCount = bonusCount + 1;
-						elseif (iModifier ~= 0) then
-							bonusSum = bonusSum + iModifier;
-							bonusCount = bonusCount + 1;					
-						end
+					if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
+						controlTable = g_TheirCombatDataIM:GetInstance();
+						local unitClassType = Locale.ConvertTextKey(GameInfo.UnitCombatInfos[pMyUnit:GetUnitCombatType()].Description);
+						controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_BONUS_VS_CLASS", unitClassType );
+						controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
+						bonusCount = bonusCount + 1;
+					elseif (iModifier ~= 0) then
+						bonusSum = bonusSum + iModifier;
+						bonusCount = bonusCount + 1;					
 					end
 				end
 
@@ -2533,20 +2528,6 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 					end
 				end
 				
-				-- Logistics Combat Penalty 
-				if(bRanged) then
-					iModifier = pTheirUnit:GetRangedAttackModifier();
-					if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
-						controlTable = g_TheirCombatDataIM:GetInstance();
-						controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_RANGED_ATTACK_MODIFIER" );
-						controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
-						bonusCount = bonusCount + 1;
-					elseif (iModifier ~= 0) then
-						bonusSum = bonusSum + iModifier;
-						bonusCount = bonusCount + 1;				
-					end
-				end
-
 				-- RoughDefenseModifier
 				if (pToPlot:IsRoughGround()) then
 					iModifier = pTheirUnit:RoughDefenseModifier();
@@ -2560,19 +2541,6 @@ function UpdateCombatOddsUnitVsUnit(pMyUnit, pTheirUnit)
 						bonusSum = bonusSum + iModifier;
 						bonusCount = bonusCount + 1;					
 					end
-				end
-
-				-- RoughAttackModifier
-				iModifier = pTheirUnit:OpenFromModifier() + pTheirUnit:RoughFromModifier();
-
-				if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
-					controlTable = g_TheirCombatDataIM:GetInstance();
-					controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_FROM_TERRAIN_BONUS" );
-					controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
-						bonusCount = bonusCount + 1;
-				elseif (iModifier ~= 0) then
-					bonusSum = bonusSum + iModifier;
-					bonusCount = bonusCount + 1;				
 				end
 	
 -- COMMUNITY PATCH CHANGE	
@@ -2749,7 +2717,7 @@ function UpdateCombatOddsCityVsUnit(myCity, theirUnit)
 	local myCityMaxHP = myCity:GetMaxHitPoints();
 	local myCityCurHP = myCity:GetDamage();
 	local myCityDamageInflicted = myCity:RangeCombatDamage(theirUnit, nil);
-	local myCityStrength = myCity:GetStrengthValue(true, false, theirUnit);
+	local myCityStrength = myCity:GetStrengthValue(true);
 	
 	local theirUnitMaxHP = theirUnit:GetMaxHitPoints();
 	local theirUnitCurHP = theirUnit:GetDamage();
@@ -2823,19 +2791,7 @@ function UpdateCombatOddsCityVsUnit(myCity, theirUnit)
 			end
 			bonusCount = bonusCount + 1;
 		end
-		
-		-- Damaged unit
-		iModifier = theirUnit:GetDamageCombatModifier(true);
-		if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
-			controlTable = g_TheirCombatDataIM:GetInstance();
-			controlTable.Text:LocalizeAndSetText( "TXT_KEY_UNITCOMBAT_DAMAGE_MODIFIER" );
-			controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
-			bonusCount = bonusCount + 1;
-		elseif (iModifier ~= 0) then
-			bonusSum = bonusSum + iModifier;
-			bonusCount = bonusCount + 1;
-		end
-		
+
 		-- Lack Strategic Resources
 		iModifier = theirUnit:GetStrategicResourceCombatPenalty();
 		if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
@@ -2867,14 +2823,14 @@ function UpdateCombatOddsCityVsUnit(myCity, theirUnit)
 			
 			bonusCount = bonusCount + 1;
 			
-			-- Ignores Great General penalty (this should be substracted from misc. bonus)
+			-- Ignores Great General penalty
 			if (theirUnit:IsIgnoreGreatGeneralBenefit() and bonusCount < maxBonusDisplay) then
 				controlTable = g_TheirCombatDataIM:GetInstance();
 				controlTable.Text:LocalizeAndSetText("TXT_KEY_EUPANEL_IGG");
 				controlTable.Value:SetText(GetFormattedText(strText, -iModifier, false, true));
 				bonusCount = bonusCount + 1;
 			elseif (theirUnit:IsIgnoreGreatGeneralBenefit()) then
-				bonusSum = bonusSum - iModifier;
+				bonusSum = bonusSum + iModifier;
 				bonusCount = bonusCount + 1;			
 			end
 		end
@@ -2889,18 +2845,6 @@ function UpdateCombatOddsCityVsUnit(myCity, theirUnit)
 		elseif (theirUnit:GetGreatGeneralCombatModifier() ~= 0 and theirUnit:IsStackedGreatGeneral()) then
 			bonusSum = bonusSum + iModifier;
 			bonusCount = bonusCount + 1;		
-		end
-
-		-- Reverse Great General bonus
-		iModifier = theirUnit:GetReverseGreatGeneralModifier();
-		if (theirUnit:GetReverseGreatGeneralModifier() ~= 0 and bonusCount < maxBonusDisplay) then					
-			controlTable = g_TheirCombatDataIM:GetInstance();
-			controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_REVERSE_GG_NEAR" );
-			controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
-			bonusCount = bonusCount + 1;
-		elseif (theirUnit:GetReverseGreatGeneralModifier() ~= 0) then
-			bonusSum = bonusSum + iModifier;
-			bonusCount = bonusCount + 1;				
 		end
 		
 		-- Adjacent Modifier
@@ -3029,6 +2973,17 @@ function UpdateCombatOddsCityVsUnit(myCity, theirUnit)
 			bonusCount = bonusCount + 1;		
 		end
 --END
+		-- Defense Modifier
+		local iModifier = theirUnit:GetDefenseModifier();
+		if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
+			controlTable = g_TheirCombatDataIM:GetInstance();
+			controlTable.Text:LocalizeAndSetText(  "TXT_KEY_EUPANEL_DEFENSE_BONUS" );
+			controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
+			bonusCount = bonusCount + 1;
+		elseif (iModifier ~= 0 ) then
+			bonusSum = bonusSum + iModifier;
+			bonusCount = bonusCount + 1;		
+		end
 
 		local iModifier = theirUnit:GetRangedDefenseModifier();
 		if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
@@ -3084,20 +3039,6 @@ function UpdateCombatOddsCityVsUnit(myCity, theirUnit)
 				bonusSum = bonusSum + iModifier;
 				bonusCount = bonusCount + 1;			
 			end
-		end
-
-		
-		-- RoughAttackModifier
-		iModifier = theirUnit:OpenFromModifier() + theirUnit:RoughFromModifier();
-
-		if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
-			controlTable = g_TheirCombatDataIM:GetInstance();
-			controlTable.Text:LocalizeAndSetText( "TXT_KEY_EUPANEL_FROM_TERRAIN_BONUS" );
-			controlTable.Value:SetText( GetFormattedText(strText, iModifier, false, true) );
-				bonusCount = bonusCount + 1;
-		elseif (iModifier ~= 0) then
-			bonusSum = bonusSum + iModifier;
-			bonusCount = bonusCount + 1;				
 		end
 
 		-- CapitalDefenseModifier
@@ -3230,6 +3171,20 @@ function UpdateCombatOddsCityVsUnit(myCity, theirUnit)
 			end
 		end
 -- CBP
+		if(theirUnit:GetDomainType() == DomainTypes.DOMAIN_SEA) then
+			iModifier = 100 - GameDefines["BALANCE_NAVAL_DEFENSE_CITY_STRIKE_MODIFIER"];
+			iModifier = iModifier * -1; 
+			if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then
+				controlTable = g_MyCombatDataIM:GetInstance();
+				controlTable.Text:LocalizeAndSetText(  "TXT_KEY_EUPANEL_NAVAL_DEFENSE_CITY" );
+				controlTable.Value:SetText( GetFormattedText(strText, iModifier, true, true) );
+				bonusCount = bonusCount + 1;
+			elseif (iModifier ~= 0) then
+				bonusSum = bonusSum + iModifier;
+				bonusCount = bonusCount + 1;			
+			end
+		end
+	
 		-- Civ Trait Bonus
 		iModifier = myCity:GetMultiAttackBonusCity(theirUnit);
 		if (iModifier ~= 0 and bonusCount < maxBonusDisplay) then

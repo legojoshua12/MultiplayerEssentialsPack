@@ -14,7 +14,7 @@ VALUES
 	('BUILD_REMOVE_JUNGLE', 'TECH_BIOLOGY', -200);
 
 UPDATE Builds
-SET PrereqTech = 'TECH_MINING'
+SET PrereqTech = 'TECH_BRONZE_WORKING'
 WHERE Type = 'BUILD_REMOVE_FOREST' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_TERRAIN' AND Value= 1 );
 
 UPDATE Builds
@@ -41,20 +41,9 @@ VALUES
 	('BUILD_REMOVE_MARSH', 'TECH_MACHINERY', -200),
 	('BUILD_REMOVE_MARSH', 'TECH_BIOLOGY', -200);
 
--- Mining gets chop, but...
 UPDATE BuildFeatures
-SET PrereqTech = 'TECH_MINING'
+SET PrereqTech = 'TECH_BRONZE_WORKING'
 WHERE FeatureType = 'FEATURE_FOREST' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_TERRAIN' AND Value= 1 );
-
--- Bronze working gets a chop valuation bonus
-UPDATE Technologies
-SET FeatureProductionModifier = '50'
-WHERE Type = 'TECH_BRONZE_WORKING' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_TERRAIN' AND Value= 1 );
-
-UPDATE Technologies
-SET FeatureProductionModifier = '50'
-WHERE Type = 'TECH_IRON_WORKING' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_TERRAIN' AND Value= 1 );
-
 
 UPDATE BuildFeatures
 SET PrereqTech = 'TECH_CALENDAR'
@@ -112,15 +101,15 @@ WHERE BuildType = 'BUILD_FORT';
 INSERT INTO BuildFeatures (BuildType, FeatureType, PrereqTech, Time, Production, Remove)
 VALUES ('BUILD_POLDER', 'FEATURE_JUNGLE', 'TECH_CALENDAR', '500', 20 ,1);
 INSERT INTO BuildFeatures (BuildType, FeatureType, PrereqTech, Time, Production, Remove)
-VALUES ('BUILD_POLDER', 'FEATURE_FOREST', 'TECH_MINING', '300', 30, 1);
+VALUES ('BUILD_POLDER', 'FEATURE_FOREST', 'TECH_BRONZE_WORKING', '300', 30, 1);
 
 UPDATE BuildFeatures SET Remove = 1 WHERE  FeatureType = 'FEATURE_MARSH'  AND BuildType NOT IN ('BUILD_POLDER');
 UPDATE BuildFeatures SET Time = 300 WHERE (FeatureType = 'FEATURE_JUNGLE' AND Time <> 0 AND Remove = 0);
 UPDATE BuildFeatures SET Time = 500 WHERE (FeatureType = 'FEATURE_JUNGLE' AND Time <> 0 AND Remove = 1);
 UPDATE BuildFeatures SET Time = 400 WHERE  BuildType   = 'BUILD_REMOVE_JUNGLE';
 UPDATE BuildFeatures SET Time = 300 WHERE  BuildType   = 'BUILD_REMOVE_FOREST';
-UPDATE BuildFeatures SET Production = 40 WHERE FeatureType = 'FEATURE_FOREST' AND Remove = 1;
-UPDATE BuildFeatures SET Production = 40 WHERE FeatureType = 'FEATURE_JUNGLE' AND Remove = 1;
+UPDATE BuildFeatures SET Production = 30 WHERE FeatureType = 'FEATURE_FOREST' AND Remove = 1;
+UPDATE BuildFeatures SET Production = 20 WHERE FeatureType = 'FEATURE_JUNGLE' AND Remove = 1;
 
 UPDATE BuildFeatures SET Time = 300 WHERE FeatureType = 'FEATURE_FOREST' AND Time > 0 AND Remove = 1;
 UPDATE BuildFeatures SET Time = 400 WHERE FeatureType = 'FEATURE_JUNGLE' AND Time > 0 AND Remove = 1;

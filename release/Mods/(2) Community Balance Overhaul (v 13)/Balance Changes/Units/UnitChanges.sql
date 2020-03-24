@@ -36,7 +36,7 @@
 
 	-- Great Scientist science boost lowered slightly.
 
-	UPDATE Units SET BaseBeakersTurnsToCount = '4' WHERE Type = 'UNIT_SCIENTIST' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_UNITS' AND Value= 1 );
+	UPDATE Units SET BaseBeakersTurnsToCount = '5' WHERE Type = 'UNIT_SCIENTIST' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_UNITS' AND Value= 1 );
 
 	-- Admiral movement buff, ability addition
 	UPDATE Units SET Moves = '5' WHERE Type = 'UNIT_GREAT_ADMIRAL' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_UNITS' AND Value= 1 );
@@ -53,7 +53,7 @@
 
 	-- Reduced base golden age turns of artist 
 	UPDATE Units SET GoldenAgeTurns = '0' WHERE Type = 'UNIT_ARTIST' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_UNITS' AND Value= 1 );
-	UPDATE Units SET BaseTurnsForGAPToCount = '10' WHERE Type = 'UNIT_ARTIST' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_UNITS' AND Value= 1 );
+	UPDATE Units SET BaseTurnsForGAPToCount = '15' WHERE Type = 'UNIT_ARTIST' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_UNITS' AND Value= 1 );
 	-- Writer added scaling bonus for num themed GWs
 	UPDATE Units SET ScaleFromNumThemes = '20' WHERE Type = 'UNIT_ARTIST' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_UNITS' AND Value= 1 );
 
@@ -80,14 +80,16 @@
 -- cap for archaeologists
 UPDATE UnitClasses SET MaxPlayerInstances = '3' WHERE Type = 'UNITCLASS_ARCHAEOLOGIST';
 
---modder please note still does +2 turns just like custom house, but weird bug i dont ask why.
+--modder please note customs_house_venice still does +2 turns just like custom house, but weird bug i dont ask why.
 INSERT INTO Unit_ScalingFromOwnedImprovements
 	(UnitType, ImprovementType, Amount)
 VALUES
 	('UNIT_SCIENTIST', 'IMPROVEMENT_ACADEMY', '10'),
 	('UNIT_ENGINEER', 'IMPROVEMENT_MANUFACTORY', '20'),
-	('UNIT_MERCHANT', 'IMPROVEMENT_CUSTOMS_HOUSE', '20'),
-	('UNIT_VENETIAN_MERCHANT', 'IMPROVEMENT_CUSTOMS_HOUSE', '10');
+	('UNIT_MERCHANT', 'IMPROVEMENT_CUSTOMS_HOUSE', '10'),
+	('UNIT_MERCHANT', 'IMPROVEMENT_CUSTOMS_HOUSE_VENICE', '10'),
+	('UNIT_VENETIAN_MERCHANT',	'IMPROVEMENT_CUSTOMS_HOUSE',	'10'),
+	('UNIT_VENETIAN_MERCHANT',	'IMPROVEMENT_CUSTOMS_HOUSE_VENICE',	'10');
 
 INSERT INTO Unit_AITypes
 	(UnitType, UnitAIType)
@@ -119,20 +121,19 @@ INSERT INTO Unit_FreePromotions (UnitType, PromotionType) SELECT 'UNIT_NUCLEAR_M
 -- All civs start with a pathfinder
 
 --Replace Starting Warrior with a Pathfinder
-UPDATE Eras SET StartingDefenseUnits='1' Where Type='ERA_ANCIENT';
+UPDATE Eras SET StartingDefenseUnits='0' Where Type='ERA_ANCIENT';
 UPDATE Eras SET StartingExploreUnits='1' Where Type='ERA_ANCIENT';
 
 --Assigns UnitCombatInfos to civilian units -- Can now grant production bonuses and free promotions via buildings, traits and policies
 INSERT INTO UnitCombatInfos  	
 			(Type,					Description)
-VALUES		
-	('UNITCOMBAT_SETTLER',	'TXT_KEY_UNITCOMBAT_SETTLER'),
-	('UNITCOMBAT_WORKER',	'TXT_KEY_UNITCOMBAT_WORKER'),
-	('UNITCOMBAT_WORKBOAT',	'TXT_KEY_UNITCOMBAT_WORKBOAT'),
-	('UNITCOMBAT_CARGO',	'TXT_KEY_UNITCOMBAT_CARGO'),
-	('UNITCOMBAT_CARAVAN',	'TXT_KEY_UNITCOMBAT_CARAVAN'),
-	('UNITCOMBAT_INQUISITOR',	'TXT_KEY_UNITCOMBAT_INQUISITOR'),
-	('UNITCOMBAT_MISSIONARY',	'TXT_KEY_UNITCOMBAT_MISSIONARY');
+VALUES		('UNITCOMBAT_SETTLER',	'Settler Units'),
+	('UNITCOMBAT_WORKER',	'Worker Units'),
+	('UNITCOMBAT_WORKBOAT',	'Workboat Units'),
+	('UNITCOMBAT_CARGO',	'Cargo Ship Units'),
+	('UNITCOMBAT_CARAVAN',	'Caravan Units'),
+	('UNITCOMBAT_INQUISITOR',	'Inquisitor Units'),
+	('UNITCOMBAT_MISSIONARY',	'Missionary Units');
 	
 UPDATE Units SET CombatClass = 'UNITCOMBAT_SETTLER' WHERE Type = 'UNIT_SETTLER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_UNITS' AND Value= 1 );
 UPDATE Units SET CombatClass = 'UNITCOMBAT_SETTLER' WHERE Type = 'UNIT_PIONEER' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_UNITS' AND Value= 1 );

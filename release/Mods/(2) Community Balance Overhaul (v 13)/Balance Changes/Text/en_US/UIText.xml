@@ -100,7 +100,7 @@
 		</Row>
 			
 		<Row Tag="TXT_KEY_EUPANEL_WITHDRAW_CHANCE">
-			<Text>[COLOR_CYAN]Withdraw Chance: {1_Num}%[ENDCOLOR]</Text>
+			<Text>Withdraw Chance</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_DUDE_8">
@@ -185,7 +185,7 @@
 
 		<!-- WLTKD LUA -->
 		<Row Tag="TXT_KEY_PRODUCTION_WLTKD_BUILDING">
-			<Text>[NEWLINE] [ICON_BULLET]Building/Policy Modifier from "We Love the King Day:" {1_Num}%</Text>
+			<Text>[NEWLINE] [ICON_BULLET]Building/Policy Modifier from 'We Love the King Day:' {1_Num}%</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TP_GOLD_FROM_INTERNAL_TRADE">
 			<Text>{1_Num} from [ICON_INTERNATIONAL_TRADE] Internal Trade Routes</Text>
@@ -209,7 +209,7 @@
 		</Row>
 		<!-- Text for GPs -->
 		<Row Tag="TXT_KEY_NOTIFICATION_CITY_WLTKD_GREAT_MERCHANT">
-			<Text>The great wealth brought back by your {1_UnitType} has led your empire to celebrate "We Love the King Day" for [COLOR_POSITIVE_TEXT]{2_Num}[ENDCOLOR] Turns!</Text>
+			<Text>The great wealth brought back by your {1_UnitType} has led your empire to celebrate 'We Love the King Day' for [COLOR_POSITIVE_TEXT]{2_Num}[ENDCOLOR] Turns!</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_CITY_WLTKD_GREAT_MERCHANT_SUMMARY">
 			<Text>Your {1_UnitType} traded successfully!</Text>
@@ -311,7 +311,7 @@
 		
 
 		<Row Tag="TXT_KEY_UNIT_SUPPLY_REMAINING_TOOLTIP">
-			<Text>Number of Military Units: {2_Num}[NEWLINE]Current Military Supply: {1_Num}[NEWLINE][COLOR_NEGATIVE_TEXT]War Weariness Supply Cap Reduction: {6_Num}%[ENDCOLOR][NEWLINE][NEWLINE]Military Supply Base Values:[NEWLINE]  [ICON_BULLET]+{4_Num} from owned [ICON_CITY_STATE] Cities[NEWLINE]  [ICON_BULLET]+{3_Num} from total [ICON_CITIZEN] Population[NEWLINE]  [ICON_BULLET]+{5_Num} from [ICON_CHECKBOX] Handicap[NEWLINE]  [NEWLINE][NEWLINE]Military Supply Reductions:[NEWLINE]  [ICON_BULLET] -{8_Num} from [ICON_RESEARCH] Tech Level[NEWLINE]  [ICON_BULLET] -{7_Num} from [ICON_WAR] War Weariness[NEWLINE][NEWLINE]Military Unit [ICON_PRODUCTION]/[ICON_GOLD] Costs increased by {6_Num}% due to [ICON_WAR] War Weariness.[NEWLINE]</Text>
+			<Text>Number of Military Units: {2_Num}[NEWLINE]Current Military Supply: {1_Num}[NEWLINE][COLOR_NEGATIVE_TEXT]War Weariness Supply Cap Reduction: {6_Num}%[ENDCOLOR][NEWLINE][NEWLINE]Military Supply Base Values:[NEWLINE]  [ICON_BULLET]+{4_Num} from owned [ICON_CITY_STATE] Cities[NEWLINE]  [ICON_BULLET]+{3_Num} from total [ICON_CITIZEN] Population[NEWLINE]  [ICON_BULLET]+{5_Num} from [ICON_CHECKBOX] Handicap[NEWLINE]  [NEWLINE][NEWLINE]Military Supply Reductions:[NEWLINE]   [ICON_BULLET] -{8_Num} from [ICON_RESEARCH] Tech Level[NEWLINE]  [ICON_BULLET] -{7_Num} from [ICON_HAPPINESS_3] War Weariness[NEWLINE][NEWLINE]Military Unit [ICON_PRODUCTION]/[ICON_GOLD] Costs increased by {6_Num}% due to [ICON_HAPPINESS_3] War Weariness.[NEWLINE]</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_UNIT_EXPENDED_SUPPLY">
@@ -421,11 +421,13 @@
 			<Text>Foreign Strategic Monopolies</Text>
 		</Row>
 
+
+		
 		<Row Tag ="TXT_KEY_EUPANEL_MONOPOLY_POWER_ATTACK">
-			<Text>Resource Monopoly</Text>
+			<Text>Strategic Resource[NEWLINE]Monopoly</Text>
 		</Row>
 		<Row Tag ="TXT_KEY_EUPANEL_MONOPOLY_POWER_DEFENSE">
-			<Text>Resource Monopoly</Text>
+			<Text>Strategic Resource[NEWLINE]Monopoly</Text>
 		</Row>
 		<!-- Tooltip for Top Panel Happiness -->
 		<Row Tag ="TXT_KEY_TP_HAPPINESS_RESOURCE_POP_BONUS">
@@ -434,7 +436,7 @@
 
 		<!-- Tooltips for EU Panel -->
 		<Row Tag ="TXT_KEY_EUPANEL_BONUS_VS_CLASS_CBP">
-			<Text>Bonus VS Mounted Units</Text>
+			<Text>Bonus VS {1_UnitType} (Mounted)</Text>
 		</Row>
 		<!-- Tooltip for Blockades -->
 		<Row Tag="TXT_KEY_EUPANEL_CITY_BLOCKADED">
@@ -463,13 +465,7 @@
 		<Row Tag="TXT_KEY_MISC_YOU_ENEMY_UNITS_DEFECT">
 			<Text>Enemy Defection</Text>
 		</Row>
-
-		<Row Tag="TXT_KEY_EUPANEL_FROM_TERRAIN_BONUS">
-			<Text>Terrain Modifier</Text>
-		</Row>
-
-
-
+		
 		<!-- Text for Preview Combat Miscellaneous Bonuses -->
 		<Row Tag="TXT_KEY_MISC_BONUS">
 			<Text>Miscellaneous</Text>
@@ -528,7 +524,7 @@
 
 		<!--Old China UA Text-->
 		<Row Tag="TXT_KEY_NOTIFICATION_CITY_WLTKD_UA">
-			<Text>The birth of a {1_Resource:textkey} causes the city of {2_CityName:textkey} to enter "We Love the Empress Day.' All Cities gain +1 [ICON_FOOD] Food and +1 [ICON_GOLD] Gold.</Text>
+			<Text>The birth of a {1_Resource:textkey} causes the city of {2_CityName:textkey} to enter "We Love the Empress Day.' All Cities gain +1 [ICON_FOOD] Food and +1 [ICON_CULTURE] Culture.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_CITY_WLTKD_UA">
 			<Text>{1_CityName:textkey} loves the Empress!</Text>
@@ -537,42 +533,42 @@
 		<!-- New -->
 
 		<Row Tag="TXT_KEY_NOTIFICATION_CITY_WLTKD_UA_ERA_CHANGE">
-			<Text>Entering a new Era has led to instability and the rise of a new ruling dynasty. Bonus [ICON_FOOD] Food and [ICON_GOLD] Gold from Mandate of Heaven is halved in all Cities.</Text>
+			<Text>Entering a new Era has lead to instability and the rise of a new ruling dynasty. Bonus [ICON_FOOD] Food and [ICON_CULTURE] Culture from Mandate of Heaven are halved in all Cities.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_CITY_SUMMARY_WLTKD_UA_ERA_CHANGE">
 			<Text>Dynastic Transition...</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_NOTIFICATION_CITY_WLTKD_UA_GREAT_WORK">
-			<Text>The creation of a [ICON_GREAT_WORK] Great Work causes all Cities to enter "We Love the Empress Day" for {1_Num} Turns, increasing their [ICON_FOOD] Food by +{2_Num}%! All Cities gain +1 [ICON_FOOD] Food and +1 [ICON_GOLD] Gold.</Text>
+			<Text>The creation of a [ICON_GREAT_WORK] Great Work causes all Cities to enter "We Love the Empress Day" for {1_Num} Turns, increasing their [ICON_FOOD] Food by +{2_Num}%! All Cities gain +1 [ICON_FOOD] Food and +1 [ICON_CULTURE] Culture permanently.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_CITY_WLTKD_UA_GREAT_WORK">
 			<Text>Mandate of Heaven</Text>
 		</Row>
 		
 		<Row Tag="TXT_KEY_NOTIFICATION_CITY_WLTKD_UA_RESOURCE">
-			<Text>The acquisition of {1_Resource:textkey} causes the city of {2_CityName:textkey} to enter "We Love the Empress Day" for {3_Num} Turns, increasing their [ICON_FOOD] Food by +{4_Num}%!</Text>
+			<Text>The aquisition of {1_Resource:textkey} causes the city of {2_CityName:textkey} to enter "We Love the Empress Day" for {3_Num} Turns, increasing their [ICON_FOOD] Food by +{4_Num}%!</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_CITY_WLTKD_UA_RESOURCE">
 			<Text>Mandate of Heaven</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_NOTIFICATION_CITY_WLTKD_UA_CITY_SETTLING">
-			<Text>The founding of a new City causes all Cities to enter "We Love the Empress Day" for {1_Num} Turns, increasing their [ICON_FOOD] Food by +{2_Num}%! All Cities gain +1 [ICON_FOOD] Food and +1 [ICON_GOLD] Gold.</Text>
+			<Text>The founding of a new City causes all Cities to enter "We Love the Empress Day" for {1_Num} Turns, increasing their [ICON_FOOD] Food by +{2_Num}%! All Cities gain +1 [ICON_FOOD] Food and +1 [ICON_CULTURE] Culture.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_CITY_WLTKD_UA_CITY_SETTLING">
 			<Text>Mandate of Heaven</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_NOTIFICATION_CITY_WLTKD_UA_CITY_CONQUEST">
-			<Text>The conquest of a City causes all Cities to enter "We Love the Empress Day" for {1_Num} Turns, increasing their [ICON_FOOD] Food by +{2_Num}%! All Cities gain +1 [ICON_FOOD] Food and +1 [ICON_GOLD] Gold.</Text>
+			<Text>The conquest of a City causes all Cities to enter "We Love the Empress Day" for {1_Num} Turns, increasing their [ICON_FOOD] Food by +{2_Num}%! All Cities gain +1 [ICON_FOOD] Food and +1 [ICON_CULTURE] Culture.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_SUMMARY_CITY_WLTKD_UA_CITY_CONQUEST">
 			<Text>Mandate of Heaven</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_FOODMOD_WLTKD_UA">
-			<Text>[NEWLINE][ICON_BULLET]"We Love the Empress Day" Modifier: +{1_Num}% [ICON_FOOD] Food</Text>
+			<Text>[NEWLINE][ICON_BULLET]We Love the Empress Day Modifier: +{1_Num}% [ICON_FOOD] Food</Text>
 		</Row>
 		<Row Tag="TXT_KEY_NOTIFICATION_CITY_RESOURCE_DEMAND_UA">
 			<Text>The City of {1_CityName:textkey} wants {2_ResourceName:textkey}! Connecting that resource to your trade network will cause the city to enter "We Love the Empress Day."</Text>
@@ -584,7 +580,7 @@
 			<Text>Connecting this Resource to your trade network will cause this City to go into "We Love the Empress Day."</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CITYVIEW_WLTKD_COUNTER_UA">
-			<Text>"We Love The Empress Day"! ({1_Num})</Text>
+			<Text>We Love The Empress Day! ({1_Num})</Text>
 		</Row>
 		
 		
@@ -688,7 +684,7 @@
 			<Text>[NEWLINE] [ICON_BULLET]Modifier from [ICON_GOLDEN_AGE] Golden Age: {1_Num}%</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PRODUCTION_WLTKD_BELIEF">
-			<Text>[NEWLINE] [ICON_BULLET]Belief Modifier from "We Love the King Day:" {1_Num}%</Text>
+			<Text>[NEWLINE] [ICON_BULLET]Belief Modifier from 'We Love the King Day:' {1_Num}%</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CULTURE_GOLDEN_AGE">
 			<Text>+{1_Num}% [ICON_CULTURE] from [ICON_GOLDEN_AGE] Golden Age</Text>
@@ -697,16 +693,16 @@
 			<Text>+{1_Num}% [ICON_CULTURE] from Carnaval</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CULTURE_WLTKD">
-			<Text>+{1_Num}% [ICON_CULTURE] from "We Love the King Day"</Text>
+			<Text>+{1_Num}% [ICON_CULTURE] from 'We Love the King Day'</Text>
 		</Row>
 		<Row Tag="TXT_KEY_FAITH_FROM_GOLDEN_AGE">
 			<Text>+{1_Num}% [ICON_PEACE] from [ICON_GOLDEN_AGE] Golden Age</Text>
 		</Row>
 		<Row Tag="TXT_KEY_FAITH_FROM_WLTKD">
-			<Text>+{1_Num}% [ICON_PEACE] from "We Love the King Day"</Text>
+			<Text>+{1_Num}% [ICON_PEACE] from 'We Love the King Day'</Text>
 		</Row>
 		<Row Tag="TXT_KEY_YIELD_FROM_WLTKD">
-			<Text>+{1_Num}% {2_IconString} from "We Love the King Day"</Text>
+			<Text>+{1_Num}% {2_IconString} from 'We Love the King Day'</Text>
 		</Row>
 		<Row Tag="TXT_KEY_YIELD_FROM_GOLDEN_AGE">
 			<Text>+{1_Num}% {2_IconString} from [ICON_GOLDEN_AGE] Golden Age</Text>
@@ -789,13 +785,7 @@
 		</Row>
 
 		<Row Tag="TXT_KEY_YIELD_FROM_CITY_YIELDS">
-			<Text>{1_Num} {2_IconString} from Yield Conversion</Text>
-		</Row>
-		<Row Tag="TXT_KEY_CULTURE_FROM_CITY_YIELDS">
-			<Text>{1_Num} [ICON_CULTURE] from Yield Conversion</Text>
-		</Row>
-		<Row Tag="TXT_KEY_FAITH_FROM_CITY_YIELDS">
-			<Text>{1_Num} [ICON_PEACE] from Yield Conversion</Text>
+			<Text>{1_Num} {2_IconString} from City Yields</Text>
 		</Row>
 
 		<!-- Barbarian Theft Text-->
@@ -960,7 +950,7 @@
 			<Text>{1_Num} from [ICON_FOOD] Famine.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_TP_UNHAPPINESS_MINORITY">
-			<Text>{1_Num} from [ICON_RELIGION] Religious Unrest.</Text>
+			<Text>{1_Num} from [ICON_RELIGION] Religious Divisions.</Text>
 		</Row>
 
 		<!-- Economic Overview -->
@@ -1015,7 +1005,7 @@
 			<Text>[ICON_BULLET] [COLOR_NEGATIVE_TEXT]{1_Num}[ENDCOLOR] from Famine (Needs [ICON_FOOD]).</Text>
 		</Row>
 		<Row Tag="TXT_KEY_MINORITY_UNHAPPINESS">
-			<Text>[ICON_BULLET] [COLOR_NEGATIVE_TEXT]{1_Num}[ENDCOLOR] from Religious Unrest[NEWLINE]          Reduction: {3_Num}, Needs {2_Icon} Followers</Text>
+			<Text>[ICON_BULLET] [COLOR_NEGATIVE_TEXT]{1_Num}[ENDCOLOR] from Religious Divisions[NEWLINE]         Reduction: {3_Num}, Needs {2_Icon} Followers</Text>
 		</Row>
 		<Row Tag="TXT_KEY_RESISTANCE_UNHAPPINESS">
 			<Text>[ICON_BULLET] [COLOR_NEGATIVE_TEXT]{1_Num}[ENDCOLOR] from [ICON_RESISTANCE] Resistance.</Text>
@@ -1367,7 +1357,7 @@
 		</Row>
 
 		<Row Tag="TXT_KEY_SPECIALIST_UNHAPPINESS">
-			<Text>[ICON_BULLET] [COLOR_NEGATIVE_TEXT]{1_Num}[ENDCOLOR] from [ICON_CITIZEN] Urbanization (Specialists)</Text>
+			<Text>[ICON_BULLET] [COLOR_NEGATIVE_TEXT]{1_Num}[ENDCOLOR] from Urbanization ([ICON_GREAT_PEOPLE] Specialists)</Text>
 		</Row>
 
 		<Row Tag="TXT_KEY_EMPIRE_WIDE_UNHAPPINESS">
@@ -1432,36 +1422,12 @@
 		<Row Tag="TXT_KEY_CO_PUBLIC_OPINION_UNHAPPINESS_FLAT">
 			<Text>[COLOR_NEGATIVE_TEXT]{1_Num}[ENDCOLOR]</Text>
 		</Row>
-		
-		<Row Tag="TXT_KEY_TP_EMPIRE_VERY_UNHAPPY_NO_REBELS">
-			<Text>Your approval rating is less than 35% - your Empire is in open rebellion! Cities may abandon your Empire and flip to the Civilization that is most culturally influential over your people! Additionally, all Cities will [ICON_FOOD] Grow very slowly and have increased Military Unit and Settler costs. [ICON_STRENGTH] Combat effectiveness is also reduced by 20%!</Text>
-		</Row>
-		
-		<Row Tag="TXT_KEY_TP_EMPIRE_SUPER_UNHAPPY_NO_REBELS">
-			<Text>Your approval rating is less than 20% - your Empire is fracturing! Cities will rapidly abandon your Empire and flip to the Civilization that is most culturally influential over your people! Additionally, all Cities will [ICON_FOOD] Grow more slowly and have increased Military Unit and Settler costs. [ICON_STRENGTH] Combat effectiveness is also reduced by 20%!</Text>
-		</Row>
 
 		<Row Tag="TXT_KEY_CITYVIEW_FREESPECIALIST_TEXT">
-			<Text>{1_NumSpecialists: plural 1?Specialist; other?Specialists;}: No [ICON_CITIZEN] Urbanization</Text>
+			<Text>{1_NumSpecialists: plural 1?Specialist; other?Specialists;}: No [ICON_HAPPINESS_3] Urbanization</Text>
 		</Row>
 		<Row Tag="TXT_KEY_CITYVIEW_NOFREESPECIALIST_TEXT">
-			<Text>[ICON_CITIZEN] Urbanization per new Specialist</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_EUPANEL_BONUS_RANGE_STRIKE_CITY">
-			<Text>Ranged Strike Modifier</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_POP_CSTATE_BULLY_FACTOR_EMPIRE_PROXIMITY">
-			<Text>Empire Proximity</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_POP_CSTATE_BULLY_FACTOR_FRIENDS">
-			<Text>Has Friends</Text>
-		</Row>
-
-		<Row Tag="TXT_KEY_AIR_PATROL_BOMBED_GROUND_TARGETS">
-			<Text>Your {@1_UnitName} encountered no resistance, and attacked enemy air and anti-air units on the ground!</Text>
+			<Text>[ICON_HAPPINESS_3] Urbanization per new Specialist</Text>
 		</Row>
 	</Language_en_US>
 	<Civilization_CityNames>

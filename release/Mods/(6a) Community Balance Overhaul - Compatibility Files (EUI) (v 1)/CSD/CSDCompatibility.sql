@@ -55,13 +55,6 @@ VALUES
 	('TECH_REPLACEABLE_PARTS', 'SPECIALIST_CIVIL_SERVANT', 'YIELD_SCIENCE', 1),
 	('TECH_INTERNET', 'SPECIALIST_CIVIL_SERVANT', 'YIELD_CULTURE', 1);
 
--- Nuclear Plant -- now buffs specialists
-INSERT INTO Building_SpecialistYieldChangesLocal
-	(BuildingType, SpecialistType, YieldType, Yield)
-VALUES
-	('BUILDING_NUCLEAR_PLANT', 'SPECIALIST_CIVIL_SERVANT', 'YIELD_GOLD', 1),
-	('BUILDING_NUCLEAR_PLANT', 'SPECIALIST_CIVIL_SERVANT', 'YIELD_SCIENCE', 1);
-
 INSERT INTO Policy_FaithPurchaseUnitClasses
 	(PolicyType, UnitClassType)
 VALUES
@@ -92,7 +85,7 @@ VALUES
 INSERT INTO Belief_GoldenAgeGreatPersonRateModifier
 	(BeliefType, GreatPersonType, Modifier)
 VALUES
-	('BELIEF_MISSIONARY_ZEAL', 'GREATPERSON_DIPLOMAT', 15);
+	('BELIEF_ITINERANT_PREACHERS', 'GREATPERSON_DIPLOMAT', 15);
 
 INSERT INTO Building_SpecialistYieldChanges
 	(BuildingType, SpecialistType, YieldType, Yield)

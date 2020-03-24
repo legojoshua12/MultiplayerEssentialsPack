@@ -812,7 +812,6 @@ local function SetupBuildingList( city, buildings, buildingIM )
 		local cityCultureRateModifier = cityOwner:GetCultureCityModifier() + city:GetCultureRateModifier() + (city:GetNumWorldWonders() > 0 and cityOwner and cityOwner:GetCultureWonderMultiplier() or 0)
 		local cityCultureRate
 		local population = city:GetPopulation()
-		local populationEmpire = cityOwner:GetTotalPopulation()
 		local tips = table()
 		local thisBuildingAndYieldTypes = { BuildingType = building.Type }
 		if civ5_mode then
@@ -847,7 +846,7 @@ local function SetupBuildingList( city, buildings, buildingIM )
 			tips:insertIf( healthChange ~=0 and healthChange .. "[ICON_HEALTH_1]" )
 --			tips:insertLocalizedIfNonZero( "TXT_KEY_STAT_POSITIVE_YIELD_MOD", "[ICON_HEALTH_1]", healthModifier )
 		end
-		local buildingYieldRate, buildingYieldPerPop, buildingYieldPerPopInEmpire, buildingYieldModifier, cityYieldRate, cityYieldRateModifier, isProducing
+		local buildingYieldRate, buildingYieldPerPop, buildingYieldModifier, cityYieldRate, cityYieldRateModifier, isProducing
 		for yieldID = 0, YieldTypes.NUM_YIELD_TYPES-1 do
 			isProducing = isNotResistance
 			thisBuildingAndYieldTypes.YieldType = (GameInfo.Yields[yieldID] or {}).Type or -1
@@ -889,7 +888,7 @@ local function SetupBuildingList( city, buildings, buildingIM )
 				--END
 			end
 			cityYieldRateModifier = city:GetBaseYieldRateModifier( yieldID )
-			cityYieldRate = city:GetYieldPerPopTimes100( yieldID ) * population / 100 + city:GetBaseYieldRate( yieldID ) + city:GetYieldPerPopInEmpireTimes100( yieldID ) * populationEmpire / 100
+			cityYieldRate = city:GetYieldPerPopTimes100( yieldID ) * population / 100 + city:GetBaseYieldRate( yieldID )
 			-- Special culture case
 			if yieldID == YieldTypes.YIELD_CULTURE then
 				buildingYieldRate = buildingYieldRate + buildingCultureRate
@@ -922,12 +921,6 @@ local function SetupBuildingList( city, buildings, buildingIM )
 				buildingYieldPerPop = buildingYieldPerPop + (row.Yield or 0)
 			end
 			buildingYieldRate = buildingYieldRate + buildingYieldPerPop * population / 100
-			-- Empire Population yield
-			buildingYieldPerPopInEmpire = 0
-			for row in GameInfo.Building_YieldChangesPerPopInEmpire( thisBuildingAndYieldTypes ) do
-				buildingYieldPerPopInEmpire = buildingYieldPerPopInEmpire + (row.Yield or 0)
-			end
-			buildingYieldRate = buildingYieldRate + buildingYieldPerPopInEmpire * populationEmpire / 100
 			-- Events
 			buildingYieldRate = buildingYieldRate + city:GetEventBuildingClassYield(buildingClassID, yieldID);
 			-- End 
@@ -1760,9 +1753,8 @@ local function UpdateCityViewNow()
 		-- COMMUNITY PATCH
 		Controls.CityNameTitleBarLabel:LocalizeAndSetToolTip(city:GetCityUnhappinessBreakdown(false));
 		-- END
-
+		
 		Controls.Defense:SetText( math_floor( city:GetStrengthValue() / 100 ) )
-		Controls.Defense:LocalizeAndSetToolTip( Locale.ConvertTextKey("TXT_KEY_CITYVIEW_CITY_COMB_STRENGTH_TT") .. ": [ICON_RANGE_STRENGTH] " .. math_floor(city:GetStrengthValue(true) / 100) )
 
  		CivIconHookup( cityOwnerID, 64, Controls.CivIcon, Controls.CivIconBG, Controls.CivIconShadow, false, true )
 
@@ -1874,7 +1866,6 @@ local function UpdateCityViewNow()
 					local gpChangeCityMod = city:GetGreatPeopleRateModifier()
 					-- CBP
 					gpChangeCityMod = gpChangeCityMod + city:GetSpecialistCityModifier(specialist.ID);
-					local gpChangeMonopolyMod = cityOwner:GetMonopolyGreatPersonRateModifier(specialist.ID);
 					--END
 					local gpChangePolicyMod = 0
 					local gpChangeWorldCongressMod = 0
@@ -1969,7 +1960,7 @@ local function UpdateCityViewNow()
 
 					end
 
-					local gpChangeMod = gpChangePlayerMod + gpChangePolicyMod + gpChangeWorldCongressMod + gpChangeCityMod + gpChangeGoldenAgeMod + gpChangeMonopolyMod
+					local gpChangeMod = gpChangePlayerMod + gpChangePolicyMod + gpChangeWorldCongressMod + gpChangeCityMod + gpChangeGoldenAgeMod
 					gpChange = (gpChangeMod / 100 + 1) * gpChange
 
 					if gpProgress > 0 or gpChange > 0 then
@@ -1991,9 +1982,6 @@ local function UpdateCityViewNow()
 						if gk_mode then
 							if gpChangePlayerMod ~= 0 then
 								tips:insert( L( "TXT_KEY_PLAYER_GP_MOD", gpChangePlayerMod ) )
-							end
-							if gpChangeMonopolyMod ~= 0 then
-								tips:insert( L( "TXT_KEY_MONOPOLY_GP_MOD", gpChangeMonopolyMod ) )
 							end
 							if gpChangePolicyMod ~= 0 then
 								tips:insert( L( "TXT_KEY_POLICY_GP_MOD", gpChangePolicyMod ) )
@@ -2109,41 +2097,57 @@ local function UpdateCityViewNow()
 		-- Resource Demanded
 		-------------------------------------------
 		local weLoveTheKingDayCounter = city:GetWeLoveTheKingDayCounter()
-		if weLoveTheKingDayCounter > 0 then
-			--- CBP
-			if(cityOwner:IsGPWLTKD()) then
-				Controls.ResourceDemandedString:LocalizeAndSetText( "TXT_KEY_CITYVIEW_WLTKD_COUNTER_UA", weLoveTheKingDayCounter )
-				Controls.ResourceDemandedBox:LocalizeAndSetToolTip( "TXT_KEY_CITYVIEW_RESOURCE_FULFILLED_TT_UA" )
-			elseif(cityOwner:IsCarnaval())then
-				Controls.ResourceDemandedString:LocalizeAndSetText( "TXT_KEY_CITYVIEW_WLTKD_COUNTER_UA_CARNAVAL", weLoveTheKingDayCounter )
-				Controls.ResourceDemandedBox:LocalizeAndSetToolTip( "TXT_KEY_CITYVIEW_RESOURCE_FULFILLED_TT_UA_CARNAVAL" )	
-			else
-			-- END
-				Controls.ResourceDemandedString:LocalizeAndSetText( "TXT_KEY_CITYVIEW_WLTKD_COUNTER", weLoveTheKingDayCounter )
-				Controls.ResourceDemandedBox:LocalizeAndSetToolTip( "TXT_KEY_CITYVIEW_RESOURCE_FULFILLED_TT" )
-			--CBP
-			end
-			-- END
-			Controls.ResourceDemandedBox:SetHide(true)
-		elseif(city:GetResourceDemanded(true) ~= -1) then
+		if city:GetResourceDemanded(true) ~= -1 then
 			local resourceInfo = GameInfo.Resources[ city:GetResourceDemanded() ]		
-			--CBP
-			Controls.ResourceDemandedString:LocalizeAndSetText( "TXT_KEY_CITYVIEW_RESOURCE_DEMANDED", resourceInfo.IconString .. " " .. L(resourceInfo.Description) )
-			if(cityOwner:IsGPWLTKD()) then					
-				Controls.ResourceDemandedBox:LocalizeAndSetToolTip( "TXT_KEY_CITYVIEW_RESOURCE_DEMANDED_TT_UA" )
-			elseif(cityOwner:IsCarnaval())then
-				Controls.ResourceDemandedBox:LocalizeAndSetToolTip("TXT_KEY_CITYVIEW_RESOURCE_DEMANDED_TT_UA_CARNAVAL" )
+			if weLoveTheKingDayCounter > 0 then
+				--- CBP
+				if(cityOwner:IsGPWLTKD()) then
+					Controls.ResourceDemandedString:LocalizeAndSetText( "TXT_KEY_CITYVIEW_WLTKD_COUNTER_UA", weLoveTheKingDayCounter )
+					Controls.ResourceDemandedBox:LocalizeAndSetToolTip( "TXT_KEY_CITYVIEW_RESOURCE_FULFILLED_TT_UA" )
+				elseif(cityOwner:IsCarnaval())then
+					Controls.ResourceDemandedString:LocalizeAndSetText( "TXT_KEY_CITYVIEW_WLTKD_COUNTER_UA_CARNAVAL", weLoveTheKingDayCounter )
+					Controls.ResourceDemandedBox:LocalizeAndSetToolTip( "TXT_KEY_CITYVIEW_RESOURCE_FULFILLED_TT_UA_CARNAVAL" )	
+				else
+				-- END
+					Controls.ResourceDemandedString:LocalizeAndSetText( "TXT_KEY_CITYVIEW_WLTKD_COUNTER", weLoveTheKingDayCounter )
+					Controls.ResourceDemandedBox:LocalizeAndSetToolTip( "TXT_KEY_CITYVIEW_RESOURCE_FULFILLED_TT" )
+				--CBP
+				end
+				-- END
 			else
-			-- END
-				Controls.ResourceDemandedBox:LocalizeAndSetToolTip( "TXT_KEY_CITYVIEW_RESOURCE_DEMANDED_TT" )
-			-- CBP
+				--CBP
+				Controls.ResourceDemandedString:LocalizeAndSetText( "TXT_KEY_CITYVIEW_RESOURCE_DEMANDED", resourceInfo.IconString .. " " .. L(resourceInfo.Description) )
+				if(cityOwner:IsGPWLTKD()) then					
+					Controls.ResourceDemandedBox:LocalizeAndSetToolTip( "TXT_KEY_CITYVIEW_RESOURCE_DEMANDED_TT_UA" )
+				elseif(cityOwner:IsCarnaval())then
+					Controls.ResourceDemandedBox:LocalizeAndSetToolTip("TXT_KEY_CITYVIEW_RESOURCE_DEMANDED_TT_UA_CARNAVAL" )
+				else
+				-- END
+					Controls.ResourceDemandedBox:LocalizeAndSetToolTip( "TXT_KEY_CITYVIEW_RESOURCE_DEMANDED_TT" )
+				-- CBP
+				end
+				-- END
 			end
-			-- END
+
 			Controls.ResourceDemandedBox:SetSizeX(Controls.ResourceDemandedString:GetSizeX() + 10)
 			Controls.ResourceDemandedBox:SetHide(false)
 		else
-			-- END
-			Controls.ResourceDemandedBox:SetHide(true)
+			if weLoveTheKingDayCounter > 0 then
+				--- CBP
+				if(cityOwner:IsGPWLTKD()) then
+					Controls.ResourceDemandedString:LocalizeAndSetText( "TXT_KEY_CITYVIEW_WLTKD_COUNTER_UA", weLoveTheKingDayCounter )
+					Controls.ResourceDemandedBox:LocalizeAndSetToolTip( "TXT_KEY_CITYVIEW_RESOURCE_FULFILLED_TT_UA" )
+					Controls.ResourceDemandedBox:SetHide(false)
+				elseif(cityOwner:IsCarnaval())then
+					Controls.ResourceDemandedString:LocalizeAndSetText( "TXT_KEY_CITYVIEW_WLTKD_COUNTER_UA_CARNAVAL", weLoveTheKingDayCounter )
+					Controls.ResourceDemandedBox:LocalizeAndSetToolTip( "TXT_KEY_CITYVIEW_RESOURCE_FULFILLED_TT_UA_CARNAVAL" )	
+					Controls.ResourceDemandedBox:SetHide(false)
+				end
+			else
+				-- END
+				Controls.ResourceDemandedBox:SetHide(true)
+			end
+
 		end
 
 		Controls.IconsStack:CalculateSize()

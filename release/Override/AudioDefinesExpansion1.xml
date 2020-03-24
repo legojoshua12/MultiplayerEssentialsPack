@@ -25,41 +25,6 @@
 			<bDontCache>0</bDontCache> 
 		</SoundData>
 		<SoundData> 
-			<SoundID>SND_LEADER_MUSIC_MUIR_PEACE</SoundID> 
-			<Filename>Muir_Peace</Filename> 
-			<LoadType>STREAMED</LoadType> 
-			<bOnlyLoadOneVariationEachTime>0</bOnlyLoadOneVariationEachTime> 
-			<bDontCache>0</bDontCache> 
-		</SoundData>
-		<SoundData> 
-			<SoundID>SND_LEADER_MUSIC_MUIR_WAR</SoundID> 
-			<Filename>Muir_War</Filename> 
-			<LoadType>STREAMED</LoadType> 
-			<bOnlyLoadOneVariationEachTime>0</bOnlyLoadOneVariationEachTime> 
-			<bDontCache>0</bDontCache> 
-		</SoundData>
-		<SoundData> 
-			<SoundID>SND_LEADER_MUSIC_IDE_PEACE</SoundID> 
-			<Filename>Muir_Peace</Filename> 
-			<LoadType>STREAMED</LoadType> 
-			<bOnlyLoadOneVariationEachTime>0</bOnlyLoadOneVariationEachTime> 
-			<bDontCache>0</bDontCache> 
-		</SoundData>
-		<SoundData> 
-			<SoundID>SND_LEADER_MUSIC_IDE_WAR</SoundID> 
-			<Filename>Muir_War</Filename> 
-			<LoadType>STREAMED</LoadType> 
-			<bOnlyLoadOneVariationEachTime>0</bOnlyLoadOneVariationEachTime> 
-			<bDontCache>0</bDontCache> 
-		</SoundData>
-		<SoundData> 
-			<SoundID>SND_DOM_SPEECH_IDE</SoundID> 
-			<Filename>ide_DOM</Filename> 
-			<LoadType>STREAMED</LoadType> 
-			<bOnlyLoadOneVariationEachTime>0</bOnlyLoadOneVariationEachTime> 
-			<bDontCache>0</bDontCache> 
-		</SoundData>
-		<SoundData> 
 			<SoundID>SND_TECH_EE_FLINTLOCK</SoundID> 
 			<Filename>Flintlock</Filename> 
 			<LoadType>STREAMED</LoadType> 
@@ -181,6 +146,41 @@
 		<SoundData> 
 			<SoundID>SND_WONDER_SPEECH_EE_SMITHSONIAN</SoundID> 
 			<Filename>SmithsonianAudio</Filename> 
+			<LoadType>STREAMED</LoadType> 
+			<bOnlyLoadOneVariationEachTime>0</bOnlyLoadOneVariationEachTime> 
+			<bDontCache>0</bDontCache> 
+		</SoundData>
+		<SoundData> 
+			<SoundID>SND_LEADER_MUSIC_MUIR_PEACE</SoundID> 
+			<Filename>Muir_Peace</Filename> 
+			<LoadType>STREAMED</LoadType> 
+			<bOnlyLoadOneVariationEachTime>0</bOnlyLoadOneVariationEachTime> 
+			<bDontCache>0</bDontCache> 
+		</SoundData>
+		<SoundData> 
+			<SoundID>SND_LEADER_MUSIC_MUIR_WAR</SoundID> 
+			<Filename>Muir_War</Filename> 
+			<LoadType>STREAMED</LoadType> 
+			<bOnlyLoadOneVariationEachTime>0</bOnlyLoadOneVariationEachTime> 
+			<bDontCache>0</bDontCache> 
+		</SoundData>
+		<SoundData> 
+			<SoundID>SND_LEADER_MUSIC_IDE_PEACE</SoundID> 
+			<Filename>Muir_Peace</Filename> 
+			<LoadType>STREAMED</LoadType> 
+			<bOnlyLoadOneVariationEachTime>0</bOnlyLoadOneVariationEachTime> 
+			<bDontCache>0</bDontCache> 
+		</SoundData>
+		<SoundData> 
+			<SoundID>SND_LEADER_MUSIC_IDE_WAR</SoundID> 
+			<Filename>Muir_War</Filename> 
+			<LoadType>STREAMED</LoadType> 
+			<bOnlyLoadOneVariationEachTime>0</bOnlyLoadOneVariationEachTime> 
+			<bDontCache>0</bDontCache> 
+		</SoundData>
+		<SoundData> 
+			<SoundID>SND_DOM_SPEECH_IDE</SoundID> 
+			<Filename>ide_DOM</Filename> 
 			<LoadType>STREAMED</LoadType> 
 			<bOnlyLoadOneVariationEachTime>0</bOnlyLoadOneVariationEachTime> 
 			<bDontCache>0</bDontCache> 

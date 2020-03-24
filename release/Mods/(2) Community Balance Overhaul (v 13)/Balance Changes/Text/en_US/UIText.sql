@@ -127,12 +127,12 @@ UPDATE Language_en_US
 SET Text = 'Once their civilization has learned certain technologies (see tech tree), workers can remove forests, jungles, and marshes from tiles. Once these features are removed, they are gone forever.'
 WHERE Tag = 'TXT_KEY_WORKERS_CLEARINGLAND_HEADING2_BODY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_CIVS' AND Value= 1 );
 UPDATE Language_en_US
-SET Text = 'If your civilization is unhappy, then the city will produce less food. The city will produce enough food to feed its citizens, but there is a decrease in growth locally.'
+SET Text = 'If your civilization is unhappy, then the city will produce less food. The city will produce enough food to feed its citizens, but there is a decrease in growth locally, and a reduction in national yields like gold, faith, or science.'
 WHERE Tag = 'TXT_KEY_FOOD_UNHAPPINESS_HEADING3_BODY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_CIVS' AND Value= 1 );
 
 -- Resource Limit breached
 UPDATE Language_en_US
-SET Text = 'You are currently using more {1_Resource:textkey} than you have! All Units which require it are [COLOR_NEGATIVE_TEXT]unable to heal[ENDCOLOR].'
+SET Text = ' You are currently using more {1_Resource:textkey} than you have! All units which require it are [COLOR_NEGATIVE_TEXT]unable to heal[ENDCOLOR].'
 WHERE Tag = 'TXT_KEY_NOTIFICATION_OVER_RESOURCE_LIMIT' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_CIVS' AND Value= 1 );
 	
 -- Text Changes for Spies in Cities
@@ -295,18 +295,9 @@ SET Text = '[NEWLINE][COLOR_WARNING_TEXT][ICON_BULLET] {1_TurnsUntilPledgeAvaila
 WHERE Tag = 'TXT_KEY_POP_CSTATE_PLEDGE_DISABLED_MISTRUST_TT';
 
 UPDATE Language_en_US
-SET Text = '[ICON_INFLUENCE] Influence above Neutral threshold'
+SET Text = '[ICON_INFLUENCE] Influence too high'
 WHERE Tag = 'TXT_KEY_POP_CSTATE_BULLY_FACTOR_LOW_INFLUENCE' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_MINORS' AND Value= 1 );
-
-UPDATE Language_en_US
-SET Text = 'They recognize your military strength, and will give you [COLOR_POSITIVE_TEXT]{1_Num}%[ENDCOLOR] of their total yields as tribute.'
-WHERE Tag = 'TXT_KEY_CSTATE_CAN_BULLY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_MINORS' AND Value= 1 );	
-
-UPDATE Language_en_US
-SET Text = 'They do not fear you, and will resist tribute demands, as you are [COLOR_NEGATIVE_TEXT]{1_Num}%[ENDCOLOR] below the threshold.'
-WHERE Tag = 'TXT_KEY_CSTATE_CANNOT_BULLY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_MINORS' AND Value= 1 );	
-
-
+	
 UPDATE Language_en_US
 SET Text = '[COLOR_NEGATIVE_TEXT]Fallout deals 15 Damage to Units that end their turn on a tile with Fallout.[ENDCOLOR][NEWLINE][NEWLINE]Fallout is the residual radiation left over following a nuclear explosion. The fallout "falls out" of the air as a layer of radioactive particles which are highly dangerous to plants and animals, killing them immediately or damaging their DNA, giving them cancer, other diseases, or unfortunate mutations. Depending upon the type of nuclear explosion, the land may remain poisoned for decades, possibly centuries. Cleanup requires the replacement of the contaminated buildings, soil and vegetation.'
 WHERE Tag = 'TXT_KEY_FEATURE_FALLOUT_PEDIA' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_LEADERS' AND Value= 1 );
@@ -354,10 +345,6 @@ WHERE Tag = 'TXT_KEY_GOLD_TRADINGPOST_HEADING3_BODY';
 UPDATE Language_en_US
 SET Text = 'The village increases output of a tile by 3 gold and 1 culture. It does not access a resource. It generates additional gold and production if on a route and/or if built on a trade route.[NEWLINE]Technology Required: Currency[NEWLINE]Construction Time: 5 Turns[NEWLINE]May Be Constructed On: Any land tile but ice. Cannot be built adjacent to one another.'
 WHERE Tag = 'TXT_KEY_WORKERS_TRADINGPOST_HEADING3_BODY';
-
-UPDATE Language_en_US
-SET Text = 'If there is a road between your capital and another of your cities, those cities have a "city connection." City connections give your civilization gold bonuses each turn, the amount depending upon the size of the cities involved. (Lighthouses can also create city connections between coastal cities.) See the section on City Connections for details.'
-WHERE Tag = 'TXT_KEY_WORKERS_TRADEROUTES_HEADING3_BODY';
 
 UPDATE Language_en_US
 SET Text = 'The Village'
@@ -508,20 +495,20 @@ WHERE Tag = 'TXT_KEY_TP_CULTURE_FROM_GOLDEN_AGE' AND EXISTS (SELECT * FROM COMMU
 
 -- Update text for top panel depending on which yields you have enabled above. Change as desired.
 UPDATE Language_en_US
-SET Text = 'Your approval rating is less than 35% - your Empire is in open rebellion! Uprisings may occur with rebel (barbarian) units appearing in your territory, and Cities may abandon your Empire and flip to the Civilization that is most culturally influential over your people! Additionally, all Cities will [ICON_FOOD] Grow very slowly and have increased Military Unit and Settler costs. [ICON_STRENGTH] Combat effectiveness is also reduced by 20%!'
+SET Text = 'Your approval rating is less than 50% - your Empire is in open rebellion! Uprisings may occur with rebel (barbarian) units appearing in your territory, and Cities may abandon your empire and flip to the civilization that is most culturally influential over your people! Additionally, all Cities will [ICON_FOOD] Grow and [ICON_PRODUCTION] Produce Military Units very slowly. [ICON_STRENGTH] Combat effectiveness is also reduced by 20%!'
 WHERE Tag = 'TXT_KEY_TP_EMPIRE_VERY_UNHAPPY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_NATIONAL_HAPPINESS' AND Value= 1 );
 
 UPDATE Language_en_US
-SET Text = 'Your approval rating is less than 20% - your Empire is fracturing! Rebels (barbarians) will spawn more frequently and Cities will rapidly abandon your Empire and flip to the Civilization that is most culturally influential over your people! Additionally, all Cities will [ICON_FOOD] Grow more slowly and have increased Military Unit and Settler costs. [ICON_STRENGTH] Combat effectiveness is also reduced by 20%!'
+SET Text = 'Your approval rating is less than 25% - your Empire is fracturing! Rebels (barbarians) will spawn more frequently and Cities will quickly start to abandon your empire and flip to the civilization that is most culturally influential over your people! Additionally, all Cities will [ICON_FOOD] Grow and [ICON_PRODUCTION] Produce Military Units very slowly. [ICON_STRENGTH] Combat effectiveness is also reduced by 20%!'
 WHERE Tag = 'TXT_KEY_TP_EMPIRE_SUPER_UNHAPPY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_NATIONAL_HAPPINESS' AND Value= 1 );
 	
 -- Update text for top panel depending on which yields you have enabled above. Change as desired.
 UPDATE Language_en_US
-SET Text = 'Your approval rating is less than 50%! Because of this, all Cities will [ICON_FOOD] Grow slower and have increased Military Unit and Settler costs. [ICON_STRENGTH] Combat effectiveness is also reduced by 10%!'
+SET Text = 'Your approval rating is less than 75%! Because of this, all Cities will [ICON_FOOD] Grow and [ICON_PRODUCTION] Produce Military Units more slowly. [ICON_STRENGTH] Combat effectiveness is also reduced by 10%!'
 WHERE Tag = 'TXT_KEY_TP_EMPIRE_UNHAPPY' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_NATIONAL_HAPPINESS' AND Value= 1 );
 
 UPDATE Language_en_US
-SET Text = 'Your approval rating is equal or higher than 50%. [ICON_HAPPINESS_1] Happy Cities will [ICON_FOOD] Grow more quickly, however [ICON_HAPPINESS_3] Unhappy Cities will still suffer penalties to [ICON_FOOD] Growth and the cost of Military Units and Settlers.'
+SET Text = 'Your approval rating is higher than 75%. [ICON_HAPPINESS_1] Happy Cities will [ICON_FOOD] Grow more quickly, however [ICON_HAPPINESS_3] Unhappy Cities will still suffer penalties to [ICON_FOOD] Growth and [ICON_PRODUCTION] Military Unit Production.'
 WHERE Tag = 'TXT_KEY_TP_TOTAL_HAPPINESS' AND EXISTS (SELECT * FROM COMMUNITY WHERE Type='COMMUNITY_CORE_BALANCE_NATIONAL_HAPPINESS' AND Value= 1 );
 
 -- TOOLTIPS FOR TOP BAR
@@ -656,7 +643,7 @@ WHERE Tag = 'TXT_KEY_CO_OPINION_TT_OVERVIEW';
 
 
 UPDATE Language_en_US
-SET Text = 'Destroy this trade route to gain [ICON_GOLD] Gold.[NEWLINE][NEWLINE]If you are not at war with the owner of the trade route, you will need to declare war before you plunder (unless an ability allows otherwise). Plundering a trade route going to another civilization will damage your relationship with the trade route owner and the destination civilization if you''re not currently at war.'
+SET Text = 'Destroy this trade route to gain [ICON_GOLD] Gold.[NEWLINE][NEWLINE]If you are not at war with the owner of the trade route, you will need to declare war before you plunder (unless an ability allows otherwise). Plundering a trade route going to another civilization will damage your relationship with the destination civilization if you''re not currently at war.'
 WHERE Tag = 'TXT_KEY_MISSION_PLUNDER_TRADE_ROUTE_HELP';
 
 
@@ -665,7 +652,7 @@ SET Text = 'Max Distance: {1_Num}'
 WHERE Tag = 'TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_RANGE';
 
 UPDATE Language_en_US
-SET Text = 'Resource Diversity Modifier: {1_Num}%[NEWLINE][ICON_BULLET]   Our Local Luxuries: {2_Num}[NEWLINE][ICON_BULLET]   Their Local Luxuries: {3_Num}[NEWLINE] Routes to Cities unique Luxury Resources earn more [ICON_GOLD] Gold, and Monopoly Resources count double.'
+SET Text = 'Resource Diversity Modifier: {1_Num}%[NEWLINE][ICON_BULLET]   Our Local Luxuries/Strategics: {2_Num}[NEWLINE][ICON_BULLET]   Their Local Luxuries/Strategics: {3_Num}[NEWLINE] Routes to Cities with fewer Resources earn more [ICON_GOLD] Gold, and Monopoly Resources count double.'
 WHERE Tag = 'TXT_KEY_CHOOSE_INTERNATIONAL_TRADE_ROUTE_ITEM_TT_RESOURCE_DIFFERENT';
 
 
@@ -694,7 +681,7 @@ WHERE Tag = 'TXT_KEY_DEMOGRAPHICS_TITLE';
 -- Happiness
 
 UPDATE Language_en_US
-SET Text = 'Empire-Wide [ICON_HAPPINESS_3] Unhappiness Total: {2_Num} (average per City: {1_Num})[NEWLINE]Unhappiness Totals:'
+SET Text = 'Empire-Wide[ICON_HAPPINESS_3] Unhappiness (average per City): {1_Num}[NEWLINE]Unhappiness Totals:'
 WHERE Tag = 'TXT_KEY_TP_UNHAPPINESS_TOTAL';
 
 UPDATE Language_en_US
@@ -740,46 +727,3 @@ WHERE Tag = 'TXT_KEY_TP_GOLD_EXPLANATION';
 UPDATE Language_en_US
 SET Text = '[NEWLINE][COLOR_POSITIVE_TEXT]Creating a Landmark in another civ''s territory will give you a temporary diplomatic boost with that nation.[ENDCOLOR]'
 WHERE Tag = 'TXT_KEY_CHOOSE_ARCH_LANDMARK_MAJOR_CIV';
-
-
-UPDATE Language_en_US
-SET Text = 'Alternative Energy'
-WHERE Tag = 'TXT_KEY_TECH_ECOLOGY_TITLE';
-
-UPDATE Language_en_US
-SET Text = 'Renewable, or alternative energy is energy that is collected from renewable resources, which are naturally replenished on a human timescale, such as sunlight, wind, rain, tides, waves, and geothermal heat. Renewable energy often provides energy in four important areas: electricity generation, air and water heating/cooling, transportation, and rural (off-grid) energy services.'
-WHERE Tag = 'TXT_KEY_TECH_ECOLOGY_DESC';
-
-UPDATE Language_en_US
-SET Text = 'Can Air Sweep to clear intercepting Units. If no interceptors found, it will deal 10% of it''s [ICON_RANGE_STRENGTH] Ranged Combat Strength to all enemy Air Units within 3 tiles of the target Tile.' 
-WHERE Tag = 'TXT_KEY_PROMOTION_AIR_SWEEP_HELP';
-
-UPDATE Language_en_US
-SET Text = 'Order the unit to sweep an area for air and ground-based interceptors. If no interceptors found, it will deal 10% of it''s [ICON_RANGE_STRENGTH] Ranged Combat Strength to all enemy Air and Anti-Air Units in and adjacent to the target Tile.' 
-WHERE Tag = 'TXT_KEY_INTERFACEMODE_AIR_SWEEP_HELP';
-
--- Bully Changes
-
-UPDATE Language_en_US
-SET Text = '[NEWLINE][ICON_BULLET][COLOR_POSITIVE_TEXT](+{1_FactorScore}%) {@2_FactorDescription}[ENDCOLOR]'
-WHERE Tag = 'TXT_KEY_POP_CSTATE_BULLY_FACTOR_POSITIVE';
-
-UPDATE Language_en_US
-SET Text = '[NEWLINE][ICON_BULLET][COLOR_WARNING_TEXT]({1_FactorScore}%) {@2_FactorDescription}[ENDCOLOR]'
-WHERE Tag = 'TXT_KEY_POP_CSTATE_BULLY_FACTOR_NEGATIVE';
-
-UPDATE Language_en_US
-SET Text = 'They are currently [COLOR_POSITIVE_TEXT]afraid[ENDCOLOR], and are willing to give up [COLOR_POSITIVE_TEXT]{1_FactorScore}%[ENDCOLOR] of max tribute:'
-WHERE Tag = 'TXT_KEY_POP_CSTATE_BULLY_AFRAID';
-
-UPDATE Language_en_US
-SET Text = 'They are currently [COLOR_WARNING_TEXT]resilient[ENDCOLOR], because you are {1_FactorScore}% below the tribute threshold:'
-WHERE Tag = 'TXT_KEY_POP_CSTATE_BULLY_RESILIENT';
-
-UPDATE Language_en_US
-SET Text = 'Has Pledges of Protection'
-WHERE Tag = 'TXT_KEY_POP_CSTATE_BULLY_FACTOR_PLEDGES_TO_PROTECT';
-
-UPDATE Language_en_US
-SET Text = 'Already bullied this turn'
-WHERE Tag = 'TXT_KEY_POP_CSTATE_BULLY_FACTOR_BULLIED_VERY_RECENTLY';

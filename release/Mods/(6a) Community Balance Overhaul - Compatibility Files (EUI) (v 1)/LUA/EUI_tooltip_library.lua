@@ -634,7 +634,7 @@ local function GetHelpTextForBuilding( buildingID, bExcludeName, bExcludeHeader,
 		happinessChange = happinessChange + city:GetReligionBuildingClassHappiness(buildingClassID)
 	end
 
-	local tip, tipKey, items, item, tipAlt
+	local tip, tipKey, items, item
 	-- Name
 	local tips = table( BuildingColor( Locale_ToUpper( building.Description ) ) )
 -- CBP
@@ -731,10 +731,6 @@ local function GetHelpTextForBuilding( buildingID, bExcludeName, bExcludeHeader,
 		for row in GameInfo.Building_YieldChangesPerPop( thisBuildingAndYieldTypes ) do
 			yieldPerPop = yieldPerPop + (row.Yield or 0)
 		end
-		local yieldPerPopInEmpire = 0
-		for row in GameInfo.Building_YieldChangesPerPopInEmpire( thisBuildingAndYieldTypes ) do
-			yieldPerPopInEmpire = yieldPerPopInEmpire + (row.Yield or 0)
-		end
 		if yieldChange ~=0 then
 			tip = S("%s %+i%s", tip, yieldChange, tostring(yield.IconString) )
 		end
@@ -743,9 +739,6 @@ local function GetHelpTextForBuilding( buildingID, bExcludeName, bExcludeHeader,
 		end
 		if yieldPerPop ~= 0 then
 			tip = S("%s %+i%%[ICON_CITIZEN]%s", tip, yieldPerPop, tostring(yield.IconString) )
-		end
-		if yieldPerPopInEmpire ~= 0 then
-			tip = S("%s %+i%%[ICON_CITY_STATE][ICON_CITIZEN]%s", tip, yieldPerPopInEmpire, tostring(yield.IconString) )-- .. " " .. L("TXT_KEY_EUI_EMPIRE") .. " " .. "[ICON_CITIZEN]" .. tostring(yield.IconString)
 		end
 		if tips and tip~="" then
 			tips:insert( tostring(YieldNames[ yieldID ]) .. ":" .. tip )
@@ -1005,12 +998,6 @@ local function GetHelpTextForBuilding( buildingID, bExcludeName, bExcludeHeader,
 				tip = S(" %+i[ICON_TOURISM]", city:GetFaithBuildingTourism() )
 			end
 		end
-		if city then
-			local faithtourism = city:GetBuildingClassTourism(buildingClassID)
-			if faithtourism ~= 0 then
-				tip = S(" %+i[ICON_TOURISM]", faithtourism )
-			end
-		end
 -- END
 		if enhancedYieldTechName and (building.TechEnhancedTourism or 0) ~= 0 then
 			tip = S("%s %s %+i[ICON_TOURISM]", tip, enhancedYieldTechName, building.TechEnhancedTourism )
@@ -1045,7 +1032,6 @@ local function GetHelpTextForBuilding( buildingID, bExcludeName, bExcludeHeader,
 	for resource in GameInfo.Resources() do
 		thisBuildingAndResourceTypes.ResourceType = resource.Type or -1
 		tip = GetYieldString( GameInfo.Building_ResourceYieldChanges( thisBuildingAndResourceTypes ) )
-		tipAlt = GetYieldString( GameInfo.Building_ResourceYieldChangesGlobal( thisBuildingAndResourceTypes ) )
 		for row in GameInfo.Building_ResourceCultureChanges( thisBuildingAndResourceTypes ) do
 			if (row.CultureChange or 0)~= 0 then
 				tip = tip .. S(" %+i[ICON_CULTURE]", row.CultureChange )
@@ -1060,7 +1046,6 @@ local function GetHelpTextForBuilding( buildingID, bExcludeName, bExcludeHeader,
 		end
 -- TODO GameInfo.Building_ResourceYieldModifiers( thisBuildingType ), ResourceType, YieldType, Yield
 		tips:insertIf( #tip > 0 and tostring(resource.IconString) .. " " .. L(resource.Description) .. ":" .. tip )
-		tips:insertIf( #tipAlt > 0 and L("TXT_KEY_EUI_GLOBAL") .. " " .. tostring(resource.IconString) .. " " .. L(resource.Description) .. ":" .. tipAlt )
 	end
 
 	-- Feature Yields enhanced by Building
@@ -1169,10 +1154,6 @@ local function GetHelpTextForBuilding( buildingID, bExcludeName, bExcludeHeader,
 	for row in GameInfo.Building_DomainFreeExperiences( thisBuildingType ) do
 		item = GameInfo.Domains[ row.DomainType ]
 		tips:insertIf( item and (row.Experience or 0)~=0 and L(item.Description).." "..L( "TXT_KEY_EXPERIENCE_POPUP", row.Experience ) )
-	end
-	for row in GameInfo.Building_DomainFreeExperiencesGlobal( thisBuildingType ) do
-		item = GameInfo.Domains[ row.DomainType ]
-		tips:insertIf( item and (row.Experience or 0)~=0 and L( "TXT_KEY_EUI_GLOBAL" ).." "..L(item.Description).." "..L( "TXT_KEY_EXPERIENCE_POPUP", row.Experience ))
 	end
 	for row in GameInfo.Building_UnitCombatFreeExperiences( thisBuildingType ) do
 		item = GameInfo.UnitCombatInfos[ row.UnitCombatType ]
@@ -1863,7 +1844,7 @@ local function GetYieldTooltip( city, yieldID, baseYield, totalYield, yieldIconS
 	-- Base Yield from Specialists
 	tips:insertLocalizedBulletIfNonZero( "TXT_KEY_YIELD_FROM_SPECIALISTS", city:GetBaseYieldRateFromSpecialists( yieldID ), yieldIconString )
 
-	-- Base Yield from Misc-
+	-- Base Yield from Misc
 	tips:insertLocalizedBulletIfNonZero( yieldID == YieldTypes.YIELD_SCIENCE and "TXT_KEY_YIELD_FROM_POP" or "TXT_KEY_YIELD_FROM_MISC", city:GetBaseYieldRateFromMisc( yieldID ), yieldIconString )
 
 	-- Base Yield from Population
@@ -1876,7 +1857,9 @@ local function GetYieldTooltip( city, yieldID, baseYield, totalYield, yieldIconS
 
 -- CBP
 	-- Yield Increase from City Yields
-	tips:insertLocalizedBulletIfNonZero( "TXT_KEY_YIELD_FROM_CITY_YIELDS", city:GetYieldFromCityYield( yieldID ), yieldIconString)
+	if(yieldID == YieldTypes.YIELD_SCIENCE) then
+		tips:insertLocalizedBulletIfNonZero( "TXT_KEY_YIELD_FROM_CITY_YIELDS", city:GetScienceFromCityYield( yieldID ), yieldIconString)
+	end
 
 	-- Yield Increase from CS Alliance (Germany)
 	tips:insertLocalizedBulletIfNonZero( "TXT_KEY_YIELD_FROM_CS_ALLIANCE", city:GetBaseYieldRateFromCSAlliance( yieldID ), yieldIconString)
@@ -2261,9 +2244,6 @@ local function GetCultureTooltip( city )
 
 	-- Culture from Traits
 	tips:insertLocalizedBulletIfNonZero( "TXT_KEY_CULTURE_FROM_TRAITS", cultureFromTraits )
-
-	tips:insertLocalizedBulletIfNonZero( "TXT_KEY_CULTURE_FROM_CITY_YIELDS", city:GetYieldFromCityYield( YieldTypes.YIELD_CULTURE ) )
-
 	-- CP EVENT
 	tips:insertLocalizedBulletIfNonZero( "TXT_KEY_CULTURE_FROM_EVENTS", city:GetEventCityYield(YieldTypes.YIELD_CULTURE) )
 
@@ -2500,8 +2480,6 @@ local function GetFaithTooltip( city )
 
 		-- Faith from Religion
 		tips:insertLocalizedBulletIfNonZero( "TXT_KEY_FAITH_FROM_RELIGION", city:GetFaithPerTurnFromReligion() )
-
-		tips:insertLocalizedBulletIfNonZero( "TXT_KEY_FAITH_FROM_CITY_YIELDS", city:GetYieldFromCityYield( YieldTypes.YIELD_FAITH ) )
 
 		--CP EVENTS
 		tips:insertLocalizedBulletIfNonZero( "TXT_KEY_FAITH_FROM_EVENTS", city:GetEventCityYield(YieldTypes.YIELD_FAITH) )
@@ -2968,7 +2946,7 @@ local function GetMoodInfo( playerID )
 
 			-- Good things
 			opinions:insertLocalizedIf( activePlayer:IsDoF(playerID) and "TXT_KEY_DIPLO_DOF" )
-			opinions:insertLocalizedIf( activePlayer:IsPlayerDoFWithAnyFriend(playerID) and "TXT_KEY_DIPLO_MUTUAL_DOF" ) -- Human has a mutual friend with the AI
+			opinions:insertLocalizedIf( activePlayer:IsPlayerDoFwithAnyFriend(playerID) and "TXT_KEY_DIPLO_MUTUAL_DOF" ) -- Human has a mutual friend with the AI
 			opinions:insertLocalizedIf( activePlayer:IsPlayerDenouncedEnemy(playerID) and "TXT_KEY_DIPLO_MUTUAL_ENEMY" ) -- Human has denounced an enemy of the AI
 			opinions:insertLocalizedIf( player:GetNumCiviliansReturnedToMe(activePlayerID) > 0 and "TXT_KEY_DIPLO_CIVILIANS_RETURNED" )
 
@@ -2983,7 +2961,7 @@ local function GetMoodInfo( playerID )
 			opinions:insertLocalizedIf( activePlayer:GetNumFriendsDenouncedBy() > 0 and "TXT_KEY_DIPLO_HUMAN_DENOUNCED_BY_FRIENDS" ) -- Human has been denounced by friends
 			opinions:insertLocalizedIf( activePlayer:IsDenouncedPlayer(playerID) and "TXT_KEY_DIPLO_DENOUNCED_BY_US" )
 			opinions:insertLocalizedIf( player:IsDenouncedPlayer(activePlayerID) and "TXT_KEY_DIPLO_DENOUNCED_BY_THEM" )
-			opinions:insertLocalizedIf( player:IsPlayerDoFWithAnyEnemy(activePlayerID) and "TXT_KEY_DIPLO_HUMAN_DOF_WITH_ENEMY" )
+			opinions:insertLocalizedIf( player:IsPlayerDoFwithAnyEnemy(activePlayerID) and "TXT_KEY_DIPLO_HUMAN_DOF_WITH_ENEMY" )
 			opinions:insertLocalizedIf( player:IsPlayerDenouncedFriend(activePlayerID) and "TXT_KEY_DIPLO_HUMAN_DENOUNCED_FRIEND" )
 			opinions:insertLocalizedIf( player:IsPlayerNoSettleRequestEverAsked(activePlayerID) and "TXT_KEY_DIPLO_NO_SETTLE_ASKED" )
 			opinions:insertLocalizedIf( player:IsDemandEverMade(activePlayerID) and "TXT_KEY_DIPLO_TRADE_DEMAND" )
@@ -3043,7 +3021,7 @@ local function GetMoodInfo( playerID )
 			-- Appears Hostile
 			elseif visibleApproachID == MajorCivApproachTypes.MAJOR_CIV_APPROACH_HOSTILE then
 				opinions = { L"TXT_KEY_DIPLO_HOSTILE" }
-			-- Appears Afraid
+			-- Appears Affraid
 			elseif visibleApproachID == MajorCivApproachTypes.MAJOR_CIV_APPROACH_AFRAID  then
 				opinions = { L"TXT_KEY_DIPLO_AFRAID" }
 			-- Neutral - default string

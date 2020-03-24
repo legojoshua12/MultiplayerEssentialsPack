@@ -29,4 +29,3 @@ end
 
 GameEvents.PlayerEndTurnCompleted.Add(GoedendagBonus)
 GameEvents.PlayerDoTurn.Add(ThisIsMyTown)
-]]

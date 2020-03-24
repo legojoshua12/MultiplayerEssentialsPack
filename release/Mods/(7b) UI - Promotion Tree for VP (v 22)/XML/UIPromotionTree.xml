@@ -99,9 +99,6 @@
 		<Row Tag="TXT_KEY_PROMO_EVASION_TOOL_TIP" >
 			<Text>Cannot be chosen for Stealth Bombers.</Text>
 		</Row>
-		<Row Tag="TXT_KEY_PROMO_RANGE_LIMITATION_TOOL_TIP" >
-			<Text>Available only for units with Range above 1.</Text>
-		</Row>
 		<Row Tag="TXT_KEY_PROMO_MOD_DESC_MELEE" >
 			<Text>Melee Units</Text>
 		</Row>
@@ -204,9 +201,6 @@
 		<Row Tag="TXT_KEY_PROMO_EVASION_TOOL_TIP" >
 			<Text>Tarnkappenbomber können diese Beförderung nicht auswählen.</Text>
 		</Row>
-		<Row Tag="TXT_KEY_PROMO_RANGE_LIMITATION_TOOL_TIP" >
-			<Text>Nur verfügbar für Einheiten deren Reichweite über 1 liegt.</Text>
-		</Row>
 		<Row Tag="TXT_KEY_PROMO_MOD_DESC_MELEE" >
 			<Text>Nahkampfeinheiten</Text>
 		</Row>
@@ -308,9 +302,6 @@
 		</Row>
 		<Row Tag="TXT_KEY_PROMO_EVASION_TOOL_TIP" >
 			<Text>Не доступно для выбора бомбардировщиками Стелс.</Text>
-		</Row>
-		<Row Tag="TXT_KEY_PROMO_RANGE_LIMITATION_TOOL_TIP" >
-			<Text>Доступно только для юнитов с дальности действия больше 1.</Text>
 		</Row>
 		<Row Tag="TXT_KEY_PROMO_MOD_DESC_MELEE" >
 			<Text>Войска ближнего боя</Text>

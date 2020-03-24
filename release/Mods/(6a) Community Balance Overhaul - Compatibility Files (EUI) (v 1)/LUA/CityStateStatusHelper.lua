@@ -452,9 +452,9 @@ function GetCityStateStatusToolTip( majorPlayerID, minorPlayerID, isFullInfo )
 			end
 			-- Bullying
 			if minorPlayer:CanMajorBullyGold(majorPlayerID) then
-				table_insert( tips, L("TXT_KEY_CSTATE_CAN_BULLY", minorPlayer:GetMajorBullyValue(majorPlayerID)) )
+				table_insert( tips, L"TXT_KEY_CSTATE_CAN_BULLY" )
 			else
-				table_insert( tips, L("TXT_KEY_CSTATE_CANNOT_BULLY", minorPlayer:GetMajorBullyValue(majorPlayerID)) )
+				table_insert( tips, L"TXT_KEY_CSTATE_CANNOT_BULLY" )
 			end
 		end
 -- CBP
